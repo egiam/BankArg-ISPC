@@ -9,4 +9,5 @@
 7) Maria Laura Peralta, email: lali.635@gmail.com github: PeraltaMariaL-ISPC (peraltaml.ispc@gmail.com)
 8) Valentin Alterio - email: alteriovalentin01@gmail.com  - github: Valealterio
 9) Salinas Juan José - email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
+10) Joaquin Bonvechi - email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
 
