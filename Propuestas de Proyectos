@@ -1,10 +1,16 @@
 #Propuestas
-Hacer una página que muestre eventos deportivos donde los participantes se puedan inscribir, ver lista de insciptos de la competencia y resultados.
 
-Banco(Complejo): Pagina de un Banco completa, empezando con las paginas basicas hasta llegar a la complejidad total de la misma: Usuario, Plata en cuenta, Cuenta bancaria, etc.
+1) Hacer una página que muestre eventos deportivos donde los participantes se puedan inscribir, ver lista de insciptos de la competencia y resultados.
+
+2) Banco(Complejo): Pagina de un Banco completa, empezando con las paginas basicas hasta llegar a la complejidad total de la misma: Usuario, Plata en cuenta, Cuenta bancaria, etc.
 Red Social(Muy Complejo): Red Social similar a las conocidas, para probar como funcionan las redes sociales que utilizamos hoy en dia.
 
-App para Celiacos/Veganos/etc: La idea seria crear una aplicacion/pagina donde se pueda buscar alimentos aptos para el tipo de alimentacion que tenga el usuario 
+3) App para Celiacos/Veganos/etc: La idea seria crear una aplicacion/pagina donde se pueda buscar alimentos aptos para el tipo de alimentacion que tenga el usuario 
 y mostrar los sitios donde puede conseguirlos.
 
-Turnero: Turnero ya sea gral como para algo en especifico (gym, medico, consulta, etc)
+4) Turnero: Turnero ya sea gral como para algo en especifico (gym, medico, consulta, etc)
+
+5) Página Web y App Control de Salud: que permita consultar y controlar el seguimiento de vacunación, peso y desarrollo(crecimiento) de bebes, niños, adolescentes, adultos y plobación con problemas de peso y/o enfermedades que afecten.
+
+6) Servicio Forestal: web y app que mostrará y alertará de las zonas de sequías propensas a incendios forestales; advertencia a zonas que se hayan inundado o propensas a ello por cercanías a ríos o a la condición del valle.
+Advertencia de deforestación excesiva y sugerencia de nuevas plantaciones acordes.
