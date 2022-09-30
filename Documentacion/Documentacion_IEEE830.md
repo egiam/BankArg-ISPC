@@ -14,8 +14,8 @@ El principal beneficio es tener como visualizar su saldo, registrar contactos fr
 El presente documento tiene como propósito definir las especificaciones funcionales para el desarrollo de un sistema de información web que permitirá al usuario acceder a su cuenta bancaria, donde podrá visualizar su saldo, registrar y realizar transferencias a terceros, administrar sus tarjetas y llevar un control de sus gastos, entre otras operaciones bancarias.
 ### 1.4 Personal involucrado
 - Nombre: Ezequiel Giampaoli
-- Rol: Scrum master y desarrollador
-- Información de contacto: ezegiampaoli@gmail.com
+Rol: Scrum master y desarrollador
+Información de contacto: ezegiampaoli@gmail.com
 
 - Nombre: Felipe Sjodin
 - Rol: Desarrollador
