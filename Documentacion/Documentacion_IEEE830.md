@@ -93,13 +93,14 @@ El sistema de banca online “BankArg” será un producto diseñado en principi
 - US07- Como usuario quiero sacar turnos online para realizar algún trámite bancario.
 - US08- Como usuario quiero manejar mis tarjetas de crédito y débito desde un mismo lugar para poder realizar pagos y gestionarlas de forma eficiente.
 - US09- Como usuario quiero poder cobrar mi sueldo directamente en la cuenta, para tener mi plata más rápido en el banco.
-- US10-
-- US11-
-- US12-
-- US13-
-- US14-
-- US15-
-- US16-
+- US10- Como usuario quiero poder pagar mis servicios (luz, gas, teléfono, seguros, etc) para realizar el tramite desde la comodidad de mi hogar.
+- US11- Como usuario quiero alertas sobre los vencimientos de impuestos o servicios adheridos a mi cuenta, para pagar a tiempo y sin intereses.
+- US12- Como usuario quiero validar un token cuando realice movimientos para tener una mayor seguridad y evitar fraudes.
+- US13- Como dueño del banco quiero que el sistema recopile datos tales como: Nombre, Apellido, Edad para tener registro de nuestro clientes.
+- US14- Como usuario quiero un apartado de préstamos para poder sacar uno de manera simple.
+- US15- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control.
+- US16- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control
+- US17- Como dueño del banco quiero que se recopile datos sobre los servicios más utilizados para futuras adecuaciones. 
 
 ## Sprints
 
