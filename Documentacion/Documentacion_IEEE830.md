@@ -15,39 +15,39 @@ El presente documento tiene como propósito definir las especificaciones funcion
 ### 1.4 Personal involucrado
 - Nombre: Ezequiel Giampaoli
 / Rol: Scrum master y desarrollador
-Información de contacto: ezegiampaoli@gmail.com
+/ Información de contacto: ezegiampaoli@gmail.com
 
 - Nombre: Felipe Sjodin
-- Rol: Desarrollador
-- Información de contacto: felipesjodin@gmail.com
+/ Rol: Desarrollador
+/ Información de contacto: felipesjodin@gmail.com
 
 - Nombre: Soledad Peralta
-- Rol: Desarrolladora
-- Información de contacto: ssperaltaa@gmail.com
+/ Rol: Desarrolladora
+/ Información de contacto: ssperaltaa@gmail.com
 
 - Nombre: Florencia P. Tome
-- Rol: Desarrolladora
-- Información de contacto: florenciapodtome@gmail.com
+/ Rol: Desarrolladora
+/ Información de contacto: florenciapodtome@gmail.com
 
 - Nombre: Maximiliano Veron
-- Rol: Desarrollador
-- Información de contacto: maxi.ush.ind@gmail.com
+/ Rol: Desarrollador
+/ Información de contacto: maxi.ush.ind@gmail.com
 
 - Nombre: Evelin Vidal
-- Rol: Desarrolladora
-- Información de contacto: evelinyanina@gmail.com
+/ Rol: Desarrolladora
+/ Información de contacto: evelinyanina@gmail.com
 
 - Nombre: Maria Laura Peralta
-- Rol: Desarrolladora
-- Información de contacto: lali.635@gmail.com
+/ Rol: Desarrolladora
+/ Información de contacto: lali.635@gmail.com
 
 - Nombre: Valentin Alterio
-- Rol: Desarrollador
-- Información de contacto: alteriovalentin01@gmail.com
+/ Rol: Desarrollador
+/ Información de contacto: alteriovalentin01@gmail.com
 
 - Nombre: Juan Jose Salinas
-- Rol: Desarrollador
-- Información de contacto: juansalinaa@gmail.com
+/ Rol: Desarrollador
+/ Información de contacto: juansalinaa@gmail.com
 
 ### 1.5 Definiciones, acrónimos y abreviaturas
 
