@@ -59,3 +59,58 @@ RNF = Requerimiento No Funcional
 FTP = Protocolo de Transferencia de Archivos
 Moodle = Aula Virtual 
 
+### 1.6 Referencias
+Titulo del documento: Standard IEEE 830 - 1998
+Referencia: IEEE 
+
+### 1.7 Resúmen
+- poner breve resumen de las secciones del documento -
+
+## 2. Descripción general
+
+### 2.1 Perspectiva del producto
+El sistema de banca online “BankArg” será un producto diseñado en principio para trabajar en entornos WEB, lo que permitirá su utilización de forma rápida y eficaz, accesible en cualquier dispositivo. Contará con distintas secciones para que el usuario pueda acceder a todos sus datos relevantes, historial de movimientos, transferencias. Tendrá además una guía de ayuda para que los usuarios puedan resolver todas sus dudas con respecto al uso del sistema y sus herramientas disponibles. 
+
+### 2.2 Características de los usuarios
+
+Tipo de usuario:
+Formación:
+Actividades:
+
+### 2.3 Restricciones
+- faltan definir -
+
+## 3. Requisitos especificos
+
+### Product Backlog
+
+US01- Como cliente del banco quiero crear una lista de contactos con transferencias frecuentes, para agilizar y facilitar el trámite.
+US02- Como cliente quiero una sección de ayuda, para preguntar o resolver problemas.
+US03- Como cliente del banco quiero poder registrarme en la página, para acceder a los servicios del banco de forma remota.
+US04- Como cliente del banco quiero al registrarme un tutorial de cómo utilizar la página para aprovechar todas las funciones.
+US05- Como cliente del banco quiero tener un historial de todos mis movimientos (transferencias, pagos, recargas, etc.) para tener un control de mi dinero. 
+US06- Como cliente quiero que el historial de movimientos tenga un filtro, para que sea más fácil encontrar lo que necesito.
+US07- Como usuario quiero sacar turnos online para realizar algún trámite bancario.
+US08- Como usuario quiero manejar mis tarjetas de crédito y débito desde un mismo lugar para poder realizar pagos y gestionarlas de forma eficiente.
+US09- Como usuario quiero poder cobrar mi sueldo directamente en la cuenta, para tener mi plata más rápido en el banco.
+US10-
+US11-
+US12-
+US13-
+US14-
+US15-
+US16-
+
+## Sprints
+
+N° de sprint:
+Sprint Backlog:
+Responsabilidades:
+Calendario:
+Inconvenientes:
+
+
+
+
+
+
