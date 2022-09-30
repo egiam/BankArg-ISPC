@@ -13,51 +13,51 @@ El principal beneficio es tener como visualizar su saldo, registrar contactos fr
 ### 1.3 Definiciones
 El presente documento tiene como propósito definir las especificaciones funcionales para el desarrollo de un sistema de información web que permitirá al usuario acceder a su cuenta bancaria, donde podrá visualizar su saldo, registrar y realizar transferencias a terceros, administrar sus tarjetas y llevar un control de sus gastos, entre otras operaciones bancarias.
 ### 1.4 Personal involucrado
-Nombre: Ezequiel Giampaoli
-Rol: Scrum master y desarrollador
-Información de contacto: ezegiampaoli@gmail.com
+- Nombre: Ezequiel Giampaoli
+- Rol: Scrum master y desarrollador
+- Información de contacto: ezegiampaoli@gmail.com
 
-Nombre: Felipe Sjodin
-Rol: Desarrollador
-Información de contacto: felipesjodin@gmail.com
+- Nombre: Felipe Sjodin
+- Rol: Desarrollador
+- Información de contacto: felipesjodin@gmail.com
 
-Nombre: Soledad Peralta
-Rol: Desarrolladora
-Información de contacto: ssperaltaa@gmail.com
+- Nombre: Soledad Peralta
+- Rol: Desarrolladora
+- Información de contacto: ssperaltaa@gmail.com
 
-Nombre: Florencia P. Tome
-Rol: Desarrolladora
-Información de contacto: florenciapodtome@gmail.com
+- Nombre: Florencia P. Tome
+- Rol: Desarrolladora
+- Información de contacto: florenciapodtome@gmail.com
 
-Nombre: Maximiliano Veron
-Rol: Desarrollador
-Información de contacto: maxi.ush.ind@gmail.com
+- Nombre: Maximiliano Veron
+- Rol: Desarrollador
+- Información de contacto: maxi.ush.ind@gmail.com
 
-Nombre: Evelin Vidal
-Rol: Desarrolladora
-Información de contacto: evelinyanina@gmail.com
+- Nombre: Evelin Vidal
+- Rol: Desarrolladora
+- Información de contacto: evelinyanina@gmail.com
 
-Nombre: Maria Laura Peralta
-Rol: Desarrolladora
-Información de contacto: lali.635@gmail.com
+- Nombre: Maria Laura Peralta
+- Rol: Desarrolladora
+- Información de contacto: lali.635@gmail.com
 
-Nombre: Valentin Alterio
-Rol: Desarrollador
-Información de contacto: alteriovalentin01@gmail.com
+- Nombre: Valentin Alterio
+- Rol: Desarrollador
+- Información de contacto: alteriovalentin01@gmail.com
 
-Nombre: Juan Jose Salinas
-Rol: Desarrollador
-Información de contacto: juansalinaa@gmail.com
+- Nombre: Juan Jose Salinas
+- Rol: Desarrollador
+- Información de contacto: juansalinaa@gmail.com
 
 ### 1.5 Definiciones, acrónimos y abreviaturas
 
-Usuario = Persona que usará el sistema para gestionar procesos
-SIS-I = Sistema de Información Web para la Gestión de Procesos Administrativos y Académicos
-ERS = Especificación de Requisitos Software
-RF = Requerimiento Funcional
-RNF = Requerimiento No Funcional
-FTP = Protocolo de Transferencia de Archivos
-Moodle = Aula Virtual 
+- Usuario = Persona que usará el sistema para gestionar procesos
+- SIS-I = Sistema de Información Web para la Gestión de Procesos Administrativos y Académicos
+- ERS = Especificación de Requisitos Software
+- RF = Requerimiento Funcional
+- RNF = Requerimiento No Funcional
+- FTP = Protocolo de Transferencia de Archivos
+- Moodle = Aula Virtual 
 
 ### 1.6 Referencias
 - Titulo del documento: Standard IEEE 830 - 1998
@@ -73,9 +73,9 @@ El sistema de banca online “BankArg” será un producto diseñado en principi
 
 ### 2.2 Características de los usuarios
 
-Tipo de usuario:
-Formación:
-Actividades:
+- Tipo de usuario:
+- Formación:
+- Actividades:
 
 ### 2.3 Restricciones
  faltan definir 
@@ -103,11 +103,11 @@ Actividades:
 
 ## Sprints
 
-N° de sprint:
-Sprint Backlog:
-Responsabilidades:
-Calendario:
-Inconvenientes:
+- N° de sprint:
+- Sprint Backlog:
+- Responsabilidades:
+- Calendario:
+- Inconvenientes:
 
 
 
