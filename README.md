@@ -1,3 +1,12 @@
+
+### Ir a branch Documentacion para ver la documentacion del proyecto en base al ISPC.
+
+---
+
+### Ir a branch Development para ver el codigo y sus avances del proyecto.
+
+---
+
 # Integrantes
 
 1) Felipe Sjodin - email : felipesjodin@gmail.com - GitHub: FELIPE-SJODIN
@@ -11,5 +20,3 @@
 9) Salinas Juan José - email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
 10) Joaquin Bonvechi - email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
 
-
-### Ir a branch Documentacion para ver la documentacion del proyecto en base al ISPC
