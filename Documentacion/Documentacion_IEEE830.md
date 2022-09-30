@@ -6,12 +6,18 @@ Este documento es una Especificación de Requisitos Software (ERS) para el Siste
 ### 1.1 Propósito
 El presente documento tiene como propósito definir las especificaciones funcionales para el desarrollo de un sistema de información web que permitirá al usuario acceder a su cuenta bancaria.
 ### 1.2 Ámbito del sistema
-El sistema será definido como BankArg.
-Proporcionará un manejo eficiente sobre la información entre el usuario y los dueños del banco. Desde la perspectiva del usuario podrá acceder de manera segura a su cuenta bancaria, para realizar múltiples movimientos.
-En cuanto a los dueños del Banco podrán recopilar los datos de los clientes tales como: nombre, apellido, edad, servicios frecuentes, para futuras adecuaciones.
-El principal beneficio es tener como visualizar su saldo, registrar contactos frecuentes, realizar transferencias a terceros, administrar sus tarjetas, agregar pago de servicios, recibir alertas de vencimientos.
-### 1.3 Definiciones
-El presente documento tiene como propósito definir las especificaciones funcionales para el desarrollo de un sistema de información web que permitirá al usuario acceder a su cuenta bancaria, donde podrá visualizar su saldo, registrar y realizar transferencias a terceros, administrar sus tarjetas y llevar un control de sus gastos, entre otras operaciones bancarias.
+El sistema será definido como BankArg. Proporcionará un manejo eficiente sobre la información entre el usuario y los dueños del banco.
+El principal beneficio es aportar un enterno seguro y ágil para que los usuarios, luego de un tutorial de bienvenida, puedan visualizar su saldo, registrar contactos frecuentes, realizar transferencias a terceros, administrar sus tarjetas, agregar pago de servicios, recibir alertas de vencimientos, solicitar préstamos, validación de token, aviso en caso de inicio de sesión en otro dispositivo, turnero online, y por úlitmo un formulario de contacto.
+Como contraparte los dueños del banco obtendrán un reporte de los usuarios registrados junto con los servicios más utilizados, que les permitirán otorgar un mejor servicio y realizar futuras adecuaciones.
+### 1.3 Definiciones, acrónimos y abreviaturas
+
+- Usuario = Persona que usará el sistema para visualizar su cuenta bancaria
+- SIS-I = Sistema de Información Web para la Gestión de Procesos Administrativos y Académicos
+- ERS = Especificación de Requisitos Software
+- RF = Requerimiento Funcional
+- RNF = Requerimiento No Funcional
+- FTP = Protocolo de Transferencia de Archivos
+
 ### 1.4 Personal involucrado
 - Nombre: Ezequiel Giampaoli
 / Rol: Scrum master y desarrollador
@@ -48,16 +54,6 @@ El presente documento tiene como propósito definir las especificaciones funcion
 - Nombre: Juan Jose Salinas
 / Rol: Desarrollador
 / Información de contacto: juansalinaa@gmail.com
-
-### 1.5 Definiciones, acrónimos y abreviaturas
-
-- Usuario = Persona que usará el sistema para gestionar procesos
-- SIS-I = Sistema de Información Web para la Gestión de Procesos Administrativos y Académicos
-- ERS = Especificación de Requisitos Software
-- RF = Requerimiento Funcional
-- RNF = Requerimiento No Funcional
-- FTP = Protocolo de Transferencia de Archivos
-- Moodle = Aula Virtual 
 
 ### 1.6 Referencias
 - Titulo del documento: Standard IEEE 830 - 1998
