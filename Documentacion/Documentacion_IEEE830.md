@@ -65,7 +65,7 @@ Como contraparte los dueños del banco obtendrán un reporte de los usuarios reg
 ## 2. Descripción general
 
 ### 2.1 Perspectiva del producto
-El sistema de banca online “BankArg” será un producto diseñado en principio para trabajar en entornos WEB, lo que permitirá su utilización de forma rápida y eficaz, accesible en cualquier dispositivo. Contará con distintas secciones para que el usuario pueda acceder a todos sus datos relevantes, historial de movimientos, transferencias. Tendrá además una guía de ayuda para que los usuarios puedan resolver todas sus dudas con respecto al uso del sistema y sus herramientas disponibles. 
+El sistema de banca online “BankArg” será un producto diseñado en principio para trabajar en entornos WEB, lo que permitirá su utilización de forma rápida y eficaz, accesible en cualquier dispositivo. Contará con distintas secciones para que el usuario pueda acceder a todos sus datos relevantes, historial de movimientos, transferencias, pagos, turnos, préstamos y seguridad. Tendrá además una guía de ayuda para que los usuarios puedan resolver todas sus dudas con respecto al uso del sistema y sus herramientas disponibles. 
 
 ### 2.2 Características de los usuarios
 
