@@ -60,21 +60,36 @@ Como contraparte los dueños del banco obtendrán un reporte de los usuarios reg
 - Referencia: IEEE 
 
 ### 1.7 Resúmen
- poner breve resumen de las secciones del documento 
+Este documento se ha estructurado en tres partes: primero se realiza una introducción al proyecto desarrollado otorgando una visión general de la especificación de recursos del sistema. En segundo lugar se intenta establecer las principales funciones que éste debe realizar, los datos asociados y los factores, restricciones, supuestos y dependencias que afectan al desarrollo, sin entrar en excesivos detalles. Por último, se definen detalladamente los requisitos que debe satisfacer el sistema.
 
 ## 2. Descripción general
 
 ### 2.1 Perspectiva del producto
 El sistema de banca online “BankArg” será un producto diseñado en principio para trabajar en entornos WEB, lo que permitirá su utilización de forma rápida y eficaz, accesible en cualquier dispositivo. Contará con distintas secciones para que el usuario pueda acceder a todos sus datos relevantes, historial de movimientos, transferencias, pagos, turnos, préstamos y seguridad. Tendrá además una guía de ayuda para que los usuarios puedan resolver todas sus dudas con respecto al uso del sistema y sus herramientas disponibles. 
 
-### 2.2 Características de los usuarios
+### 2.2 Funciones del producto
+En principio "BankArg" proporcionará un 
+### 2.3 Características de los usuarios
 
-- Tipo de usuario:
+- Tipo de usuario: Dueños del banco
+- Formación: 
+- Actividades:
+
+- Tipo de usuario: Desarrolladores
 - Formación:
 - Actividades:
 
-### 2.3 Restricciones
- faltan definir 
+- Tipo de usuario: Usuario final o cliente
+- Formación:
+- Actividades:
+
+### 2.4 Restricciones
+-	Interfaz para ser usada con internet.
+-	Lenguajes y tecnologías en uso: 
+-	Los servidores deben ser capaces de atender consultas concurrentemente.
+-	El sistema se diseñará según un modelo cliente/servidor.
+-	El sistema deberá tener un diseño e implementación sencilla, independiente de la plataforma o del lenguaje de programación.
+
 
 ## 3. Requisitos especificos
 
