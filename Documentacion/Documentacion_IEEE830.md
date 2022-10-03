@@ -72,16 +72,16 @@ En principio "BankArg" proporcionará un
 ### 2.3 Características de los usuarios
 
 - Tipo de usuario: Dueños del banco
-- Formación: 
-- Actividades:
+/ Formación: 
+/ Actividades:
 
 - Tipo de usuario: Desarrolladores
-- Formación:
-- Actividades:
+/ Formación:
+/ Actividades:
 
 - Tipo de usuario: Usuario final o cliente
-- Formación:
-- Actividades:
+/ Formación:
+/ Actividades:
 
 ### 2.4 Restricciones
 -	Interfaz para ser usada con internet.
