@@ -1,5 +1,6 @@
 
 ### Ir a branch Documentacion para ver la documentacion del proyecto en base al ISPC.
+Ahi estan las participaciones de algunos integrantes, que por mejor organizacion colocamos alli y luego nos dimos cuenta que teniamos que tener todo en Main.
 
 ---
 
