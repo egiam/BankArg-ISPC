@@ -1,10 +1,10 @@
 
-### Ir a branch Documentacion para ver la documentacion del proyecto en base al ISPC.
-Ahi estan las participaciones de algunos integrantes, que por mejor organizacion colocamos alli y luego nos dimos cuenta que teniamos que tener todo en Main.
+### Ir a branch Documentación para ver la documentación del proyecto en base al ISPC.
+Ahí estan las participaciones de algunos integrantes, que por mejor organizacion colocamos alli y luego nos dimos cuenta que teniamos que tener todo en Main.
 
 ---
 
-### Ir a branch Development para ver el codigo y sus avances del proyecto.
+### Ir a branch Development para ver el código y sus avances del proyecto.
 
 ---
 
