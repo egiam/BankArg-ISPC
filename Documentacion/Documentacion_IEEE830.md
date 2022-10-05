@@ -39,9 +39,9 @@ Como contraparte los dueños del banco obtendrán un reporte de los usuarios reg
 / Rol: Desarrollador
 / Información de contacto: maxi.ush.ind@gmail.com
 
-- Nombre: Evelin Vidal
-/ Rol: Desarrolladora
-/ Información de contacto: evelinyanina@gmail.com
+- Nombre: Joaquin Bonvechi
+/ Rol: Desarrollador
+/ Información de contacto: joacobonvechi2272002@gmail.com
 
 - Nombre: Maria Laura Peralta
 / Rol: Desarrolladora
@@ -68,24 +68,17 @@ Este documento se ha estructurado en tres partes: primero se realiza una introdu
 El sistema de banca online “BankArg” será un producto diseñado en principio para trabajar en entornos WEB, lo que permitirá su utilización de forma rápida y eficaz, accesible en cualquier dispositivo. Contará con distintas secciones para que el usuario pueda acceder a todos sus datos relevantes, historial de movimientos, transferencias, pagos, turnos, préstamos y seguridad. Tendrá además una guía de ayuda para que los usuarios puedan resolver todas sus dudas con respecto al uso del sistema y sus herramientas disponibles. 
 
 ### 2.2 Funciones del producto
-En principio "BankArg" proporcionará un 
+En principio "BankArg" proporcionará un sistema para que los usuarios puedan gestionar su dinero de forma accesible y segura. 
+
 ### 2.3 Características de los usuarios
 
-- Tipo de usuario: Dueños del banco
-/ Formación: 
-/ Actividades:
-
-- Tipo de usuario: Desarrolladores
-/ Formación:
-/ Actividades:
-
 - Tipo de usuario: Usuario final o cliente
-/ Formación:
-/ Actividades:
+/ Formación: Indiferente
+/ Actividades: Utilización de la web.
 
 ### 2.4 Restricciones
 -	Interfaz para ser usada con internet.
--	Lenguajes y tecnologías en uso: 
+-	Lenguajes y tecnologías en uso: Frontend HTML, CSS, JV Backend:Python, Base de datos: SQL 
 -	Los servidores deben ser capaces de atender consultas concurrentemente.
 -	El sistema se diseñará según un modelo cliente/servidor.
 -	El sistema deberá tener un diseño e implementación sencilla, independiente de la plataforma o del lenguaje de programación.
