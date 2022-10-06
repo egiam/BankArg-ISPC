@@ -8,7 +8,44 @@
 body {
     /* background-color: aqua; */
     margin: 0;
+    padding-top: 100px;
     /* font-family: "Roboto", sans-serif; */
+}
+
+.col-md-6 {
+    position: inherit !important;
+}
+
+.col-md-5 {
+    position: inherit !important;
+}
+
+.col-md-4 {
+    position: inherit !important;
+}
+
+.col-md-3 {
+    position: inherit !important;
+}
+
+.col-md-2 {
+    position: inherit !important;
+}
+
+.col-md-1 {
+    position: inherit !important;
+}
+
+.col-md {
+    position: inherit !important;
+}
+
+.col_md {
+    /* position: relative; */
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 
