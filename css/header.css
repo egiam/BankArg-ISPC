@@ -77,6 +77,23 @@ nav img {
     position: fixed;
 }
 
+.login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+
+/* .login.btn {
+    background-color: #2c3333;
+    color: #e7f6f2;
+    border: 1px solid #e7f6f2;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 10px;
+} */
+
 nav .fa {
     display: none;
 }
