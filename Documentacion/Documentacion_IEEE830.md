@@ -68,28 +68,27 @@ Este documento se ha estructurado en tres partes: primero se realiza una introdu
 El sistema de banca online “BankArg” será un producto diseñado en principio para trabajar en entornos WEB, lo que permitirá su utilización de forma rápida y eficaz, accesible en cualquier dispositivo. Contará con distintas secciones para que el usuario pueda acceder a todos sus datos relevantes, historial de movimientos, transferencias, pagos, turnos, préstamos y seguridad. Tendrá además una guía de ayuda para que los usuarios puedan resolver todas sus dudas con respecto al uso del sistema y sus herramientas disponibles. 
 
 ### 2.2 Funciones del producto
-En principio "BankArg" proporcionará un 
+En principio "BankArg" proporcionará las siguientes funciones:
+- Acceso a cuenta
+- Transferencias de dinero
+- Pagos de servicios con sus respectivos comprobantes
+- Alertas de vencimientos
+- Solicitud de préstamos 
+- Validación token para mayor seguridad
+- Avisos en caso de iniciar sesión en otro dispositivo
+
 ### 2.3 Características de los usuarios
-
-- Tipo de usuario: Dueños del banco
-/ Formación: 
-/ Actividades:
-
-- Tipo de usuario: Desarrolladores
-/ Formación:
-/ Actividades:
-
-- Tipo de usuario: Usuario final o cliente
-/ Formación:
-/ Actividades:
+Establecemos distintos usuarios a saber:
+- Los usuarios finales de este producto, no requieren de ningúna formación previa para su utilización.
+- Desarrolladores, con amplios conocimientos para la implementación del software propuesto.
+- Y por último los Dueños de BankArg íntegramente capacitados en el sistema bancario.
 
 ### 2.4 Restricciones
 -	Interfaz para ser usada con internet.
--	Lenguajes y tecnologías en uso: 
+-	Lenguajes y tecnologías en uso: HTML, CSS, JV
 -	Los servidores deben ser capaces de atender consultas concurrentemente.
 -	El sistema se diseñará según un modelo cliente/servidor.
 -	El sistema deberá tener un diseño e implementación sencilla, independiente de la plataforma o del lenguaje de programación.
-
 
 ## 3. Requisitos especificos
 
