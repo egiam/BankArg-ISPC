@@ -8,6 +8,10 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 ---
 
+# El mapa se encuentra en Documentacion
+
+---
+
 # Integrantes
 
 1) Felipe Sjodin - email : felipesjodin@gmail.com - GitHub: FELIPE-SJODIN
