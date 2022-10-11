@@ -8,7 +8,7 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 ---
 
-#### El mapa se encuentra en Documentacion
+### El mapa se encuentra en Documentacion
 
 ---
 
