@@ -1,3 +1,10 @@
+:root {
+    --azul-oscuro: #2c3333;
+    --azul-claro: #395b64;
+    --celeste: #a5c9ca;
+    --claro: #e7f6f2;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,7 +15,8 @@
 body {
     /* background-color: aqua; */
     margin: 0;
-    padding-top: 100px;
+    top: 0;
+    /* padding-top: 80px; */
     /* font-family: "Roboto", sans-serif; */
 }
 
@@ -49,88 +57,173 @@ body {
 }
 
 
-/* No importante de Header */
+/* Home Page */
 
 
-/* .header-container {
+/* SubHeader */
+
+.subheader {
+    background: url(../assets/img/SubHeader\ -\ 1.webp) no-repeat center center/cover;
+    height: 60vh;
     width: 100%;
-    margin: auto;
-}
-
-@media (min-width: 800px) {
-    .header-container {
-        width: 100%;
-        margin: auto;
-    }
-    .nav-head {
-        font-size: 17px;
-        display: flex;
-        /* Permite Organizar los elementos 
-
-justify-content: space-between;
-
-/* Va a utilizar todo el ancho disponible 
-
-align-items: center;
-height: 80px;
-padding: 20px 0;
-margin: 0 20px 0 20px;
-
-}
-.logo {
-    left: 15px;
-    font-size: 15px;
-    /* padding-top: 0px; 
-    
-    width: auto;
-    height: auto;
-}
-nav {
-    display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
-    align-items: center;
-}
-nav img {
-    width: 75px;
-}
-.nav-links {
-    flex: 1;
-    text-align: right;
-    margin-top: 13px;
-}
-.nav-links ul li {
-    color: #fff;
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
     position: relative;
-}
-.nav-links ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-.nav-links ul li::after {
-    content: "";
-    width: 0%;
-    height: 2px;
-    background: #f44336;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links ul li:hover::after {
-    width: 100%;
-}
-.header-container {
-    width: 100%;
-    background-color: #2c3333;
-    position: fixed;
-}
-nav .fa {
-    display: none;
+    margin-bottom: 50px;
+    background-position: top;
 }
 
+.subheader h1 {
+    position: absolute;
+    top: 35%;
+    /* left: 21%; */
+    padding-left: 30px;
+    padding-bottom: 15px;
+    transform: translate(-50%, -50%);
+    color: var(--claro);
+    font-size: 4rem;
 }
-*/
+
+.subheader p {
+    position: absolute;
+    top: 45%;
+    /* left: 21%; */
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    transform: translate(-50%, -50%);
+    color: var(--claro);
+    font-size: 2.5rem;
+}
+
+.subheader-ingresar {
+    position: absolute;
+    top: 65%;
+    /* left: 21%; */
+    width: 20%;
+    padding-top: 15px;
+    transform: translate(-50%, -50%);
+    color: var(--claro);
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.subheader-ingresar a {
+    text-decoration: none;
+    width: 100%;
+    background-color: var(--azul-claro);
+    border-color: var(--azul-claro);
+    font-weight: 500;
+    transition: 1s;
+}
+
+.subheader-ingresar a:hover {
+    background-color: #367a8d;
+    border-color: #367a8d;
+}
+
+@media (max-width: 500px) {
+    .subheader h1 {
+        display: none;
+    }
+    .subheader p {
+        display: none;
+    }
+    .subheader-ingresar {
+        font-size: 1rem;
+        width: 80%;
+        align-items: center;
+        text-align: center;
+        top: 70%;
+        left: 50%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+    .subheader h1 {
+        display: none;
+    }
+    .subheader p {
+        display: none;
+    }
+    .subheader-ingresar {
+        font-size: 1rem;
+        width: 60%;
+        align-items: center;
+        text-align: center;
+        top: 70%;
+        left: 50%;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+    .subheader h1 {
+        display: flex;
+        left: 20%;
+    }
+    .subheader p {
+        display: flex;
+        left: 31%;
+    }
+    .subheader-ingresar {
+        font-size: 1rem;
+        width: 40%;
+        top: 65%;
+        left: 30%;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1350px) {
+    .subheader h1 {
+        display: flex;
+        left: 15%;
+    }
+    .subheader p {
+        display: flex;
+        left: 20%;
+    }
+    .subheader-ingresar {
+        font-size: 1rem;
+        width: 30%;
+        top: 65%;
+        left: 20%;
+    }
+}
+
+@media (min-width: 1350px) and (max-width: 1500px) {
+    .subheader h1 {
+        display: flex;
+        left: 12%;
+    }
+    .subheader p {
+        display: flex;
+        left: 19%;
+    }
+    .subheader-ingresar {
+        font-size: 1rem;
+        width: 25%;
+        top: 65%;
+        left: 15%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .subheader h1 {
+        display: flex;
+        left: 9%;
+    }
+    .subheader p {
+        display: flex;
+        left: 15%;
+    }
+    .subheader-ingresar {
+        font-size: 1rem;
+        width: 20%;
+        top: 65%;
+        left: 12%;
+    }
+}
+
+
+/* End SubHeader */
+
+
+/* End Home Page */

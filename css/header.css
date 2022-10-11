@@ -74,7 +74,8 @@ nav img {
 .header-container {
     width: 100%;
     background-color: #2c3333;
-    position: fixed;
+    /* position: absolute; */
+    /* position: fixed; */
 }
 
 .login {
@@ -98,7 +99,7 @@ nav .fa {
     display: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .text-box h1 {
         font-size: 20px;
     }
