@@ -105,7 +105,7 @@ a:link, a:visited, a:active{
     color: white !important;
     text-decoration: none !important;
 }
-a:hover {
+.necesito-ayuda:hover {
     background-color: #232929;
 }
 @media(max-width:768px){
