@@ -3,6 +3,7 @@
     --azul-claro: #395b64;
     --celeste: #a5c9ca;
     --claro: #e7f6f2;
+    --azul-claro-hover: #2e7b91;
 }
 
 * {
@@ -116,8 +117,8 @@ body {
 }
 
 .subheader-ingresar a:hover {
-    background-color: #367a8d;
-    border-color: #367a8d;
+    background-color: var(--azul-claro-hover);
+    border-color: var(--azul-claro-hover);
 }
 
 @media (max-width: 500px) {
@@ -224,6 +225,32 @@ body {
 
 
 /* End SubHeader */
+
+.main-home {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+}
+
+.featurette-divider {
+    margin-top: 80px;
+}
+
+.sub-details {
+    margin-top: 50px;
+}
+
+p .btn {
+    background-color: var(--azul-claro);
+    border-color: var(--azul-claro);
+    font-weight: 500;
+    transition: 0.8s;
+}
+
+p .btn:hover {
+    background-color: var(--azul-claro-hover);
+    border-color: var(--azul-claro-hover);
+}
 
 
 /* End Home Page */
