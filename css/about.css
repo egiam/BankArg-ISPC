@@ -119,3 +119,8 @@ a:link, a:visited, a:active{
         padding: 20px 0 50px 0;
     }
 }
+@media(min-width:1400px){
+    .curva {
+        background-image: url(../assets/img/curva-\ pant-grande.svg);
+    }
+}
