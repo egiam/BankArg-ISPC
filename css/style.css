@@ -238,6 +238,8 @@ body {
 
 .sub-details {
     margin-top: 50px;
+    align-items: center;
+    text-align: center;
 }
 
 p .btn {
@@ -250,6 +252,16 @@ p .btn {
 p .btn:hover {
     background-color: var(--azul-claro-hover);
     border-color: var(--azul-claro-hover);
+}
+
+h2 span.text-muted {
+    color: var(--azul-claro) !important;
+}
+
+@media (max-width: 800px) {
+    .sub-details {
+        font-style: justify;
+    }
 }
 
 
