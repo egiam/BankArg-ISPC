@@ -1,0 +1,58 @@
+html{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --main-color:#2C3333;
+    --secondary-color:#A5C9CA;
+    --terciary-color:#E7F6F2;
+}
+.bg-main {
+    width: 100%;
+    margin: 5px 0 5px 0;
+    padding: 100px 0px 100px 0px;
+}
+
+.bg-main .container .row a {
+    text-decoration: none;
+}
+
+
+h2 {
+     font-family: 'Kaushan Script', cursive;
+}
+
+.myform{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 1.1rem;
+    outline: 0;
+    max-width: 500px;
+}
+
+.tx-tfm{
+    text-transform:uppercase;
+}
+
+.mybtn{
+    border-radius:50px;
+}
+
+ 
+form .error {
+     color: #ff0000;
+}
+
+#second {
+    display:none;
+}
