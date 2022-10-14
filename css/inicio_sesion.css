@@ -1,37 +1,43 @@
-
-header {    
-    width: auto;
+/* header {
+    width: 100%;
     height: 80px;
-    background: #2C3333;
-}
+    background: #2c3333;
+} */
 
-.volver{
-    margin-left: 80%;
+.volver {
+    /* margin-left: 80%; */
+    position: relative;
+    justify-content: center;
     margin-top: 40px;
 }
 
-img {
+
+/* .nav-brand {
     margin-top: 10px;
     margin-left: 20px;
     width: 75px;
     height: 60px;
-}
-
-
+} */
 
 body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: #ffffff;
-    height: 150vh;
+    /* height: 150vh; */
 }
 
+.centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 
-.formulario{
-    position: absolute;
-    margin-top: 10%;
-    left: 50%;
+.formulario {
+    position: relative;
+    padding: 10px;
+    /* margin-top: 10%; */
+    /* margin-left: 37vw; */
     width: 400px;
     background: white;
     border-radius: 20px;
@@ -40,8 +46,8 @@ body {
     box-shadow: 5px 5px 20px 6px #abb7b7;
 }
 
-.formulario h1{
-    color: #2C3333;
+.formulario h1 {
+    color: #2c3333;
     margin-top: 20px;
     margin-bottom: 10px;
     text-align: center;
@@ -50,7 +56,7 @@ body {
     font-size: 30px;
 }
 
-.formulario form{
+.formulario form {
     padding: 0 40px;
     box-sizing: border-box;
 }
@@ -75,7 +81,7 @@ form .username {
     position: absolute;
     top: 50%;
     left: 5px;
-    color: #A5C9CA;
+    color: #a5c9ca;
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
@@ -88,14 +94,14 @@ form .username {
     left: 0;
     width: 0%;
     height: 2px;
-    background: #A5C9CA;
+    background: #a5c9ca;
     transition: 0.5s;
 }
 
 .username input:focus~label,
 .username input:focus~label {
     top: -5px;
-    color: #2C3333;
+    color: #2c3333;
 }
 
 .recordar {
