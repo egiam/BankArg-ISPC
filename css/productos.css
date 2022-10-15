@@ -1,23 +1,17 @@
 .hb {
-    border-radius: 50%; 
     float: left;
-    height: 8em;
+    height: 13em;
+    margin-left: auto;
 }
 
-.container {
-    height: 200px;
+.logos{
+    float: left;
+    height: 15em;
+    width: 40em;
 }
 
-.general {
-    height: 10em;
-}
-
-.text {
+.logos2 {
     text-align: left;
-    height: 1em;
-    padding: 1em 0;
-}
-
-.transfer {
-    
+    width: 45em;
+    padding: 3em 0;
 }
