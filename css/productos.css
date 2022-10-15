@@ -1,0 +1,22 @@
+.hb {
+    float: left;
+    height: 13em;
+    margin-left: auto;
+}
+
+.logos {
+    float: left;
+    height: 15em;
+    width: 40em;
+}
+
+.logos2 {
+    text-align: left;
+    width: 45em;
+    padding: 3em 0;
+}
+
+section.general {
+    margin-left: 100px;
+    margin-right: 50px;
+}
