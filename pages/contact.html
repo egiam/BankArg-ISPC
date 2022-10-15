@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="../css/contact.css" />
 
     <!-- Boostrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
     <!-- JavaScript -->
     <script src="../js/script.js" defer></script>
@@ -53,31 +54,39 @@
     <!-- End Header -->
 
     <!-- Body -->
-    <h1 style="text-align: center;">Contact</h1>
+    <div class="container ">
+        <div class="row flex-wrap-reverse">
+            <div class="col-md-6">
+                <div class="send-email">
+                    <h2>Envíanos un correo</h2>
+                </div>
 
-    <div class="send-email">
-        <h2>Envíanos un correo</h2>
+                <div class="mb-3">
+                    <label for="form-name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="form-name" placeholder="Juan">
+                </div>
+                <div class="mb-3">
+                    <label for="form-lastname" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="form-lastname" placeholder="Lopez">
+                </div>
+                <div class="mb-3">
+                    <label for="form-email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="form-email" placeholder="Lopezjuan@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="form-message" class="form-label">Comentario/Mensaje</label>
+                    <textarea class="form-control" id="form-message" rows="3"
+                        placeholder="Estoy interesado en..."></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="button-send" role="button">Enviar</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="img-fluid" src="/assets/img/undraw_Mobile_inbox_re_ciwq.png">
+            </div>
+        </div>
     </div>
-
-    <div class="mb-3">
-        <label for="form-name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="form-name" placeholder="Juan">
-      </div>
-      <div class="mb-3">
-        <label for="form-lastname" class="form-label">Apellido</label>
-        <input type="text" class="form-control" id="form-lastname" placeholder="Lopez">
-      </div>
-      <div class="mb-3">
-        <label for="form-email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="form-email" placeholder="Lopezjuan@gmail.com">
-      </div>
-      <div class="mb-3">
-        <label for="form-message" class="form-label">Comentario/Mensaje</label>
-        <textarea class="form-control" id="form-message" rows="3" placeholder="Estoy interesado en..."></textarea>
-      </div>
-      <div class="mb-3">        
-        <button class="button-send" role="button">Enviar</button>
-      </div>
     <!-- End Body -->
 
     <!-- Footer -->
@@ -85,7 +94,8 @@
         <div class="footer-content">
             <h3>BankArg</h3>
             <p>
-                BankArg es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios financieros a sus clientes.
+                BankArg es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios
+                financieros a sus clientes.
             </p>
             <div class="icons">
                 <a href=""><i class="fa fa-facebook"></i></a>
