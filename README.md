@@ -13,6 +13,18 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 ---
 
+#### Paginas Hechas por:
+- Home: Eze G.
+- About: Joaco B.
+- Login: Flor T.
+- Perfil: Valentin A.
+- Productos: Sole P.
+- Contacto: Maxi V.
+- Soporte: Juan S.
+- Transferencias: Maria L.
+
+---
+
 # Integrantes
 
 1) Felipe Sjodin - email : felipesjodin@gmail.com - GitHub: FELIPE-SJODIN
