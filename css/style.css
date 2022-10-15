@@ -242,16 +242,22 @@ body {
     text-align: center;
 }
 
-p .btn {
+p .btn,
+a.btn {
     background-color: var(--azul-claro);
     border-color: var(--azul-claro);
     font-weight: 500;
     transition: 0.8s;
 }
 
-p .btn:hover {
+p .btn:hover,
+a.btn:hover {
     background-color: var(--azul-claro-hover);
     border-color: var(--azul-claro-hover);
+}
+
+div.text-bg-primary {
+    background-color: var(--azul-claro) !important;
 }
 
 h2 span.text-muted {
