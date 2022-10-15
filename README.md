@@ -6,8 +6,8 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 ---
 
-### El mapa se encuentra en Documentacion
-### El MVC se encuentra en Documentacion
+### El mapa se encuentra en la carpeta Documentacion
+### El MVC se encuentra en la carpeta Documentacion
 
 ---
 
