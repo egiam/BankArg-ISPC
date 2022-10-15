@@ -1,10 +1,8 @@
 
-## Ir a branch Documentación para ver la documentación del proyecto en base al ISPC.
+## Ir a branch Documentación para ver la documentación del proyecto en base al ISPC. (Sprint 0 mayoritariamente)
 Ahí estan las participaciones de algunos integrantes, que por mejor organizacion colocamos alli y luego nos dimos cuenta que teniamos que tener todo en Main.
 
----
-
-## Ir a branch Development para ver el código y sus avances del proyecto.
+###Ahora toda la Documentacion se encuentra en main/Documentacion porque se esucho en una clase sincronica que no se debia tener varias ramas.
 
 ---
 
