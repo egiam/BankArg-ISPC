@@ -55,11 +55,11 @@ Como contraparte los dueños del banco obtendrán un reporte de los usuarios reg
 / Rol: Desarrollador
 / Información de contacto: juansalinaa@gmail.com
 
-### 1.6 Referencias
+### 1.5 Referencias
 - Titulo del documento: Standard IEEE 830 - 1998
 - Referencia: IEEE 
 
-### 1.7 Resúmen
+### 1.6 Resúmen
 Este documento se ha estructurado en tres partes: primero se realiza una introducción al proyecto desarrollado otorgando una visión general de la especificación de recursos del sistema. En segundo lugar se intenta establecer las principales funciones que éste debe realizar, los datos asociados y los factores, restricciones, supuestos y dependencias que afectan al desarrollo, sin entrar en excesivos detalles. Por último, se definen detalladamente los requisitos que debe satisfacer el sistema.
 
 ## 2. Descripción general
@@ -68,13 +68,20 @@ Este documento se ha estructurado en tres partes: primero se realiza una introdu
 El sistema de banca online “BankArg” será un producto diseñado en principio para trabajar en entornos WEB, lo que permitirá su utilización de forma rápida y eficaz, accesible en cualquier dispositivo. Contará con distintas secciones para que el usuario pueda acceder a todos sus datos relevantes, historial de movimientos, transferencias, pagos, turnos, préstamos y seguridad. Tendrá además una guía de ayuda para que los usuarios puedan resolver todas sus dudas con respecto al uso del sistema y sus herramientas disponibles. 
 
 ### 2.2 Funciones del producto
-En principio "BankArg" proporcionará un sistema para que los usuarios puedan gestionar su dinero de forma accesible y segura. 
+En principio "BankArg" proporcionará las siguientes funciones:
+- Acceso a cuenta
+- Transferencias de dinero
+- Pagos de servicios con sus respectivos comprobantes
+- Alertas de vencimientos
+- Solicitud de préstamos 
+- Validación token para mayor seguridad
+- Avisos en caso de iniciar sesión en otro dispositivo
 
 ### 2.3 Características de los usuarios
-
-- Tipo de usuario: Usuario final o cliente
-/ Formación: Indiferente
-/ Actividades: Utilización de la web.
+Establecemos distintos usuarios a saber:
+- Los usuarios finales de este producto, no requieren de ningúna formación previa para su utilización.
+- Desarrolladores, con amplios conocimientos para la implementación del software propuesto.
+- Y por último los Dueños de BankArg íntegramente capacitados en el sistema bancario.
 
 ### 2.4 Restricciones
 -	Interfaz para ser usada con internet.
