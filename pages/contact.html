@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BankArg</title>
 
+    <!-- Icono -->
+    <link rel="shortcut icon" href="/assets/img/logo-solo-pestaña.png" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/header.css" />
@@ -14,8 +17,7 @@
     <link rel="stylesheet" href="../css/contact.css" />
 
     <!-- Boostrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <!-- JavaScript -->
     <script src="../js/script.js" defer></script>
@@ -63,20 +65,19 @@
 
                 <div class="mb-3">
                     <label for="form-name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="form-name" placeholder="Juan">
+                    <input type="text" class="form-control" id="form-name" placeholder="Juan" required>
                 </div>
                 <div class="mb-3">
                     <label for="form-lastname" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="form-lastname" placeholder="Lopez">
+                    <input type="text" class="form-control" id="form-lastname" placeholder="Lopez" required>
                 </div>
                 <div class="mb-3">
                     <label for="form-email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="form-email" placeholder="Lopezjuan@gmail.com">
+                    <input type="email" class="form-control" id="form-email" placeholder="Lopezjuan@gmail.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="form-message" class="form-label">Comentario/Mensaje</label>
-                    <textarea class="form-control" id="form-message" rows="3"
-                        placeholder="Estoy interesado en..."></textarea>
+                    <textarea class="form-control" id="form-message" rows="3" placeholder="Estoy interesado en..." required></textarea>
                 </div>
                 <div class="mb-3">
                     <button class="button-send" role="button">Enviar</button>
@@ -94,8 +95,7 @@
         <div class="footer-content">
             <h3>BankArg</h3>
             <p>
-                BankArg es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios
-                financieros a sus clientes.
+                BankArg es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios financieros a sus clientes.
             </p>
             <div class="icons">
                 <a href=""><i class="fa fa-facebook"></i></a>

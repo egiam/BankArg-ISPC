@@ -31,6 +31,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    margin-top: 63px;
 }
 
 .formulario {
@@ -117,18 +118,19 @@ form .username {
 input[type="submit"] {
     width: 100%;
     height: 50px;
-    border: 1px solid #3e1cff;
-    background: #3e1cff;
+    border: 1px solid #395b64;
+    background: #395b64;
     border-radius: 25px;
     font-size: 20px;
     color: whitesmoke;
     cursor: pointer;
     outline: none;
+    transition: 1s;
 }
 
 input[type="submit"]:hover {
-    border-color: #13026e;
-    transition: 0.5s;
+    border-color: #2e7b91;
+    background: #2e7b91;
     font-size: 22px;
 }
 
@@ -145,5 +147,14 @@ input[type="submit"]:hover {
 }
 
 .registrarse a:hover {
+    text-decoration: underline;
+}
+
+.recordar a {
+    color: #395b64;
+    text-decoration: none;
+}
+
+.recordar a:hover {
     text-decoration: underline;
 }
