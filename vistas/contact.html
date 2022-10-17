@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../css/contact.css" />
 
     <!-- Boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
 
     <!-- JavaScript -->
     <script src="../js/script.js" defer></script>
@@ -48,7 +48,9 @@
                     <li><a href="./contact.html">Contactanos</a></li>
                     <li><a href="./perfil.html">Perfil</a></li>
                     <li><a href="./Online Banking.html">Online Banking</a></li>
-                    <li class="login-subrayado"><a href="./login.html" id="login-button">Ingresa</a></li>
+                    <li class="login-subrayado">
+                        <a href="./login.html" id="login-button">Ingresa</a>
+                    </li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -57,7 +59,7 @@
     <!-- End Header -->
 
     <!-- Body -->
-    <div class="container ">
+    <div class="container">
         <div class="row flex-wrap-reverse">
             <div class="col-md-6">
                 <div class="send-email">
@@ -66,48 +68,58 @@
 
                 <div class="mb-3">
                     <label for="form-name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="form-name" placeholder="Juan" required>
+                    <input type="text" class="form-control" id="form-name" placeholder="Juan" required />
                 </div>
                 <div class="mb-3">
                     <label for="form-lastname" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="form-lastname" placeholder="Lopez" required>
+                    <input type="text" class="form-control" id="form-lastname" placeholder="Lopez" required />
                 </div>
                 <div class="mb-3">
                     <label for="form-email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="form-email" placeholder="Lopezjuan@gmail.com" required>
+                    <input type="email" class="form-control" id="form-email" placeholder="Lopezjuan@gmail.com" required />
                 </div>
                 <div class="mb-3">
-                    <label for="form-message" class="form-label">Comentario/Mensaje</label>
-                    <textarea class="form-control" id="form-message" rows="3" placeholder="Estoy interesado en..." required></textarea>
-                </div>
-                <div class="mb-3">
-                    <button class="button-send" role="button">Enviar</button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img class="img-fluid" src="../assets/img/undraw_Mobile_inbox_re_ciwq.png">
-            </div>
+                    <label for="form-message" class="form-label">Comentario/Mensaje</label
+            >
+            <textarea
+              class="form-control"
+              id="form-message"
+              rows="3"
+              placeholder="Estoy interesado en..."
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <button class="button-send" role="button">Enviar</button>
+          </div>
         </div>
+        <div class="col-md-6">
+          <img
+            class="img-fluid"
+            src="../assets/img/undraw_Mobile_inbox_re_ciwq.png"
+          />
+        </div>
+      </div>
     </div>
     <!-- End Body -->
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <h3>BankArg</h3>
-            <p>
-                BankArg es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios financieros a sus clientes.
-            </p>
-            <div class="icons">
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""></a><i class="fa fa-twitter"></i></a>
-                <a href=""></a><i class="fa fa-instagram"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-            </div>
+      <div class="footer-content">
+        <h3>BankArg</h3>
+        <p>
+          BankArg es una empresa de servicios financieros que ofrece una amplia
+          gama de productos y servicios financieros a sus clientes.
+        </p>
+        <div class="icons">
+          <a href=""><i class="fa fa-facebook"></i></a>
+          <a href=""><i class="fa fa-twitter"></i></a>
+          <a href=""><i class="fa fa-instagram"></i></a>
+          <a href=""><i class="fa fa-linkedin"></i></a>
         </div>
-        <div class="footer-bottom">&copy; BankArg | Designed by BankArg</div>
+      </div>
+      <div class="footer-bottom">&copy; BankArg | Designed by BankArg</div>
     </footer>
     <!-- End Footer -->
-</body>
-
+  </body>
 </html>

@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/prestamos.css">
+    <link rel="stylesheet" href="../css/prestamos.css" />
 
     <!-- Boostrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- JavaScript -->
@@ -51,7 +51,9 @@
                     <li><a href="./contact.html">Contactanos</a></li>
                     <li><a href="./perfil.html">Perfil</a></li>
                     <li><a href="./Online Banking.html">Online Banking</a></li>
-                    <li class="login-subrayado"><a href="./login.html" id="login-button">Ingresa</a></li>
+                    <li class="login-subrayado">
+                        <a href="./login.html" id="login-button">Ingresa</a>
+                    </li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -99,7 +101,7 @@
         <div class="row">
             <div class="col-md-5 mx-auto">
                 <div id="first">
-                    <div class="myform form ">
+                    <div class="myform form">
                         <div class="logo mb-3">
                             <div class="col-md-12 text-center">
                                 <h2>Solicitud de Préstamo</h2>
@@ -107,44 +109,50 @@
                         </div>
                         <form action="" method="post" name="login">
                             <div class="form-group">
-                                <label for="InputMonto" class="form-label">Monto a solicitar: </label>
-                                <input type="number" class="form-control" id="InputMonto" aria-describedby="">
-                                <div id="InputMonto" class="form-text">Números enteros, sin comas.</div>
+                                <label for="InputMonto" class="form-label">Monto a solicitar:
+                  </label>
+                                <input type="number" class="form-control" id="InputMonto" aria-describedby="" />
+                                <div id="InputMonto" class="form-text">
+                                    Números enteros, sin comas.
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="InputCuotas" class="form-label">Cantidad de cuotas en las que desea devolver el préstamo: </label>
-                                <input type="number" class="form-control" id="InputCuotas" aria-describedby="">
+                                <label for="InputCuotas" class="form-label">Cantidad de cuotas en las que desea devolver el préstamo:
+                  </label>
+                                <input type="number" class="form-control" id="InputCuotas" aria-describedby="" />
                             </div>
 
                             <!-- Boton -->
                             <div class="col-md-12 text-center">
-                                <a href="#" class="btn btn-block mybtn btn-primary tx-tfm">Solicitar</a>
-                            </div>
-                        </form>
-                    </div>
+                                <a href="#" class="btn btn-block mybtn btn-primary tx-tfm">Solicitar</a
+                  >
                 </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
     <!-- Body nuevo -->
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <h3>BankArg</h3>
-            <p>
-                BankArg es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios financieros a sus clientes.
-            </p>
-            <div class="icons">
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""></a><i class="fa fa-twitter"></i></a>
-                <a href=""></a><i class="fa fa-instagram"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">&copy; BankArg | Designed by BankArg</div>
-    </footer>
-    <!-- End Footer -->
+      <div class="footer-content">
+        <h3>BankArg</h3>
+        <p>
+          BankArg es una empresa de servicios financieros que ofrece una amplia
+          gama de productos y servicios financieros a sus clientes.
+        </p>
+        <div class="icons">
+          <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-instagram"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                    </div>
+                    <div class="footer-bottom">&copy; BankArg | Designed by BankArg</div>
+                    </footer>
+                    <!-- End Footer -->
 </body>
 
 </html>
