@@ -2,53 +2,53 @@ create database BankArg;
 use BankArg;
 
 CREATE TABLE `Documentos` (
-  `id_tipo_doc` <type>,
-  `tipo_doc` <type>,
+  `id_tipo_doc` int,
+  `tipo_doc` varchar(150),
   KEY `pk` (`id_tipo_doc`)
 );
 
 CREATE TABLE `Sexos` (
-  `id_tipo_sexo` <type>,
-  `tipo` <type>,
+  `id_tipo_sexo` int,
+  `tipo` varchar(150),
   KEY `pk` (`id_tipo_sexo`)
 );
 
 CREATE TABLE `paises` (
-  `cod_pais` <type>,
-  `pais` <type>,
+  `cod_pais` int,
+  `pais` varchar(250),
   KEY `pk` (`cod_pais`)
 );
 
 CREATE TABLE `provincias` (
-  `cod_provincia` <type>,
-  `provincia` <type>,
-  `cod_pais` <type>,
+  `cod_provincia` int,
+  `provincia` varchar(150),
+  `cod_pais` int,
   FOREIGN KEY (`cod_pais`) REFERENCES `paises`(`cod_pais`),
   KEY `pk` (`cod_provincia`),
   KEY `fk` (`cod_pais`)
 );
 
 CREATE TABLE `localidades` (
-  `cod_localidad` <type>,
-  `localidad` <type>,
-  `cod_provincia` <type>,
+  `cod_localidad` int,
+  `localidad` varchar(150),
+  `cod_provincia` int,
   FOREIGN KEY (`cod_provincia`) REFERENCES `provincias`(`cod_provincia`),
   KEY `pk` (`cod_localidad`),
   KEY `fk` (`cod_provincia`)
 );
 
 CREATE TABLE `Clientes` (
-  `id_cliente` <type>,
-  `nombre` <type>,
-  `apellido` <type>,
-  `id_tipo_doc` <type>,
-  `nro_doc` <type>,
-  `cod_localidad` <type>,
-  `nro_calle` <type>,
-  `calle` <type>,
-  `nro_afiliado` <type>,
-  `fecha_nac` <type>,
-  `id_tipo_sexo` <type>,
+  `id_cliente` int,
+  `nombre` varchar(120),
+  `apellido` varchar(120),
+  `id_tipo_doc` int,
+  `nro_doc` varchar(20), -- Varchar x si hay gente de algun otro pais donde la identificacion tiene numeros. 20 maximo x si se pone puntos o etc.
+  `cod_localidad` int,
+  `nro_calle` int,
+  `calle` varchar(150),
+  `nro_afiliado` int,
+  `fecha_nac` datetime,
+  `id_tipo_sexo` int,
   FOREIGN KEY (`id_tipo_doc`) REFERENCES `Documentos`(`id_tipo_doc`),
   FOREIGN KEY (`id_tipo_sexo`) REFERENCES `Sexos`(`id_tipo_sexo`),
   FOREIGN KEY (`cod_localidad`) REFERENCES `localidades`(`cod_localidad`),
@@ -57,19 +57,19 @@ CREATE TABLE `Clientes` (
 );
 
 CREATE TABLE `Tipos_transferencias` (
-  `id_tipo_transferencia` <type>,
-  `tipo_transferencia` <type>,
+  `id_tipo_transferencia` int,
+  `tipo_transferencia` varchar(250),
   KEY `pk` (`id_tipo_transferencia`)
 );
 
 CREATE TABLE `Transferencias` (
-  `id_transferencia` <type>,
-  `id_tipo_transferencia` <type>,
-  `id_cliente` <type>,
-  `fecha` <type>,
-  `monto` <type>,
-  `cuenta_envio` <type>,
-  `cuenta_recibo` <type>,
+  `id_transferencia` int,
+  `id_tipo_transferencia` int,
+  `id_cliente` int,
+  `fecha` datetime,
+  `monto` int,
+  `cuenta_envio` varchar(150), -- varchar x codigo o similar
+  `cuenta_recibo` varchar(150), -- varchar x codigo o similar
   FOREIGN KEY (`id_tipo_transferencia`) REFERENCES `Tipos_transferencias`(`id_tipo_transferencia`),
   FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
   KEY `pk` (`id_transferencia`),
@@ -77,43 +77,43 @@ CREATE TABLE `Transferencias` (
 );
 
 CREATE TABLE `Cuenta` (
-  `id_cuenta` <type>,
-  `id_cliente` <type>,
-  `Monto` <type>,
-  `fecha_creacion` <type>,
-  `CBU` <type>,
-  `Alias` <type>,
-  `Credito` <type>,
-  `Debito` <type>,
+  `id_cuenta` int,
+  `id_cliente` int,
+  `Monto` int,
+  `fecha_creacion` datetime,
+  `CBU` varchar(75),
+  `Alias` varchar(150),
+  `Credito` boolean,
+  `Debito` boolean,
   KEY `pk` (`id_cuenta`),
   KEY `fk` (`id_cliente`)
 );
 
 CREATE TABLE `Cuenta-Transferencia` (
-  `id_cuenta` <type>,
-  `id_transferencia` <type>,
+  `id_cuenta` int,
+  `id_transferencia` int,
   FOREIGN KEY (`id_transferencia`) REFERENCES `Transferencias`(`id_transferencia`),
   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
   KEY `pk` (`id_cuenta`, `id_transferencia`)
 );
 
 CREATE TABLE `Tipos_contactos` (
-  `id_tipo_contacto` <type>,
-  `tipo_contacto` <type>,
+  `id_tipo_contacto` int,
+  `tipo_contacto` varchar(150),
   KEY `pk` (`id_tipo_contacto`)
 );
 
 CREATE TABLE `Empleados` (
-  `id_empleado` <type>,
-  `nombre` <type>,
-  `apellido` <type>,
-  `id_tipo_doc` <type>,
-  `nro_doc` <type>,
-  `cod_localidad` <type>,
-  `nro_calle` <type>,
-  `calle` <type>,
-  `fecha_nac` <type>,
-  `id_tipo_sexo` <type>,
+  `id_empleado` int,
+  `nombre` varchar(120),
+  `apellido` varchar(120),
+  `id_tipo_doc` int,
+  `nro_doc` varchar(20), -- Varchar x si hay gente de algun otro pais donde la identificacion tiene numeros. 20 maximo x si se pone puntos o etc.
+  `cod_localidad` int,
+  `nro_calle` int,
+  `calle` varchar(150),
+  `fecha_nac` datetime,
+  `id_tipo_sexo` int,
   FOREIGN KEY (`id_tipo_sexo`) REFERENCES `Sexos`(`id_tipo_sexo`),
   FOREIGN KEY (`id_tipo_doc`) REFERENCES `Documentos`(`id_tipo_doc`),
   FOREIGN KEY (`cod_localidad`) REFERENCES `localidades`(`cod_localidad`),
@@ -122,10 +122,10 @@ CREATE TABLE `Empleados` (
 );
 
 CREATE TABLE `Contactos` (
-  `id_contactos` <type>,
-  `id_tipo_contacto` <type>,
-  `id_cliente` <type>,
-  `id_empleado` <type>,
+  `id_contactos` int,
+  `id_tipo_contacto` int,
+  `id_cliente` int,
+  `id_empleado` int,
   FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
   FOREIGN KEY (`id_empleado`) REFERENCES `Empleados`(`id_empleado`),
   FOREIGN KEY (`id_tipo_contacto`) REFERENCES `Tipos_contactos`(`id_tipo_contacto`),
@@ -134,12 +134,12 @@ CREATE TABLE `Contactos` (
 );
 
 CREATE TABLE `Prestamos` (
-  `id_prestamo` <type>,
-  `id_cuenta` <type>,
-  `Monto` <type>,
-  `interes_mes` <type>,
-  `fec_start` <type>,
-  `fec_venc` <type>,
+  `id_prestamo` int,
+  `id_cuenta` int,
+  `Monto` int,
+  `interes_mes_porcentaje` int,
+  `fec_start` datetime,
+  `fec_venc` datetime,
   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
   KEY `pk` (`id_prestamo`),
   KEY `fk` (`id_cuenta`)
