@@ -117,7 +117,7 @@ html {
 .ayuda-section a {
     padding: 10px 35px;
     color: white;
-    background-color: #2c3333;
+    background-color: #395b64;
     border-radius: 50px;
     font-size: 1.8rem;
     text-decoration: none;
@@ -133,8 +133,13 @@ a:active {
     text-decoration: none !important;
 }
 
+.necesito-ayuda {
+    background-color: #395b64;
+    transition: 0.8s;
+}
+
 .necesito-ayuda:hover {
-    background-color: #232929;
+    background-color: #2e7b91;
 }
 
 @media (max-width: 768px) {
