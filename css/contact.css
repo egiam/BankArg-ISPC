@@ -41,8 +41,9 @@ div.container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-    width: 100vw;
+    /* height: 80vh;
+    width: 100vw; */
+    margin-top: 50px;
 }
 
 @media (max-width: 768px) {
