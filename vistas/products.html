@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,56 +17,44 @@
     <link rel="stylesheet" href="../css/productos.css" />
 
     <!-- Boostrap -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
     <!-- JavaScript -->
     <script src="../js/script.js" defer></script>
 
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- Header -->
     <header class="header-container">
-      <nav class="nav-head">
-        <a class="logo" href="../index.html">
-          <img
-            src="../assets/img/logo-solo.png"
-            alt="BankArg"
-            class="nav-brand"
-          />
-        </a>
-        <div class="nav-links" id="navLinks">
-          <i class="fa fa-times" onclick="hideMenu()"></i>
-          <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="./about.html">Sobre</a></li>
-            <li><a href="./products.html">Productos</a></li>
-            <li><a href="./transferencia.html">Transferencias</a></li>
-            <li><a href="./soporte.html">Soporte</a></li>
-            <li><a href="./contact.html">Contactanos</a></li>
-            <li><a href="./perfil.html">Perfil</a></li>
-            <li><a href="./Online Banking.html">Online Banking</a></li>
-            <li class="login-subrayado">
-              <a href="./login.html" id="login-button">Ingresa</a>
-            </li>
-          </ul>
-        </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>
-      </nav>
+        <nav class="nav-head">
+            <a class="logo" href="../index.html">
+                <img src="../assets/img/logo-solo.png" alt="BankArg" class="nav-brand" />
+            </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="./about.html">Sobre</a></li>
+                    <li><a href="./products.html">Productos</a></li>
+                    <li><a href="./transferencia.html">Transferencias</a></li>
+                    <li><a href="./soporte.html">Soporte</a></li>
+                    <li><a href="./contact.html">Contactanos</a></li>
+                    <li><a href="./perfil.html">Perfil</a></li>
+                    <li><a href="./Online Banking.html">Online Banking</a></li>
+                    <li class="login-subrayado">
+                        <a href="./login.html" id="login-button">Ingresa</a>
+                    </li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
     </header>
     <!-- End Header -->
 
@@ -74,82 +63,97 @@
     <h3>Te ofrecemos facilidad y seguridad en todas tus transacciones</h3>
     <main class="container">
         <section class="row d-flex justify-content-center align-items-center flex-wrap">
+            <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
+                <span>
+            <img
+              class="hb"
+              src="../assets/img/banking.png"
+              alt="Home Banking"
+              title="Home Bankarg"
+            />
+          </span>
+                <p>
+                    <a href="./home banking.html"> Home Banking </a> <br />Tendrás acceso a tus cuentas y podrás revisar tus movimientos de dinero en cualquier momento y desde todos los dispositivos asociados
+                </p>
+            </article>
 
-          <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
-            <span>
-              <img class="hb" src="../assets/img/banking.png" alt="Home Banking" title="Home Bankarg"/>
-            </span>
-            <p>
-              <a href="./Online Banking.html"> Home Banking </a> <br />Tendrás
-              acceso a tus cuentas y podrás revisar tus movimientos de dinero en
-              cualquier momento y desde todos los dispositivos asociados
-            </p>
-          </article>
-  
-          <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
-            <span>
-              <img class="hb" src="../assets/img/transfer2.png" alt="Transferencias" title="Transferencias"/>
-            </span>
-            <p>
-              <a href="./transferencia.html"> Transferencias </a> <br />Realizar
-              tus transferencias nunca fue tan fácil
-            </p>
-          </article>
-  
-          <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
-            <span>
-              <img class="hb" src="../assets/img/pago.png" alt="Pagos" title="Pagos"/>
-            </span>
-            <p>
-              <a href="./Pagos.html"> Pagos </a> <br />Podrás agregar servicios,
-              hacer pagos únicos y recibir alertas de vencimientos
-            </p>
-          </article>
-  
-          <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
-            <span>
-              <img class="hb" src="../assets/img/token.png" alt="Validación" title="Validación"/>
-            </span>
-            <p>
-              <a href="./Validaciones.html"> Validaciones </a> <br />Todas tus
-              transacciones se validarán con un token para mayor seguridad
-            </p>
-          </article>
-  
-          <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
-            <span>
-              <img class="hb" src="../assets/img/prestamo.png" alt="prestamos" title="Prestamo"/>
-            </span>
-            <p>
-              <a href="./prestamos.html"> Préstamos </a> <br />
-              ¿Te quedaste sin efectivo? No te preocupes, te préstamos en cómodas
-              cuotas y si acreditas tu sueldo con nosotros accedes a tasas
-              preferenciales
-            </p>
-          </article>
+            <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
+                <span>
+            <img
+              class="hb"
+              src="../assets/img/transfer2.png"
+              alt="Transferencias"
+              title="Transferencias"
+            />
+          </span>
+                <p>
+                    <a href="./transferencia.html"> Transferencias </a> <br />Realizar tus transferencias nunca fue tan fácil
+                </p>
+            </article>
 
+            <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
+                <span>
+            <img
+              class="hb"
+              src="../assets/img/pago.png"
+              alt="Pagos"
+              title="Pagos"
+            />
+          </span>
+                <p>
+                    <a href="./Pagos.html"> Pagos </a> <br />Podrás agregar servicios, hacer pagos únicos y recibir alertas de vencimientos
+                </p>
+            </article>
+
+            <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
+                <span>
+            <img
+              class="hb"
+              src="../assets/img/token.png"
+              alt="Validación"
+              title="Validación"
+            />
+          </span>
+                <p>
+                    <a href="./Validaciones.html"> Validaciones </a> <br />Todas tus transacciones se validarán con un token para mayor seguridad
+                </p>
+            </article>
+
+            <article class="logos d-flex align-items-center justify-content-center col-sm-12 col-md-6">
+                <span>
+            <img
+              class="hb"
+              src="../assets/img/prestamo.png"
+              alt="prestamos"
+              title="Prestamo"
+            />
+          </span>
+                <p>
+                    <a href="./prestamos.html"> Préstamos </a> <br /> ¿Te quedaste sin efectivo? No te preocupes, te préstamos en cómodas cuotas y si acreditas tu sueldo con nosotros accedes a tasas preferenciales
+                </p>
+            </article>
         </section>
-      </main>
+    </main>
 
     <!-- End Body -->
 
     <!-- Footer -->
     <footer>
-      <div class="footer-content">
-        <h3>BankArg</h3>
-        <p>
-          BankArg es una empresa de servicios financieros que ofrece una amplia
-          gama de productos y servicios financieros a sus clientes.
-        </p>
-        <div class="icons">
-          <a href=""><i class="fa fa-facebook"></i></a>
-          <a href=""><i class="fa fa-twitter"></i></a>
-          <a href=""><i class="fa fa-instagram"></i></a>
-          <a href=""><i class="fa fa-linkedin"></i></a>
+        <div class="footer-content">
+            <h3>BankArg</h3>
+            <p>
+                BankArg es una empresa de servicios financieros que ofrece una amplia gama de productos y servicios financieros a sus clientes.
+            </p>
+            <div class="icons">
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-instagram"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+            </div>
         </div>
-      </div>
-      <div class="footer-bottom">&copy; BankArg | Designed by BankArg</div>
+        <div class="footer-bottom">&copy; BankArg | Designed by BankArg</div>
     </footer>
     <!-- End Footer -->
-  </body>
+</body>
+
 </html>
