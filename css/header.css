@@ -50,6 +50,9 @@ nav img {
     padding: 8px 12px;
     position: relative;
 }
+ol, ul {
+    padding-left: 0 !important;
+}
 
 .nav-links ul li a {
     color: #e7f6f2;

@@ -21,3 +21,8 @@ h3{
 }
 
 
+@media(max-width:1200px){
+    .hb{
+        height: 250px;
+    }
+}
