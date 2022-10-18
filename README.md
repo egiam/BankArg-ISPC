@@ -1,3 +1,5 @@
+## El Sprint 1 'finalizado' se encuentra situado en una rama con su mismo nombre, para evitar que los profesores piensen que se continuo agregando contenido al mismo a posteriori cuando fue del Sprint 2.
+
 # Recomendacion:
 
 ## Revisar la pagina a traves de Live Server de ser posible, para tener una mejor experiencia de usuario y que se logre ver el icono de pagina :)
