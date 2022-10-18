@@ -1,22 +1,23 @@
+h1{
+    text-align: center;
+    padding: 25px 0;
+}
+h3{
+    text-align: center;
+    padding: 20px 0;
+}
 .hb {
-    float: left;
-    height: 13em;
-    margin-left: auto;
+  height: 300px;
 }
 
-.logos {
-    float: left;
-    height: 15em;
-    width: 40em;
+.logos{
+    padding: 10px 10px;
 }
 
-.logos2 {
-    text-align: left;
-    width: 45em;
-    padding: 3em 0;
+@media (max-width:992px){
+.logos{
+    flex-wrap: wrap;
+}
 }
 
-section.general {
-    margin-left: 100px;
-    margin-right: 50px;
-}
+
