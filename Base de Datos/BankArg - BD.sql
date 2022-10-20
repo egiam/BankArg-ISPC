@@ -162,39 +162,39 @@ CREATE TABLE `Prestamos` (
 
 -- Insertar Paises
 
-insert into paises values ('Argentina');
-insert into paises values ('Brasil');
-insert into paises values ('Chile');
-insert into paises values ('Uruguay');
-insert into paises values ('Paraguay');
-insert into paises values ('Bolivia');
-insert into paises values ('Peru');
-insert into paises values ('Ecuador');
-insert into paises values ('Colombia');
-insert into paises values ('Venezuela');
-insert into paises values ('Panama');
-insert into paises values ('Costa Rica');
-insert into paises values ('El Salvador');
-insert into paises values ('Guatemala');
-insert into paises values ('Honduras');
-insert into paises values ('Nicaragua');
-insert into paises values ('Mexico');
-insert into paises values ('Estados Unidos');
-insert into paises values ('Canada');
-insert into paises values ('España');
-insert into paises values ('Francia');
-insert into paises values ('Italia');
-insert into paises values ('Alemania');
-insert into paises values ('Inglaterra');
-insert into paises values ('Portugal');
-insert into paises values ('Rusia');
-insert into paises values ('China');
-insert into paises values ('Japon');
-insert into paises values ('Corea del Sur');
-insert into paises values ('Australia');
-insert into paises values ('Nueva Zelanda');
-insert into paises values ('Sudafrica');
-insert into paises values ('Otro');
+insert into paises (pais) values ('Argentina');
+insert into paises (pais) ('Brasil');
+insert into paises (pais) ('Chile');
+insert into paises (pais) ('Uruguay');
+insert into paises (pais) ('Paraguay');
+insert into paises (pais) ('Bolivia');
+insert into paises (pais) ('Peru');
+insert into paises (pais) ('Ecuador');
+insert into paises (pais) ('Colombia');
+insert into paises (pais) ('Venezuela');
+insert into paises (pais) ('Panama');
+insert into paises (pais) ('Costa Rica');
+insert into paises (pais) ('El Salvador');
+insert into paises (pais) ('Guatemala');
+insert into paises (pais) ('Honduras');
+insert into paises (pais) ('Nicaragua');
+insert into paises (pais) ('Mexico');
+insert into paises (pais) ('Estados Unidos');
+insert into paises (pais) ('Canada');
+insert into paises (pais) ('España');
+insert into paises (pais) ('Francia');
+insert into paises (pais) ('Italia');
+insert into paises (pais) ('Alemania');
+insert into paises (pais) ('Inglaterra');
+insert into paises (pais) ('Portugal');
+insert into paises (pais) ('Rusia');
+insert into paises (pais) ('China');
+insert into paises (pais) ('Japon');
+insert into paises (pais) ('Corea del Sur');
+insert into paises (pais) ('Australia');
+insert into paises (pais) ('Nueva Zelanda');
+insert into paises (pais) ('Sudafrica');
+insert into paises (pais) ('Otro');
 
 select * from paises
 
@@ -202,7 +202,7 @@ select * from paises
 -- Insertar Provincias
 
 -- Arg
-insert into provincias values ('Buenos Aires', 1);
+insert into provincias (provincia, cod_pais) values ('Buenos Aires', 1);
 insert into provincias values ('Catamarca', 1);
 insert into provincias values ('Chaco', 1);
 insert into provincias values ('Chubut', 1);
@@ -561,6 +561,39 @@ insert into localidades values ('Sobral', 29);
 insert into localidades values ('Juazeiro do Norte', 29);
 insert into localidades values ('Maracanaú', 29);
 -- Distrito Federal
+insert into localidades values ('Brasilia', 30);
+-- Espírito Santo
+insert into localidades values ('Vitória', 31);
+-- Goiás
+insert into localidades values ('Goiânia', 32);
+insert into localidades values ('Aparecida de Goiânia', 32);
+insert into localidades values ('Anápolis', 32);
+insert into localidades values ('Rio Verde', 32);
+insert into localidades values ('Catalão', 32);
+-- Maranhão
+insert into localidades values ('São Luís', 33);
+-- Mato Grosso
+insert into localidades values ('Cuiabá', 34);
+-- Mato Grosso do Sul
+insert into localidades values ('Campo Grande', 35);
+-- Minas Gerais
+insert into localidades values ('Belo Horizonte', 36);
+insert into localidades values ('Contagem', 36);
+insert into localidades values ('Uberlândia', 36);
+insert into localidades values ('Juiz de Fora', 36);
+insert into localidades values ('Betim', 36);
+-- Pará
+insert into localidades values ('Belém', 37);
+-- Paraíba
+insert into localidades values ('João Pessoa', 38);
+-- Paraná
+insert into localidades values ('Curitiba', 39);
+insert into localidades values ('Londrina', 39);
+insert into localidades values ('Maringá', 39);
+insert into localidades values ('Cascavel', 39);
+insert into localidades values ('Ponta Grossa', 39);
+-- Pernambuco
+
 
 
 
