@@ -84,6 +84,7 @@ CREATE TABLE `Transferencias` (
   KEY `fk` (`id_tipo_transferencia`, `id_cliente`)
 );
 
+-- Maria Laura
 CREATE TABLE `Cuenta` (
   `id_cuenta` int NOT NULL AUTO_INCREMENT,
   `id_cliente` int NOT NULL,
@@ -98,7 +99,7 @@ CREATE TABLE `Cuenta` (
   KEY `fk` (`id_cliente`)
 );
 
-
+-- Maria Laura
 CREATE TABLE `Cuenta-Transferencia` (
   `id_cuenta` int NOT NULL AUTO_INCREMENT,
   `id_transferencia` int NOT NULL,
@@ -846,9 +847,12 @@ insert into Sexos (tipo) values ('Hombre');
 insert into Sexos (tipo) values ('Mujer');
 insert into Sexos (tipo) values ('Otro');
 
-
-
-
-
+-- Clientes
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Juan', 'Perez', 1, "24262153", 9, '1414', 'Mendoza', 9, '1997-10-08', 1)
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Maria', 'Flores', 1, "36765125", 1, '2336', 'Rivadavia', 10, '1996-03-20', 2)
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Silvia', 'Saravia', 1, "40679134", 10, '1472', 'Mitre', 11, '1997-06-25', 2)
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Pablo', 'Gomez', 1, "32346851", 2, '2448', 'Calle 16', 12, '1997-11-30', 1)
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Rocio', 'Toledo', 1, "26497316", 12, '3546', 'Alvear', 13, '1997-02-15', 2)
+select * from Clientes
 
 
