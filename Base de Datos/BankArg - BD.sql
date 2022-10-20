@@ -833,9 +833,17 @@ insert into localidades (localidad, cod_provincia) values ('Cheyenne', 189);
 insert into localidades (localidad, cod_provincia) values ('Casper', 189);
 insert into localidades (localidad, cod_provincia) values ('Laramie', 189); -- ID: 250
 
--- Seguir con lo de Juaco
+-- Documentos
+insert into Documentos (tipo_doc) values ('dni')
+insert into Documentos (tipo_doc) values ('pasaporte')
+insert into Documentos (tipo_doc) values ('obra social')
+insert into Documentos (tipo_doc) values ('licencia de conducir')
 
+-- Sexos
 
+insert into Sexos (tipo) values ('hombre')
+insert into Sexos (tipo) values ('mujer')
+insert into Sexos (tipo) values ('otro')
 
 
 
