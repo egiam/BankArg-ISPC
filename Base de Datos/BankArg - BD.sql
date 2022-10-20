@@ -42,7 +42,7 @@ CREATE TABLE `localidades` (
   KEY `fk` (`cod_provincia`)
 );
 
-
+-- Valen
 CREATE TABLE `Clientes` (
   `id_cliente` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(120),
@@ -69,6 +69,7 @@ CREATE TABLE `Tipos_transferencias` (
   KEY `pk` (`id_tipo_transferencia`)
 );
 
+-- Valen
 CREATE TABLE `Transferencias` (
   `id_transferencia` int NOT NULL AUTO_INCREMENT,
   `id_tipo_transferencia` int NOT NULL,
@@ -96,6 +97,7 @@ CREATE TABLE `Cuenta` (
   KEY `pk` (`id_cuenta`),
   KEY `fk` (`id_cliente`)
 );
+
 
 CREATE TABLE `Cuenta-Transferencia` (
   `id_cuenta` int NOT NULL AUTO_INCREMENT,
@@ -160,39 +162,39 @@ CREATE TABLE `Prestamos` (
 
 -- Insertar Paises
 
-insert into paises (nombre_pais) values ('Argentina');
-insert into paises (nombre_pais) values ('Brasil');
-insert into paises (nombre_pais) values ('Chile');
-insert into paises (nombre_pais) values ('Uruguay');
-insert into paises (nombre_pais) values ('Paraguay');
-insert into paises (nombre_pais) values ('Bolivia');
-insert into paises (nombre_pais) values ('Peru');
-insert into paises (nombre_pais) values ('Ecuador');
-insert into paises (nombre_pais) values ('Colombia');
-insert into paises (nombre_pais) values ('Venezuela');
-insert into paises (nombre_pais) values ('Panama');
-insert into paises (nombre_pais) values ('Costa Rica');
-insert into paises (nombre_pais) values ('El Salvador');
-insert into paises (nombre_pais) values ('Guatemala');
-insert into paises (nombre_pais) values ('Honduras');
-insert into paises (nombre_pais) values ('Nicaragua');
-insert into paises (nombre_pais) values ('Mexico');
-insert into paises (nombre_pais) values ('Estados Unidos');
-insert into paises (nombre_pais) values ('Canada');
-insert into paises (nombre_pais) values ('España');
-insert into paises (nombre_pais) values ('Francia');
-insert into paises (nombre_pais) values ('Italia');
-insert into paises (nombre_pais) values ('Alemania');
-insert into paises (nombre_pais) values ('Inglaterra');
-insert into paises (nombre_pais) values ('Portugal');
-insert into paises (nombre_pais) values ('Rusia');
-insert into paises (nombre_pais) values ('China');
-insert into paises (nombre_pais) values ('Japon');
-insert into paises (nombre_pais) values ('Corea del Sur');
-insert into paises (nombre_pais) values ('Australia');
-insert into paises (nombre_pais) values ('Nueva Zelanda');
-insert into paises (nombre_pais) values ('Sudafrica');
-insert into paises (nombre_pais) values ('Otro');
+insert into paises values ('Argentina');
+insert into paises values ('Brasil');
+insert into paises values ('Chile');
+insert into paises values ('Uruguay');
+insert into paises values ('Paraguay');
+insert into paises values ('Bolivia');
+insert into paises values ('Peru');
+insert into paises values ('Ecuador');
+insert into paises values ('Colombia');
+insert into paises values ('Venezuela');
+insert into paises values ('Panama');
+insert into paises values ('Costa Rica');
+insert into paises values ('El Salvador');
+insert into paises values ('Guatemala');
+insert into paises values ('Honduras');
+insert into paises values ('Nicaragua');
+insert into paises values ('Mexico');
+insert into paises values ('Estados Unidos');
+insert into paises values ('Canada');
+insert into paises values ('España');
+insert into paises values ('Francia');
+insert into paises values ('Italia');
+insert into paises values ('Alemania');
+insert into paises values ('Inglaterra');
+insert into paises values ('Portugal');
+insert into paises values ('Rusia');
+insert into paises values ('China');
+insert into paises values ('Japon');
+insert into paises values ('Corea del Sur');
+insert into paises values ('Australia');
+insert into paises values ('Nueva Zelanda');
+insert into paises values ('Sudafrica');
+insert into paises values ('Otro');
 
 select * from paises
 
@@ -214,6 +216,15 @@ insert into provincias values ('La Rioja', 1);
 insert into provincias values ('Mendoza', 1);
 insert into provincias values ('Misiones', 1);
 insert into provincias values ('Neuquen', 1);
+insert into provincias values ('Rio Negro', 1);
+insert into provincias values ('Salta', 1);
+insert into provincias values ('San Juan', 1);
+insert into provincias values ('San Luis', 1);
+insert into provincias values ('Santa Cruz', 1);
+insert into provincias values ('Santa Fe', 1);
+insert into provincias values ('Santiago del Estero', 1);
+insert into provincias values ('Tierra del Fuego', 1);
+insert into provincias values ('Tucuman', 1);
 
 -- Brasil
 insert into provincias values ('Acre', 2);
@@ -352,31 +363,206 @@ insert into provincias values ('Miranda', 10);
 insert into provincias values ('Distrito Capital', 10);
 
 -- Estados Unidos
-insert into provincias values ('Alabama', 11);
-insert into provincias values ('Alaska', 11);
-insert into provincias values ('Arizona', 11);
-insert into provincias values ('Arkansas', 11);
-insert into provincias values ('California', 11);
-insert into provincias values ('Colorado', 11);
-insert into provincias values ('Connecticut', 11);
-insert into provincias values ('Delaware', 11);
-insert into provincias values ('Florida', 11);
-insert into provincias values ('Georgia', 11);
-insert into provincias values ('Hawaii', 11);
-insert into provincias values ('Idaho', 11);
-insert into provincias values ('Illinois', 11);
-insert into provincias values ('Indiana', 11);
-insert into provincias values ('Iowa', 11);
-insert into provincias values ('Kansas', 11);
-insert into provincias values ('Kentucky', 11);
-insert into provincias values ('Louisiana', 11);
-insert into provincias values ('Maine', 11);
-insert into provincias values ('Maryland', 11);
-insert into provincias values ('Massachusetts', 11);
-insert into provincias values ('Michigan', 11);
-insert into provincias values ('Minnesota', 11);
-insert into provincias values ('Mississippi', 11);
-insert into provincias values ('Missouri', 11);
-insert into provincias values ('Montana', 11);
+insert into provincias values ('Alabama', 18);
+insert into provincias values ('Alaska', 18);
+insert into provincias values ('Arizona', 18);
+insert into provincias values ('Arkansas', 18);
+insert into provincias values ('California', 18);
+insert into provincias values ('Colorado', 18);
+insert into provincias values ('Connecticut', 18);
+insert into provincias values ('Delaware', 18);
+insert into provincias values ('Florida', 18);
+insert into provincias values ('Georgia', 18);
+insert into provincias values ('Hawaii', 18);
+insert into provincias values ('Idaho', 18);
+insert into provincias values ('Illinois', 18);
+insert into provincias values ('Indiana', 18);
+insert into provincias values ('Iowa', 18);
+insert into provincias values ('Kansas', 18);
+insert into provincias values ('Kentucky', 18);
+insert into provincias values ('Louisiana', 18);
+insert into provincias values ('Maine', 18);
+insert into provincias values ('Maryland', 18);
+insert into provincias values ('Massachusetts', 18);
+insert into provincias values ('Michigan', 18);
+insert into provincias values ('Minnesota', 18);
+insert into provincias values ('Mississippi', 18);
+insert into provincias values ('Missouri', 18);
+insert into provincias values ('Montana', 18);
+insert into provincias values ('Nebraska', 18);
+insert into provincias values ('Nevada', 18);
+insert into provincias values ('New Hampshire', 18);
+insert into provincias values ('New Jersey', 18);
+insert into provincias values ('New Mexico', 18);
+insert into provincias values ('New York', 18);
+insert into provincias values ('North Carolina', 18);
+insert into provincias values ('North Dakota', 18);
+insert into provincias values ('Ohio', 18);
+insert into provincias values ('Oklahoma', 18);
+insert into provincias values ('Oregon', 18);
+insert into provincias values ('Pennsylvania', 18);
+insert into provincias values ('Rhode Island', 18);
+insert into provincias values ('South Carolina', 18);
+insert into provincias values ('South Dakota', 18);
+insert into provincias values ('Tennessee', 18);
+insert into provincias values ('Texas', 18);
+insert into provincias values ('Utah', 18);
+insert into provincias values ('Vermont', 18);
+insert into provincias values ('Virginia', 18);
+insert into provincias values ('Washington', 18);
+insert into provincias values ('West Virginia', 18);
+insert into provincias values ('Wisconsin', 18);
+insert into provincias values ('Wyoming', 18);
+
+-- Canada
+insert into provincias values ('Alberta', 19);
+insert into provincias values ('British Columbia', 19);
+insert into provincias values ('Newfoundland', 19);
+insert into provincias values ('New Brunswick', 19);
+insert into provincias values ('Nova Scotia', 19);
+insert into provincias values ('Ontario', 19);
+insert into provincias values ('Prince Edward Island', 19);
+insert into provincias values ('Quebec', 19);
+insert into provincias values ('Saskatchewan', 19);
+
+-- Mexico
+insert into provincias values ('Aguascalientes', 20);
+insert into provincias values ('Baja California', 20);
+insert into provincias values ('Baja California Sur', 20);
+insert into provincias values ('Campeche', 20);
+insert into provincias values ('Chiapas', 20);
+insert into provincias values ('Chihuahua', 20);
+insert into provincias values ('Coahuila', 20);
+insert into provincias values ('Colima', 20);
+insert into provincias values ('Distrito Federal', 20);
+insert into provincias values ('Durango', 20);
+insert into provincias values ('Guanajuato', 20);
+insert into provincias values ('Guerrero', 20);
+insert into provincias values ('Hidalgo', 20);
+insert into provincias values ('Jalisco', 20);
+insert into provincias values ('Mexico', 20);
+insert into provincias values ('Michoacan', 20);
+insert into provincias values ('Morelos', 20);
+insert into provincias values ('Nayarit', 20);
+insert into provincias values ('Nuevo Leon', 20);
+insert into provincias values ('Oaxaca', 20);
+insert into provincias values ('Puebla', 20);
+insert into provincias values ('Queretaro', 20);
+insert into provincias values ('Quintana Roo', 20);
+insert into provincias values ('San Luis Potosi', 20);
+insert into provincias values ('Sinaloa', 20);
+insert into provincias values ('Sonora', 20);
+insert into provincias values ('Tabasco', 20);
+insert into provincias values ('Tamaulipas', 20);
+insert into provincias values ('Tlaxcala', 20);
+insert into provincias values ('Veracruz', 20);
+insert into provincias values ('Yucatan', 20);
+insert into provincias values ('Zacatecas', 20);
+
+-- Otro
+insert into provincias values ('Otro', 21);
+insert into provincias values ('Otro', 22);
+insert into provincias values ('Otro', 23);
+insert into provincias values ('Otro', 24);
+insert into provincias values ('Otro', 25);
+insert into provincias values ('Otro', 26);
+insert into provincias values ('Otro', 27);
+insert into provincias values ('Otro', 28);
+insert into provincias values ('Otro', 29);
+insert into provincias values ('Otro', 30);
+insert into provincias values ('Otro', 31);
+insert into provincias values ('Otro', 32);
+
+-- Localidades Top 5
+
+-- Argentina
+-- Buenos Aires
+insert into localidades values ('Buenos Aires', 1);
+insert into localidades values ('La Plata', 1);
+insert into localidades values ('Mar del Plata', 1);
+insert into localidades values ('Quilmes', 1);
+insert into localidades values ('Lomas de Zamora', 1);
+-- Catamarca
+insert into localidades values ('San Fernando del Valle de Catamarca', 2);
+-- Chaco
+insert into localidades values ('Resistencia', 3);
+-- Chubut
+insert into localidades values ('Rawson', 4);
+-- Córdoba
+insert into localidades values ('Córdoba', 5);
+insert into localidades values ('Río Cuarto', 5);
+insert into localidades values ('Villa María', 5);
+insert into localidades values ('Villa Carlos Paz', 5);
+insert into localidades values ('Río Tercero', 5);
+-- Corrientes
+insert into localidades values ('Corrientes', 6);
+-- Entre Ríos
+insert into localidades values ('Paraná', 7);
+-- Formosa
+insert into localidades values ('Formosa', 8);
+-- Jujuy
+insert into localidades values ('San Salvador de Jujuy', 9);
+-- La Pampa
+insert into localidades values ('Santa Rosa', 10);
+-- La Rioja
+insert into localidades values ('La Rioja', 11);
+-- Mendoza
+insert into localidades values ('Mendoza', 12);
+insert into localidades values ('Godoy Cruz', 12);
+insert into localidades values ('Guaymallén', 12);
+insert into localidades values ('Luján de Cuyo', 12);
+insert into localidades values ('San Rafael', 12);
+-- Misiones
+insert into localidades values ('Posadas', 13);
+-- Neuquén
+insert into localidades values ('Neuquén', 14);
+-- Rio Negro
+insert into localidades values ('Viedma', 15);
+-- Salta
+insert into localidades values ('Salta', 16);
+-- San Juan
+insert into localidades values ('San Juan', 17);
+-- San Luis
+insert into localidades values ('San Luis', 18);
+-- Santa Cruz
+insert into localidades values ('Río Gallegos', 19);
+-- Santa Fe
+insert into localidades values ('Santa Fe', 20);
+insert into localidades values ('Rosario', 20);
+insert into localidades values ('Venado Tuerto', 20);
+insert into localidades values ('San Lorenzo', 20);
+insert into localidades values ('San Cristóbal', 20);
+-- Santiago del Estero
+insert into localidades values ('Santiago del Estero', 21);
+-- Tierra del Fuego
+insert into localidades values ('Ushuaia', 22);
+-- Tucumán
+insert into localidades values ('San Miguel de Tucumán', 23);
+
+-- Brasil
+-- Acre
+insert into localidades values ('Rio Branco', 24);
+-- Alagoas
+insert into localidades values ('Maceió', 25);
+-- Amapá
+insert into localidades values ('Macapá', 26);
+-- Amazonas
+insert into localidades values ('Amazonas', 27);
+-- Bahia
+insert into localidades values ('Salvador', 28);
+insert into localidades values ('Feira de Santana', 28);
+insert into localidades values ('Vitória da Conquista', 28);
+insert into localidades values ('Camaçari', 28);
+insert into localidades values ('Ilhéus', 28);
+-- Ceará
+insert into localidades values ('Fortaleza', 29);
+insert into localidades values ('Caucaia', 29);
+insert into localidades values ('Sobral', 29);
+insert into localidades values ('Juazeiro do Norte', 29);
+insert into localidades values ('Maracanaú', 29);
+-- Distrito Federal
+
+
+
 
 
