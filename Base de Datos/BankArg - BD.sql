@@ -226,6 +226,8 @@ insert into provincias (provincia, cod_pais) values ('Santiago del Estero', 1);
 insert into provincias (provincia, cod_pais) values ('Tierra del Fuego', 1);
 insert into provincias (provincia, cod_pais) values ('Tucuman', 1); -- ID: 23
 
+Select * from provincias where cod_pais = 1;
+
 -- Brasil
 insert into provincias (provincia, cod_pais) values ('Acre', 2);
 insert into provincias (provincia, cod_pais) values ('Alagoas', 2);
@@ -254,6 +256,8 @@ insert into provincias (provincia, cod_pais) values ('Santa Catarina', 2);
 insert into provincias (provincia, cod_pais) values ('Sao Paulo', 2);
 insert into provincias (provincia, cod_pais) values ('Sergipe', 2);
 insert into provincias (provincia, cod_pais) values ('Tocantins', 2); -- ID: 50
+
+Select * from provincias where cod_pais = 2;
 
 -- Chile
 insert into provincias (provincia, cod_pais) values ('Arica y Parinacota', 3);
@@ -481,7 +485,7 @@ insert into localidades (localidad, cod_provincia) values ('Buenos Aires', 1);
 insert into localidades (localidad, cod_provincia) values ('La Plata', 1);
 insert into localidades (localidad, cod_provincia) values ('Mar del Plata', 1);
 insert into localidades (localidad, cod_provincia) values ('Quilmes', 1);
-insert into localidades (localidad, cod_provincia) values ('Lomas de Zamora', 1);
+insert into localidades (localidad, cod_provincia) values ('Lomas de Zamora', 1); -- ID: 5
 -- Catamarca
 insert into localidades (localidad, cod_provincia) values ('San Fernando del Valle de Catamarca', 2);
 -- Chaco
@@ -493,7 +497,7 @@ insert into localidades (localidad, cod_provincia) values ('Córdoba', 5);
 insert into localidades (localidad, cod_provincia) values ('Río Cuarto', 5);
 insert into localidades (localidad, cod_provincia) values ('Villa María', 5);
 insert into localidades (localidad, cod_provincia) values ('Villa Carlos Paz', 5);
-insert into localidades (localidad, cod_provincia) values ('Río Tercero', 5);
+insert into localidades (localidad, cod_provincia) values ('Río Tercero', 5); -- ID: 13
 -- Corrientes
 insert into localidades (localidad, cod_provincia) values ('Corrientes', 6);
 -- Entre Ríos
@@ -511,7 +515,7 @@ insert into localidades (localidad, cod_provincia) values ('Mendoza', 12);
 insert into localidades (localidad, cod_provincia) values ('Godoy Cruz', 12);
 insert into localidades (localidad, cod_provincia) values ('Guaymallén', 12);
 insert into localidades (localidad, cod_provincia) values ('Luján de Cuyo', 12);
-insert into localidades (localidad, cod_provincia) values ('San Rafael', 12);
+insert into localidades (localidad, cod_provincia) values ('San Rafael', 12); -- ID: 24
 -- Misiones
 insert into localidades (localidad, cod_provincia) values ('Posadas', 13);
 -- Neuquén
@@ -531,7 +535,7 @@ insert into localidades (localidad, cod_provincia) values ('Santa Fe', 20);
 insert into localidades (localidad, cod_provincia) values ('Rosario', 20);
 insert into localidades (localidad, cod_provincia) values ('Venado Tuerto', 20);
 insert into localidades (localidad, cod_provincia) values ('San Lorenzo', 20);
-insert into localidades (localidad, cod_provincia) values ('San Cristóbal', 20);
+insert into localidades (localidad, cod_provincia) values ('San Cristóbal', 20); -- ID: 36
 -- Santiago del Estero
 insert into localidades (localidad, cod_provincia) values ('Santiago del Estero', 21);
 -- Tierra del Fuego
@@ -553,13 +557,13 @@ insert into localidades (localidad, cod_provincia) values ('Salvador', 28);
 insert into localidades (localidad, cod_provincia) values ('Feira de Santana', 28);
 insert into localidades (localidad, cod_provincia) values ('Vitória da Conquista', 28);
 insert into localidades (localidad, cod_provincia) values ('Camaçari', 28);
-insert into localidades (localidad, cod_provincia) values ('Ilhéus', 28);
+insert into localidades (localidad, cod_provincia) values ('Ilhéus', 28); -- ID: 48
 -- Ceará
 insert into localidades (localidad, cod_provincia) values ('Fortaleza', 29);
 insert into localidades (localidad, cod_provincia) values ('Caucaia', 29);
 insert into localidades (localidad, cod_provincia) values ('Sobral', 29);
 insert into localidades (localidad, cod_provincia) values ('Juazeiro do Norte', 29);
-insert into localidades (localidad, cod_provincia) values ('Maracanaú', 29);
+insert into localidades (localidad, cod_provincia) values ('Maracanaú', 29); -- ID: 53
 -- Distrito Federal
 insert into localidades (localidad, cod_provincia) values ('Brasilia', 30);
 -- Espírito Santo
@@ -569,7 +573,7 @@ insert into localidades (localidad, cod_provincia) values ('Goiânia', 32);
 insert into localidades (localidad, cod_provincia) values ('Aparecida de Goiânia', 32);
 insert into localidades (localidad, cod_provincia) values ('Anápolis', 32);
 insert into localidades (localidad, cod_provincia) values ('Rio Verde', 32);
-insert into localidades (localidad, cod_provincia) values ('Catalão', 32);
+insert into localidades (localidad, cod_provincia) values ('Catalão', 32); -- ID: 60
 -- Maranhão
 insert into localidades (localidad, cod_provincia) values ('São Luís', 33);
 -- Mato Grosso
@@ -581,7 +585,7 @@ insert into localidades (localidad, cod_provincia) values ('Belo Horizonte', 36)
 insert into localidades (localidad, cod_provincia) values ('Contagem', 36);
 insert into localidades (localidad, cod_provincia) values ('Uberlândia', 36);
 insert into localidades (localidad, cod_provincia) values ('Juiz de Fora', 36);
-insert into localidades (localidad, cod_provincia) values ('Betim', 36);
+insert into localidades (localidad, cod_provincia) values ('Betim', 36); -- ID: 68
 -- Pará
 insert into localidades (localidad, cod_provincia) values ('Belém', 37);
 -- Paraíba
@@ -591,7 +595,7 @@ insert into localidades (localidad, cod_provincia) values ('Curitiba', 39);
 insert into localidades (localidad, cod_provincia) values ('Londrina', 39);
 insert into localidades (localidad, cod_provincia) values ('Maringá', 39);
 insert into localidades (localidad, cod_provincia) values ('Cascavel', 39);
-insert into localidades (localidad, cod_provincia) values ('Ponta Grossa', 39);
+insert into localidades (localidad, cod_provincia) values ('Ponta Grossa', 39); -- ID: 75
 -- Pernambuco
 insert into localidades (localidad, cod_provincia) values ('Recife', 40);
 -- Piauí
@@ -601,7 +605,7 @@ insert into localidades (localidad, cod_provincia) values ('Rio de Janeiro', 42)
 insert into localidades (localidad, cod_provincia) values ('São Gonçalo', 42);
 insert into localidades (localidad, cod_provincia) values ('Duque de Caxias', 42);
 insert into localidades (localidad, cod_provincia) values ('Nova Iguaçu', 42);
-insert into localidades (localidad, cod_provincia) values ('Niterói', 42);
+insert into localidades (localidad, cod_provincia) values ('Niterói', 42); -- ID: 82
 -- Rio Grande do Norte
 insert into localidades (localidad, cod_provincia) values ('Natal', 43);
 -- Rio Grande do Sul
@@ -609,7 +613,7 @@ insert into localidades (localidad, cod_provincia) values ('Porto Alegre', 44);
 insert into localidades (localidad, cod_provincia) values ('Pelotas', 44);
 insert into localidades (localidad, cod_provincia) values ('Canoas', 44);
 insert into localidades (localidad, cod_provincia) values ('Santa Maria', 44);
-insert into localidades (localidad, cod_provincia) values ('Caxias do Sul', 44);
+insert into localidades (localidad, cod_provincia) values ('Caxias do Sul', 44);  -- ID: 88
 -- Rondônia
 insert into localidades (localidad, cod_provincia) values ('Porto Velho', 45);
 -- Roraima
@@ -625,209 +629,209 @@ insert into localidades (localidad, cod_provincia) values ('São Paulo', 48);
 insert into localidades (localidad, cod_provincia) values ('Guarulhos', 48);
 insert into localidades (localidad, cod_provincia) values ('Campinas', 48);
 insert into localidades (localidad, cod_provincia) values ('São Bernardo do Campo', 48);
-insert into localidades (localidad, cod_provincia) values ('São José dos Campos', 48);
+insert into localidades (localidad, cod_provincia) values ('São José dos Campos', 48); -- ID: 100
 
 -- Estados Unidos 
 -- Alabama top 3
 insert into localidades (localidad, cod_provincia) values ('Birmingham', 140);
 insert into localidades (localidad, cod_provincia) values ('Montgomery', 140);
-insert into localidades (localidad, cod_provincia) values ('Mobile', 140);
+insert into localidades (localidad, cod_provincia) values ('Mobile', 140); -- ID: 103
 -- Alaska top 3
 insert into localidades (localidad, cod_provincia) values ('Anchorage', 141);
 insert into localidades (localidad, cod_provincia) values ('Fairbanks', 141);
-insert into localidades (localidad, cod_provincia) values ('Juneau', 141);
+insert into localidades (localidad, cod_provincia) values ('Juneau', 141); -- ID: 106
 -- Arizona top 3
 insert into localidades (localidad, cod_provincia) values ('Phoenix', 142);
-insert into localidades (localidad, cod_provincia) values ('Tucson', 142);
-insert into localidades (localidad, cod_provincia) values ('Mesa', 142);
+insert into localidades (localidad, cod_provincia) values ('Tucson', 142); 
+insert into localidades (localidad, cod_provincia) values ('Mesa', 142); -- ID: 109
 -- Arkansas top 3
 insert into localidades (localidad, cod_provincia) values ('Little Rock', 143);
 insert into localidades (localidad, cod_provincia) values ('Fort Smith', 143);
-insert into localidades (localidad, cod_provincia) values ('Fayetteville', 143);
+insert into localidades (localidad, cod_provincia) values ('Fayetteville', 143); -- ID: 112
 -- California top 3
 insert into localidades (localidad, cod_provincia) values ('Los Angeles', 144);
 insert into localidades (localidad, cod_provincia) values ('San Diego', 144);
-insert into localidades (localidad, cod_provincia) values ('San Jose', 144);
+insert into localidades (localidad, cod_provincia) values ('San Jose', 144); -- ID: 115
 -- Colorado top 3
 insert into localidades (localidad, cod_provincia) values ('Denver', 145);
 insert into localidades (localidad, cod_provincia) values ('Colorado Springs', 145);
-insert into localidades (localidad, cod_provincia) values ('Aurora', 145);
+insert into localidades (localidad, cod_provincia) values ('Aurora', 145); -- ID: 118
 -- Connecticut top 3
 insert into localidades (localidad, cod_provincia) values ('Bridgeport', 146);
 insert into localidades (localidad, cod_provincia) values ('New Haven', 146);
-insert into localidades (localidad, cod_provincia) values ('Hartford', 146);
+insert into localidades (localidad, cod_provincia) values ('Hartford', 146); -- ID: 121
 -- Delaware top 3
 insert into localidades (localidad, cod_provincia) values ('Wilmington', 147);
 insert into localidades (localidad, cod_provincia) values ('Dover', 147);
-insert into localidades (localidad, cod_provincia) values ('Newark', 147);
+insert into localidades (localidad, cod_provincia) values ('Newark', 147); -- ID: 124
 -- Florida top 3
 insert into localidades (localidad, cod_provincia) values ('Jacksonville', 148);
 insert into localidades (localidad, cod_provincia) values ('Miami', 148);
-insert into localidades (localidad, cod_provincia) values ('Tampa', 148);
+insert into localidades (localidad, cod_provincia) values ('Tampa', 148); -- ID: 127
 -- Georgia top 3
 insert into localidades (localidad, cod_provincia) values ('Atlanta', 149);
 insert into localidades (localidad, cod_provincia) values ('Columbus', 149);
-insert into localidades (localidad, cod_provincia) values ('Augusta', 149);
+insert into localidades (localidad, cod_provincia) values ('Augusta', 149); -- ID: 130
 -- Hawaii top 3
 insert into localidades (localidad, cod_provincia) values ('Honolulu', 150);
 insert into localidades (localidad, cod_provincia) values ('Hilo', 150);
-insert into localidades (localidad, cod_provincia) values ('Kailua', 150);
+insert into localidades (localidad, cod_provincia) values ('Kailua', 150); -- ID: 133
 -- Idaho top 3
 insert into localidades (localidad, cod_provincia) values ('Boise', 151);
 insert into localidades (localidad, cod_provincia) values ('Nampa', 151);
-insert into localidades (localidad, cod_provincia) values ('Meridian', 151);
--- Illinois top 3
+insert into localidades (localidad, cod_provincia) values ('Meridian', 151);  -- ID: 136
+-- Illinois top 3 
 insert into localidades (localidad, cod_provincia) values ('Chicago', 152);
 insert into localidades (localidad, cod_provincia) values ('Aurora', 152);
-insert into localidades (localidad, cod_provincia) values ('Rockford', 152);
+insert into localidades (localidad, cod_provincia) values ('Rockford', 152);    -- ID: 139
 -- Indiana top 3
 insert into localidades (localidad, cod_provincia) values ('Indianapolis', 153);
 insert into localidades (localidad, cod_provincia) values ('Fort Wayne', 153);
-insert into localidades (localidad, cod_provincia) values ('Evansville', 153);
+insert into localidades (localidad, cod_provincia) values ('Evansville', 153);  -- ID: 142
 -- Iowa top 3
 insert into localidades (localidad, cod_provincia) values ('Des Moines', 154);
 insert into localidades (localidad, cod_provincia) values ('Cedar Rapids', 154);
-insert into localidades (localidad, cod_provincia) values ('Davenport', 154);
+insert into localidades (localidad, cod_provincia) values ('Davenport', 154); -- ID: 145
 -- Kansas top 3
 insert into localidades (localidad, cod_provincia) values ('Wichita', 155);
 insert into localidades (localidad, cod_provincia) values ('Overland Park', 155);
-insert into localidades (localidad, cod_provincia) values ('Kansas City', 155);
+insert into localidades (localidad, cod_provincia) values ('Kansas City', 155); -- ID: 148
 -- Kentucky top 3
 insert into localidades (localidad, cod_provincia) values ('Louisville', 156);
 insert into localidades (localidad, cod_provincia) values ('Lexington', 156);
-insert into localidades (localidad, cod_provincia) values ('Bowling Green', 156);
+insert into localidades (localidad, cod_provincia) values ('Bowling Green', 156); -- ID: 151
 -- Louisiana top 3
 insert into localidades (localidad, cod_provincia) values ('New Orleans', 157);
 insert into localidades (localidad, cod_provincia) values ('Baton Rouge', 157);
-insert into localidades (localidad, cod_provincia) values ('Shreveport', 157);
+insert into localidades (localidad, cod_provincia) values ('Shreveport', 157);  -- ID: 154
 -- Maine top 3
 insert into localidades (localidad, cod_provincia) values ('Portland', 158);
 insert into localidades (localidad, cod_provincia) values ('Lewiston', 158);
-insert into localidades (localidad, cod_provincia) values ('Bangor', 158);
+insert into localidades (localidad, cod_provincia) values ('Bangor', 158);  -- ID: 157
 -- Maryland top 3
 insert into localidades (localidad, cod_provincia) values ('Baltimore', 159);
 insert into localidades (localidad, cod_provincia) values ('Frederick', 159);
-insert into localidades (localidad, cod_provincia) values ('Rockville', 159);
+insert into localidades (localidad, cod_provincia) values ('Rockville', 159); -- ID: 160
 -- Massachusetts top 3
 insert into localidades (localidad, cod_provincia) values ('Boston', 160);
 insert into localidades (localidad, cod_provincia) values ('Worcester', 160);
-insert into localidades (localidad, cod_provincia) values ('Springfield', 160);
+insert into localidades (localidad, cod_provincia) values ('Springfield', 160);   -- ID: 163
 -- Michigan top 3
 insert into localidades (localidad, cod_provincia) values ('Detroit', 161);
 insert into localidades (localidad, cod_provincia) values ('Grand Rapids', 161);
-insert into localidades (localidad, cod_provincia) values ('Warren', 161);
--- Minnesota top 3
+insert into localidades (localidad, cod_provincia) values ('Warren', 161);  -- ID: 166
+-- Minnesota top 3  
 insert into localidades (localidad, cod_provincia) values ('Minneapolis', 162);
 insert into localidades (localidad, cod_provincia) values ('Saint Paul', 162);
-insert into localidades (localidad, cod_provincia) values ('Rochester', 162);
+insert into localidades (localidad, cod_provincia) values ('Rochester', 162); -- ID: 169
 -- Mississippi top 3
 insert into localidades (localidad, cod_provincia) values ('Jackson', 163);
 insert into localidades (localidad, cod_provincia) values ('Gulfport', 163);
-insert into localidades (localidad, cod_provincia) values ('Southaven', 163);
+insert into localidades (localidad, cod_provincia) values ('Southaven', 163); -- ID: 172
 -- Missouri top 3
 insert into localidades (localidad, cod_provincia) values ('Kansas City', 164);
 insert into localidades (localidad, cod_provincia) values ('Saint Louis', 164);
-insert into localidades (localidad, cod_provincia) values ('Springfield', 164);
+insert into localidades (localidad, cod_provincia) values ('Springfield', 164); -- ID: 175
 -- Montana top 3
 insert into localidades (localidad, cod_provincia) values ('Billings', 165);
 insert into localidades (localidad, cod_provincia) values ('Missoula', 165);
-insert into localidades (localidad, cod_provincia) values ('Great Falls', 165);
+insert into localidades (localidad, cod_provincia) values ('Great Falls', 165); -- ID: 178
 -- Nebraska top 3
 insert into localidades (localidad, cod_provincia) values ('Omaha', 166);
 insert into localidades (localidad, cod_provincia) values ('Lincoln', 166);
-insert into localidades (localidad, cod_provincia) values ('Bellevue', 166);
+insert into localidades (localidad, cod_provincia) values ('Bellevue', 166);  -- ID: 181
 -- Nevada top 3
 insert into localidades (localidad, cod_provincia) values ('Las Vegas', 167);
 insert into localidades (localidad, cod_provincia) values ('Henderson', 167);
-insert into localidades (localidad, cod_provincia) values ('Reno', 167);  
+insert into localidades (localidad, cod_provincia) values ('Reno', 167);    -- ID: 184
 -- New Hampshire top 3
 insert into localidades (localidad, cod_provincia) values ('Manchester', 168);
 insert into localidades (localidad, cod_provincia) values ('Nashua', 168);
-insert into localidades (localidad, cod_provincia) values ('Concord', 168);
+insert into localidades (localidad, cod_provincia) values ('Concord', 168); -- ID: 187
 -- New Jersey top 3
 insert into localidades (localidad, cod_provincia) values ('Newark', 169);
 insert into localidades (localidad, cod_provincia) values ('Jersey City', 169);
-insert into localidades (localidad, cod_provincia) values ('Paterson', 169);
+insert into localidades (localidad, cod_provincia) values ('Paterson', 169);  -- ID: 190
 -- New Mexico top 3
 insert into localidades (localidad, cod_provincia) values ('Albuquerque', 170);
 insert into localidades (localidad, cod_provincia) values ('Las Cruces', 170);
-insert into localidades (localidad, cod_provincia) values ('Rio Rancho', 170);
+insert into localidades (localidad, cod_provincia) values ('Rio Rancho', 170);  -- ID: 193
 -- New York top 3
 insert into localidades (localidad, cod_provincia) values ('New York', 171);
 insert into localidades (localidad, cod_provincia) values ('Buffalo', 171);
-insert into localidades (localidad, cod_provincia) values ('Rochester', 171);
+insert into localidades (localidad, cod_provincia) values ('Rochester', 171); -- ID: 196
 -- North Carolina top 3
 insert into localidades (localidad, cod_provincia) values ('Charlotte', 172);
 insert into localidades (localidad, cod_provincia) values ('Raleigh', 172);
-insert into localidades (localidad, cod_provincia) values ('Greensboro', 172);
+insert into localidades (localidad, cod_provincia) values ('Greensboro', 172);  -- ID: 199
 -- North Dakota top 3
 insert into localidades (localidad, cod_provincia) values ('Fargo', 173);
 insert into localidades (localidad, cod_provincia) values ('Bismarck', 173);
-insert into localidades (localidad, cod_provincia) values ('Grand Forks', 173);
+insert into localidades (localidad, cod_provincia) values ('Grand Forks', 173); -- ID: 202
 -- Ohio top 3
 insert into localidades (localidad, cod_provincia) values ('Columbus', 174);
 insert into localidades (localidad, cod_provincia) values ('Cleveland', 174);
-insert into localidades (localidad, cod_provincia) values ('Cincinnati', 174);
+insert into localidades (localidad, cod_provincia) values ('Cincinnati', 174);  -- ID: 205
 -- Oklahoma top 3
 insert into localidades (localidad, cod_provincia) values ('Oklahoma City', 175);
 insert into localidades (localidad, cod_provincia) values ('Tulsa', 175);
-insert into localidades (localidad, cod_provincia) values ('Norman', 175);
--- Oregon top 3
+  insert into localidades (localidad, cod_provincia) values ('Norman', 175);  -- ID: 208
+  -- Oregon top 3
 insert into localidades (localidad, cod_provincia) values ('Portland', 176);
 insert into localidades (localidad, cod_provincia) values ('Eugene', 176);
-insert into localidades (localidad, cod_provincia) values ('Salem', 176);
+insert into localidades (localidad, cod_provincia) values ('Salem', 176); -- ID: 211
 -- Pennsylvania top 3
 insert into localidades (localidad, cod_provincia) values ('Philadelphia', 177);
 insert into localidades (localidad, cod_provincia) values ('Pittsburgh', 177);
-insert into localidades (localidad, cod_provincia) values ('Allentown', 177);
+insert into localidades (localidad, cod_provincia) values ('Allentown', 177); -- ID: 214
 -- Rhode Island top 3
 insert into localidades (localidad, cod_provincia) values ('Providence', 178);
 insert into localidades (localidad, cod_provincia) values ('Warwick', 178);
-insert into localidades (localidad, cod_provincia) values ('Cranston', 178);
+insert into localidades (localidad, cod_provincia) values ('Cranston', 178);  -- ID: 217
 -- South Carolina top 3
 insert into localidades (localidad, cod_provincia) values ('Columbia', 179);
 insert into localidades (localidad, cod_provincia) values ('Charleston', 179);
-insert into localidades (localidad, cod_provincia) values ('North Charleston', 179);
--- South Dakota top 3
+insert into localidades (localidad, cod_provincia) values ('North Charleston', 179);  -- ID: 220
+-- South Dakota top 3 
 insert into localidades (localidad, cod_provincia) values ('Sioux Falls', 180);
 insert into localidades (localidad, cod_provincia) values ('Rapid City', 180);
-insert into localidades (localidad, cod_provincia) values ('Aberdeen', 180);
+insert into localidades (localidad, cod_provincia) values ('Aberdeen', 180);  -- ID: 223
 -- Tennessee top 3
 insert into localidades (localidad, cod_provincia) values ('Memphis', 181);
 insert into localidades (localidad, cod_provincia) values ('Nashville', 181);
-insert into localidades (localidad, cod_provincia) values ('Knoxville', 181);
+insert into localidades (localidad, cod_provincia) values ('Knoxville', 181); -- ID: 226
 -- Texas top 3
 insert into localidades (localidad, cod_provincia) values ('Houston', 182);
 insert into localidades (localidad, cod_provincia) values ('San Antonio', 182);
-insert into localidades (localidad, cod_provincia) values ('Dallas', 182);
+insert into localidades (localidad, cod_provincia) values ('Dallas', 182);  -- ID: 229
 -- Utah top 3
 insert into localidades (localidad, cod_provincia) values ('Salt Lake City', 183);
-insert into localidades (localidad, cod_provincia) values ('West Valley City', 183);
-insert into localidades (localidad, cod_provincia) values ('Provo', 183);
+insert into localidades (localidad, cod_provincia) values ('West Valley City', 183);  
+insert into localidades (localidad, cod_provincia) values ('Provo', 183); -- ID: 232
 -- Vermont top 3
 insert into localidades (localidad, cod_provincia) values ('Burlington', 184);
 insert into localidades (localidad, cod_provincia) values ('South Burlington', 184);
-insert into localidades (localidad, cod_provincia) values ('Rutland', 184);
+insert into localidades (localidad, cod_provincia) values ('Rutland', 184); -- ID: 235
 -- Virginia top 3
 insert into localidades (localidad, cod_provincia) values ('Virginia Beach', 185);
 insert into localidades (localidad, cod_provincia) values ('Norfolk', 185);
-insert into localidades (localidad, cod_provincia) values ('Chesapeake', 185);
+insert into localidades (localidad, cod_provincia) values ('Chesapeake', 185);  -- ID: 238
 -- Washington top 3
 insert into localidades (localidad, cod_provincia) values ('Seattle', 186);
 insert into localidades (localidad, cod_provincia) values ('Spokane', 186);
-insert into localidades (localidad, cod_provincia) values ('Tacoma', 186);
+insert into localidades (localidad, cod_provincia) values ('Tacoma', 186);  -- ID: 241
 -- West Virginia top 3
 insert into localidades (localidad, cod_provincia) values ('Charleston', 187);
 insert into localidades (localidad, cod_provincia) values ('Huntington', 187);
-insert into localidades (localidad, cod_provincia) values ('Parkersburg', 187);
+insert into localidades (localidad, cod_provincia) values ('Parkersburg', 187); -- ID: 244
 -- Wisconsin top 3
 insert into localidades (localidad, cod_provincia) values ('Milwaukee', 188);
 insert into localidades (localidad, cod_provincia) values ('Madison', 188);
-insert into localidades (localidad, cod_provincia) values ('Green Bay', 188);
+insert into localidades (localidad, cod_provincia) values ('Green Bay', 188); -- ID: 247
 -- Wyoming top 3
 insert into localidades (localidad, cod_provincia) values ('Cheyenne', 189);
 insert into localidades (localidad, cod_provincia) values ('Casper', 189);
-insert into localidades (localidad, cod_provincia) values ('Laramie', 189);
+insert into localidades (localidad, cod_provincia) values ('Laramie', 189); -- ID: 250
 
 
 
