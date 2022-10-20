@@ -50,7 +50,9 @@ nav img {
     padding: 8px 12px;
     position: relative;
 }
-ol, ul {
+
+ol,
+ul {
     padding-left: 0 !important;
 }
 
@@ -123,7 +125,7 @@ nav .fa {
     display: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
     .text-box h1 {
         font-size: 20px;
     }
