@@ -115,6 +115,7 @@ CREATE TABLE `Tipos_contactos` (
   KEY `pk` (`id_tipo_contacto`)
 );
 
+-- Sole (?)
 CREATE TABLE `Empleados` (
   `id_empleado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(120),
@@ -133,6 +134,7 @@ CREATE TABLE `Empleados` (
   KEY `fk` (`id_tipo_doc`, `cod_localidad`, `id_tipo_sexo`)
 );
 
+-- Sole (?)
 CREATE TABLE `Contactos` (
   `id_contactos` int NOT NULL AUTO_INCREMENT,
   `id_tipo_contacto` int NOT NULL,
@@ -145,6 +147,7 @@ CREATE TABLE `Contactos` (
   KEY `fk` (`id_tipo_contacto`, `id_cliente`, `id_empleado`)
 );
 
+-- Flor (?)
 CREATE TABLE `Prestamos` (
   `id_prestamo` int NOT NULL AUTO_INCREMENT,
   `id_cuenta` int NOT NULL,
@@ -180,7 +183,7 @@ insert into paises (pais) values ('Guatemala');
 insert into paises (pais) values ('Honduras');
 insert into paises (pais) values ('Nicaragua');
 insert into paises (pais) values ('Mexico');
-insert into paises (pais) values ('Estados Unidos');
+insert into paises (pais) values ('Estados Unidos'); -- ID: 18
 insert into paises (pais) values ('Canada');
 insert into paises (pais) values ('España');
 insert into paises (pais) values ('Francia');
@@ -195,7 +198,7 @@ insert into paises (pais) values ('Corea del Sur');
 insert into paises (pais) values ('Australia');
 insert into paises (pais) values ('Nueva Zelanda');
 insert into paises (pais) values ('Sudafrica');
-insert into paises (pais) values ('Otro');
+insert into paises (pais) values ('Otro'); -- ID: 33
 
 select * from paises;
 
@@ -839,32 +842,32 @@ insert into localidades (localidad, cod_provincia) values ('Laramie', 189); -- I
 insert into Documentos (tipo_doc) values ('Dni');
 insert into Documentos (tipo_doc) values ('Pasaporte');
 insert into Documentos (tipo_doc) values ('Obra social');
-insert into Documentos (tipo_doc) values ('Licencia de conducir');
+insert into Documentos (tipo_doc) values ('Licencia de conducir'); -- ID: 4
 
 
 -- Sexos
 insert into Sexos (tipo) values ('Hombre');
 insert into Sexos (tipo) values ('Mujer');
-insert into Sexos (tipo) values ('Otro');
+insert into Sexos (tipo) values ('Otro'); -- ID:3
 
 -- Clientes
 insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Juan', 'Perez', 1, "24262153", 9, '1414', 'Mendoza', 9, '1997-10-08', 1);
 insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Maria', 'Flores', 1, "36765125", 1, '2336', 'Rivadavia', 10, '1996-03-20', 2);
 insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Silvia', 'Saravia', 1, "40679134", 10, '1472', 'Mitre', 11, '1997-06-25', 2);
 insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Pablo', 'Gomez', 1, "32346851", 2, '2448', 'Calle 16', 12, '1997-11-30', 1);
-insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Rocio', 'Toledo', 1, "26497316", 12, '3546', 'Alvear', 13, '1997-02-15', 2);
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Rocio', 'Toledo', 1, "26497316", 12, '3546', 'Alvear', 13, '1997-02-15', 2); -- ID: 5
 select * from Clientes;
 
 -- Tipos de transferencias
-insert into tipos_transferencias (tipo_transferencia) values ('transferencia_interna');
-insert into tipos_transferencias (tipo_transferencia) values ('transferencia_externa');
-insert into tipos_transferencias (tipo_transferencia) values ('transferencia_internacional');
-insert into tipos_transferencias (tipo_transferencia) values ('transferencia_urgente');
+insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_interna');
+insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_externa');
+insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_internacional');
+insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_urgente'); -- ID: 4
 
 -- Tipos de contactos
-insert into tipos_contactos (tipo_contacto) values ('email');
-insert into tipos_contactos (tipo_contacto) values ('telefono');
-insert into tipos_contactos (tipo_contacto) values ('linkedin');
-insert into tipos_contactos (tipo_contacto) values ('telegram');
-insert into tipos_contactos (tipo_contacto) values ('instagram');
+insert into tipos_contactos (tipo_contacto) values ('Email');
+insert into tipos_contactos (tipo_contacto) values ('Telefono');
+insert into tipos_contactos (tipo_contacto) values ('Linkedin');
+insert into tipos_contactos (tipo_contacto) values ('Telegram');
+insert into tipos_contactos (tipo_contacto) values ('Instagram'); -- ID: 5
 
