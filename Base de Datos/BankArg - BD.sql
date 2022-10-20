@@ -1,24 +1,28 @@
 create database BankArg;
 use BankArg;
 
+-- Joaco
 CREATE TABLE `Documentos` (
   `id_tipo_doc` int NOT NULL AUTO_INCREMENT,
   `tipo_doc` varchar(150),
   KEY `pk` (`id_tipo_doc`)
 );
 
+-- Joaco
 CREATE TABLE `Sexos` (
   `id_tipo_sexo` int NOT NULL AUTO_INCREMENT,
   `tipo` varchar(150),
   KEY `pk` (`id_tipo_sexo`)
 );
 
+-- Eze
 CREATE TABLE `paises` (
   `cod_pais` int NOT NULL AUTO_INCREMENT,
   `pais` varchar(250),
   KEY `pk` (`cod_pais`)
 );
 
+-- Eze
 CREATE TABLE `provincias` (
   `cod_provincia` int NOT NULL AUTO_INCREMENT,
   `provincia` varchar(150),
@@ -28,6 +32,7 @@ CREATE TABLE `provincias` (
   KEY `fk` (`cod_pais`)
 );
 
+-- Eze
 CREATE TABLE `localidades` (
   `cod_localidad` int NOT NULL AUTO_INCREMENT,
   `localidad` varchar(150),
@@ -36,6 +41,7 @@ CREATE TABLE `localidades` (
   KEY `pk` (`cod_localidad`),
   KEY `fk` (`cod_provincia`)
 );
+
 
 CREATE TABLE `Clientes` (
   `id_cliente` int NOT NULL AUTO_INCREMENT,
@@ -56,6 +62,7 @@ CREATE TABLE `Clientes` (
   KEY `fk` (`id_tipo_doc`, `cod_localidad`, `id_tipo_sexo`)
 );
 
+-- Maxi
 CREATE TABLE `Tipos_transferencias` (
   `id_tipo_transferencia` int NOT NULL AUTO_INCREMENT,
   `tipo_transferencia` varchar(250),
@@ -98,6 +105,7 @@ CREATE TABLE `Cuenta-Transferencia` (
   KEY `pk` (`id_cuenta`, `id_transferencia`)
 );
 
+-- Maxi
 CREATE TABLE `Tipos_contactos` (
   `id_tipo_contacto` int NOT NULL AUTO_INCREMENT,
   `tipo_contacto` varchar(150),
@@ -145,6 +153,9 @@ CREATE TABLE `Prestamos` (
   KEY `pk` (`id_prestamo`),
   KEY `fk` (`id_cuenta`)
 );
+
+
+
 
 
 -- Insertar Paises
@@ -332,4 +343,40 @@ insert into provincias values ('Amazonas', 9);
 insert into provincias values ('Antioquia', 9);
 insert into provincias values ('Arauca', 9);
 insert into provincias values ('Atlantico', 9);
+insert into provincias values ('Bogota', 9);
+insert into provincias values ('Bolivar', 9);
+
+-- Venezuela
+insert into provincias values ('Caracas', 10);
+insert into provincias values ('Miranda', 10);
+insert into provincias values ('Distrito Capital', 10);
+
+-- Estados Unidos
+insert into provincias values ('Alabama', 11);
+insert into provincias values ('Alaska', 11);
+insert into provincias values ('Arizona', 11);
+insert into provincias values ('Arkansas', 11);
+insert into provincias values ('California', 11);
+insert into provincias values ('Colorado', 11);
+insert into provincias values ('Connecticut', 11);
+insert into provincias values ('Delaware', 11);
+insert into provincias values ('Florida', 11);
+insert into provincias values ('Georgia', 11);
+insert into provincias values ('Hawaii', 11);
+insert into provincias values ('Idaho', 11);
+insert into provincias values ('Illinois', 11);
+insert into provincias values ('Indiana', 11);
+insert into provincias values ('Iowa', 11);
+insert into provincias values ('Kansas', 11);
+insert into provincias values ('Kentucky', 11);
+insert into provincias values ('Louisiana', 11);
+insert into provincias values ('Maine', 11);
+insert into provincias values ('Maryland', 11);
+insert into provincias values ('Massachusetts', 11);
+insert into provincias values ('Michigan', 11);
+insert into provincias values ('Minnesota', 11);
+insert into provincias values ('Mississippi', 11);
+insert into provincias values ('Missouri', 11);
+insert into provincias values ('Montana', 11);
+
 
