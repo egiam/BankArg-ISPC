@@ -833,6 +833,8 @@ insert into localidades (localidad, cod_provincia) values ('Cheyenne', 189);
 insert into localidades (localidad, cod_provincia) values ('Casper', 189);
 insert into localidades (localidad, cod_provincia) values ('Laramie', 189); -- ID: 250
 
+-- Seguir con lo de Juaco
+
 
 
 
