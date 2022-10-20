@@ -848,11 +848,23 @@ insert into Sexos (tipo) values ('Mujer');
 insert into Sexos (tipo) values ('Otro');
 
 -- Clientes
-insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Juan', 'Perez', 1, "24262153", 9, '1414', 'Mendoza', 9, '1997-10-08', 1)
-insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Maria', 'Flores', 1, "36765125", 1, '2336', 'Rivadavia', 10, '1996-03-20', 2)
-insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Silvia', 'Saravia', 1, "40679134", 10, '1472', 'Mitre', 11, '1997-06-25', 2)
-insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Pablo', 'Gomez', 1, "32346851", 2, '2448', 'Calle 16', 12, '1997-11-30', 1)
-insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Rocio', 'Toledo', 1, "26497316", 12, '3546', 'Alvear', 13, '1997-02-15', 2)
-select * from Clientes
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Juan', 'Perez', 1, "24262153", 9, '1414', 'Mendoza', 9, '1997-10-08', 1);
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Maria', 'Flores', 1, "36765125", 1, '2336', 'Rivadavia', 10, '1996-03-20', 2);
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Silvia', 'Saravia', 1, "40679134", 10, '1472', 'Mitre', 11, '1997-06-25', 2);
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Pablo', 'Gomez', 1, "32346851", 2, '2448', 'Calle 16', 12, '1997-11-30', 1);
+insert into Clientes (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, nro_afiliado, fecha_nac, id_tipo_sexo) values ('Rocio', 'Toledo', 1, "26497316", 12, '3546', 'Alvear', 13, '1997-02-15', 2);
+select * from Clientes;
 
+-- Tipos de transferencias
+insert into tipos_transferencias (tipo_transferencia) values ('transferencia_interna');
+insert into tipos_transferencias (tipo_transferencia) values ('transferencia_externa');
+insert into tipos_transferencias (tipo_transferencia) values ('transferencia_internacional');
+insert into tipos_transferencias (tipo_transferencia) values ('transferencia_urgente');
+
+-- Tipos de contactos
+insert into tipos_contactos (tipo_contacto) values ('email');
+insert into tipos_contactos (tipo_contacto) values ('telefono');
+insert into tipos_contactos (tipo_contacto) values ('linkedin');
+insert into tipos_contactos (tipo_contacto) values ('telegram');
+insert into tipos_contactos (tipo_contacto) values ('instagram');
 
