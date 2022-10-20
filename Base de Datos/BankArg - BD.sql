@@ -196,7 +196,7 @@ insert into paises (pais) values ('Nueva Zelanda');
 insert into paises (pais) values ('Sudafrica');
 insert into paises (pais) values ('Otro');
 
-select * from paises
+select * from paises;
 
 
 -- Insertar Provincias
@@ -274,7 +274,7 @@ insert into provincias (provincia, cod_pais) values ('La Araucania', 3);
 insert into provincias (provincia, cod_pais) values ('Los Rios', 3);
 insert into provincias (provincia, cod_pais) values ('Los Lagos', 3);
 insert into provincias (provincia, cod_pais) values ('Aysen del General Carlos Ibanez del Campo', 3);
-insert into provincias (provincia, cod_pais) values ('Magallanes y de la Antartica Chilena', 3); --ID: 65
+insert into provincias (provincia, cod_pais) values ('Magallanes y de la Antartica Chilena', 3); -- ID: 65
 
 -- Uruguay
 insert into provincias (provincia, cod_pais) values ('Artigas', 4);
@@ -287,7 +287,7 @@ insert into provincias (provincia, cod_pais) values ('Florida', 4);
 insert into provincias (provincia, cod_pais) values ('Lavalleja', 4);
 insert into provincias (provincia, cod_pais) values ('Maldonado', 4);
 insert into provincias (provincia, cod_pais) values ('Montevideo', 4);
-insert into provincias (provincia, cod_pais) values ('Paysandu', 4); --ID: 76
+insert into provincias (provincia, cod_pais) values ('Paysandu', 4); -- ID: 76
 
 -- Paraguay
 insert into provincias (provincia, cod_pais) values ('Alto Parana', 5);
@@ -307,7 +307,7 @@ insert into provincias (provincia, cod_pais) values ('Misiones', 5);
 insert into provincias (provincia, cod_pais) values ('Neembucu', 5);
 insert into provincias (provincia, cod_pais) values ('Paraguari', 5);
 insert into provincias (provincia, cod_pais) values ('Presidente Hayes', 5);
-insert into provincias (provincia, cod_pais) values ('San Pedro', 5); --ID: 94
+insert into provincias (provincia, cod_pais) values ('San Pedro', 5); -- ID: 94
 
 -- Bolivia
 insert into provincias (provincia, cod_pais) values ('Chuquisaca', 6);
@@ -318,7 +318,7 @@ insert into provincias (provincia, cod_pais) values ('Oruro', 6);
 insert into provincias (provincia, cod_pais) values ('Pando', 6);
 insert into provincias (provincia, cod_pais) values ('Potosi', 6);
 insert into provincias (provincia, cod_pais) values ('Santa Cruz', 6);
-insert into provincias (provincia, cod_pais) values ('Tarija', 6); --ID: 102
+insert into provincias (provincia, cod_pais) values ('Tarija', 6); -- ID: 102
 
 -- Peru
 insert into provincias (provincia, cod_pais) values ('Amazonas', 7);
@@ -345,13 +345,13 @@ insert into provincias (provincia, cod_pais) values ('Puno', 7);
 insert into provincias (provincia, cod_pais) values ('San Martin', 7);
 insert into provincias (provincia, cod_pais) values ('Tacna', 7);
 insert into provincias (provincia, cod_pais) values ('Tumbes', 7);
-insert into provincias (provincia, cod_pais) values ('Ucayali', 7); --ID: 126
+insert into provincias (provincia, cod_pais) values ('Ucayali', 7); -- ID: 126
 
 -- Ecuador
 insert into provincias (provincia, cod_pais) values ('Azuay', 8);
 insert into provincias (provincia, cod_pais) values ('Bolivar', 8);
 insert into provincias (provincia, cod_pais) values ('Quito', 8);
-insert into provincias (provincia, cod_pais) values ('Carchi', 8); --ID: 130
+insert into provincias (provincia, cod_pais) values ('Carchi', 8); -- ID: 130
 
 -- Colombia
 insert into provincias (provincia, cod_pais) values ('Amazonas', 9);
@@ -359,15 +359,15 @@ insert into provincias (provincia, cod_pais) values ('Antioquia', 9);
 insert into provincias (provincia, cod_pais) values ('Arauca', 9);
 insert into provincias (provincia, cod_pais) values ('Atlantico', 9);
 insert into provincias (provincia, cod_pais) values ('Bogota', 9);
-insert into provincias (provincia, cod_pais) values ('Bolivar', 9); --ID: 136
+insert into provincias (provincia, cod_pais) values ('Bolivar', 9); -- ID: 136
 
 -- Venezuela
 insert into provincias (provincia, cod_pais) values ('Caracas', 10);
 insert into provincias (provincia, cod_pais) values ('Miranda', 10);
-insert into provincias (provincia, cod_pais) values ('Distrito Capital', 10); --ID: 139
+insert into provincias (provincia, cod_pais) values ('Distrito Capital', 10); -- ID: 139
 
 -- Estados Unidos
-insert into provincias (provincia, cod_pais) values ('Alabama', 18); --ID: 140
+insert into provincias (provincia, cod_pais) values ('Alabama', 18); -- ID: 140
 insert into provincias (provincia, cod_pais) values ('Alaska', 18);
 insert into provincias (provincia, cod_pais) values ('Arizona', 18);
 insert into provincias (provincia, cod_pais) values ('Arkansas', 18);
@@ -416,7 +416,7 @@ insert into provincias (provincia, cod_pais) values ('Virginia', 18);
 insert into provincias (provincia, cod_pais) values ('Washington', 18);
 insert into provincias (provincia, cod_pais) values ('West Virginia', 18);
 insert into provincias (provincia, cod_pais) values ('Wisconsin', 18);
-insert into provincias (provincia, cod_pais) values ('Wyoming', 18); --ID: 190
+insert into provincias (provincia, cod_pais) values ('Wyoming', 18); -- ID: 190
 
 -- Canada
 insert into provincias (provincia, cod_pais) values ('Alberta', 19);
@@ -427,10 +427,10 @@ insert into provincias (provincia, cod_pais) values ('Nova Scotia', 19);
 insert into provincias (provincia, cod_pais) values ('Ontario', 19);
 insert into provincias (provincia, cod_pais) values ('Prince Edward Island', 19);
 insert into provincias (provincia, cod_pais) values ('Quebec', 19);
-insert into provincias (provincia, cod_pais) values ('Saskatchewan', 19); --ID: 199
+insert into provincias (provincia, cod_pais) values ('Saskatchewan', 19); -- ID: 199
 
 -- Mexico
-insert into provincias (provincia, cod_pais) values ('Aguascalientes', 20); --ID: 200
+insert into provincias (provincia, cod_pais) values ('Aguascalientes', 20); -- ID: 200
 insert into provincias (provincia, cod_pais) values ('Baja California', 20);
 insert into provincias (provincia, cod_pais) values ('Baja California Sur', 20);
 insert into provincias (provincia, cod_pais) values ('Campeche', 20);
@@ -461,7 +461,7 @@ insert into provincias (provincia, cod_pais) values ('Tamaulipas', 20);
 insert into provincias (provincia, cod_pais) values ('Tlaxcala', 20);
 insert into provincias (provincia, cod_pais) values ('Veracruz', 20);
 insert into provincias (provincia, cod_pais) values ('Yucatan', 20);
-insert into provincias (provincia, cod_pais) values ('Zacatecas', 20); --ID: 228
+insert into provincias (provincia, cod_pais) values ('Zacatecas', 20); -- ID: 228
 
 -- Otro
 insert into provincias (provincia, cod_pais) values ('Otro', 21);
@@ -475,7 +475,7 @@ insert into provincias (provincia, cod_pais) values ('Otro', 28);
 insert into provincias (provincia, cod_pais) values ('Otro', 29);
 insert into provincias (provincia, cod_pais) values ('Otro', 30);
 insert into provincias (provincia, cod_pais) values ('Otro', 31);
-insert into provincias (provincia, cod_pais) values ('Otro', 32); --ID: 239
+insert into provincias (provincia, cod_pais) values ('Otro', 32); -- ID: 239
 
 -- Localidades Top 5
 
@@ -833,14 +833,15 @@ insert into localidades (localidad, cod_provincia) values ('Cheyenne', 189);
 insert into localidades (localidad, cod_provincia) values ('Casper', 189);
 insert into localidades (localidad, cod_provincia) values ('Laramie', 189); -- ID: 250
 
+
 -- Documentos
 insert into Documentos (tipo_doc) values ('Dni');
 insert into Documentos (tipo_doc) values ('Pasaporte');
 insert into Documentos (tipo_doc) values ('Obra social');
 insert into Documentos (tipo_doc) values ('Licencia de conducir');
 
--- Sexos
 
+-- Sexos
 insert into Sexos (tipo) values ('Hombre');
 insert into Sexos (tipo) values ('Mujer');
 insert into Sexos (tipo) values ('Otro');
