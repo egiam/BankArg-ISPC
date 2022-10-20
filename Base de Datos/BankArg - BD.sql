@@ -834,16 +834,16 @@ insert into localidades (localidad, cod_provincia) values ('Casper', 189);
 insert into localidades (localidad, cod_provincia) values ('Laramie', 189); -- ID: 250
 
 -- Documentos
-insert into Documentos (tipo_doc) values ('dni')
-insert into Documentos (tipo_doc) values ('pasaporte')
-insert into Documentos (tipo_doc) values ('obra social')
-insert into Documentos (tipo_doc) values ('licencia de conducir')
+insert into Documentos (tipo_doc) values ('Dni')
+insert into Documentos (tipo_doc) values ('Pasaporte')
+insert into Documentos (tipo_doc) values ('Obra social')
+insert into Documentos (tipo_doc) values ('Licencia de conducir')
 
 -- Sexos
 
-insert into Sexos (tipo) values ('hombre')
-insert into Sexos (tipo) values ('mujer')
-insert into Sexos (tipo) values ('otro')
+insert into Sexos (tipo) values ('Hombre')
+insert into Sexos (tipo) values ('Mujer')
+insert into Sexos (tipo) values ('Otro')
 
 
 
