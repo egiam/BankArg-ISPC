@@ -46,11 +46,12 @@ div.container {
     margin-top: 50px;
 }
 
-@media (max-width: 768px) {
+
+/* @media (max-width: 768px) {
     div.container {
         height: 70vh;
     }
     div .img-fluid {
         display: none;
     }
-}
+} */
