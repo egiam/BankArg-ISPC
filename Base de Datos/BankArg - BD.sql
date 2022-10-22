@@ -863,7 +863,7 @@ insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_int
 insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_externa');
 insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_internacional');
 insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_urgente'); -- ID: 4
-
+select * from tipos_transferencias;
 -- Tipos de contactos
 insert into tipos_contactos (tipo_contacto) values ('Email');
 insert into tipos_contactos (tipo_contacto) values ('Telefono');
@@ -871,3 +871,8 @@ insert into tipos_contactos (tipo_contacto) values ('Linkedin');
 insert into tipos_contactos (tipo_contacto) values ('Telegram');
 insert into tipos_contactos (tipo_contacto) values ('Instagram'); -- ID: 5
 
+-- Transferencias 
+insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cuenta_envio, cuenta_recibo) values (2, 1, '2022-10-21', 1500, '1364679600006437649134', '3100213000041679456123');
+insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cuenta_envio, cuenta_recibo) values (1, 3, '2022-10-21', 5400, '3160003467798463185643', '3160003467798463185643');
+insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cuenta_envio, cuenta_recibo) values (2, 4, '2022-10-21', 10000, '9467346976413461978003', '5854879461300213467985');
+select * from Transferencias
