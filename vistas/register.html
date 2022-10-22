@@ -66,45 +66,45 @@
                 <h1>Registrate</h1>
                 <form method="post" class="form-register">
                     <div class="username">
-                        <input type="text" placeholder="Alias / Nombre de Usuario" />
+                        <input type="text" placeholder="Alias / Nombre de Usuario" id="username" />
                     </div>
 
                     <div class="username">
-                        <input type="text" placeholder="Nombre" required />
+                        <input type="text" placeholder="Nombre" id="name" required />
                         <!-- <label>Nombre de usuario</label> -->
                     </div>
 
                     <div class="username">
-                        <input type="text" placeholder="Apellido" required />
+                        <input type="text" placeholder="Apellido" id="lastName" required />
                     </div>
 
                     <div class="username">
-                        <input type="email" placeholder="Email" required />
+                        <input type="email" placeholder="Email" id="email" required />
                     </div>
 
                     <div class="username">
-                        <input type="text" placeholder="DNI" />
+                        <input type="text" placeholder="DNI" id="identification" />
                     </div>
 
                     <div class="username">
-                        <input type="text" placeholder="Domicilio" />
+                        <input type="text" placeholder="Domicilio" id="address" />
                     </div>
 
                     <div class="username">
-                        <input type="text" placeholder="Telefono" />
+                        <input type="text" placeholder="Telefono" id="phone" />
                     </div>
 
                     <div class="username">
-                        <input type="password" placeholder="Contraseña" required />
+                        <input type="password" placeholder="Contraseña" id="password" required />
                     </div>
 
                     <div class="username">
-                        <input type="password" placeholder="Repeti Contraseña" required />
+                        <input type="password" placeholder="Repeti Contraseña" id="password2" required />
                     </div>
 
-                    <a href="./home banking.html">
-                        <input type="button" value="Registrarme" class="boton-inicio" />
-                    </a>
+                    <!-- <a href="./home banking.html"> -->
+                        <input type="button" value="Registrarme" class="boton-inicio" id="btnRegister" />
+                    <!-- </a> -->
 
                     <div class="registrarse">
                         Soy un usuario, quiero
@@ -133,6 +133,9 @@
         <div class="footer-bottom">&copy; BankArg | Designed by BankArg</div>
     </footer>
     <!-- End Footer -->
+
+    <!-- JS de register -->
+    <script type="module" src="../js/register.js"></script>
 </body>
 
 </html>
