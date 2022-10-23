@@ -113,13 +113,44 @@ Establecemos distintos usuarios a saber:
 - US16- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control
 - US17- Como dueño del banco quiero que se recopile datos sobre los servicios más utilizados para futuras adecuaciones. 
 
-## Sprints
+## SPRINTS
 
-- N° de sprint:
-- Sprint Backlog:
+N° de sprint: 0
+- Sprint Backlog: 
+1. Definir requerimientos
+2. Plantear historias de usuarios y tareas dependientes de las US
+3. Definir tareas dentro de las historias de usuario
 - Responsabilidades:
-- Calendario:
-- Inconvenientes:
+- Calendario: Inicio 17-09-22/Fin 03-10-22
+- Inconvenientes: -
+
+N° de sprint: 1
+- Sprint Backlog: 
+<frontend>
+1. Crear web del proyecto aprobado con sus respectivas paginas con estructura en HTML, semantica y estilos CSS.
+2. Validar navegabilidad, links funcionales.
+3. Aplicar Bootstrap
+<backend>
+4. Modelado de BD, DER y Modelo Relacional
+5. Abstraccion y modularizacion en MVC
+- Responsabilidades:
+- Calendario: Inicio 03-10-22/Fin 17-10-22
+- Inconvenientes: -
+
+N° de sprint: 2
+- Sprint Backlog: 
+1. Sitio funcional en hosting remoto de Sitio Institucional en Wordpress
+<frontend>
+2. Funcionalidad con JS en formularios
+3. En subcarpeta o subdominio o linkeado al repositorio de Github
+<backend>
+4. Script de la BD en MySQL
+5. Consultas: insert-select-update-JOIN
+6. Modelo de caso de uso de cada modularizacion (1 CRUD-python, y listado de movimientos/historial por ejemplo)
+- Responsabilidades:
+- Calendario: Inicio 17-10-22/Fin 14-11-22
+- Inconvenientes: -
+
 
 
 
