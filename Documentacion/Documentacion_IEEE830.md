@@ -126,11 +126,12 @@ N° de sprint: 0
 
 N° de sprint: 1
 - Sprint Backlog: 
-<frontend>
+
+frontend
   1. Crear web del proyecto aprobado con sus respectivas paginas con estructura en HTML, semantica y estilos CSS.
   2. Validar navegabilidad, links funcionales.
   3. Aplicar Bootstrap
-<backend>
+backend
   4. Modelado de BD, DER y Modelo Relacional
   5. Abstraccion y modularizacion en MVC
 - Responsabilidades:
@@ -140,10 +141,10 @@ N° de sprint: 1
 N° de sprint: 2
 - Sprint Backlog: 
   1. Sitio funcional en hosting remoto de Sitio Institucional en Wordpress
-<frontend>
+frontend
   2. Funcionalidad con JS en formularios
   3. En subcarpeta o subdominio o linkeado al repositorio de Github
-<backend>
+backend
   4. Script de la BD en MySQL
   5. Consultas: insert-select-update-JOIN
   6. Modelo de caso de uso de cada modularizacion (1 CRUD-python, y listado de movimientos/historial por ejemplo)
