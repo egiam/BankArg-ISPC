@@ -147,11 +147,11 @@ CREATE TABLE `Contactos` (
   KEY `fk` (`id_tipo_contacto`, `id_cliente`, `id_empleado`)
 );
 
--- Flor (?)
+-- Flor 
 CREATE TABLE `Prestamos` (
   `id_prestamo` int NOT NULL AUTO_INCREMENT,
   `id_cuenta` int NOT NULL,
-  `Monto` int,
+  `monto` int,
   `interes_mes_porcentaje` int,
   `fec_start` datetime,
   `fec_venc` datetime,
@@ -905,3 +905,8 @@ select * from Empleados;
 insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (1, 5, 2, 7);
 insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (2, 1, 3, 10);
 select * from Contactos;
+
+-- Prestamos
+INSERT INTO Prestamos (id_prestamo, id_cuenta, monto, interes_mes_porcentaje, fec_start, fec_venc) VALUES (1,4,8000,10,'2022-10-02','2022-11-02');
+INSERT INTO Prestamos (id_prestamo, id_cuenta, monto, interes_mes_porcentaje, fec_start, fec_venc) VALUES (2,5,5000,15,'2022-10-23','2022-11-23');
+SELECT * FROM Prestamos;
