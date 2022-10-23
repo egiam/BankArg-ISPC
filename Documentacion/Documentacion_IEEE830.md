@@ -115,7 +115,7 @@ Establecemos distintos usuarios a saber:
 
 ## SPRINTS
 
-## N° de sprint: 0
+#### N° de sprint: 0
 - Sprint Backlog: 
 1. Definir requerimientos
 2. Plantear historias de usuarios y tareas dependientes de las US
@@ -124,7 +124,7 @@ Establecemos distintos usuarios a saber:
 - Calendario: Inicio 17-09-22/Fin 03-10-22
 - Inconvenientes: -
 
-## N° de sprint: 1
+#### N° de sprint: 1
 - Sprint Backlog: 
 
 frontend
@@ -138,7 +138,7 @@ backend
 - Calendario: Inicio 03-10-22/Fin 17-10-22
 - Inconvenientes: -
 
-## N° de sprint: 2
+#### N° de sprint: 2
 - Sprint Backlog: 
 1. Sitio funcional en hosting remoto de Sitio Institucional en Wordpress
 frontend
