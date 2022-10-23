@@ -1,10 +1,10 @@
 // Crear validacion de login
 
-import { users } from './users.js';
+import { users } from "./users.js";
 
-let btnLogin = document.getElementById('btnLogin');
-let username = document.getElementById('username');
-let password = document.getElementById('password');
+let btnLogin = document.getElementById("btnLogin");
+let username = document.getElementById("username");
+let password = document.getElementById("password");
 
 // Para forma 1
 // let usernames = ['admin', 'user', 'guest'];
@@ -19,19 +19,36 @@ let password = document.getElementById('password');
 //     'Yo': '5678'
 // }
 
-btnLogin.addEventListener('click', function() {
+btnLogin.addEventListener("click", function() {
     // Forma 0
     let user = username.value;
     let pass = password.value;
-    if (user === '' || pass === '') {
-        alert('Debe ingresar usuario y contraseña', 'error');
+    if (user === "" || pass === "") {
+        swal("Error", "Debe ingresar usuario y contraseña", "error", {
+            button: "Aceptar",
+        });
+        // alert("Debe ingresar usuario y contraseña", "error");
     } else {
         if (users[user] === pass) {
-            alert(`A logrado ingresar con exito a su cuenta, Bienvenido ${username.value}`);
-            window.location.href = './home banking.html';
+            swal({
+                title: "Login exitoso",
+                text: "El usuario se ha logueado correctamente",
+                icon: "success",
+                button: "Aceptar",
+            }).then(function() {
+                window.location.href = "../index.html";
+            });
+            // alert(`A logrado ingresar con exito a su cuenta, Bienvenido ${username.value}`);
+            // window.location.href = './home banking.html';
         } else {
-            alert('Usuario o contraseña incorrectos');
-        } 
+            swal({
+                title: "Error",
+                text: "El usuario o contraseña son incorrectos",
+                icon: "error",
+                button: "Aceptar",
+            });
+            // alert("Usuario o contraseña incorrectos");
+        }
     }
 
     // Forma 1
