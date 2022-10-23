@@ -115,7 +115,7 @@ CREATE TABLE `Tipos_contactos` (
   KEY `pk` (`id_tipo_contacto`)
 );
 
--- Sole (?)
+-- Sole
 CREATE TABLE `Empleados` (
   `id_empleado` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(120),
@@ -134,7 +134,7 @@ CREATE TABLE `Empleados` (
   KEY `fk` (`id_tipo_doc`, `cod_localidad`, `id_tipo_sexo`)
 );
 
--- Sole (?)
+-- Sole
 CREATE TABLE `Contactos` (
   `id_contactos` int NOT NULL AUTO_INCREMENT,
   `id_tipo_contacto` int NOT NULL,
@@ -887,3 +887,21 @@ insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Cre
 -- Cuenta_Transferencia
 insert into cuenta_transferencia (id_cuenta, id_transferencia) values (4,2);
 insert into cuenta_transferencia (id_cuenta, id_transferencia) values (5,3);
+
+-- Empleados
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (1, 'Carolina', 'Moya', 1, '10988567', 9, '4600', 'Av. Sabattini', '1953-12-01', 2);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (2, 'Federico', 'Napolitano', 1, '36785009', 9, '200', 'Salta', '1992-07-27', 1);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (3, 'Josefina', 'Carballo', 1, '40987520', 9, '541', 'Rondeau', '1996-05-15', 2);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (4, 'Giuliana', 'Serrano', 1, '20525010', 9, '1162', 'Deán Funes', '1980-04-10', 2);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (5, 'Alejandro', 'Savid', 1, '38710238', 9, '476', 'Coronel Pedro Zanni', '1993-09-12', 1);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (6, 'Gregorio', 'Lábaque', 1, '19089123', 9, '4011', 'Tristán Malbrán', '1960-06-13', 1);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (7, 'Marcela', 'Luna', 1, '25467361', 9, '940', 'Av. Castro Barros', '1975-03-20',2);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (8, 'Jorge', 'Cádiz', 1, '21000345', 9, '5008', 'Fray Luis Beltrán', '1981-10-30', 1);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (9, 'Sebastián', 'Ayala', 1, '36783214', 9, '5858', 'Av. Juan B. Justo', '1991-02-25', 1);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (10, 'Isabel', 'Carreras', 1, '28106554', 9, '1050', 'Bv. Elias Yofre', '1985-06-14', 2);
+select * from Empleados;
+
+-- Contactos
+insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (1, 5, 2, 7);
+insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (2, 1, 3, 10);
+select * from Contactos;
