@@ -100,7 +100,7 @@ CREATE TABLE `Cuenta` (
 );
 
 -- Maria Laura
-CREATE TABLE `Cuenta-Transferencia` (
+CREATE TABLE `Cuenta_Transferencia` (
   `id_cuenta` int NOT NULL AUTO_INCREMENT,
   `id_transferencia` int NOT NULL,
   FOREIGN KEY (`id_transferencia`) REFERENCES `Transferencias`(`id_transferencia`),
@@ -201,7 +201,6 @@ insert into paises (pais) values ('Sudafrica');
 insert into paises (pais) values ('Otro'); -- ID: 33
 
 select * from paises;
-
 
 -- Insertar Provincias
 
@@ -864,6 +863,7 @@ insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_ext
 insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_internacional');
 insert into tipos_transferencias (tipo_transferencia) values ('Transferencia_urgente'); -- ID: 4
 select * from tipos_transferencias;
+
 -- Tipos de contactos
 insert into tipos_contactos (tipo_contacto) values ('Email');
 insert into tipos_contactos (tipo_contacto) values ('Telefono');
@@ -875,4 +875,15 @@ insert into tipos_contactos (tipo_contacto) values ('Instagram'); -- ID: 5
 insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cuenta_envio, cuenta_recibo) values (2, 1, '2022-10-21', 1500, '1364679600006437649134', '3100213000041679456123');
 insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cuenta_envio, cuenta_recibo) values (1, 3, '2022-10-21', 5400, '3160003467798464685643', '3164614677984631856433');
 insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cuenta_envio, cuenta_recibo) values (2, 4, '2022-10-21', 10000, '9467346976413461978003', '5854879461300213467985');
-select * from Transferencias
+select * from Transferencias;
+
+-- Cuentas
+insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
+insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
+insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
+insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
+insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (5, 149.30, '2022-2-14', 0622060411100040578115, 'Boca.Mi.Vida', 'RosariTO*77', true, true);
+
+-- Cuenta_Transferencia
+insert into cuenta_transferencia (id_cuenta, id_transferencia) values (4,2);
+insert into cuenta_transferencia (id_cuenta, id_transferencia) values (5,3);
