@@ -30,6 +30,7 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 - Contacto: Maxi V.
 - Soporte: Juan S.
 - Transferencias: Maria L.
+- Registro: Eze G.
 
 ---
 
