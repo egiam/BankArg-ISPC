@@ -26,7 +26,9 @@ btnRegister.addEventListener("click", function() {
         name.value === "" ||
         lastName.value === ""
     ) {
-        swal("Error", "Todos los campos son obligatorios", "error");
+        swal("Error", "Todos los campos son obligatorios", "error", {
+            button: "Aceptar",
+        });
         // alert("Debe completar todos los campos");
     } else {
         // Verificar si el usuario ya existe
