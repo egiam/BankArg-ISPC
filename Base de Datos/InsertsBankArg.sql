@@ -19,7 +19,7 @@ DELIMITER ;
 
 call insert_cliente('Juan', 'Perez', 1, '12345678', 1, 123, 'Av. Siempre Viva', 1, '1990-01-01', 1);
 
--- Insertar Transaccion con parametros
+-- Insertar Transferencias con parametros
 DELIMITER $$
 CREATE or REPLACE Procedure `insert_transferencia`(
     IN `p_id_tipo_transferencia` INT,
