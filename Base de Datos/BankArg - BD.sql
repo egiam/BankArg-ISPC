@@ -84,10 +84,34 @@ CREATE TABLE `Transferencias` (
   KEY `fk` (`id_tipo_transferencia`, `id_cliente`)
 );
 
--- Maria Laura
+-- Eze
+CREATE TABLE `Tipos_cuentas` (
+  `id_tipo_cuenta` int NOT NULL AUTO_INCREMENT,
+  `tipo_cuenta` varchar(150),
+  KEY `pk` (`id_tipo_cuenta`)
+);
+
+-- Eze
+CREATE TABLE `Tipo_moneda` (
+  `id_tipo_moneda` int NOT NULL AUTO_INCREMENT,
+  `tipo_moneda` varchar(150),
+  KEY `pk` (`id_tipo_moneda`)
+);
+
+-- Eze
+CREATE TABLE `Tipo_estado_cuenta` (
+  `id_tipo_estado_cuenta` int NOT NULL AUTO_INCREMENT,
+  `tipo_estado_cuenta` varchar(150),
+  KEY `pk` (`id_tipo_estado_cuenta`)
+);
+
+-- Eze
 CREATE TABLE `Cuenta` (
   `id_cuenta` int NOT NULL AUTO_INCREMENT,
   `id_cliente` int NOT NULL,
+  `id_tipo_cuenta` int NOT NULL,
+  `id_tipo_moneda` int NOT NULL,
+  `id_tipo_estado_cuenta` int NOT NULL,
   `Monto` int,
   `fecha_creacion` datetime,
   `CBU` varchar(75),
@@ -95,9 +119,31 @@ CREATE TABLE `Cuenta` (
   `password` varchar(250),
   `Credito` boolean,
   `Debito` boolean,
+  FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
+  FOREIGN KEY (`id_tipo_cuenta`) REFERENCES `Tipos_cuentas`(`id_tipo_cuenta`),
+  FOREIGN KEY (`id_tipo_moneda`) REFERENCES `Tipo_moneda`(`id_tipo_moneda`),
+  FOREIGN KEY (`id_tipo_estado_cuenta`) REFERENCES `Tipo_estado_cuenta`(`id_tipo_estado_cuenta`),
   KEY `pk` (`id_cuenta`),
-  KEY `fk` (`id_cliente`)
+  KEY `fk` (`id_cliente`, `id_tipo_cuenta`, `id_tipo_moneda`, `id_tipo_estado_cuenta`)
 );
+
+-- Maria Laura
+-- CREATE TABLE `Cuenta` (
+--   `id_cuenta` int NOT NULL AUTO_INCREMENT,
+--   `id_cliente` int NOT NULL,
+--   `id_tipo_cuenta` int NOT NULL,
+--   `id_tipo_moneda` int NOT NULL,
+--   `id_tipo_estado_cuenta` int NOT NULL,
+--   `Monto` int,
+--   `fecha_creacion` datetime,
+--   `CBU` varchar(75),
+--   `Alias` varchar(150),
+--   `password` varchar(250),
+--   `Credito` boolean,
+--   `Debito` boolean,
+--   KEY `pk` (`id_cuenta`),
+--   KEY `fk` (`id_cliente`)
+-- );
 
 -- Maria Laura
 CREATE TABLE `Cuenta_Transferencia` (
@@ -138,8 +184,9 @@ CREATE TABLE `Empleados` (
 CREATE TABLE `Contactos` (
   `id_contactos` int NOT NULL AUTO_INCREMENT,
   `id_tipo_contacto` int NOT NULL,
-  `id_cliente` int NOT NULL,
-  `id_empleado` int NOT NULL,
+  `id_cliente` int,
+  `id_empleado` int,
+  `contactos` varchar(150),
   FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
   FOREIGN KEY (`id_empleado`) REFERENCES `Empleados`(`id_empleado`),
   FOREIGN KEY (`id_tipo_contacto`) REFERENCES `Tipos_contactos`(`id_tipo_contacto`),
@@ -147,18 +194,109 @@ CREATE TABLE `Contactos` (
   KEY `fk` (`id_tipo_contacto`, `id_cliente`, `id_empleado`)
 );
 
--- Flor 
+-- Eze
+CREATE TABLE `Tipo_prestamo` (
+  `id_tipo_prestamo` int NOT NULL AUTO_INCREMENT,
+  `tipo_prestamo` varchar(150),
+  KEY `pk` (`id_tipo_prestamo`)
+);
+
+-- Eze
+CREATE TABLE `Tipo_estado_prestamo` (
+  `id_tipo_estado_prestamo` int NOT NULL AUTO_INCREMENT,
+  `tipo_estado_prestamo` varchar(150),
+  KEY `pk` (`id_tipo_estado_prestamo`)
+);
+
+-- Eze
+CREATE TABLE `Tipo_cuota` (
+  `id_tipo_cuota` int NOT NULL AUTO_INCREMENT,
+  `tipo_cuota` varchar(150),
+  KEY `pk` (`id_tipo_cuota`)
+);
+
+-- Eze
+CREATE TABLE `Tipo_estado_cuota` (
+  `id_tipo_estado_cuota` int NOT NULL AUTO_INCREMENT,
+  `tipo_estado_cuota` varchar(150),
+  KEY `pk` (`id_tipo_estado_cuota`)
+);
+
+-- Eze
+CREATE TABLE `Tipo_interes` (
+  `id_tipo_interes` int NOT NULL AUTO_INCREMENT,
+  `tipo_interes` varchar(150),
+  KEY `pk` (`id_tipo_interes`)
+);
+
+-- Eze
+CREATE TABLE `Cantidad_cuotas` (
+  `id_cantidad_cuotas` int NOT NULL AUTO_INCREMENT,
+  `cantidad_cuotas` int,
+  KEY `pk` (`id_cantidad_cuotas`)
+);
+
+-- Eze
 CREATE TABLE `Prestamos` (
   `id_prestamo` int NOT NULL AUTO_INCREMENT,
-  `id_cuenta` int NOT NULL,
+  `id_cliente` int NOT NULL,
+  `id_tipo_moneda` int NOT NULL,
+  `id_tipo_prestamo` int NOT NULL,
+  `id_tipo_estado_prestamo` int NOT NULL,
+  `id_tipo_cuota` int NOT NULL,
+  `id_tipo_interes` int NOT NULL,
+  `id_cantidad_cuotas` int NOT NULL,
   `monto` int,
-  `interes_mes_porcentaje` int,
-  `fec_start` datetime,
-  `fec_venc` datetime,
-  FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+  `fecha_creacion` datetime,
+  `fecha_vencimiento` datetime,
+  `fecha_pago` datetime,
+  `fecha_cancelacion` datetime,
+  `fecha_ultimo_pago` datetime,
+  `monto_cuota` int,
+  `monto_interes` int,
+  `monto_total` int,
+  `monto_ultimo_pago` int,
+  `monto_cancelado` int,
+  `monto_pendiente` int,
+  FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
+  FOREIGN KEY (`id_tipo_moneda`) REFERENCES `Tipo_moneda`(`id_tipo_moneda`),
+  FOREIGN KEY (`id_tipo_prestamo`) REFERENCES `Tipo_prestamo`(`id_tipo_prestamo`),
+  FOREIGN KEY (`id_tipo_estado_prestamo`) REFERENCES `Tipo_estado_prestamo`(`id_tipo_estado_prestamo`),
+  FOREIGN KEY (`id_tipo_cuota`) REFERENCES `Tipo_cuota`(`id_tipo_cuota`),
+  FOREIGN KEY (`id_tipo_interes`) REFERENCES `Tipo_interes`(`id_tipo_interes`),
+  FOREIGN KEY (`id_cantidad_cuotas`) REFERENCES `Cantidad_cuotas`(`id_cantidad_cuotas`),
   KEY `pk` (`id_prestamo`),
-  KEY `fk` (`id_cuenta`)
+  KEY `fk` (`id_cliente`, `id_tipo_prestamo`, `id_tipo_estado_prestamo`, `id_tipo_cuota`, `id_tipo_interes`, `id_cantidad_cuotas`)
 );
+
+-- Eze
+CREATE TABLE `Cuotas` (
+  `id_cuota` int NOT NULL AUTO_INCREMENT,
+  `id_prestamo` int NOT NULL,
+  `id_tipo_cuota` int NOT NULL,
+  `id_tipo_estado_cuota` int NOT NULL,
+  `fecha_vencimiento` datetime,
+  `fecha_pago` datetime,
+  `monto` int,
+  FOREIGN KEY (`id_prestamo`) REFERENCES `Prestamos`(`id_prestamo`),
+  FOREIGN KEY (`id_tipo_cuota`) REFERENCES `Tipo_cuota`(`id_tipo_cuota`),
+  FOREIGN KEY (`id_tipo_estado_cuota`) REFERENCES `Tipo_estado_cuota`(`id_tipo_estado_cuota`),
+  KEY `pk` (`id_cuota`),
+  KEY `fk` (`id_prestamo`, `id_tipo_cuota`, `id_tipo_estado_cuota`)
+);
+
+-- -- Flor 
+-- CREATE TABLE `Prestamos` (
+--   `id_prestamo` int NOT NULL AUTO_INCREMENT,
+--   `id_cuenta` int NOT NULL,
+--   `monto` int,
+--   `interes_mes_porcentaje` int,
+--   `fec_start` datetime,
+--   `fec_venc` datetime,
+--   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+--   KEY `pk` (`id_prestamo`),
+--   KEY `fk` (`id_cuenta`)
+-- );
 
 
 
@@ -877,12 +1015,33 @@ insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cue
 insert into Transferencias (id_tipo_transferencia, id_cliente, fecha, monto, cuenta_envio, cuenta_recibo) values (2, 4, '2022-10-21', 10000, '9467346976413461978003', '5854879461300213467985');
 select * from Transferencias;
 
+-- Tipos de cuentas
+insert into Tipos_cuentas (tipo_cuenta) values ('Caja de ahorro');
+insert into Tipos_cuentas (tipo_cuenta) values ('Cuenta corriente');
+insert into Tipos_cuentas (tipo_cuenta) values ('Cuenta de ahorro');
+insert into Tipos_cuentas (tipo_cuenta) values ('Cuenta de inversion'); -- ID: 4
+
+-- Tipo de moneda
+insert into Tipo_moneda (tipo_moneda) values ('Pesos');
+insert into Tipo_moneda (tipo_moneda) values ('Dolares');
+insert into Tipo_moneda (tipo_moneda) values ('Euros'); -- ID: 3
+
+-- Tipo estado de cuenta
+insert into Tipo_estado_cuenta (tipo_estado_cuenta) values ('Activa');
+insert into Tipo_estado_cuenta (tipo_estado_cuenta) values ('Inactiva');
+insert into Tipo_estado_cuenta (tipo_estado_cuenta) values ('Bloqueada'); -- ID: 3
+
 -- Cuentas
-insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
-insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
-insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
-insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
-insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (5, 149.30, '2022-2-14', 0622060411100040578115, 'Boca.Mi.Vida', 'RosariTO*77', true, true);
+
+-- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
+Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 1, 1, 1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
+-- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
+Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 2, 1, 1, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
+-- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
+Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 3, 1, 1, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
+-- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
+Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 4, 1, 1, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
+-- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (5, 149.30, '2022-2-14', 0622060411100040578115, 'Boca.Mi.Vida', 'RosariTO*77', true, true);
 
 -- Cuenta_Transferencia
 insert into cuenta_transferencia (id_cuenta, id_transferencia) values (4,2);
@@ -902,11 +1061,93 @@ insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_
 select * from Empleados;
 
 -- Contactos
-insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (1, 5, 2, 7);
-insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (2, 1, 3, 10);
+insert into Contactos (id_tipo_contacto, id_cliente, contactos) values (1, 2, 'mariaflo@gmail.com');
+insert into Contactos (id_tipo_contacto, id_cliente, contactos) values (2, 2, '1155555555');
+insert into Contactos (id_tipo_contacto, id_cliente, contactos) values (1, 3, 'silviasar@gmail.com');
+insert into Contactos (id_tipo_contacto, id_cliente, contactos) values (2, 3, '1166666666');
+insert into Contactos (id_tipo_contacto, id_cliente, contactos) values (1, 4, 'pablogom@gmail.com');
+insert into Contactos (id_tipo_contacto, id_cliente, contactos) values (2, 4, '1177777777');
+
+insert into Contactos (id_tipo_contacto, id_empleado, contactos)  values (2, 1, '1522366554');
+insert into Contactos (id_tipo_contacto, id_empleado, contactos)  values (2, 2, '1522366555');
+insert into Contactos (id_tipo_contacto, id_empleado, contactos)  values (2, 3, '1522366556');
+insert into Contactos (id_tipo_contacto, id_empleado, contactos)  values (2, 4, '1522366557');
+insert into Contactos (id_tipo_contacto, id_empleado, contactos)  values (2, 5, '1522366558');
+
+-- insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (1, 5, 2, 7);
+-- insert into Contactos (id_contactos, id_tipo_contacto, id_cliente, id_empleado) values (2, 1, 3, 10);
 select * from Contactos;
 
+
+-- Tipo Prestamo
+insert into Tipo_prestamo(tipo_prestamo) values ('Hipotecario');
+insert into Tipo_prestamo(tipo_prestamo) values ('Personal');
+insert into Tipo_prestamo(tipo_prestamo) values ('Automotor');
+insert into Tipo_prestamo(tipo_prestamo) values ('Consumo');
+insert into Tipo_prestamo(tipo_prestamo) values ('Tarjeta de Credito');
+select * from Tipo_prestamo;
+
+-- Tipo estado prestamo
+insert into Tipo_estado_prestamo(tipo_estado_prestamo) values ('Pendiente');
+insert into Tipo_estado_prestamo(tipo_estado_prestamo) values ('Aprobado');
+insert into Tipo_estado_prestamo(tipo_estado_prestamo) values ('Rechazado');
+insert into Tipo_estado_prestamo(tipo_estado_prestamo) values ('Cancelado');
+select * from Tipo_estado_prestamo;
+
+-- Tipo cuota
+insert into Tipo_cuota(tipo_cuota) values ('Mensual');
+insert into Tipo_cuota(tipo_cuota) values ('Quincenal');
+insert into Tipo_cuota(tipo_cuota) values ('Semanal');
+select * from Tipo_cuota;
+
+-- tipo estado cuota
+insert into Tipo_estado_cuota(tipo_estado_cuota) values ('Pendiente');
+insert into Tipo_estado_cuota(tipo_estado_cuota) values ('Pagada');
+insert into Tipo_estado_cuota(tipo_estado_cuota) values ('Vencida');
+select * from Tipo_estado_cuota;
+
+-- Tipo interes
+insert into Tipo_interes(tipo_interes) values ('Fijo');
+insert into Tipo_interes(tipo_interes) values ('Variable');
+select * from Tipo_interes;
+
+-- Cantidad cuotas
+insert into Cantidad_cuotas(cantidad_cuotas) values (3);
+insert into Cantidad_cuotas(cantidad_cuotas) values (6);
+insert into Cantidad_cuotas(cantidad_cuotas) values (9);
+insert into Cantidad_cuotas(cantidad_cuotas) values (12);
+insert into Cantidad_cuotas(cantidad_cuotas) values (24);
+insert into Cantidad_cuotas(cantidad_cuotas) values (36);
+insert into Cantidad_cuotas(cantidad_cuotas) values (48);
+insert into Cantidad_cuotas(cantidad_cuotas) values (60);
+select * from Cantidad_cuotas;
+
 -- Prestamos
-INSERT INTO Prestamos (id_prestamo, id_cuenta, monto, interes_mes_porcentaje, fec_start, fec_venc) VALUES (1,4,8000,10,'2022-10-02','2022-11-02');
-INSERT INTO Prestamos (id_prestamo, id_cuenta, monto, interes_mes_porcentaje, fec_start, fec_venc) VALUES (2,5,5000,15,'2022-10-23','2022-11-23');
-SELECT * FROM Prestamos;
+insert into Prestamos(id_cliente, id_tipo_moneda, id_tipo_prestamo, id_tipo_estado_prestamo, id_tipo_cuota, id_tipo_interes, id_cantidad_cuotas, monto, fecha_creacion, fecha_vencimiento, fecha_pago, fecha_cancelacion, fecha_ultimo_pago, monto_cuota, monto_interes, monto_total, monto_ultimo_pago, monto_cancelado, monto_pendiente) values (2, 1, 1, 1, 1, 1, 1, 100000, '2019-01-01', '2019-03-01', '2019-03-01', '2019-03-01', '2019-03-01', 100000, 100000, 100000, 100000, 100000, 0);
+insert into Prestamos(id_cliente, id_tipo_moneda, id_tipo_prestamo, id_tipo_estado_prestamo, id_tipo_cuota, id_tipo_interes, id_cantidad_cuotas, monto, fecha_creacion, fecha_vencimiento, fecha_pago, fecha_cancelacion, fecha_ultimo_pago, monto_cuota, monto_interes, monto_total, monto_ultimo_pago, monto_cancelado, monto_pendiente) values (3, 1, 2, 1, 2, 2, 2, 200000, '2019-01-01', '2019-06-01', '2019-06-01', '2019-06-01', '2019-06-01', 100000, 100000, 200000, 100000, 200000, 0);
+insert into Prestamos(id_cliente, id_tipo_moneda, id_tipo_prestamo, id_tipo_estado_prestamo, id_tipo_cuota, id_tipo_interes, id_cantidad_cuotas, monto, fecha_creacion, fecha_vencimiento, fecha_pago, fecha_cancelacion, fecha_ultimo_pago, monto_cuota, monto_interes, monto_total, monto_ultimo_pago, monto_cancelado, monto_pendiente) values (4, 1, 3, 1, 3, 1, 3, 300000, '2019-01-01', '2019-09-01', '2019-09-01', '2019-09-01', '2019-09-01', 100000, 100000, 300000, 100000, 300000, 0);
+insert into Prestamos(id_cliente, id_tipo_moneda, id_tipo_prestamo, id_tipo_estado_prestamo, id_tipo_cuota, id_tipo_interes, id_cantidad_cuotas, monto, fecha_creacion, fecha_vencimiento, fecha_pago, fecha_cancelacion, fecha_ultimo_pago, monto_cuota, monto_interes, monto_total, monto_ultimo_pago, monto_cancelado, monto_pendiente) values (5, 1, 4, 1, 1, 2, 4, 400000, '2019-01-01', '2019-12-01', '2019-12-01', '2019-12-01', '2019-12-01', 100000, 100000, 400000, 100000, 400000, 0);
+select * from Prestamos;
+
+-- Prestamos
+-- INSERT INTO Prestamos (id_prestamo, id_cuenta, monto, interes_mes_porcentaje, fec_start, fec_venc) VALUES (1,4,8000,10,'2022-10-02','2022-11-02');
+-- INSERT INTO Prestamos (id_prestamo, id_cuenta, monto, interes_mes_porcentaje, fec_start, fec_venc) VALUES (2,5,5000,15,'2022-10-23','2022-11-23');
+-- SELECT * FROM Prestamos;
+
+-- Cuotas
+insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 1, 1, '2019-01-01', '2019-01-01', 100000);
+insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 1, 1, '2019-02-01', '2019-02-01', 100000);
+insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 1, 1, '2019-03-01', '2019-03-01', 100000);
+insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 1, '2019-01-01', '2019-01-01', 100000);
+insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 1, '2019-02-01', '2019-02-01', 100000);
+insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 1, '2019-03-01', '2019-03-01', 100000);
+select * from Cuotas;
+
+
+
+
+
+
+-- Procedures en MySQL
+
+--
