@@ -1189,11 +1189,4 @@ insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, 
 insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 3, 2, 1, '2019-03-01', '2019-03-01', 100000);
 select * from Cuotas;
 
-
-
-
-
-
--- Procedures en MySQL
-
---
+-- 
