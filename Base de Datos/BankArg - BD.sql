@@ -1,6 +1,8 @@
 create database BankArg;
 use BankArg;
 
+-- drop database BankArg;
+
 -- Joaco
 CREATE TABLE `Documentos` (
   `id_tipo_doc` int NOT NULL AUTO_INCREMENT,
