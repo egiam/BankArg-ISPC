@@ -161,6 +161,20 @@ CREATE TABLE `Tipos_contactos` (
   KEY `pk` (`id_tipo_contacto`)
 );
 
+-- Eze tipo empleado
+CREATE TABLE `Tipo_empleado` (
+  `id_tipo_empleado` int NOT NULL AUTO_INCREMENT,
+  `tipo_empleado` varchar(150),
+  KEY `pk` (`id_tipo_empleado`)
+);
+
+-- Eze tipo estado empleado
+CREATE TABLE `Tipo_estado_empleado` (
+  `id_tipo_estado_empleado` int NOT NULL AUTO_INCREMENT,
+  `tipo_estado_empleado` varchar(150),
+  KEY `pk` (`id_tipo_estado_empleado`)
+);
+
 -- Sole
 CREATE TABLE `Empleados` (
   `id_empleado` int NOT NULL AUTO_INCREMENT,
@@ -173,11 +187,17 @@ CREATE TABLE `Empleados` (
   `calle` varchar(150),
   `fecha_nac` datetime,
   `id_tipo_sexo` int NOT NULL,
+  `id_tipo_empleado` int NOT NULL,
+  `id_tipo_estado_empleado` int NOT NULL,
+  `fecha_ingreso` datetime,
+  `sueldo` DECIMAL(10,2),
   FOREIGN KEY (`id_tipo_sexo`) REFERENCES `Sexos`(`id_tipo_sexo`),
   FOREIGN KEY (`id_tipo_doc`) REFERENCES `Documentos`(`id_tipo_doc`),
   FOREIGN KEY (`cod_localidad`) REFERENCES `localidades`(`cod_localidad`),
+  FOREIGN KEY (`id_tipo_empleado`) REFERENCES `Tipo_empleado`(`id_tipo_empleado`),
+  FOREIGN KEY (`id_tipo_estado_empleado`) REFERENCES `Tipo_estado_empleado`(`id_tipo_estado_empleado`),
   KEY `pk` (`id_empleado`),
-  KEY `fk` (`id_tipo_doc`, `cod_localidad`, `id_tipo_sexo`)
+  KEY `fk` (`id_tipo_sexo`, `id_tipo_doc`, `cod_localidad`, `id_tipo_empleado`, `id_tipo_estado_empleado`)
 );
 
 -- Sole
@@ -272,6 +292,7 @@ CREATE TABLE `Prestamos` (
 -- Eze
 CREATE TABLE `Cuotas` (
   `id_cuota` int NOT NULL AUTO_INCREMENT,
+  `nro_cuota` int,
   `id_prestamo` int NOT NULL,
   `id_tipo_cuota` int NOT NULL,
   `id_tipo_estado_cuota` int NOT NULL,
@@ -1045,19 +1066,44 @@ Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_c
 
 -- Cuenta_Transferencia
 insert into cuenta_transferencia (id_cuenta, id_transferencia) values (4,2);
-insert into cuenta_transferencia (id_cuenta, id_transferencia) values (5,3);
+insert into cuenta_transferencia (id_cuenta, id_transferencia) values (2,3);
+
+-- Tipo empleado
+insert into Tipo_empleado (tipo_empleado) values ('Administrador');
+insert into Tipo_empleado (tipo_empleado) values ('Cajero');
+insert into Tipo_empleado (tipo_empleado) values ('Gerente');
+insert into Tipo_empleado (tipo_empleado) values ('Supervisor');
+
+-- Tipo estado empleado
+insert into Tipo_estado_empleado (tipo_estado_empleado) values ('Activo');
+insert into Tipo_estado_empleado (tipo_estado_empleado) values ('Inactivo');
+insert into Tipo_estado_empleado (tipo_estado_empleado) values ('Vacaciones');
 
 -- Empleados
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (1, 'Carolina', 'Moya', 1, '10988567', 9, '4600', 'Av. Sabattini', '1953-12-01', 2);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (2, 'Federico', 'Napolitano', 1, '36785009', 9, '200', 'Salta', '1992-07-27', 1);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (3, 'Josefina', 'Carballo', 1, '40987520', 9, '541', 'Rondeau', '1996-05-15', 2);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (4, 'Giuliana', 'Serrano', 1, '20525010', 9, '1162', 'Deán Funes', '1980-04-10', 2);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (5, 'Alejandro', 'Savid', 1, '38710238', 9, '476', 'Coronel Pedro Zanni', '1993-09-12', 1);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (6, 'Gregorio', 'Lábaque', 1, '19089123', 9, '4011', 'Tristán Malbrán', '1960-06-13', 1);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (7, 'Marcela', 'Luna', 1, '25467361', 9, '940', 'Av. Castro Barros', '1975-03-20',2);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (8, 'Jorge', 'Cádiz', 1, '21000345', 9, '5008', 'Fray Luis Beltrán', '1981-10-30', 1);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (9, 'Sebastián', 'Ayala', 1, '36783214', 9, '5858', 'Av. Juan B. Justo', '1991-02-25', 1);
-insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (10, 'Isabel', 'Carreras', 1, '28106554', 9, '1050', 'Bv. Elias Yofre', '1985-06-14', 2);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values (1, 'Juan', 'Perez', 1, 12345678, 1, 1234, 'Av. Siempreviva', '1990-01-01', 1, 1, 1, '2021-01-01', 100000);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values (2, 'Pedro', 'Gomez', 1, 12345678, 1, 1234, 'Av. Siempreviva', '1990-01-01', 1, 2, 1, '2021-01-01', 100000);
+insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values (3, 'Maria', 'Gonzalez', 1, 12345678, 1, 1234, 'Av. Siempreviva', '1990-01-01', 2, 3, 1, '2021-01-01', 100000);
+
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (1, 'Carolina', 'Moya', 1, '10988567', 9, '4600', 'Av. Sabattini', '1953-12-01', 2);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Carolina', 'Moya', 1, '10988567', 9, '4600', 'Av. Sabattini', '1953-12-01', 2, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (2, 'Federico', 'Napolitano', 1, '36785009', 9, '200', 'Salta', '1992-07-27', 1);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Federico', 'Napolitano', 1, '36785009', 9, '200', 'Salta', '1992-07-27', 1, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (3, 'Josefina', 'Carballo', 1, '40987520', 9, '541', 'Rondeau', '1996-05-15', 2);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Josefina', 'Carballo', 1, '40987520', 9, '541', 'Rondeau', '1996-05-15', 2, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (4, 'Giuliana', 'Serrano', 1, '20525010', 9, '1162', 'Deán Funes', '1980-04-10', 2);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Giuliana', 'Serrano', 1, '20525010', 9, '1162', 'Deán Funes', '1980-04-10', 2, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (5, 'Alejandro', 'Savid', 1, '38710238', 9, '476', 'Coronel Pedro Zanni', '1993-09-12', 1);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Alejandro', 'Savid', 1, '38710238', 9, '476', 'Coronel Pedro Zanni', '1993-09-12', 1, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (6, 'Gregorio', 'Lábaque', 1, '19089123', 9, '4011', 'Tristán Malbrán', '1960-06-13', 1);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Gregorio', 'Lábaque', 1, '19089123', 9, '4011', 'Tristán Malbrán', '1960-06-13', 1, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (7, 'Marcela', 'Luna', 1, '25467361', 9, '940', 'Av. Castro Barros', '1975-03-20',2);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Marcela', 'Luna', 1, '25467361', 9, '940', 'Av. Castro Barros', '1975-03-20',2, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (8, 'Jorge', 'Cádiz', 1, '21000345', 9, '5008', 'Fray Luis Beltrán', '1981-10-30', 1);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Jorge', 'Cádiz', 1, '21000345', 9, '5008', 'Fray Luis Beltrán', '1981-10-30', 1, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (9, 'Sebastián', 'Ayala', 1, '36783214', 9, '5858', 'Av. Juan B. Justo', '1991-02-25', 1);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Sebastián', 'Ayala', 1, '36783214', 9, '5858', 'Av. Juan B. Justo', '1991-02-25', 1, 3, 1, '2021-01-01', 100000);
+-- insert into Empleados (id_empleado, nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo) values (10, 'Isabel', 'Carreras', 1, '28106554', 9, '1050', 'Bv. Elias Yofre', '1985-06-14', 2);
+insert into Empleados (nombre, apellido, id_tipo_doc, nro_doc, cod_localidad, nro_calle, calle, fecha_nac, id_tipo_sexo, id_tipo_empleado, id_tipo_estado_empleado, fecha_ingreso, sueldo) values ('Isabel', 'Carreras', 1, '28106554', 9, '1050', 'Bv. Elias Yofre', '1985-06-14', 2, 3, 1, '2021-01-01', 100000);
 select * from Empleados;
 
 -- Contactos
@@ -1135,12 +1181,12 @@ select * from Prestamos;
 -- SELECT * FROM Prestamos;
 
 -- Cuotas
-insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 1, 1, '2019-01-01', '2019-01-01', 100000);
-insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 1, 1, '2019-02-01', '2019-02-01', 100000);
-insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 1, 1, '2019-03-01', '2019-03-01', 100000);
-insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 1, '2019-01-01', '2019-01-01', 100000);
-insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 1, '2019-02-01', '2019-02-01', 100000);
-insert into Cuotas(id_prestamo, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 1, '2019-03-01', '2019-03-01', 100000);
+insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 1, 1, 1, '2019-01-01', '2019-01-01', 100000);
+insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 2, 1, 1, '2019-02-01', '2019-02-01', 100000);
+insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (1, 3, 1, 1, '2019-03-01', '2019-03-01', 100000);
+insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 1, 2, 1, '2019-01-01', '2019-01-01', 100000);
+insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 2, 1, '2019-02-01', '2019-02-01', 100000);
+insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 3, 2, 1, '2019-03-01', '2019-03-01', 100000);
 select * from Cuotas;
 
 
