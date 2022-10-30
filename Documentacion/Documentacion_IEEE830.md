@@ -110,7 +110,7 @@ Establecemos distintos usuarios a saber:
 - US13- Como dueño del banco quiero que el sistema recopile datos tales como: Nombre, Apellido, Edad para tener registro de nuestro clientes.
 - US14- Como usuario quiero un apartado de préstamos para poder sacar uno de manera simple.
 - US15- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control.
-- US16- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control
+- US16- Como usuario del banco quiero poder realizar y recibir transferencias, para realizar movimientos en mi cuenta
 - US17- Como dueño del banco quiero que se recopile datos sobre los servicios más utilizados para futuras adecuaciones. 
 
 ## SPRINTS
