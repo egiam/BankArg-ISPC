@@ -35,22 +35,29 @@ btnRegister.addEventListener("click", function() {
         if (users[username.value] === undefined) {
             // Verificar si las contraseñas coinciden
             if (password.value === password2.value) {
-                // Agregar usuario
-                users[username.value] = password.value;
+                // Validar email
+                if (validateEmail(email.value)) {
+                    // Agregar usuario
+                    users[username.value] = password.value;
 
-                // Verifica si se guardo el usuario {Solo para devs} TODO: Borrar a posteriori
-                console.log(users);
+                    // Verifica si se guardo el usuario {Solo para devs} TODO: Borrar a posteriori
+                    console.log(users);
 
-                swal({
-                    title: "Registro exitoso",
-                    text: "El usuario se ha registrado correctamente",
-                    icon: "success",
-                    button: "Aceptar",
-                }).then(function() {
-                    window.location.href = "./login.html";
-                });
-                // alert("Usuario registrado con exito");
-                // window.location.href = "./login.html";
+                    swal({
+                        title: "Registro exitoso",
+                        text: "El usuario se ha registrado correctamente",
+                        icon: "success",
+                        button: "Aceptar",
+                    }).then(function() {
+                        window.location.href = "./login.html";
+                    });
+                    // alert("Usuario registrado con exito");
+                    // window.location.href = "./login.html";
+                } else {
+                    swal("Error", "El email no es valido", "error", {
+                        button: "Aceptar",
+                    });
+                }
             } else {
                 swal({
                     title: "Error",
@@ -71,5 +78,11 @@ btnRegister.addEventListener("click", function() {
         }
     }
 });
+
+// Funcion para validar email
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
 
 //
