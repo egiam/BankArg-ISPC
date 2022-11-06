@@ -125,7 +125,7 @@ nav .fa {
     display: none;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1024px) {
     .text-box h1 {
         font-size: 20px;
     }

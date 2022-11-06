@@ -15,15 +15,44 @@ btnSend.addEventListener("click", function() {
             button: "Aceptar",
         });
     } else {
-        swal({
-            title: "Mensaje enviado",
-            text: "El mensaje se ha enviado correctamente, estaremos en contacto con usted",
-            icon: "success",
-            button: "Aceptar",
-        }).then(function() {
-            window.location.href = "../index.html";
-        });
+        if (validateEmail(email.value)) {
+            swal({
+                title: "Mensaje enviado",
+                text: "El mensaje se ha enviado correctamente, estaremos en contacto con usted",
+                icon: "success",
+                button: "Aceptar",
+            }).then(function() {
+                fetchEmail();
+                window.location.href = "../index.html";
+            });
+        } else {
+            swal("Error", "El email no es valido", "error", {
+                button: "Aceptar",
+            });
+        }
     }
 });
+
+// Funcion para validar email
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+// Fetch email API from https://formsubmit.co/ and send email to me when someone send a message
+fetchEmail = () => {
+    fetch("https://formsubmit.co/BankArgISPC@gmail.com", {
+        method: "POST",
+        body: JSON.stringify({
+            name: nameSender.value,
+            email: email.value,
+            lastName: lastName.value,
+            message: message.value,
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};
 
 //
