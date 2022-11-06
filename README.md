@@ -4,7 +4,7 @@
 
 ---
 
-## Ir a branch Documentación para ver la documentación del proyecto en base al ISPC. (Sprint 0 mayoritariamente)
+### Ir a branch Documentación para ver la documentación del proyecto en base al ISPC. (Sprint 0 mayoritariamente)
 
 Ahí estan las participaciones de algunos integrantes, que por mejor organizacion colocamos alli y luego nos dimos cuenta que teniamos que tener todo en Main.
 
@@ -15,6 +15,8 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 ### El mapa se encuentra en la carpeta Documentacion
 
 ### El MVC se encuentra en la carpeta Documentacion
+
+### Los casos de uso se encuentran en la carpeta Documentacion
 
 ---
 
@@ -34,12 +36,10 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 # Integrantes
 
-1. Felipe Sjodin - email : felipesjodin@gmail.com - GitHub: FELIPE-SJODIN
-2. Soledad Peralta, email ssperaltaa@gmail.com / GitHub: Ssperalta
-3. Ezequiel Giampaoli - Email: ezegiampaoli@gmail.com - GitHub: egiam
-4. Florencia Tome - florenciapodtome@gmail.com/ github flor3ncia
-5. Verón Maximiliano. correo: maxi.ush.ind@gmail.com github: MaxiGithub11
-6. Maria Laura Peralta, email: lali.635@gmail.com github: PeraltaMariaL-ISPC (peraltaml.ispc@gmail.com)
-7. Valentin Alterio - email: alteriovalentin01@gmail.com - github: Valealterio
-8. Salinas Juan José - email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
-9. Joaquin Bonvechi - email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
+1. Soledad Peralta, email ssperaltaa@gmail.com / GitHub: Ssperalta
+2. Ezequiel Giampaoli - Email: ezegiampaoli@gmail.com - GitHub: egiam
+3. Verón Maximiliano. correo: maxi.ush.ind@gmail.com github: MaxiGithub11
+4. Maria Laura Peralta, email: lali.635@gmail.com github: PeraltaMariaL-ISPC (peraltaml.ispc@gmail.com)
+5. Valentin Alterio - email: alteriovalentin01@gmail.com - github: Valealterio
+6. Salinas Juan José - email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
+7. Joaquin Bonvechi - email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
