@@ -34,7 +34,7 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 ---
 
-# Integrantes que quedan
+# Integrantes actuales
 
 1. Soledad Peralta, email ssperaltaa@gmail.com / GitHub: Ssperalta
 2. Ezequiel Giampaoli - Email: ezegiampaoli@gmail.com - GitHub: egiam
