@@ -1,4 +1,4 @@
-## Link al sitio en linea: https://egiam.github.io/DesarrolloWeb-SegundoSemestre/
+## Link al sitio en linea: https://egiam.github.io/DesarrolloWeb-SegundoSemestre/front/index.html
 
 ## Link al video: https://youtu.be/rN-Nq3JZeyk
 
