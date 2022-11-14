@@ -2,6 +2,8 @@
 
 ## Link al video: https://youtu.be/rN-Nq3JZeyk
 
+## Link al sitio de WordPress en linea: http://bankarg.byethost7.com/
+
 ---
 
 ### Ir a branch Documentación para ver la documentación del proyecto en base al ISPC. (Sprint 0 mayoritariamente)
