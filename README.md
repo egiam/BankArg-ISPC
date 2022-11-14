@@ -36,6 +36,16 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 ---
 
+#### JavaScript implementado en paginas:
+ - Login
+ - Registro
+ - Perfil
+ - Soporte
+ - Transferencias
+ - Prestamos
+
+---
+
 # Integrantes actuales
 
 1. Soledad Peralta, email ssperaltaa@gmail.com / GitHub: Ssperalta
