@@ -55,3 +55,4 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 5. Valentin Alterio - email: alteriovalentin01@gmail.com - github: Valealterio
 6. Salinas Juan José - email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
 7. Joaquin Bonvechi - email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
+8. Orellana Gabriel Alejandro - email: gabi.ale.orellana@gmail.com - GitHub: Unbroken13
