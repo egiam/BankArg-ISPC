@@ -48,11 +48,12 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 
 # Integrantes actuales
 
-1. Soledad Peralta, email ssperaltaa@gmail.com / GitHub: Ssperalta
+1. Soledad Peralta - Email ssperaltaa@gmail.com - GitHub: Ssperalta
 2. Ezequiel Giampaoli - Email: ezegiampaoli@gmail.com - GitHub: egiam
-3. Verón Maximiliano. correo: maxi.ush.ind@gmail.com github: MaxiGithub11
-4. Maria Laura Peralta, email: lali.635@gmail.com github: PeraltaMariaL-ISPC (peraltaml.ispc@gmail.com)
-5. Valentin Alterio - email: alteriovalentin01@gmail.com - github: Valealterio
-6. Salinas Juan José - email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
-7. Joaquin Bonvechi - email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
-8. Orellana Gabriel Alejandro - email: gabi.ale.orellana@gmail.com - GitHub: Unbroken13
+3. Verón Maximiliano - Email: maxi.ush.ind@gmail.com - Github: MaxiGithub11
+4. Maria Laura Peralta - Email: lali.635@gmail.com - Github: PeraltaMariaL-ISPC (peraltaml.ispc@gmail.com)
+5. Valentin Alterio - Email: alteriovalentin01@gmail.com - Github: Valealterio
+6. Salinas Juan José - Email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
+7. Joaquin Bonvechi - Email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
+8. Orellana Gabriel Alejandro - Email: gabi.ale.orellana@gmail.com - GitHub: Unbroken13
+9. MILIAN Roberto Ariel - Email: milianarieleam@gmail.com - GitHub: 
