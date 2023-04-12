@@ -56,4 +56,4 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 6. Salinas Juan José - Email: juansalinaa@gmail.com - GitHub: JohnJoshepSalinas
 7. Joaquin Bonvechi - Email: joacobonvechi2272002@gmail.com - GitHub: JoacoBonvechi
 8. Orellana Gabriel Alejandro - Email: gabi.ale.orellana@gmail.com - GitHub: Unbroken13
-9. MILIAN Roberto Ariel - Email: milianarieleam@gmail.com - GitHub: 
+9. MILIAN Roberto Ariel - Email: milianarieleam@gmail.com - GitHub: MilianAriel
