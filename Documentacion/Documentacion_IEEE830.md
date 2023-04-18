@@ -39,9 +39,9 @@ Como contraparte los dueños del banco obtendrán un reporte de los usuarios reg
 / Rol: Desarrollador
 / Información de contacto: maxi.ush.ind@gmail.com
 
-- Nombre: Evelin Vidal
-/ Rol: Desarrolladora
-/ Información de contacto: evelinyanina@gmail.com
+- Nombre: Joaquin Bonvechi
+/ Rol: Desarrollador
+/ Información de contacto: joacobonvechi2272002@gmail.com
 
 - Nombre: Maria Laura Peralta
 / Rol: Desarrolladora
@@ -55,11 +55,11 @@ Como contraparte los dueños del banco obtendrán un reporte de los usuarios reg
 / Rol: Desarrollador
 / Información de contacto: juansalinaa@gmail.com
 
-### 1.6 Referencias
+### 1.5 Referencias
 - Titulo del documento: Standard IEEE 830 - 1998
 - Referencia: IEEE 
 
-### 1.7 Resúmen
+### 1.6 Resúmen
 Este documento se ha estructurado en tres partes: primero se realiza una introducción al proyecto desarrollado otorgando una visión general de la especificación de recursos del sistema. En segundo lugar se intenta establecer las principales funciones que éste debe realizar, los datos asociados y los factores, restricciones, supuestos y dependencias que afectan al desarrollo, sin entrar en excesivos detalles. Por último, se definen detalladamente los requisitos que debe satisfacer el sistema.
 
 ## 2. Descripción general
@@ -85,21 +85,22 @@ Establecemos distintos usuarios a saber:
 
 ### 2.4 Restricciones
 -	Interfaz para ser usada con internet.
--	Lenguajes y tecnologías en uso: HTML, CSS, JV
+-	Lenguajes y tecnologías en uso: Frontend HTML, CSS, JV Backend:Python, Base de datos: SQL 
 -	Los servidores deben ser capaces de atender consultas concurrentemente.
 -	El sistema se diseñará según un modelo cliente/servidor.
 -	El sistema deberá tener un diseño e implementación sencilla, independiente de la plataforma o del lenguaje de programación.
+
 
 ## 3. Requisitos especificos
 
 ### Product Backlog
 
-- US01- Como cliente del banco quiero crear una lista de contactos con transferencias frecuentes, para agilizar y facilitar el trámite.
-- US02- Como cliente quiero una sección de ayuda, para preguntar o resolver problemas.
-- US03- Como cliente del banco quiero poder registrarme en la página, para acceder a los servicios del banco de forma remota.
-- US04- Como cliente del banco quiero al registrarme un tutorial de cómo utilizar la página para aprovechar todas las funciones.
-- US05- Como cliente del banco quiero tener un historial de todos mis movimientos (transferencias, pagos, recargas, etc.) para tener un control de mi dinero. 
-- US06- Como cliente quiero que el historial de movimientos tenga un filtro, para que sea más fácil encontrar lo que necesito.
+- US01- Como usuario quiero crear una lista de contactos con transferencias frecuentes, para agilizar y facilitar el trámite.
+- US02- Como usuario quiero una sección de ayuda, para preguntar o resolver problemas.
+- US03- Como usuario quiero poder registrarme en la página, para acceder a los servicios del banco de forma remota.
+- US04- Como usuario quiero al registrarme un tutorial de cómo utilizar la página para aprovechar todas las funciones.
+- US05- Como usuario quiero tener un historial de todos mis movimientos (transferencias, pagos, recargas, etc.) para tener un control de mi dinero. 
+- US06- Como usuario quiero que el historial de movimientos tenga un filtro, para que sea más fácil encontrar lo que necesito.
 - US07- Como usuario quiero sacar turnos online para realizar algún trámite bancario.
 - US08- Como usuario quiero manejar mis tarjetas de crédito y débito desde un mismo lugar para poder realizar pagos y gestionarlas de forma eficiente.
 - US09- Como usuario quiero poder cobrar mi sueldo directamente en la cuenta, para tener mi plata más rápido en el banco.
@@ -109,16 +110,43 @@ Establecemos distintos usuarios a saber:
 - US13- Como dueño del banco quiero que el sistema recopile datos tales como: Nombre, Apellido, Edad para tener registro de nuestro clientes.
 - US14- Como usuario quiero un apartado de préstamos para poder sacar uno de manera simple.
 - US15- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control.
-- US16- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control
+- US16- Como usuario del banco quiero poder realizar y recibir transferencias, para realizar movimientos en mi cuenta
 - US17- Como dueño del banco quiero que se recopile datos sobre los servicios más utilizados para futuras adecuaciones. 
 
-## Sprints
+## SPRINTS
 
-- N° de sprint:
-- Sprint Backlog:
+#### N° de sprint: 0
+- Sprint Backlog: 
+1. Definir requerimientos
+2. Plantear historias de usuarios y tareas dependientes de las US
+3. Definir tareas dentro de las historias de usuario
 - Responsabilidades:
-- Calendario:
-- Inconvenientes:
+- Calendario: Inicio 17-09-22/Fin 03-10-22
+- Inconvenientes: -
+
+#### N° de sprint: 1
+- Sprint Backlog: 
+1. Crear web del proyecto aprobado con sus respectivas paginas con estructura en HTML, semantica y estilos CSS.
+2. Validar navegabilidad, links funcionales.
+3. Aplicar Bootstrap
+4. Modelado de BD, DER y Modelo Relacional
+5. Abstraccion y modularizacion en MVC
+- Responsabilidades:
+- Calendario: Inicio 03-10-22/Fin 17-10-22
+- Inconvenientes: -
+
+#### N° de sprint: 2
+- Sprint Backlog: 
+1. Sitio funcional en hosting remoto de Sitio Institucional en Wordpress
+2. Funcionalidad con JS en formularios
+3. En subcarpeta o subdominio o linkeado al repositorio de Github
+4. Script de la BD en MySQL
+5. Consultas: insert-select-update-JOIN
+6. Modelo de caso de uso de cada modularizacion (1 CRUD-python, y listado de movimientos/historial por ejemplo)
+- Responsabilidades:
+- Calendario: Inicio 17-10-22/Fin 14-11-22
+- Inconvenientes: -
+
 
 
 
