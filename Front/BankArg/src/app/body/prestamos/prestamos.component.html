@@ -1,1 +1,56 @@
-<p>prestamos works!</p>
+<!-- Body nuevo -->
+<div class="container bg-main">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <div id="first">
+        <div class="myform form">
+          <div class="logo mb-3">
+            <div class="col-md-12 text-center">
+              <h2>Solicitud de Préstamo</h2>
+            </div>
+          </div>
+          <form action="" method="post" name="login">
+            <div class="form-group">
+              <label for="InputMonto" class="form-label"
+                >Monto a solicitar:
+              </label>
+              <input
+                type="number"
+                class="form-control"
+                id="InputMonto"
+                aria-describedby=""
+              />
+              <div class="form-text">Números enteros, sin comas.</div>
+            </div>
+            <div class="form-group">
+              <label for="InputCuotas" class="form-label"
+                >Cantidad de cuotas en las que desea devolver el préstamo:
+              </label>
+              <input
+                type="number"
+                class="form-control"
+                id="InputCuotas"
+                aria-describedby=""
+              />
+            </div>
+
+            <!-- Boton -->
+            <div class="col-md-12 text-center">
+              <a
+                href="#"
+                class="btn btn-block mybtn btn-primary tx-tfm"
+                id="btnSolicitar"
+                >Solicitar</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Body nuevo -->
+
+<!-- JS de pretamos -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/prestamos.js"></script>
