@@ -5,7 +5,7 @@
       <div class="send-email">
         <h2>Envíanos un correo</h2>
       </div>
-      <form action="https://formsubmit.co/BankArgISPC@gmail.com" method="POST">
+      <form #myForm (submit)="onSubmit()" action="https://formsubmit.co/BankArgISPC@gmail.com" method="POST">
         <div class="mb-3">
           <label for="form-name" class="form-label">Nombre</label>
           <input
@@ -55,11 +55,7 @@
         <div class="mb-3">
           <button class="button-send" role="button" id="btnSend">Enviar</button>
         </div>
-        <input
-          type="hidden"
-          name="_next"
-          value="https://egiam.github.io/DesarrolloWeb-SegundoSemestre/vistas/contact.html"
-        />
+        
         <input type="hidden" name="_captcha" value="false" />
       </form>
     </div>
