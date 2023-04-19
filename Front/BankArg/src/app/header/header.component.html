@@ -3,8 +3,8 @@
     <a class="logo" href="./index.html">
       <img src="./assets/img/logo-solo.png" alt="BankArg" class="nav-brand" />
     </a>
-    <div class="nav-links" id="navLinks">
-      <i class="fa fa-times" onclick="hideMenu()"></i>
+    <div [ngClass]="{'active': validacion === true}" class="nav-links" id="navLinks">
+      <i class="fa fa-times" (click)="change()"></i>
       <ul>
         <li><a href="./index.html">Inicio</a></li>
         <li><a href="./vistas/about.html">Sobre</a></li>
@@ -19,6 +19,6 @@
         </li>
       </ul>
     </div>
-    <i class="fa fa-bars" onclick="showMenu()"></i>
+    <i class="fa fa-bars" (click)="change()"></i>
   </nav>
 </header>

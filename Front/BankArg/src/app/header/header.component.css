@@ -1,3 +1,5 @@
+
+
 .header-container {
   width: 100%;
   left: 0;
@@ -142,6 +144,10 @@ nav .fa {
     z-index: 10;
     transition: 1s;
   }
+  .active {
+  right: 0px;
+}
+
   nav .fa {
     display: block;
     color: #e7f6f2;
