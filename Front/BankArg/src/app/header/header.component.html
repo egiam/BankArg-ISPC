@@ -1,21 +1,21 @@
 <header class="header-container">
   <nav class="nav-head">
-    <a class="logo" href="./index.html">
+    <a class="logo" routerLink="">
       <img src="./assets/img/logo-solo.png" alt="BankArg" class="nav-brand" />
     </a>
     <div [ngClass]="{'active': validacion === true}" class="nav-links" id="navLinks">
       <i class="fa fa-times" (click)="change()"></i>
       <ul>
-        <li><a href="./index.html">Inicio</a></li>
-        <li><a href="./vistas/about.html">Sobre</a></li>
-        <li><a href="./vistas/products.html">Productos</a></li>
-        <li><a href="./vistas/transferencia.html">Transferencias</a></li>
-        <li><a href="./vistas/soporte.html">Soporte</a></li>
-        <li><a href="./vistas/contact.html">Contactanos</a></li>
-        <li><a href="./vistas/perfil.html">Perfil</a></li>
-        <li><a href="./vistas/home banking.html">Home Banking</a></li>
+        <li><a routerLink="">Inicio</a></li>
+        <li><a routerLink="sobre">Sobre</a></li>
+        <li><a routerLink="productos">Productos</a></li>
+        <li><a routerLink="transferencias">Transferencias</a></li>
+        <li><a routerLink="soporte">Soporte</a></li>
+        <li><a routerLink="contacto">Contactanos</a></li>
+        <li><a routerLink="perfil">Perfil</a></li>
+        <li><a routerLink="homeBanking">Home Banking</a></li>
         <li class="login-subrayado">
-          <a href="./vistas/login.html" id="login-button">Ingresa</a>
+          <a routerLink="login" id="login-button">Ingresa</a>
         </li>
       </ul>
     </div>
