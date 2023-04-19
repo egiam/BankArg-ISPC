@@ -1,0 +1,260 @@
+/* Features */
+
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+}
+
+.icon-link > .bi {
+  margin-top: 0.125rem;
+  margin-left: 0.125rem;
+  fill: currentcolor;
+  transition: transform 0.25s ease-in-out;
+}
+
+.icon-link:hover > .bi {
+  transform: translate(0.25rem);
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+.text-shadow-1 {
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.text-shadow-2 {
+  text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.text-shadow-3 {
+  text-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.feature-icon-small {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* SubHeader */
+
+/* SubHeader */
+
+.subheader {
+  /* background: url(../../../assets/img/SubHeader\ -\ 1.webp) no-repeat center
+    center/cover; */
+  height: 60vh;
+  width: 100%;
+  position: relative;
+  margin-bottom: 50px;
+  background-position: top;
+}
+
+.subheader h1 {
+  position: absolute;
+  top: 35%;
+  /* left: 21%; */
+  padding-left: 30px;
+  padding-bottom: 15px;
+  transform: translate(-50%, -50%);
+  color: var(--claro);
+  font-size: 4rem;
+}
+
+.subheader p {
+  position: absolute;
+  top: 45%;
+  /* left: 21%; */
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transform: translate(-50%, -50%);
+  color: var(--claro);
+  font-size: 2.5rem;
+}
+
+.subheader-ingresar {
+  position: absolute;
+  top: 65%;
+  /* left: 21%; */
+  width: 20%;
+  padding-top: 15px;
+  transform: translate(-50%, -50%);
+  color: var(--claro);
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.subheader-ingresar a {
+  text-decoration: none;
+  width: 100%;
+  background-color: var(--azul-claro);
+  border-color: var(--azul-claro);
+  font-weight: 500;
+  transition: 1s;
+}
+
+.subheader-ingresar a:hover {
+  background-color: var(--azul-claro-hover);
+  border-color: var(--azul-claro-hover);
+}
+
+@media (max-width: 500px) {
+  .subheader h1 {
+    display: none;
+  }
+  .subheader p {
+    display: none;
+  }
+  .subheader-ingresar {
+    font-size: 1rem;
+    width: 80%;
+    align-items: center;
+    text-align: center;
+    top: 70%;
+    left: 50%;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+  .subheader h1 {
+    display: none;
+  }
+  .subheader p {
+    display: none;
+  }
+  .subheader-ingresar {
+    font-size: 1rem;
+    width: 60%;
+    align-items: center;
+    text-align: center;
+    top: 70%;
+    left: 50%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .subheader h1 {
+    display: flex;
+    left: 20%;
+  }
+  .subheader p {
+    display: flex;
+    left: 31%;
+  }
+  .subheader-ingresar {
+    font-size: 1rem;
+    width: 40%;
+    top: 65%;
+    left: 30%;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1350px) {
+  .subheader h1 {
+    display: flex;
+    left: 15%;
+  }
+  .subheader p {
+    display: flex;
+    left: 20%;
+  }
+  .subheader-ingresar {
+    font-size: 1rem;
+    width: 30%;
+    top: 65%;
+    left: 20%;
+  }
+}
+
+@media (min-width: 1350px) and (max-width: 1500px) {
+  .subheader h1 {
+    display: flex;
+    left: 12%;
+  }
+  .subheader p {
+    display: flex;
+    left: 19%;
+  }
+  .subheader-ingresar {
+    font-size: 1rem;
+    width: 25%;
+    top: 65%;
+    left: 15%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .subheader h1 {
+    display: flex;
+    left: 9%;
+  }
+  .subheader p {
+    display: flex;
+    left: 15%;
+  }
+  .subheader-ingresar {
+    font-size: 1rem;
+    width: 20%;
+    top: 65%;
+    left: 12%;
+  }
+}
+
+/* End SubHeader */
+
+.main-home {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.featurette-divider {
+  margin-top: 80px;
+}
+
+.sub-details {
+  margin-top: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+p .btn,
+a.btn {
+  background-color: var(--azul-claro);
+  border-color: var(--azul-claro);
+  font-weight: 500;
+  transition: 0.8s;
+}
+
+p .btn:hover,
+a.btn:hover {
+  background-color: var(--azul-claro-hover);
+  border-color: var(--azul-claro-hover);
+}
+
+div.text-bg-primary {
+  background-color: var(--azul-claro) !important;
+}
+
+h2 span.text-muted {
+  color: var(--azul-claro) !important;
+}
+
+@media (max-width: 800px) {
+  .sub-details {
+    font-style: justify;
+  }
+}
+
+/* End Home Page */

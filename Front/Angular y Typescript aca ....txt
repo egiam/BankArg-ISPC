@@ -1,0 +1,15 @@
+-> npm install -g @angular/cli
+-> ng --version
+
+Creando Proyecto
+-> ng new <<nombre de la aplicación>> 
+    ? Would you like to add Angular routing? (y/N). Introducir y
+    ? Which stylesheet format would you like to use?. Introducir CSS  
+
+Start the server
+-> ng serve
+ADENTRO DE LA CARPETA DEL PROYECTO CREADO ANTERIORMENTE
+SINO NO ANDA
+
+Instalar Bootstrap
+-> npm install bootstrap
