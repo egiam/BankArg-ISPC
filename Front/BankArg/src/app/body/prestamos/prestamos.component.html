@@ -19,7 +19,7 @@
                 class="form-control"
                 id="InputMonto"
                 aria-describedby=""
-              />
+                [(ngModel)]="monto" /> 
               <div class="form-text">Números enteros, sin comas.</div>
             </div>
             <div class="form-group">
@@ -31,15 +31,17 @@
                 class="form-control"
                 id="InputCuotas"
                 aria-describedby=""
+                [(ngModel)]="cuotas"
               />
             </div>
 
             <!-- Boton -->
             <div class="col-md-12 text-center">
               <a
-                href="#"
+                href="javascript:void(0)"
                 class="btn btn-block mybtn btn-primary tx-tfm"
                 id="btnSolicitar"
+                (click)="Solicitar()"
                 >Solicitar</a
               >
             </div>

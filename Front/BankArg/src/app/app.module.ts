@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,6 +21,7 @@ import { PagosComponent } from './body/pagos/pagos.component';
 import { ValidacionComponent } from './body/validacion/validacion.component';
 import { PrestamosComponent } from './body/prestamos/prestamos.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,7 @@ import { PrestamosComponent } from './body/prestamos/prestamos.component';
     ValidacionComponent,
     PrestamosComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
