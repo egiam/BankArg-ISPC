@@ -1,5 +1,5 @@
 -> npm install -g @angular/cli
--> ng --version
+-> ng version
 
 Creando Proyecto
 -> ng new <<nombre de la aplicación>> 
@@ -13,3 +13,9 @@ SINO NO ANDA
 
 Instalar Bootstrap
 -> npm install bootstrap
+
+Instalar sweetalert2
+-> npm install sweetalert2
+
+Componente
+-> ng g c <<nombre componente>>

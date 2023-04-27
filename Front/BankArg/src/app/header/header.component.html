@@ -3,7 +3,11 @@
     <a class="logo" routerLink="">
       <img src="./assets/img/logo-solo.png" alt="BankArg" class="nav-brand" />
     </a>
-    <div [ngClass]="{'active': validacion === true}" class="nav-links" id="navLinks">
+    <div
+      [ngClass]="{ active: validacion === true }"
+      class="nav-links"
+      id="navLinks"
+    >
       <i class="fa fa-times" (click)="change()"></i>
       <ul>
         <li><a routerLink="">Inicio</a></li>
