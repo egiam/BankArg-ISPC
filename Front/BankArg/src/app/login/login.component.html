@@ -8,7 +8,7 @@
     <div class="formulario">
       <h1>Inicio de sesión</h1>
 
-      <form  (submit)="iniciarSesion()" method="post" action="./home banking.html">
+      <form  [formGroup]="form" (ngSubmit)="iniciarSesion()" name="form">
         <div class="username">
           <input formControlName="username" type="text" placeholder="Nombre de Usuario" id="username" required />
         </div>

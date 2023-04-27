@@ -20,7 +20,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { PagosComponent } from './body/pagos/pagos.component';
 import { ValidacionComponent } from './body/validacion/validacion.component';
 import { PrestamosComponent } from './body/prestamos/prestamos.component';
-
+import { FormBuilder, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { PrestamosComponent } from './body/prestamos/prestamos.component';
     ValidacionComponent,
     PrestamosComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

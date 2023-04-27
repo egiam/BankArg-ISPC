@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-prestamos',
@@ -9,9 +12,8 @@ import Swal from 'sweetalert2';
 
 
 export class PrestamosComponent {
-
-  monto:any=""
-  cuotas:any=""
+  public monto: number=0;
+  public cuotas: number=0;
 
 
   public Solicitar() {
