@@ -15,8 +15,8 @@ export class LoginComponent {
   constructor(private formBuilder: FormBuilder) { 
     //Creamos el grupo de controles para el formulario 
     this.form=this.formBuilder.group({
-      username:[""],
-      password:[""]
+      username:"",
+      password:""
    })
   }
   
@@ -28,7 +28,7 @@ export class LoginComponent {
     return this.form.get("password");
   }
 
-  users = {
+  users:{ [key: string]: string; } = {
     'admin': 'admin',
     'user': 'user',
     'guest': 'guest',
@@ -40,6 +40,7 @@ export class LoginComponent {
 
 
   iniciarSesion(){
+    
     let user = this.username?.value;
     let pass = this.password?.value;
     if (user === "" || pass === "") {

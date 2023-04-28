@@ -9,7 +9,9 @@
               <h2>Solicitud de Préstamo</h2>
             </div>
           </div>
-          <form action="" method="post" name="login">
+
+
+          <form [formGroup]="form" action="" method="post" name="login">
 
             <div class="form-group">
               <label for="InputMonto" class="form-label"
@@ -20,7 +22,7 @@
                 class="form-control"
                 id="InputMonto"
                 aria-describedby=""
-                [(ngModel)]="monto"
+                formControlName="monto"
               />
               <div class="form-text">Números enteros, sin comas.</div>
             </div>
@@ -29,7 +31,8 @@
               <label for="InputCuotas" class="form-label"
                 >Cantidad de cuotas en las que desea devolver el préstamo:
               </label>
-              <input [(ngModel)]="cuotas"
+              <input 
+                formControlName="cuotas"
                 type="number"
                 class="form-control"
               />
