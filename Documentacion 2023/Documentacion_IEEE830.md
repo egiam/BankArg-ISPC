@@ -1,5 +1,6 @@
 # Especificacion de Requerimientos de Software
 Proyecto BankArg
+##Capitulo 2
 
 ## Introducción
 Este documento es una Especificación de Requisitos Software (ERS) para el Sistema de información de banca online. Esta especificación se ha estructurado en base al estándar IEEE. Práctica recomendada para especificaciones de Requisitos Software ANSI/IEEE 830, 1998.
@@ -23,17 +24,17 @@ Como contraparte los dueños del banco obtendrán un reporte de los usuarios reg
 / Rol: Scrum master y desarrollador
 / Información de contacto: ezegiampaoli@gmail.com
 
-- Nombre: Felipe Sjodin
+- Nombre: Gabriel Alejandro Orellana
 / Rol: Desarrollador
-/ Información de contacto: felipesjodin@gmail.com
+/ Información de contacto: gabi.ale.orellana@gmail.com
 
 - Nombre: Soledad Peralta
 / Rol: Desarrolladora
 / Información de contacto: ssperaltaa@gmail.com
 
-- Nombre: Florencia P. Tome
-/ Rol: Desarrolladora
-/ Información de contacto: florenciapodtome@gmail.com
+- Nombre: Roberto Ariel Milian
+/ Rol: Desarrollador
+/ Información de contacto: milianarieleam@gmail.com
 
 - Nombre: Maximiliano Veron
 / Rol: Desarrollador
@@ -95,57 +96,42 @@ Establecemos distintos usuarios a saber:
 
 ### Product Backlog
 
-- US01- Como usuario quiero crear una lista de contactos con transferencias frecuentes, para agilizar y facilitar el trámite.
-- US02- Como usuario quiero una sección de ayuda, para preguntar o resolver problemas.
-- US03- Como usuario quiero poder registrarme en la página, para acceder a los servicios del banco de forma remota.
-- US04- Como usuario quiero al registrarme un tutorial de cómo utilizar la página para aprovechar todas las funciones.
-- US05- Como usuario quiero tener un historial de todos mis movimientos (transferencias, pagos, recargas, etc.) para tener un control de mi dinero. 
-- US06- Como usuario quiero que el historial de movimientos tenga un filtro, para que sea más fácil encontrar lo que necesito.
-- US07- Como usuario quiero sacar turnos online para realizar algún trámite bancario.
-- US08- Como usuario quiero manejar mis tarjetas de crédito y débito desde un mismo lugar para poder realizar pagos y gestionarlas de forma eficiente.
-- US09- Como usuario quiero poder cobrar mi sueldo directamente en la cuenta, para tener mi plata más rápido en el banco.
-- US10- Como usuario quiero poder pagar mis servicios (luz, gas, teléfono, seguros, etc) para realizar el tramite desde la comodidad de mi hogar.
-- US11- Como usuario quiero alertas sobre los vencimientos de impuestos o servicios adheridos a mi cuenta, para pagar a tiempo y sin intereses.
-- US12- Como usuario quiero validar un token cuando realice movimientos para tener una mayor seguridad y evitar fraudes.
-- US13- Como dueño del banco quiero que el sistema recopile datos tales como: Nombre, Apellido, Edad para tener registro de nuestro clientes.
-- US14- Como usuario quiero un apartado de préstamos para poder sacar uno de manera simple.
-- US15- Como usuario quiero un aviso en caso que mi cuenta fuese abierta en otro dispositivo para mayor control.
-- US16- Como usuario del banco quiero poder realizar y recibir transferencias, para realizar movimientos en mi cuenta
-- US17- Como dueño del banco quiero que se recopile datos sobre los servicios más utilizados para futuras adecuaciones. 
+- US01- Como dueño del banco quiero una sección donde el cliente pueda ver todos los servicios que brindamos para que pueda acceder a ellos con mayor facilidad.
+- US02- Como cliente, quiero poder solicitar una tarjeta de crédito o débito en línea.
+- US03- Como cliente, quiero poder informar de cargos fraudulentos o disputar transacciones sospechosas.
+- US04- Como cliente, quiero poder acceder a un servicio de asesoría financiera en línea para obtener consejos y sugerencias personalizadas sobre cómo invertir mi dinero.
+- US05- Como cliente, quiero poder solicitar un seguro en línea para mi hogar, automóvil u otros bienes para protegerme de imprevistos. 
+- US06- Como cliente, quiero poder recibir notificaciones en tiempo real sobre actividades sospechosas en mi cuenta, como retiros inusuales o gastos atípicos.
+- US07- Como cliente, quiero poder contratar un plazo fijo en línea y obtener información clara y precisa sobre los plazos, las tasas de interés y los requisitos para poder invertir mi dinero de manera segura y rentable.
+- US08- Como cliente, quiero poder abrir una cuenta de ahorro en línea para poder ahorrar dinero de manera efectiva y conveniente.
+- US09- Como cliente, quiero poder establecer metas de ahorro en línea para que pueda trabajar hacia objetivos financieros específicos, como un fondo de emergencia o una compra importante.
+- US10- Como cliente, quiero poder recibir alertas por correo electrónico o mensaje de texto cuando mi cuenta bancaria cae por debajo de un monto específico.
+
 
 ## SPRINTS
 
 #### N° de sprint: 0
 - Sprint Backlog: 
-1. Definir requerimientos
-2. Plantear historias de usuarios y tareas dependientes de las US
-3. Definir tareas dentro de las historias de usuario
+1. Definir requerimientos para el nuevo módulo a desarrollar e-commerce (colocarlos en el Product Backlog del Project), a su vez revisar si han cumplimentado todos los requerimientos previos, realizando mejoras del mismo
+2. Plantear Historias de Usuarios y Tareas dependientes de las US para incorporarlas en el repositorio remoto GitHub.
+3. Definir tareas dentro de las Historias de Usuario 
 - Responsabilidades:
-- Calendario: Inicio 17-09-22/Fin 03-10-22
+- Calendario: Fecha Inicio = 10/04/2023 -  Fecha de Fin = 21/04/2023
 - Inconvenientes: -
 
 #### N° de sprint: 1
 - Sprint Backlog: 
-1. Crear web del proyecto aprobado con sus respectivas paginas con estructura en HTML, semantica y estilos CSS.
-2. Validar navegabilidad, links funcionales.
-3. Aplicar Bootstrap
-4. Modelado de BD, DER y Modelo Relacional
-5. Abstraccion y modularizacion en MVC
+1. Convertir los archivos .html del proyecto previo, en una SPA en Angular con módulos y components correspondientes.
+2. Crear módulos y componentes para la tienda virtual o ecommerce.
+3. Incorporar la navegabilidad de la aplicación mediante Routing con Angular.
+4. Diseño conceptual al que ya hemos visto como DER: Diagrama Entidad-Relación.
+5. Diseño Lógico que consta de la Normalización y el Modelo Relacional.
+6. Diseño Físico que es el script legible de la DB en MySQL.
+7. Crear un Diagrama de Clases y Casos de Uso para facilitar el modelado en POO.
 - Responsabilidades:
-- Calendario: Inicio 03-10-22/Fin 17-10-22
+- Calendario: Fecha Inicio = 24/04/2023 -  Fecha de Fin = 05/05/2023
 - Inconvenientes: -
 
-#### N° de sprint: 2
-- Sprint Backlog: 
-1. Sitio funcional en hosting remoto de Sitio Institucional en Wordpress
-2. Funcionalidad con JS en formularios
-3. En subcarpeta o subdominio o linkeado al repositorio de Github
-4. Script de la BD en MySQL
-5. Consultas: insert-select-update-JOIN
-6. Modelo de caso de uso de cada modularizacion (1 CRUD-python, y listado de movimientos/historial por ejemplo)
-- Responsabilidades:
-- Calendario: Inicio 17-10-22/Fin 14-11-22
-- Inconvenientes: -
 
 
 
