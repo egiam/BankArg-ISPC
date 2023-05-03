@@ -1,0 +1,59 @@
+<div>
+  <!-- <nav class="volver">
+        <a href="../index.html" class="btn btn-primary" role="button" data-bs-toggle="button">Volver atrás</a
+    >
+  </nav> -->
+  <!-- FORMULARIO DE INICIO -->
+  <div class="centrar">
+    <div class="formulario">
+      <h1>Inicio de sesión</h1>
+
+      <form  [formGroup]="form" (ngSubmit)="iniciarSesion()" name="form">
+        <div class="username">
+          <input
+            formControlName="username"
+            type="text"
+            placeholder="Nombre de Usuario"
+            id="username"
+            required
+          />
+        </div>
+
+        <div class="username">
+          <input
+            formControlName="password"
+            type="password"
+            placeholder="Contraseña"
+            id="password"
+            required
+          />
+        </div>
+
+        <div class="recordar">
+          <a routerLink="/contacto"> No recuerdo mi contraseña </a>
+        </div>
+
+        <!-- <a href="./home banking.html"> -->
+        <input
+          (click)="iniciarSesion()"
+          type="button"
+          value="Iniciar"
+          class="boton-inicio"
+          id="btnLogin"
+        />
+        <!-- </a> -->
+
+        <!-- <input type="submit" value="Iniciar" class="boton-inicio" /> -->
+
+        <div class="registrarse">
+          Soy un nuevo usuario, quiero
+          <a routerLink="/register">registrarme</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- JS de login -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="module" src="../js/login.js"></script>

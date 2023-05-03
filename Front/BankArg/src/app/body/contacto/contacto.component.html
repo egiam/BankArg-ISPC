@@ -1,0 +1,74 @@
+<!-- Body -->
+<div class="container">
+  <div class="row flex-wrap-reverse">
+    <div class="col-md-6">
+      <div class="send-email">
+        <h2>Envíanos un correo</h2>
+      </div>
+      <form #myForm (submit)="onSubmit()" action="https://formsubmit.co/BankArgISPC@gmail.com" method="POST">
+        <div class="mb-3">
+          <label for="form-name" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nombre"
+            id="form-name"
+            placeholder="Juan"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="form-lastname" class="form-label">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            name="apellido"
+            id="form-lastname"
+            placeholder="Lopez"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="form-email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="form-email"
+            placeholder="Lopezjuan@gmail.com"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="form-message" class="form-label"
+            >Comentario/Mensaje</label
+          >
+          <textarea
+            class="form-control"
+            name="mensaje"
+            id="form-message"
+            rows="3"
+            placeholder="Estoy interesado en..."
+            required
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <button class="button-send" role="button" id="btnSend">Enviar</button>
+        </div>
+        
+        <input type="hidden" name="_captcha" value="false" />
+      </form>
+    </div>
+    <div class="col-md-6">
+      <img
+        class="img-fluid"
+        src="../assets/img/undraw_Mobile_inbox_re_ciwq.png"
+      />
+    </div>
+  </div>
+</div>
+<!-- End Body -->
+
+<!-- JS de contact  -->
+<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/contact.js"></script> -->

@@ -1,0 +1,8 @@
+div.container-soporte {
+  /* centrar */
+  text-align: center;
+}
+
+#FAQ, #Turnos, #TyC, #Seguridad {
+  cursor: pointer;
+}

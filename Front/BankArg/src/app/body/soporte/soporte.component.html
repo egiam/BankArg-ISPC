@@ -1,0 +1,78 @@
+<!-- Body -->
+<h1 style="text-align: center">Soporte</h1>
+<!-- End Body -->
+
+<a
+  (click)="funcionNoActiva()"
+  class="main-cards d-flex align-items-center justify-content-center"
+  id="FAQ"
+>
+  <span
+    ><img src="../assets/img/arrow-right-arrow-left-solid.svg" alt=""
+  /></span>
+  <p>FAQ (Preguntas Frecuentes)</p>
+  <div></div>
+</a>
+
+<!-- Menu De Preguntas -->
+<div class="izquierda">
+  <div class="formulario">
+    <form method="post">
+      <div class="selection d-flex align-items-center justify-content-center flex-column" >
+        <input type="list" placeholder="Seleccione Una Pregunta" required />
+
+        <a
+        (click)="funcionNoActiva()"
+          class="main-cards d-flex align-items-center justify-content-center"
+          id="Turnos"
+        >
+          <span>
+            <img src="../assets/img/arrow-right-arrow-left-solid.svg" alt="" />
+          </span>
+          <p>Turnos</p>
+          <div></div>
+        </a>
+
+
+        <div class="dropdown d-flex justify-content-center align-items-center flex-column">
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toogle "
+            id="simpleDropdown"
+            data-bs-toggle="dropdown"
+            aria-espanded="false"
+            (click)="funcionNoActiva()"
+          >
+            Día
+          </button>
+
+          <a
+          (click)="funcionNoActiva()"
+            class="main-cards d-flex align-items-center justify-content-center"
+            id="TyC"
+          >
+            <span
+              ><img src="../assets/img/arrow-right-arrow-left-solid.svg" alt=""
+            /></span>
+            <p>Términos y Condiciones</p>
+            <div></div>
+          </a>
+          <a
+          (click)="funcionNoActiva()"
+            class="main-cards d-flex align-items-center justify-content-center"
+            id="Seguridad"
+          >
+            <span
+              ><img src="../assets/img/arrow-right-arrow-left-solid.svg" alt=""
+            /></span>
+            <p>Seguridad</p>
+            <div></div>
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- JS de Soporte -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/soporte.js"></script>

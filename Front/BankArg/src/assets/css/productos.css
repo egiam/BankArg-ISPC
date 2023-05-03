@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+    padding: 25px 0;
+}
+h3{
+    text-align: center;
+    padding: 20px 0;
+}
+.hb {
+  height: 300px;
+}
+
+.logos{
+    padding: 10px 10px;
+}
+
+@media (max-width:992px){
+.logos{
+    flex-wrap: wrap;
+}
+}
+
+
+@media(max-width:1200px){
+    .hb{
+        height: 250px;
+    }
+}
