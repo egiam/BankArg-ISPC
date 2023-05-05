@@ -110,9 +110,9 @@ CREATE TABLE `Tipo_estado_cuenta` (
 -- Eze
 CREATE TABLE `Cuenta` (
   `id_cuenta` int NOT NULL AUTO_INCREMENT,
-  `id_cliente` int NOT NULL,
-  `id_tipo_cuenta` int NOT NULL,
-  `id_tipo_moneda` int NOT NULL,
+  -- `id_cliente` int NOT NULL,
+  -- `id_tipo_cuenta` int NOT NULL,
+  -- `id_tipo_moneda` int NOT NULL,
   `id_tipo_estado_cuenta` int NOT NULL,
   `Monto` int,
   `fecha_creacion` datetime,
@@ -121,12 +121,13 @@ CREATE TABLE `Cuenta` (
   `password` varchar(250),
   `Credito` boolean,
   `Debito` boolean,
-  FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
-  FOREIGN KEY (`id_tipo_cuenta`) REFERENCES `Tipos_cuentas`(`id_tipo_cuenta`),
-  FOREIGN KEY (`id_tipo_moneda`) REFERENCES `Tipo_moneda`(`id_tipo_moneda`),
+  -- FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
+  -- FOREIGN KEY (`id_tipo_cuenta`) REFERENCES `Tipos_cuentas`(`id_tipo_cuenta`),
+  -- FOREIGN KEY (`id_tipo_moneda`) REFERENCES `Tipo_moneda`(`id_tipo_moneda`),
   FOREIGN KEY (`id_tipo_estado_cuenta`) REFERENCES `Tipo_estado_cuenta`(`id_tipo_estado_cuenta`),
   KEY `pk` (`id_cuenta`),
-  KEY `fk` (`id_cliente`, `id_tipo_cuenta`, `id_tipo_moneda`, `id_tipo_estado_cuenta`)
+  -- KEY `fk` (`id_cliente`, `id_tipo_cuenta`, `id_tipo_moneda`, `id_tipo_estado_cuenta`)
+  KEY `fk` (`id_tipo_estado_cuenta`)
 );
 
 -- Maria Laura
@@ -320,6 +321,88 @@ CREATE TABLE `Cuotas` (
 --   KEY `pk` (`id_prestamo`),
 --   KEY `fk` (`id_cuenta`)
 -- );
+
+-- Eze
+CREATE TABLE `Tipo_tarjeta` (
+  `id_tipo_tarjeta` int NOT NULL AUTO_INCREMENT,
+  `tipo_tarjeta` varchar(150),
+  KEY `pk` (`id_tipo_tarjeta`)
+);
+
+-- Eze
+CREATE TABLE `Tipo_estado_tarjeta` (
+  `id_tipo_estado_tarjeta` int NOT NULL AUTO_INCREMENT,
+  `tipo_estado_tarjeta` varchar(150),
+  KEY `pk` (`id_tipo_estado_tarjeta`)
+);
+
+-- Eze
+CREATE TABLE `Tarjeta`(
+  `id_tarjeta` int NOT NULL AUTO_INCREMENT,
+  `id_cuenta` int NOT NULL,
+  `id_tipo_tarjeta` int NOT NULL,
+  `id_tipo_estado_tarjeta` int NOT NULL,
+  `fecha_vencimiento` datetime,
+  `numero` varchar(150),
+  FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+  FOREIGN KEY (`id_tipo_tarjeta`) REFERENCES `Tipo_tarjeta`(`id_tipo_tarjeta`),
+  FOREIGN KEY (`id_tipo_estado_tarjeta`) REFERENCES `Tipo_estado_tarjeta`(`id_tipo_estado_tarjeta`),
+  KEY `pk` (`id_tarjeta`),
+  KEY `fk` (`id_cuenta`, `id_tipo_tarjeta`, `id_tipo_estado_tarjeta`)
+);
+
+-- Eze
+CREATE TABLE `Cuenta-TipoCuenta`(
+  `id_cuenta` int NOT NULL,
+  `id_tipo_cuenta` int NOT NULL,
+  FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+  FOREIGN KEY (`id_tipo_cuenta`) REFERENCES `Tipos_cuentas`(`id_tipo_cuenta`),
+  KEY `pk` (`id_cuenta`, `id_tipo_cuenta`)
+);
+
+-- Eze
+CREATE TABLE `Cuenta-TipoMoneda`(
+  `id_cuenta` int NOT NULL,
+  `id_tipo_moneda` int NOT NULL,
+  FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+  FOREIGN KEY (`id_tipo_moneda`) REFERENCES `Tipo_moneda`(`id_tipo_moneda`),
+  KEY `pk` (`id_cuenta`, `id_tipo_moneda`)
+);
+
+-- Eze
+-- CREATE TABLE `Cuenta-TipoEstadoCuenta`(
+--   `id_cuenta` int NOT NULL,
+--   `id_tipo_estado_cuenta` int NOT NULL,
+--   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+--   FOREIGN KEY (`id_tipo_estado_cuenta`) REFERENCES `Tipo_estado_cuenta`(`id_tipo_estado_cuenta`),
+--   KEY `pk` (`id_cuenta`, `id_tipo_estado_cuenta`)
+-- )
+
+-- Eze
+CREATE TABLE `Cliente-Cuenta`(
+  `id_cuenta` int NOT NULL,
+  `id_cliente` int NOT NULL,
+  FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+  FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
+  KEY `pk` (`id_cuenta`, `id_cliente`)
+);
+
+-- Eze
+CREATE TABLE `Plazo_fijo`(
+  `id_plazo_fijo` int NOT NULL AUTO_INCREMENT,
+  `id_cuenta` int NOT NULL,
+  `id_tipo_moneda` int NOT NULL,
+  -- `id_tipo_estado_cuenta` int NOT NULL,
+  `monto` int,
+  `interes` float,
+  `fecha_creacion` datetime,
+  `fecha_vencimiento` datetime,
+  FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
+  FOREIGN KEY (`id_tipo_moneda`) REFERENCES `Tipo_moneda`(`id_tipo_moneda`),
+  -- FOREIGN KEY (`id_tipo_estado_cuenta`) REFERENCES `Tipo_estado_cuenta`(`id_tipo_estado_cuenta`),
+  KEY `pk` (`id_plazo_fijo`),
+  KEY `fk` (`id_cuenta`, `id_tipo_moneda`)
+);
 
 
 
@@ -1056,15 +1139,20 @@ insert into Tipo_estado_cuenta (tipo_estado_cuenta) values ('Bloqueada'); -- ID:
 
 -- Cuentas
 
--- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
-Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 1, 1, 1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
--- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
-Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 2, 1, 1, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
--- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
-Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 3, 1, 1, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
--- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
-Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 4, 1, 1, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
--- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (5, 149.30, '2022-2-14', 0622060411100040578115, 'Boca.Mi.Vida', 'RosariTO*77', true, true);
+Insert into Cuenta (id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
+Insert into Cuenta (id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
+Insert into Cuenta (id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
+Insert into Cuenta (id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
+
+-- -- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
+-- Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (1, 1, 1, 1, 100000, '2022-10-09', 0622060411100072958132, 'Ciruela.Gradas.Azul', 'd2b-18B2Mw', true, false);
+-- -- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
+-- Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (2, 2, 1, 1, 72586, '2022-05-12', 0622060411100072757630, 'Patin.Mojado.Barco', 'nqB0ZyPUF', true, true);
+-- -- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
+-- Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (3, 3, 1, 1, 20086.50, '2021-07-16', 0622060411100030086433, 'Ancla.Tarjeta.Bisagra', 'MK&dh03+h', true, false);
+-- -- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
+-- Insert into Cuenta (id_cliente, id_tipo_cuenta, id_tipo_moneda, id_tipo_estado_cuenta, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (4, 4, 1, 1, 724.15, '2021-12-01', 0622060411100028299306, 'Auto.Barrio.Pulsera', 'HRFNXgPJM', true, true);
+-- -- insert into Cuenta (id_cliente, Monto, fecha_creacion, CBU, Alias, password, Credito, Debito) values (5, 149.30, '2022-2-14', 0622060411100040578115, 'Boca.Mi.Vida', 'RosariTO*77', true, true);
 
 -- Cuenta_Transferencia
 insert into cuenta_transferencia (id_cuenta, id_transferencia) values (4,2);
@@ -1190,5 +1278,20 @@ insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, 
 insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 2, 2, 1, '2019-02-01', '2019-02-01', 100000);
 insert into Cuotas(id_prestamo, nro_cuota, id_tipo_cuota, id_tipo_estado_cuota, fecha_vencimiento, fecha_pago, monto) values (2, 3, 2, 1, '2019-03-01', '2019-03-01', 100000);
 select * from Cuotas;
+
+-- Tipo tarjeta
+insert into Tipo_tarjeta(tipo_tarjeta) values ('Credito');
+insert into Tipo_tarjeta(tipo_tarjeta) values ('Debito');
+select * from Tipo_tarjeta;
+
+-- Tipo estado tarjeta
+insert into Tipo_estado_tarjeta(tipo_estado_tarjeta) values ('Activa');
+insert into Tipo_estado_tarjeta(tipo_estado_tarjeta) values ('Inactiva');
+insert into Tipo_estado_tarjeta(tipo_estado_tarjeta) values ('Bloqueada');
+select * from Tipo_estado_tarjeta;
+
+-- Tarjetas
+-- insert into Tarjetas(id_tipo_tarjeta, id_tipo_estado_tarjeta, id_cuenta, fecha_vencimiento, numero) values ( )
+select * from Tarjetas;
 
 -- 
