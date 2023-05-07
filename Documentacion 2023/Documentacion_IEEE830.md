@@ -10,7 +10,7 @@ Este documento es una Especificación de Requisitos Software (ERS) para el Siste
 El presente documento tiene como propósito definir las especificaciones funcionales para el desarrollo de un sistema de información web que permitirá al usuario acceder a su cuenta bancaria.
 ### 1.2 Ámbito del sistema
 El sistema será definido como BankArg. Proporcionará un manejo eficiente sobre la información entre el usuario y los dueños del banco.
-El principal beneficio es aportar un enterno seguro y ágil para que los usuarios, luego de un tutorial de bienvenida, puedan visualizar su saldo, registrar contactos frecuentes, realizar transferencias a terceros, administrar sus tarjetas, agregar pago de servicios, recibir alertas de vencimientos, solicitar préstamos, validación de token, aviso en caso de inicio de sesión en otro dispositivo, turnero online, y por úlitmo un formulario de contacto.
+El principal beneficio es aportar un entorno seguro y ágil para que los usuarios, luego de un tutorial de bienvenida y haber ingresado al sistema bancario personal con sus respectivos usuarios y contraseñas, puedan visualizar su saldo, registrar contactos frecuentes, realizar transferencias a terceros, administrar sus tarjetas, agregar pago de servicios, recibir alertas de vencimientos, solicitar préstamos, validación de token, aviso en caso de inicio de sesión en otro dispositivo, turnero online, y por úlitmo un formulario de contacto.
 Como contraparte los dueños del banco obtendrán un reporte de los usuarios registrados junto con los servicios más utilizados, que les permitirán otorgar un mejor servicio y realizar futuras adecuaciones.
 ### 1.3 Definiciones, acrónimos y abreviaturas
 
@@ -108,6 +108,8 @@ Establecemos distintos usuarios a saber:
 - US08- Como cliente, quiero poder abrir una cuenta de ahorro en línea para poder ahorrar dinero de manera efectiva y conveniente.
 - US09- Como cliente, quiero poder establecer metas de ahorro en línea para que pueda trabajar hacia objetivos financieros específicos, como un fondo de emergencia o una compra importante.
 - US10- Como cliente, quiero poder recibir alertas por correo electrónico o mensaje de texto cuando mi cuenta bancaria cae por debajo de un monto específico. 
+- US11 Como cliente, quiero poder ver los depositos y el dinero de mi cuenta y acceder a los y últimos movimientos.
+- US12 Como cliente, quiero realizar tranferencias: inmediata a mis propias cuentas, a cuentas de terceros (personas), a otros bancos y a cuentas de terceros: Entidades financieras privadas con CVU, poder hacer transferencias diferidas, consultas de las últimas transferencias y poder transferir montos superiores a los impuestos por el sistema del BCRA.
 
 ## SPRINTS
 
@@ -130,7 +132,7 @@ Establecemos distintos usuarios a saber:
 6. Diseño Físico que es el script legible de la DB en MySQL.
 7. Crear un Diagrama de Clases y Casos de Uso para facilitar el modelado en POO.
 - Responsabilidades:
-- Calendario: Fecha Inicio = 24/04/2023 -  Fecha de Fin = 05/05/2023
+- Calendario: Fecha Inicio = 24/04/2023 -  Fecha de Fin = 07/05/2023
 - Inconvenientes: -
 
 
