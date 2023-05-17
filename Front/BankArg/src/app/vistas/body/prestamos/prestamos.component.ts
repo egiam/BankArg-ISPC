@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PrestamoService } from 'src/app/servicios/services/prestamo.service';
 
 @Component({
   selector: 'app-prestamos',
@@ -13,7 +14,7 @@ export class PrestamosComponent {
 
   form:FormGroup;
 
-  constructor(private formBuilder : FormBuilder){
+  constructor(private formBuilder : FormBuilder, public prestamoS:PrestamoService){
     this.form=this.formBuilder.group({
       monto:undefined,
       cuotas:undefined
@@ -45,9 +46,10 @@ export class PrestamosComponent {
           
         });
     } else {
+      var cuotaValor = this.prestamoS.PedirPrestamo(parseInt(cuotasValue),montoValue)
         Swal.fire({
             title: "Solicitud enviada",
-            text: "La solicitud se ha enviado correctamente, estaremos en contacto con usted",
+            text: "Debera devolver un total de "+ cuotasValue+" cuotas"+" de  $"+cuotaValor,
             icon: "success",
             showConfirmButton:true,
             confirmButtonText:"Aceptar"

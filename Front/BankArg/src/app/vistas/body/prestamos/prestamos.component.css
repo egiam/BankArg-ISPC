@@ -20,19 +20,17 @@ html {
   text-decoration: none;
 }
 
-h2 {
-  font-family: "Kaushan Script", cursive;
-}
-
-a.btn {
+.btn {
   background: #395b64;
   border-color: #395b64;
   transition: 0.8s;
   font-weight: 500;
-  color: white !important;
+  color: white ;
+  margin:15px 0;
+  padding: 10px;
 }
 
-a.btn:hover {
+.btn:hover {
   background: #2e7b91;
   border-color: #2e7b91;
 }
@@ -56,10 +54,6 @@ a.btn:hover {
 
 .tx-tfm {
   text-transform: uppercase;
-}
-
-.mybtn {
-  border-radius: 50px;
 }
 
 form .error {
