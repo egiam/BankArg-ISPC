@@ -33,8 +33,7 @@ export class PrestamoService {
     var montoADevolver =monto + ((interes! * monto) / 100);
 
     var cuotaADevolver = montoADevolver / cuotas;
-
-    console.log(this.persona1.saldo)
+    
     return cuotaADevolver
   }
 }
