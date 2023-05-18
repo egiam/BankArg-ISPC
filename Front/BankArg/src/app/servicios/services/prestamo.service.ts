@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Persona } from 'src/app/modelos/persona';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,10 @@ export class PrestamoService {
 
   constructor() { }
 
+  persona1 = new Persona(1, "admin", 10000.1,"admin", "10101010")
+
   public PedirPrestamo(cuotas:number, monto:number){
+    this.persona1.saldo = this.persona1.saldo + monto;
     let interes:number;
     switch(cuotas){
       case 3:
@@ -30,6 +34,7 @@ export class PrestamoService {
 
     var cuotaADevolver = montoADevolver / cuotas;
 
+    console.log(this.persona1.saldo)
     return cuotaADevolver
   }
 }
