@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-l=e@p3iirkhik_buebc=@5%b#&(3l8(_3s^h47ao!xbzs##4sq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [] #Colocar la IP del Servidor de PRODUCCION
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'banco',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'bankarg.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'Bankarg.db',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Bankarg',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
 
