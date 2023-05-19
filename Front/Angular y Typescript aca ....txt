@@ -15,6 +15,8 @@ Instalar Bootstrap
 -> npm install bootstrap
 
 Instalar sweetalert2
+https://sweetalert2.github.io/v10.html#examples
+
 -> npm install sweetalert2
 
 Componente
