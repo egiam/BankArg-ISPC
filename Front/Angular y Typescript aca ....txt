@@ -19,3 +19,13 @@ Instalar sweetalert2
 
 Componente
 -> ng g c <<nombre componente>>
+
+
+Para Servidor JSON:
+-> npm install -g json-server
+-> cd Front/BankArg
+-> json-server --watch db.json
+
+http://localhost:3000/posts/1
+
+

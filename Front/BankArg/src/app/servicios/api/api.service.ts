@@ -1,14 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  url: string = 'https://randomuser.me/api/';
+  // url: string = 'https://randomuser.me/api/';
+  url: String = 'http://localhost:3000/';
   // Link a la API REST
 
   constructor(private http: HttpClient) {}
+
+  ObtenerUltimosMovimientos(): Observable<any> {
+    return this.http.get(this.url + 'movimientos');
+  }
 
   // Todo lo de abajo es solo TEST, no tiene ninguna funcionalidad real x ahora
   get(url: string) {
