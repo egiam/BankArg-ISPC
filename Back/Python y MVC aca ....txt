@@ -18,3 +18,28 @@ python manage.py makemigrations
 
 Ejecutar el servidor:
 python manage.py runserver
+
+
+--- 
+En CMD:
+
+-> pip install django
+
+-> python manage.py migrate
+
+Posible Error: [Error loading MySQLdb Module 'Did you install mysqlclient or MySQL-python?']
+Link Solucion: https://stackoverflow.com/questions/46902357/error-loading-mysqldb-module-did-you-install-mysqlclient-or-mysql-python
+Comandos CMD 'solucion':
+-> pip install mysqlclient
+-> pip install pymysql
+
+Posible Error: [django.db.utils.OperationalError: (1045:Access denied for user 'root'@'localhost' (using password: NO)]
+Link 'solucion' (no tan solucion): https://stackoverflow.com/questions/50652587/django-db-utils-operationalerror-1045access-denied-for-user-rootlocalhost
+x Hacer en codigo: 
+-> Ir a settings.py -> buscar Diccionario/Lista 'DATABASES' -> cambiar temporalmente el valor de password de [' '](nulo) a tu pasword de mysql
+Importante!! -> Cuando dejes de trabajar y hagas push, elimina tu password de settings.py
+
+
+-> python manage.py makemigrations
+
+-> python manage.py runserver
