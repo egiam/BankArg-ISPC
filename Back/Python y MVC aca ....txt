@@ -1,0 +1,20 @@
+DJANGO:
+Instalación: pip install django
+
+Creación del proyecto: django-admin startproyect Banco
+(si el anterior no funciona: python -m django startproject Banco)
+Se editan los archivos de configuración del proyecto
+
+Creación de una aplicación: django-admin startapp banco
+(si el anterior no funciona: python -m django startapp banco)
+Se crean las clases a partir del modelo de la BD
+
+Creación de la BD:
+(con el servidor de la bd corriendo)
+En la carpeta del proyecto, se ejecuta: python manage.py migrate
+
+Para migrar los modelos a la BD:
+python manage.py makemigrations
+
+Ejecutar el servidor:
+python manage.py runserver
