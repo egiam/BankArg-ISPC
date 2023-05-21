@@ -22,6 +22,7 @@ import { ValidacionComponent } from './vistas/body/validacion/validacion.compone
 import { PrestamosComponent } from './vistas/body/prestamos/prestamos.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     PagosComponent,
     ValidacionComponent,
     PrestamosComponent,
+    CuentaAhorroComponent,
   ],
   imports: [
     BrowserModule,

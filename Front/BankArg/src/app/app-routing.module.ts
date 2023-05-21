@@ -13,6 +13,7 @@ import { RegistroComponent } from './vistas/registro/registro.component';
 import { PagosComponent } from './vistas/pagos/pagos.component';
 import { ValidacionComponent } from './vistas/body/validacion/validacion.component';
 import { PrestamosComponent } from './vistas/body/prestamos/prestamos.component';
+import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'pagos', component: PagosComponent },
   { path: 'validacion', component: ValidacionComponent },
   { path: 'prestamos', component: PrestamosComponent },
+  { path: 'cuentaAhorro', component: CuentaAhorroComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 

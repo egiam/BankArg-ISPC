@@ -31,7 +31,12 @@
               <label for="InputCuotas" class="form-label"
                 >Cantidad de cuotas en las que desea devolver el préstamo:
               </label>
-              <select formControlName="cuotas" class="form-control" name="cuotas" id="drawfs">
+              <select
+                formControlName="cuotas"
+                class="form-control"
+                name="cuotas"
+                id="drawfs"
+              >
                 <option value="3">3 (interes del 33%)</option>
                 <option value="6">6 (interes del 66%)</option>
                 <option value="12">12 (interes del 132%)</option>
@@ -49,6 +54,8 @@
                 (click)="Solicitar()"
                 >Solicitar</button
               >
+                Solicitar
+              </button>
             </div>
           </form>
         </div>
