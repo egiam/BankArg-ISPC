@@ -1,27 +1,37 @@
 import { Injectable } from '@angular/core';
+import { Persona } from 'src/app/modelos/persona';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CuentaAhorroService {
-  private saldo: number;
-  constructor() {
-    this.saldo = 0;
+  depositar(cantidad: number, persona: Persona): void {
+    persona.saldo += cantidad;
+    Swal.fire({
+      title: 'Saldo Actual:',
+      showConfirmButton: true,
+      confirmButtonText: 'aceptar',
+      text: '$ ' + persona.saldo,
+    });
   }
 
-  depositar(cantidad: number): void {
-    this.saldo += cantidad;
-  }
-
-  retirar(cantidad: number): void {
-    if (cantidad <= this.saldo) {
-      this.saldo -= cantidad;
+  retirar(cantidad: number, persona: Persona): void {
+    if (cantidad <= persona.saldo) {
+      persona.saldo -= cantidad;
+      Swal.fire({
+        title: 'Saldo Actual:',
+        showConfirmButton: true,
+        confirmButtonText: 'aceptar',
+        text: '$ ' + persona.saldo,
+      });
     } else {
-      console.log('Saldo insuficiente');
+      Swal.fire({
+        title: 'Saldo Insuficiente',
+        icon: 'error',
+        showConfirmButton: true,
+        confirmButtonText: 'aceptar',
+      });
     }
-  }
-
-  obtenerSaldo(): number {
-    return this.saldo;
   }
 }
