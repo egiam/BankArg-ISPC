@@ -1,3 +1,17 @@
+-> cd Back/bankarg
+[Start XAMPP with apache and mysql]
+[change the port in settings.py for your mysql]
+-> python manage.py makemigrations
+-> python manage.py migrate
+-> python manage.py createsuperuser
+    -> name: admin
+    -> email: admin@gmail.com
+    -> password: 12345
+    -> repeat: 12345
+    -> y
+-> python manage.py runserver
+
+---
 DJANGO:
 Instalación: pip install django
 

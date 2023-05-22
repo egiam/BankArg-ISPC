@@ -150,11 +150,13 @@ CREATE TABLE `Cuenta` (
 
 -- Maria Laura
 CREATE TABLE `Cuenta_Transferencia` (
-  `id_cuenta` int NOT NULL AUTO_INCREMENT,
+  `cod_cuenta_transferencia` int NOT NULL AUTO_INCREMENT,
+  `id_cuenta` int NOT NULL,
   `id_transferencia` int NOT NULL,
   FOREIGN KEY (`id_transferencia`) REFERENCES `Transferencias`(`id_transferencia`),
   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
-  KEY `pk` (`id_cuenta`, `id_transferencia`)
+  KEY `pk` (`cod_cuenta_transferencia`),
+  KEY `fk` (`id_cuenta`, `id_transferencia`)
 );
 
 -- Maxi
@@ -343,7 +345,8 @@ CREATE TABLE `Tarjeta`(
   `id_tipo_tarjeta` int NOT NULL,
   `id_tipo_estado_tarjeta` int NOT NULL,
   `fecha_vencimiento` datetime,
-  `numero` varchar(150),
+  `numero_tarjeta` varchar(150),
+  `codigo_seguridad` varchar(150),
   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
   FOREIGN KEY (`id_tipo_tarjeta`) REFERENCES `Tipo_tarjeta`(`id_tipo_tarjeta`),
   FOREIGN KEY (`id_tipo_estado_tarjeta`) REFERENCES `Tipo_estado_tarjeta`(`id_tipo_estado_tarjeta`),
@@ -353,20 +356,24 @@ CREATE TABLE `Tarjeta`(
 
 -- Eze
 CREATE TABLE `Cuenta-TipoCuenta`(
+  `cod_ctc` int NOT NULL AUTO_INCREMENT,
   `id_cuenta` int NOT NULL,
   `id_tipo_cuenta` int NOT NULL,
   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
   FOREIGN KEY (`id_tipo_cuenta`) REFERENCES `Tipos_cuentas`(`id_tipo_cuenta`),
-  KEY `pk` (`id_cuenta`, `id_tipo_cuenta`)
+  KEY `pk` (`cod_ctc`),
+  KEY `fk` (`id_cuenta`, `id_tipo_cuenta`)
 );
 
 -- Eze
 CREATE TABLE `Cuenta-TipoMoneda`(
+  `cod_ctm` int NOT NULL AUTO_INCREMENT,
   `id_cuenta` int NOT NULL,
   `id_tipo_moneda` int NOT NULL,
   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
   FOREIGN KEY (`id_tipo_moneda`) REFERENCES `Tipo_moneda`(`id_tipo_moneda`),
-  KEY `pk` (`id_cuenta`, `id_tipo_moneda`)
+  KEY `pk` (`cod_ctm`),
+  KEY `fk` (`id_cuenta`, `id_tipo_moneda`)
 );
 
 -- Eze
@@ -380,11 +387,13 @@ CREATE TABLE `Cuenta-TipoMoneda`(
 
 -- Eze
 CREATE TABLE `Cliente-Cuenta`(
+  `cod_cc` int NOT NULL AUTO_INCREMENT,
   `id_cuenta` int NOT NULL,
   `id_cliente` int NOT NULL,
   FOREIGN KEY (`id_cuenta`) REFERENCES `Cuenta`(`id_cuenta`),
   FOREIGN KEY (`id_cliente`) REFERENCES `Clientes`(`id_cliente`),
-  KEY `pk` (`id_cuenta`, `id_cliente`)
+  KEY `pk` (`cod_cc`),
+  KEY `fk` (`id_cuenta`, `id_cliente`)
 );
 
 -- Eze
