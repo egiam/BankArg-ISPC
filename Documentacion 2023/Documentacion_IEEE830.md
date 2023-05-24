@@ -131,6 +131,34 @@ Establecemos distintos usuarios a saber:
 - Calendario: Fecha Inicio = 24/04/2023 -  Fecha de Fin = 05/05/2023
 - Inconvenientes: -
 
+#### N° de sprint: 2
+- Sprint Backlog: 
+1. Crear servicios que consuman un API Rest de prueba. Para realizar las peticiones http, utilizar el servicio de HttpClient. 
+2. Inyectar a los componentes los correspondientes servicios a fin de que los componentes puedan acceder a los datos y mostrarlos en pantalla. Incluye enlace de datos (Data binding).
+3. Incorporar la programación reactiva (asincrónica) mediante observables para la comunicación entre servicios y componentes.
+4. Establecer el modelo de base de datos del primer sprint en Django usando clases.
+5. Establecer el sistema de usuarios en Django-Admin (registro, login y roles)
+6. Crear un ABM de productos/servicios utilizando el panel de control de Django.
+- Responsabilidades:
+- Calendario: Fecha Inicio = 08/05/2023 -  Fecha de Fin = 21/05/2023 
+- Inconvenientes: -
+
+#### N° de sprint: 3
+- Sprint Backlog: 
+1. Incorporar formularios reactivos de Registro y Login para la autenticación y formularios para la manipulación (Alta) de servicios/productos/suscripción, según el caso con sus respectivas validaciones. 
+2. Conexión con el backend para el registro e inicio de sesión.
+3. Conexión con backend para almacenar los datos de los productos/servicios y detalles de producto/servicios en la DB a través del modelo en Django.
+4. Opcional: Agregar rutas protegidas a la navegación en base al usuario autenticado/autorizado. Ej. para acceder al tablero de control o bien, para acceder al registro de productos/servicios.
+5. Registro de usuarios.
+6. Login de usuarios.
+7. Registro / Alta de al menos 3 productos/servicios/suscripción ( solo desde el rol Administrador, mediante su panel de control).
+8. Tablero de control (Gestión) o Dashboard con módulos planteados en la maquetación del FrontEnd según proyecto: 
+  - El rol ADMIN pueda ver la lista de usuarios registrados y el listado de los productos/servicios/suscripción según corresponda.
+  - El rol USUARIO registrado solo que pueda ver su Dashboard para editar su perfil.
+9. OPCIONAL: Token validación del login con JWT.
+- Responsabilidades:
+- Calendario: Fecha Inicio = 22/05/2023 -  Fecha de Fin = 04/06/2023 
+- Inconvenientes: -
 
 
 
