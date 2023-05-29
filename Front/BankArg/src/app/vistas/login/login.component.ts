@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,8 @@ export class LoginComponent {
   constructor(private formBuilder: FormBuilder) { 
     //Creamos el grupo de controles para el formulario 
     this.form=this.formBuilder.group({
-      username:"",
-      password:""
+      username:["",[Validators.required]],
+      password:["",[Validators.required]]
    })
   }
   

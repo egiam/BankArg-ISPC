@@ -17,6 +17,12 @@
             id="username"
             required
           />
+          <div *ngIf="username?.errors && username?.touched">
+            <p *ngIf="username?.hasError('required')" class="text-danger" >
+              El nombre de usuario es requerido
+            </p>
+
+          </div>
         </div>
 
         <div class="username">
@@ -27,6 +33,12 @@
             id="password"
             required
           />
+          <div *ngIf="password?.errors && password?.touched">
+            <p *ngIf="password?.hasError('required')" class="text-danger" >
+              La contraseña es requerida
+            </p>
+
+          </div>
         </div>
 
         <div class="recordar">
