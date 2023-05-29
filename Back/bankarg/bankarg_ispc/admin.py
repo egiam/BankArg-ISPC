@@ -249,3 +249,8 @@ admin.site.register(Cuenta_TipoCuenta, Cuenta_TipoCuentaAdmin)
 admin.site.register(Cuenta_TipoMoneda, Cuenta_TipoMonedaAdmin)
 admin.site.register(Cliente_Cuenta, Cliente_CuentaAdmin)
 admin.site.register(Plazo_fijo, Plazo_fijoAdmin)
+
+# Register CustomUser
+# @admin.register(get_user_model())
+# class CustomUserAdmin(UserAdmin):
+#     pass

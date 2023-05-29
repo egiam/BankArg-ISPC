@@ -1,4 +1,7 @@
 -> cd Back/bankarg
+-> pip install djangorestframework
+-> pip install djangorestframework-simplejwt
+-> pip install django-cors-headers
 [Start XAMPP with apache and mysql]
 [change the port in settings.py for your mysql]
 -> python manage.py makemigrations
@@ -34,6 +37,11 @@ Ejecutar el servidor:
 python manage.py runserver
 
 
+pip install djangorestframework
+
+pip install djangorestframework-simplejwt
+
+
 --- 
 En CMD:
 
@@ -61,3 +69,7 @@ Importante!! -> Cuando dejes de trabajar y hagas push, elimina tu password de se
 
 ---
 -> python manage.py createsuperuser
+
+---
+-> pip install djangorestframework
+-> pip install djangorestframework-simplejwt
