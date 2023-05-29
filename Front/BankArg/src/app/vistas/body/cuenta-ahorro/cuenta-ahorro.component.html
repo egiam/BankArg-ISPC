@@ -1,0 +1,50 @@
+<!-- Body -->
+<main class="bg-main">
+  <section class="container ct-main">
+    <div
+      class="row d-flex flex-wrap-reverse justify-content-evenly align-items-center"
+    >
+      <section
+        class="col-sm-12 col-md-6 col-xl-6 d-flex justify-content-center flex-wrap"
+      >
+        <button
+          class="fs-5 main-cards d-flex align-items-center justify-content-center border rounded"
+          id="btnRetirar"
+          (click)="retirar()"
+        >
+          <span><img src="" alt="" /></span>
+          <p>Retirar</p>
+          <div></div>
+        </button>
+
+        <button
+          class="fs-5 main-cards d-flex align-items-center justify-content-center border rounded"
+          id="btnDepositar"
+          (click)="depositar()"
+        >
+          <span><img src="" alt="" /></span>
+          <p>Depositar</p>
+          <div></div>
+        </button>
+      </section>
+
+      <section
+        class="col-sm-12 col-md-6 col-xl-6 d-flex flex-wrap align-items-center flex-column section-image border rounded p-5"
+      >
+        <h2
+          class="d-flex justify-content-center text-transferencias border-bottom border-black p-3"
+        >
+          Saldo
+        </h2>
+        <h5 class="rounded p-3 border-bottom bg-success text-white">
+          $ {{ saldoformateado }}
+        </h5>
+      </section>
+    </div>
+  </section>
+</main>
+<!-- End Body -->
+
+<!-- JS de cuentaAhorro -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/transferencias.js"></script>

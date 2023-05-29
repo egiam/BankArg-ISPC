@@ -1,0 +1,101 @@
+html {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --main-color: #2c3333;
+  --secondary-color: #a5c9ca;
+  --terciary-color: #e7f6f2;
+}
+
+.bg-main {
+  width: 100%;
+}
+
+.bg-main .container .row a {
+  text-decoration: none;
+}
+
+.bg-main .ct-main {
+  padding: 100px 0px 100px 0px;
+}
+
+.main-cards {
+  background-color: #e7f6f2;
+  padding: 15px 10px;
+  margin: 25px 10px;
+  color: black;
+  min-width: 270px;
+  width: 320px;
+  transition: 500ms all;
+  max-height: 70px;
+}
+
+.secondary-card {
+  background-color: #a5c9ca;
+  padding: 15px 10px;
+  margin: 25px 10px;
+  color: white;
+  transition: 500ms all;
+  font-size: 1.4rem;
+}
+
+.main-cards:hover,
+.secondary-card:hover {
+  box-shadow: 5px 5px 10px 0px #dee2e6;
+  -webkit-box-shadow: 5px 5px 10px 0px #dee2e6;
+  -moz-box-shadow: 5px 5px 10px 0px #dee2e6;
+  transform: translateY(-2px);
+  transition: 500ms all;
+}
+
+.main-cards img {
+  width: 30px;
+}
+
+.main-cards span {
+  margin-right: auto;
+  padding-left: 15px;
+}
+
+.main-cards div {
+  margin-left: auto;
+}
+
+.main-cards p {
+  text-align: center;
+  justify-self: center;
+  font-weight: 500;
+  margin: 0;
+  padding-right: 20px;
+}
+
+.bg-main .row .section-cards {
+  padding: 0;
+}
+
+.text-transferencias {
+  margin-bottom: 30px;
+}
+
+.image-container {
+  width: 400px;
+}
+
+.image-container img {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .image-container {
+    width: 300px;
+  }
+}
+
+.footer-transferencias,
+.footer-transferencias p,
+.footer-transferencias h3 {
+  font-size: 1.8rem;
+}
