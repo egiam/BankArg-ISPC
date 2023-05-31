@@ -1,0 +1,8 @@
+{
+  "movimientos": [
+    { "operacion": "Deposito", "monto": "3950.5" },
+    { "operacion": "Extraccion", "monto": "1500" },
+    { "operacion": "Deposito", "monto": "1250" },
+    { "operacion": "Deposito", "monto": "6300" }
+  ]
+}

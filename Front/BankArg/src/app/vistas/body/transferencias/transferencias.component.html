@@ -1,0 +1,60 @@
+<!-- Body -->
+<main class="bg-main">
+  <section class="container ct-main">
+    <div class="row d-flex flex-wrap-reverse justify-content-evenly align-items-center">
+      <section
+        class="col-sm-12 col-md-6 col-xl-6 d-flex justify-content-center flex-wrap"
+      >
+        <button
+          class="fs-5 main-cards d-flex align-items-center justify-content-center border rounded"
+          id="btnTransferir"
+          (click)="Transferir()"
+        >
+          <span
+            ><img src="../assets/img/arrow-right-arrow-left-solid.svg" alt=""
+          /></span>
+          <p>Transferir</p>
+          <div></div>
+        </button>
+
+        <button
+          class="fs-5 main-cards d-flex align-items-center justify-content-center border rounded"
+          id="btnAgregarCont"
+          (click)="AgregarContacto()"
+        >
+          <span><img src="../assets/img/plus-solid.svg" alt="" /></span>
+          <p>Agregar contacto nuevo</p>
+          <div></div>
+        </button>
+
+        <button
+          
+          class="fs-5 main-cards d-flex align-items-center justify-content-center border rounded"
+          id="btnHistorial"
+          (click)="Historial()"
+        >
+          <span
+            ><img src="../assets/img/clock-rotate-left-solid.svg" alt=""
+          /></span>
+          <p>Historial</p>
+          <div></div>
+        </button>
+      </section>
+
+      <section
+        class=" col-sm-12 col-md-6 col-xl-6 d-flex flex-wrap align-items-center flex-column section-image border rounded p-5 "
+      >
+        <h2 class="d-flex justify-content-center text-transferencias border-bottom border-black p-3">
+          Saldo
+        </h2>
+        <h5 class="rounded p-3 border-bottom bg-success text-white" >$ {{saldoformateado}}</h5>
+      </section>
+      
+    </div>
+  </section>
+</main>
+<!-- End Body -->
+
+<!-- JS de transferencias -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/transferencias.js"></script>
