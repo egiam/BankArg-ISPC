@@ -1,0 +1,75 @@
+-> cd Back/bankarg
+-> pip install djangorestframework
+-> pip install djangorestframework-simplejwt
+-> pip install django-cors-headers
+[Start XAMPP with apache and mysql]
+[change the port in settings.py for your mysql]
+-> python manage.py makemigrations
+-> python manage.py migrate
+-> python manage.py createsuperuser
+    -> name: admin
+    -> email: admin@gmail.com
+    -> password: 12345
+    -> repeat: 12345
+    -> y
+-> python manage.py runserver
+
+---
+DJANGO:
+Instalación: pip install django
+
+Creación del proyecto: django-admin startproyect Banco
+(si el anterior no funciona: python -m django startproject Banco)
+Se editan los archivos de configuración del proyecto
+
+Creación de una aplicación: django-admin startapp banco
+(si el anterior no funciona: python -m django startapp banco)
+Se crean las clases a partir del modelo de la BD
+
+Creación de la BD:
+(con el servidor de la bd corriendo)
+En la carpeta del proyecto, se ejecuta: python manage.py migrate
+
+Para migrar los modelos a la BD:
+python manage.py makemigrations
+
+Ejecutar el servidor:
+python manage.py runserver
+
+
+pip install djangorestframework
+
+pip install djangorestframework-simplejwt
+
+
+--- 
+En CMD:
+
+-> pip install django
+
+-> python manage.py makemigrations
+
+-> python manage.py migrate
+
+Posible Error: [Error loading MySQLdb Module 'Did you install mysqlclient or MySQL-python?']
+Link Solucion: https://stackoverflow.com/questions/46902357/error-loading-mysqldb-module-did-you-install-mysqlclient-or-mysql-python
+Comandos CMD 'solucion':
+-> pip install mysqlclient
+-> pip install pymysql
+
+Posible Error: [django.db.utils.OperationalError: (1045:Access denied for user 'root'@'localhost' (using password: NO)]
+Link 'solucion' (no tan solucion): https://stackoverflow.com/questions/50652587/django-db-utils-operationalerror-1045access-denied-for-user-rootlocalhost
+x Hacer en codigo: 
+-> Ir a settings.py -> buscar Diccionario/Lista 'DATABASES' -> cambiar temporalmente el valor de password de [' '](nulo) a tu pasword de mysql
+Importante!! -> Cuando dejes de trabajar y hagas push, elimina tu password de settings.py
+
+
+-> python manage.py runserver
+
+
+---
+-> python manage.py createsuperuser
+
+---
+-> pip install djangorestframework
+-> pip install djangorestframework-simplejwt
