@@ -2,6 +2,8 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import *
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth import get_user_model
 
 
 # Register your models here.
@@ -250,7 +252,19 @@ admin.site.register(Cuenta_TipoMoneda, Cuenta_TipoMonedaAdmin)
 admin.site.register(Cliente_Cuenta, Cliente_CuentaAdmin)
 admin.site.register(Plazo_fijo, Plazo_fijoAdmin)
 
+
+# class CustomUserAdmin(admin.ModelAdmin):
+#     list_display = ("email", "password")
+
+
+# admin.site.register(CustomUser, CustomUserAdmin)
+
+
 # Register CustomUser
-# @admin.register(get_user_model())
-# class CustomUserAdmin(UserAdmin):
-#     pass
+@admin.register(get_user_model())
+class CustomUserAdmin(UserAdmin):
+    pass
+
+
+# class CustomUserAdmin(admin.ModelAdmin):
+#     list_display = ("username", "email", "first_name", "last_name", "is_staff")

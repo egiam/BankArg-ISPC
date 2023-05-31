@@ -39,18 +39,18 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "bankarg_ispc",
     "rest_framework",
-    "rest_framework.authtoken",
+    # "rest_framework.authtoken",
 ]
 
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.SessionAuthentication",
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
-    ],
-}
+# REST_FRAMEWORK = {
+#     "DEFAULT_AUTHENTICATION_CLASSES": (
+#         "rest_framework.authentication.SessionAuthentication",
+#         "rest_framework_simplejwt.authentication.JWTAuthentication",
+#     ),
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+#     ],
+# }
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -93,7 +93,7 @@ DATABASES = {
         "USER": "root",
         "PASSWORD": "",
         "HOST": "localhost",
-        "PORT": "3306",
+        "PORT": "3308",
         "OPTIONS": {
             "sql_mode": "traditional",
         },
@@ -144,4 +144,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Custom user model
-# AUTH_USER_MODEL = "authentication.CustomUser"
+AUTH_USER_MODEL = "bankarg_ispc.CustomUser"
