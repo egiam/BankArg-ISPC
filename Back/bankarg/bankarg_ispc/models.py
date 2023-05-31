@@ -112,6 +112,9 @@ class Persona(models.Model):
     id_tipo_sexo = models.ForeignKey(
         Sexos, to_field="id_tipo_sexo", on_delete=models.CASCADE
     )
+    # email = models.ForeignKey(
+    #     CustomUser, to_field="email", on_delete=models.CASCADE, null=True
+    # )
 
     class Meta:
         db_table = "Persona"
