@@ -1,11 +1,11 @@
 from django.shortcuts import render
 
 # Create your views here.
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, generics
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model, authenticate, login, logout
 
-# from .serializers import UserSerializer
+from .serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -20,7 +20,10 @@ class LoginView(APIView):
         # Si es correcto añadimos a la request la info de sesion
         if user:
             login(request, user)
-            return Response({"detail": "Login correcto"}, status=status.HTTP_200_OK)
+            return Response(
+                UserSerializer(user).data,
+                status=status.HTTP_200_OK,
+            )
 
         # Si no es correcto devolvemos un error
         return Response(
@@ -33,6 +36,14 @@ class LogoutView(APIView):
         # Hacemos logout
         logout(request)
         return Response({"detail": "Logout correcto"}, status=status.HTTP_200_OK)
+
+
+class SignupView(generics.CreateAPIView):
+    """
+    Endpoint de registro de usuarios.
+    """
+
+    serializer_class = UserSerializer
 
 
 # class UserViewSet(viewsets.ModelViewSet):
