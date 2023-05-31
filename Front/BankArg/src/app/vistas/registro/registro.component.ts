@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -11,15 +11,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class RegistroComponent {
   constructor(private formBuilder:FormBuilder){
     this.form=this.formBuilder.group({
-      username:"",
-      password:"",
-      password2:"",
-      email:"",
-      telefono:"",
-      domicilio:"",
-      dni:"",
-      nombre:"",
-      apellido:""
+      username:["",[Validators.required]],
+      password:["",[Validators.required, Validators.minLength(8)]],
+      password2:["",[Validators.required], Validators.minLength(8)],
+      email:["",[Validators.required, Validators.email]],
+      telefono:["",[Validators.required]],
+      domicilio:["",[Validators.required]],
+      dni:["",[Validators.required]],
+      nombre:["",[Validators.required]],
+      apellido:["",[Validators.required]],
    })
   }
 
