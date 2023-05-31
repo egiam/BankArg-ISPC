@@ -40,8 +40,17 @@ INSTALLED_APPS = [
     "bankarg_ispc",
     "rest_framework",
     "corsheaders",
+    "knox",
     # "rest_framework.authtoken",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        "knox.auth.TokenAuthentication",
+    ]
+}
 
 # REST_FRAMEWORK = {
 #     "DEFAULT_AUTHENTICATION_CLASSES": (
