@@ -1,8 +1,16 @@
 from typing import Any
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 # Create your models here.
+class CustomUser(AbstractUser):
+    email = models.EmailField(max_length=150, unique=True)
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "password"]
+
+
 class Documentos(models.Model):
     id_tipo_doc = models.AutoField(primary_key=True)
     tipo_doc = models.CharField(max_length=150)
