@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
   // url: string = 'https://randomuser.me/api/';
   url: String = 'http://localhost:3000/';
-  // url: String = 'http://127.0.0.1:8000'; // Backend
+  // url: String = 'http://127.0.0.1:8000/'; // Backend
   // Link a la API REST
 
   constructor(private http: HttpClient) {}
