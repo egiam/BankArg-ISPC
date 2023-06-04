@@ -135,6 +135,21 @@ Establecemos distintos usuarios a saber:
 - Calendario: Fecha Inicio = 24/04/2023 -  Fecha de Fin = 07/05/2023
 - Inconvenientes: -
 
+#### N° de sprint: 2
+- Sprint Backlog: 
+Frontend: Se requiere:
+1. Crear servicios que consuman un API Rest de prueba. Para realizar las peticiones http, utilizar el servicio de HttpClient.
+2. Inyectar a los componentes los correspondientes servicios a fin de que los componentes puedan acceder a los datos y mostrarlos en pantalla. Incluye enlace de datos (Data binding).
+3. Incorporar la programación reactiva (asincrónica) mediante observables para la comunicación entre servicios y componentes.
+Backend:
+4. Establecer el modelo de base de datos del primer sprint en Django usando clases.
+5. Establecer el sistema de usuarios en Django-Admin (registro, login y roles).
+6. Crear un ABM (CRUD) de productos/servicios utilizando el panel de control de Django.
+- Responsabilidades:
+- Calendario: Fecha Inicio = 08/05/2023 -  Fecha de Fin = 21/05/2023
+- Inconvenientes: -
+
+
 
 
 
