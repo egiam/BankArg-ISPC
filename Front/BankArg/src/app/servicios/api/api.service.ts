@@ -8,10 +8,20 @@ import { Observable } from 'rxjs';
 export class ApiService {
   // url: string = 'https://randomuser.me/api/';
   url: String = 'http://localhost:3000/';
-  // url: String = 'http://127.0.0.1:8000/'; // Backend
+  urlUser: String = 'http://127.0.0.1:8000/api/auth/'; // Backend
   // Link a la API REST
 
   constructor(private http: HttpClient) {}
+
+  // Registrarse (email, username, password)
+  register(UserData: any): Observable<any> {
+    return this.http.post('http://127.0.0.1:8000/api/auth/register/', UserData);
+  }
+
+  // Logearse
+  login(UserData: any): Observable<any> {
+    return this.http.post('http://127.0.0.1:8000/api/auth/login/', UserData);
+  }
 
   ObtenerUltimosMovimientos(): Observable<any> {
     return this.http.get(this.url + 'movimientos');
@@ -34,31 +44,31 @@ export class ApiService {
     return this.http.delete(this.url + url);
   }
 
-  login(username: string, password: string) {
-    return this.post('login', { username, password });
-  }
+  // login(username: string, password: string) {
+  //   return this.post('login', { username, password });
+  // }
 
-  register(
-    username: string,
-    password: string,
-    email: string,
-    telefono: string,
-    domicilio: string,
-    dni: string,
-    nombre: string,
-    apellido: string
-  ) {
-    return this.post('register', {
-      username,
-      password,
-      email,
-      telefono,
-      domicilio,
-      dni,
-      nombre,
-      apellido,
-    });
-  }
+  // register(
+  //   username: string,
+  //   password: string,
+  //   email: string,
+  //   telefono: string,
+  //   domicilio: string,
+  //   dni: string,
+  //   nombre: string,
+  //   apellido: string
+  // ) {
+  //   return this.post('register', {
+  //     username,
+  //     password,
+  //     email,
+  //     telefono,
+  //     domicilio,
+  //     dni,
+  //     nombre,
+  //     apellido,
+  //   });
+  // }
 
   getUsuarioByUsername(username: string) {
     return this.get('usuarios/username/' + username);

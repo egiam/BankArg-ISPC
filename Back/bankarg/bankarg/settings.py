@@ -73,7 +73,10 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 ]
 
-CORS_ORIGIN_WHITELIST = ["http://localhost"]
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost",
+    "http://localhost:4200",
+]
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "bankarg.urls"
