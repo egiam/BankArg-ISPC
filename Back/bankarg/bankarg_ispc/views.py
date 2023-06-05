@@ -4,11 +4,11 @@ from mysqlx import View
 
 # Create your views here.
 from rest_framework import viewsets, status, generics
-from rest_framework.authentication import (
-    SessionAuthentication,
-    BasicAuthentication,
-    TokenAuthentication,
-)
+# from rest_framework.authentication import (
+#     SessionAuthentication,
+#     BasicAuthentication,
+#     TokenAuthentication,
+# )
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model, authenticate, login, logout
 
