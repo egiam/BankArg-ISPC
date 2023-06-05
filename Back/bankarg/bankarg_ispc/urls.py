@@ -10,7 +10,7 @@ from bankarg_ispc.views import LoginView, LogoutView, SignupView, RegisterView
 from bankarg_ispc import views
 
 # from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+# from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 
 # from knox import views as knox_views
