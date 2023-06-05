@@ -22,7 +22,7 @@ from django.urls import include, path
 #     TokenRefreshView,
 # )
 from rest_framework.routers import DefaultRouter
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+# from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 # from bankarg_ispc.views import LoginView, LogoutView
 from bankarg_ispc import views
