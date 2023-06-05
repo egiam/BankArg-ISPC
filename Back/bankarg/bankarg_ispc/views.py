@@ -2,6 +2,11 @@ from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import viewsets, status, generics
+from rest_framework.authentication import (
+    SessionAuthentication,
+    BasicAuthentication,
+    TokenAuthentication,
+)
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model, authenticate, login, logout
 
@@ -27,6 +32,14 @@ from rest_framework import permissions
 
 
 class LoginView(APIView):
+    # authentication_classes = [
+    #     SessionAuthentication,
+    #     BasicAuthentication,
+    # ]
+    # permission_classes = [
+    #     IsAuthenticated,
+    # ]
+
     def post(self, request):
         # Recuperamos credenciales y autenticamos al usuario
         email = request.data.get("email", None)
