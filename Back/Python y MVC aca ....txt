@@ -2,6 +2,7 @@
 -> pip install djangorestframework
 -> pip install djangorestframework-simplejwt
 -> pip install django-cors-headers
+-> pip install django-rest-knox
 [Start XAMPP with apache and mysql]
 [change the port in settings.py for your mysql]
 -> python manage.py makemigrations

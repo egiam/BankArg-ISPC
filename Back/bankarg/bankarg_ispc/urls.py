@@ -9,11 +9,16 @@ from rest_framework.routers import DefaultRouter
 from bankarg_ispc.views import LoginView, LogoutView, SignupView, RegisterView
 from bankarg_ispc import views
 
+# from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+
+
 # from knox import views as knox_views
 
 
 urlpatterns = [
     path("auth/login/", LoginView.as_view(), name="auth_login"),
+    # path("auth/login/", obtain_jwt_token),
     path("auth/logout/", LogoutView.as_view(), name="auth_logout"),
     # path("auth/logout/", knox_views.LogoutView.as_view(), name="auth_logout"),
     # path("auth/logoutall/", knox_views.LogoutAllView.as_view(), name="auth_logoutall"),
