@@ -4,9 +4,9 @@
     <div class="formulario">
       <h1>Registrate</h1>
       <form [formGroup]="form" method="post" class="form-register">
-
         <div class="username">
           <input
+            [(ngModel)]="register.username"
             type="text"
             placeholder="Alias / Nombre de Usuario"
             id="username"
@@ -14,19 +14,31 @@
           />
         </div>
 
-        <div class="username">
-          <input required formControlName="nombre" type="text" placeholder="Nombre" id="name" />
-          <!-- <label>Nombre de usuario</label> -->
-        </div>
+        <!-- <div class="username">
+          <input required formControlName="nombre" type="text" placeholder="Nombre" id="name" /> -->
+        <!-- <label>Nombre de usuario</label> -->
+        <!-- </div> -->
 
-        <div class="username">
+        <!-- <div class="username">
           <input formControlName="apellido" type="text" placeholder="Apellido" id="lastName" required />
-        </div>
+        </div> -->
 
         <div class="username">
-          <input formControlName="email" type="email" placeholder="Email" id="email" required />
+          <input
+            [(ngModel)]="register.email"
+            formControlName="email"
+            type="email"
+            placeholder="Email"
+            id="email"
+            required
+          />
+          <div *ngIf="email?.hasError && email?.touched">
+            <p *ngIf="email?.hasError('email')" class="text-danger">
+              Formato de mail no valido
+            </p>
+          </div>
         </div>
-
+        <!-- 
         <div class="username">
           <input formControlName="dni" type="text" placeholder="DNI" id="identification" />
         </div>
@@ -37,19 +49,23 @@
 
         <div class="username">
           <input formControlName="telefono" type="text" placeholder="Telefono" id="phone" />
-        </div>
+        </div> -->
 
         <div class="username">
           <input
+            [(ngModel)]="register.password"
             type="password"
             placeholder="Contraseña"
             id="password"
             required
             formControlName="password"
           />
+          <div *ngIf="password?.hasError && password?.touched">
+            <p class="text-danger">Longitud minima de 8 caracteres</p>
+          </div>
         </div>
 
-        <div class="username">
+        <!-- <div class="username">
           <input
             type="password"
             placeholder="Repeti Contraseña"
@@ -57,6 +73,30 @@
             formControlName="password2"
             required
           />
+        </div> -->
+
+        <!-- <div *ngIf="username?.hasError && username?.touched || password?.hasError && password?.touched || password2?.hasError && password2?.touched || email?.hasError && email?.touched || telefono?.hasError && telefono?.touched || domicilio?.hasError && domicilio?.touched || dni?.hasError && dni?.touched || nombre?.hasError && nombre?.touched || apellido?.hasError && apellido?.touched">
+
+          <p *ngIf="username?.hasError('required') || password?.hasError('required') || password2?.hasError('required') || email?.hasError('required') || telefono?.hasError('required') || domicilio?.hasError('required') || dni?.hasError('required') || nombre?.hasError('required') || apellido?.hasError('required')" class="text-danger">Todos los campos son obligatorios</p>
+        </div> -->
+
+        <div
+          *ngIf="
+            (username?.hasError && username?.touched) ||
+            (password?.hasError && password?.touched) ||
+            (email?.hasError && email?.touched)
+          "
+        >
+          <p
+            *ngIf="
+              username?.hasError('required') ||
+              password?.hasError('required') ||
+              email?.hasError('required')
+            "
+            class="text-danger"
+          >
+            Todos los campos son obligatorios
+          </p>
         </div>
 
         <!-- <a href="./home banking.html"> -->

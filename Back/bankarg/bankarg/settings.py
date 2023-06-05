@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import datetime
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,7 +39,39 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "bankarg_ispc",
+    "rest_framework",
+    "corsheaders",
+    "knox",
+    "rest_framework.authtoken",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        # "rest_framework.authentication.TokenAuthentication",
+        # "rest_framework.authentication.SessionAuthentication",
+        # "rest_framework.authentication.BasicAuthentication",
+        "knox.auth.TokenAuthentication",
+    ],
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     "rest_framework.permissions.IsAuthenticated",
+    #     "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    # ],
+}
+
+# JWT_AUTH = {
+#     "JWT_ALLOW_REFRESH": True,
+#     "JWT_EXPIRATION_DELTA": datetime.timedelta(seconds=3600),
+# }
+
+# REST_FRAMEWORK = {
+#     "DEFAULT_AUTHENTICATION_CLASSES": (
+#         "rest_framework.authentication.SessionAuthentication",
+#         "rest_framework_simplejwt.authentication.JWTAuthentication",
+#     ),
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+#     ],
+# }
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -48,7 +81,14 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost",
+    "http://localhost:4200",
+]
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "bankarg.urls"
 
@@ -81,7 +121,7 @@ DATABASES = {
         "USER": "root",
         "PASSWORD": "",
         "HOST": "localhost",
-        "PORT": "3306",
+        "PORT": "3308",
         "OPTIONS": {
             "sql_mode": "traditional",
         },
@@ -129,3 +169,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Custom user model
+AUTH_USER_MODEL = "bankarg_ispc.CustomUser"
