@@ -1,11 +1,20 @@
+from django.http import JsonResponse
 from django.shortcuts import render
+from mysqlx import View
 
 # Create your views here.
 from rest_framework import viewsets, status, generics
+from rest_framework.authentication import (
+    SessionAuthentication,
+    BasicAuthentication,
+    TokenAuthentication,
+)
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model, authenticate, login, logout
 
 from knox.models import AuthToken
+
+from Back.bankarg.bankarg_ispc.models import Prestamos
 from .serializers import UserSerializer, RegisterSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -27,6 +36,14 @@ from rest_framework import permissions
 
 
 class LoginView(APIView):
+    # authentication_classes = [
+    #     SessionAuthentication,
+    #     BasicAuthentication,
+    # ]
+    # permission_classes = [
+    #     IsAuthenticated,
+    # ]
+
     def post(self, request):
         # Recuperamos credenciales y autenticamos al usuario
         email = request.data.get("email", None)
@@ -88,3 +105,22 @@ class RegisterView(generics.CreateAPIView):
                 "token": AuthToken.objects.create(user)[1],
             }
         )
+
+
+class PrestamoView(View):
+    def get(self, request, id=0):
+        if id > 0:
+            prestamos = list(Prestamos.objects.filter(id=id).values())
+            if len(prestamos) > 0:
+                return JsonResponse(prestamos[0], safe=False)
+            else:
+                return JsonResponse({"message": "No existe el prestamo"}, safe=False)
+
+        prestamos = list(Prestamos.objects.values())
+
+        if len(prestamos) > 0:
+            return JsonResponse(prestamos, safe=False)
+        else:
+            return JsonResponse({"message": "No existen prestamos"}, safe=False)
+
+    # def post(self, request):

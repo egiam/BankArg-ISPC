@@ -22,6 +22,7 @@ from django.urls import include, path
 #     TokenRefreshView,
 # )
 from rest_framework.routers import DefaultRouter
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 # from bankarg_ispc.views import LoginView, LogoutView
 from bankarg_ispc import views
@@ -35,8 +36,8 @@ urlpatterns = [
     # path("auth/login/", LoginView.as_view(), name="auth_login"),
     # path("auth/logout/", LogoutView.as_view(), name="auth_logout"),
     # path("api-auth/", include("rest_framework.urls")),
-    # path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    # path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    # path("api/token/", obtain_jwt_token),
+    # path("api/token/refresh/", refresh_jwt_token),
 ]
 
 # router = DefaultRouter()
