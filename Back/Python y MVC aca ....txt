@@ -15,6 +15,10 @@
     -> y
 -> python manage.py runserver
 
+posible necesidad de instalar: 
+-> pip install djangorestframework-jwt
+-> pip install djangorestframework djangorestframework-jwt
+
 ---
 DJANGO:
 Instalación: pip install django
