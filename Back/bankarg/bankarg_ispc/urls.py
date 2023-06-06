@@ -17,7 +17,7 @@ from bankarg_ispc.views import LoginView, LogoutView, SignupView, RegisterView
 from bankarg_ispc import views
 
 # from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+# from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
 
 
 # from knox import views as knox_views
@@ -39,7 +39,7 @@ urlpatterns = [
     path("prestamo/", PrestamoView.as_view(), name="prestamo_list"),
     path("prestamo/<int:id>/", PrestamoView.as_view(), name="prestamo_proceso"),
     path("persona/", PersonaView.as_view(), name="persona_list"),
-    path("persona/<int:id>/", PersonaView.as_view(), name="persona_proceso"),
+    path("persona/<int:id_persona>/", PersonaView.as_view(), name="persona_proceso"),
     path("cuenta/", CuentaView.as_view(), name="cuenta_list"),
     path("cuenta/<int:id>/", CuentaView.as_view(), name="cuenta_proceso"),
     path("plazo_fijo/", Plazo_fijoView.as_view(), name="plazo_fijo_list"),
