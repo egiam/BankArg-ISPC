@@ -149,8 +149,34 @@ Backend:
 - Calendario: Fecha Inicio = 08/05/2023 -  Fecha de Fin = 21/05/2023
 - Inconvenientes: -
 
+#### N° de sprint: 3
+- Sprint Backlog: 
+1. Incorporar formularios reactivos de Registro y Login para la autenticación y formularios para la manipulación (Alta) de servicios/productos/suscripción, según el caso con sus respectivas validaciones. 
+2. Conexión con el backend para el registro e inicio de sesión.
+3. Conexión con backend para almacenar los datos de los productos/servicios y detalles de producto/servicios en la DB a través del modelo en Django.
+4. Opcional: Agregar rutas protegidas a la navegación en base al usuario autenticado/autorizado. Ej. para acceder al tablero de control o bien, para acceder al registro de productos/servicios.
+5. Registro de usuarios.
+6. Login de usuarios.
+7. Registro / Alta de al menos 3 productos/servicios/suscripción ( solo desde el rol Administrador, mediante su panel de control).
+8. Tablero de control (Gestión) o Dashboard con módulos planteados en la maquetación del FrontEnd según proyecto: 
+  - El rol ADMIN pueda ver la lista de usuarios registrados y el listado de los productos/servicios/suscripción según corresponda.
+  - El rol USUARIO registrado solo que pueda ver su Dashboard para editar su perfil.
+9. OPCIONAL: Token validación del login con JWT.
+- Responsabilidades:
+- Calendario: Fecha Inicio = 22/05/2023 -  Fecha de Fin = 04/06/2023 
+- Inconvenientes: -
 
-
+#### N° de sprint: 4
+- Sprint Backlog: 
+1. Tablero de control para usuarios: Mostrar catálogo (mínimo 3 productos o servicios o suscripción). Seleccionar para comprar. Simular Pago con API Mercado Pago o similar. 
+2. Tablero de control administrador CRUD básico funcional de producto y cliente.
+3. Actualizar documentación IEEE830 - tablero Kanban (project) y Wiki.
+4. Actualizado todo el proyecto en GitHub como respaldo 
+5. Demo final en video con participación de todo el equipo describiendo todas las funcionalidades.
+6. OPCIONAL: Sitio publicado en Servidor
+- Responsabilidades:
+- Calendario: Fecha Inicio = 05/06/2023 -  Fecha de Fin = 18/06/2023
+- Inconvenientes: -
 
 
 
