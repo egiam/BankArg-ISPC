@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
     guest: 'guest',
     Eze: '1234',
     Yo: '5678',
+    'juanPerez@gmail.com': '1234',
+    'admin@mail.com': '1234',
   };
 
   btnLogin = document.getElementById('btnLogin');
