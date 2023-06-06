@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 from rest_framework import viewsets, status, generics
+
 # from rest_framework.authentication import (
 #     SessionAuthentication,
 #     BasicAuthentication,
@@ -180,8 +181,8 @@ class PrestamoView(APIView):
             return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
 
-class PersonaView(View):
-    @method_decorator(csrf_exempt)
+class PersonaView(APIView):
+    # @method_decorator(csrf_exempt)
     def get(self, request, id_persona=0):
         if id_persona > 0:
             persona = list(Persona.objects.filter(id_persona=id_persona).values())
