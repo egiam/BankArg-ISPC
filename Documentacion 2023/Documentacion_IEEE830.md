@@ -160,8 +160,17 @@ Establecemos distintos usuarios a saber:
 - Calendario: Fecha Inicio = 22/05/2023 -  Fecha de Fin = 04/06/2023 
 - Inconvenientes: -
 
-
-
+#### N° de sprint: 4
+- Sprint Backlog: 
+1. Tablero de control para usuarios: Mostrar catálogo (mínimo 3 productos o servicios o suscripción). Seleccionar para comprar. Simular Pago con API Mercado Pago o similar. 
+2. Tablero de control administrador CRUD básico funcional de producto y cliente.
+3. Actualizar documentación IEEE830 - tablero Kanban (project) y Wiki.
+4. Actualizado todo el proyecto en GitHub como respaldo 
+5. Demo final en video con participación de todo el equipo describiendo todas las funcionalidades.
+6. OPCIONAL: Sitio publicado en Servidor
+- Responsabilidades:
+- Calendario: Fecha Inicio = 05/06/2023 -  Fecha de Fin = 18/06/2023
+- Inconvenientes: -
 
 
 
