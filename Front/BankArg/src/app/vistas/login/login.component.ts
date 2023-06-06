@@ -43,15 +43,15 @@ export class LoginComponent implements OnInit {
     return this.form.get('password');
   }
 
-  users: { [key: string]: string } = {
-    admin: 'admin',
-    user: 'user',
-    guest: 'guest',
-    Eze: '1234',
-    Yo: '5678',
-    'juanPerez@gmail.com': '1234',
-    'admin@mail.com': '1234',
-  };
+  // users: { [key: string]: string } = {
+  //   admin: 'admin',
+  //   user: 'user',
+  //   guest: 'guest',
+  //   Eze: '1234',
+  //   Yo: '5678',
+  //   'juanPerez@gmail.com': '1234',
+  //   'admin@mail.com': '1234',
+  // };
 
   btnLogin = document.getElementById('btnLogin');
 
@@ -67,34 +67,50 @@ export class LoginComponent implements OnInit {
         confirmButtonText: 'Aceptar',
       });
     } else {
-      if (this.users[user] === pass) {
-        this.cuenta.login(this.login).subscribe(
-          (res) => {
-            console.log(res);
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
+      this.cuenta.login(this.login).subscribe(
+        (res) => {
+          console.log(res);
+          Swal.fire({
+            title: 'Login exitoso',
+            text: 'El usuario se ha logueado correctamente',
+            icon: 'success',
+            showConfirmButton: true,
+            confirmButtonText: 'Aceptar',
+          }).then(function () {
+            window.location.href = '../index.html';
+          });
+        },
+        (err) => {
+          console.log(err);
+          Swal.fire({
+            title: 'Error',
+            text: 'El usuario o contraseña son incorrectos',
+            icon: 'error',
+            showConfirmButton: true,
+            confirmButtonText: 'Aceptar',
+          });
+        }
+      );
+      // if (this.users[user] === pass) {
 
-        Swal.fire({
-          title: 'Login exitoso',
-          text: 'El usuario se ha logueado correctamente',
-          icon: 'success',
-          showConfirmButton: true,
-          confirmButtonText: 'Aceptar',
-        }).then(function () {
-          window.location.href = '../index.html';
-        });
-      } else {
-        Swal.fire({
-          title: 'Error',
-          text: 'El usuario o contraseña son incorrectos',
-          icon: 'error',
-          showConfirmButton: true,
-          confirmButtonText: 'Aceptar',
-        });
-      }
+      //   Swal.fire({
+      //     title: 'Login exitoso',
+      //     text: 'El usuario se ha logueado correctamente',
+      //     icon: 'success',
+      //     showConfirmButton: true,
+      //     confirmButtonText: 'Aceptar',
+      //   }).then(function () {
+      //     window.location.href = '../index.html';
+      //   });
+      // } else {
+      //   Swal.fire({
+      //     title: 'Error',
+      //     text: 'El usuario o contraseña son incorrectos',
+      //     icon: 'error',
+      //     showConfirmButton: true,
+      //     confirmButtonText: 'Aceptar',
+      //   });
+      // }
     }
   }
 }
