@@ -3,6 +3,9 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
 # from mysqlx import View
 
 # Create your views here.
@@ -177,10 +180,11 @@ class PrestamoView(APIView):
             return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
 
-class PersonaView(APIView):
-    def get(self, request, id=0):
-        if id > 0:
-            persona = list(Persona.objects.filter(id=id).values())
+class PersonaView(View):
+    @method_decorator(csrf_exempt)
+    def get(self, request, id_persona=0):
+        if id_persona > 0:
+            persona = list(Persona.objects.filter(id_persona=id_persona).values())
             if len(persona) > 0:
                 return JsonResponse(persona[0], safe=False)
             else:
@@ -196,7 +200,7 @@ class PersonaView(APIView):
     def post(self, request):
         jsDatos = json.loads(request.body)
         Persona.objects.create(
-            id=jsDatos["id"],
+            id_persona=jsDatos["id_persona"],
             nombre=jsDatos["nombre"],
             apellido=jsDatos["apellido"],
             id_tipo_doc=jsDatos["id_tipo_doc"],
@@ -209,11 +213,11 @@ class PersonaView(APIView):
         )
         return JsonResponse({"message": "Persona creada"}, safe=False)
 
-    def put(self, request, id=0):
+    def put(self, request, id_persona=0):
         jsDatos = json.loads(request.body)
-        persona = list(Persona.objects.filter(id=id).values())
+        persona = list(Persona.objects.filter(id_persona=id_persona).values())
         if len(persona) > 0:
-            persona = Persona.objects.get(id=id)
+            persona = Persona.objects.get(id_persona=id_persona)
             persona.nombre = jsDatos["nombre"]
             persona.apellido = jsDatos["apellido"]
             persona.id_tipo_doc = jsDatos["id_tipo_doc"]
@@ -228,10 +232,10 @@ class PersonaView(APIView):
         else:
             return JsonResponse({"message": "No existe la persona"}, safe=False)
 
-    def delete(self, request, id=0):
-        persona = list(Persona.objects.filter(id=id).values())
+    def delete(self, request, id_persona=0):
+        persona = list(Persona.objects.filter(id_persona=id_persona).values())
         if len(persona) > 0:
-            persona = Persona.objects.get(id=id)
+            persona = Persona.objects.get(id_persona=id_persona)
             persona.delete()
             return JsonResponse({"message": "Persona eliminada"}, safe=False)
         else:
