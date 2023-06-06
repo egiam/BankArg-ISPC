@@ -115,9 +115,9 @@ class RegisterView(generics.CreateAPIView):
 
 
 class PrestamoView(APIView):
-    def get(self, request, id=0):
-        if id > 0:
-            prestamo = list(Prestamos.objects.filter(id=id).values())
+    def get(self, request, prestamo_id=0):
+        if prestamo_id > 0:
+            prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
             if len(prestamos) > 0:
                 return JsonResponse(prestamo[0], safe=False)
             else:
@@ -133,48 +133,48 @@ class PrestamoView(APIView):
     def post(self, request):
         jsDatos = json.loads(request.body)
         Prestamos.objects.create(
-            id=jsDatos["id"],
-            id_cuenta=jsDatos["id_cuenta"],
+            prestamo_id=jsDatos["prestamo_id"],
+            id_cuenta_id=jsDatos["id_cuenta"],
             monto=jsDatos["monto"],
             interes_mes=jsDatos["interes_mes"],
             fec_start=jsDatos["fec_start"],
             fec_venc=jsDatos["fec_venc"],
-            id_tipo_prestamo=jsDatos["id_tipo_prestamo"],
-            id_tipo_estado_prestamo=jsDatos["id_tipo_estado_prestamo"],
-            id_tipo_moneda=jsDatos["id_tipo_moneda"],
-            id_tipo_interes=jsDatos["id_tipo_interes"],
-            id_tipo_cuota=jsDatos["id_tipo_cuota"],
-            id_tipo_estado_cuota=jsDatos["id_tipo_estado_cuota"],
-            id_cantidad_cuota=jsDatos["id_cantidad_cuota"],
+            id_tipo_prestamo_id=jsDatos["id_tipo_prestamo"],
+            id_tipo_estado_prestamo_id=jsDatos["id_tipo_estado_prestamo"],
+            id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
+            id_tipo_interes_id=jsDatos["id_tipo_interes"],
+            id_tipo_cuota_id=jsDatos["id_tipo_cuota"],
+            id_tipo_estado_cuota_id=jsDatos["id_tipo_estado_cuota"],
+            id_cantidad_cuota_id=jsDatos["id_cantidad_cuota"],
         )
         return JsonResponse({"message": "Prestamo creado"}, safe=False)
 
-    def put(self, request, id=0):
+    def put(self, request, prestamo_id=0):
         jsDatos = json.loads(request.body)
-        prestamo = list(Prestamos.objects.filter(id=id).values())
+        prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
         if len(prestamo) > 0:
-            prestamo = Prestamos.objects.get(id=id)
-            prestamo.id_cuenta = jsDatos["id_cuenta"]
+            prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
+            prestamo.id_cuenta_id = jsDatos["id_cuenta_id"]
             prestamo.monto = jsDatos["monto"]
             prestamo.interes_mes = jsDatos["interes_mes"]
             prestamo.fec_start = jsDatos["fec_start"]
             prestamo.fec_venc = jsDatos["fec_venc"]
-            prestamo.id_tipo_prestamo = jsDatos["id_tipo_prestamo"]
-            prestamo.id_tipo_estado_prestamo = jsDatos["id_tipo_estado_prestamo"]
-            prestamo.id_tipo_moneda = jsDatos["id_tipo_moneda"]
-            prestamo.id_tipo_interes = jsDatos["id_tipo_interes"]
-            prestamo.id_tipo_cuota = jsDatos["id_tipo_cuota"]
-            prestamo.id_tipo_estado_cuota = jsDatos["id_tipo_estado_cuota"]
-            prestamo.id_cantidad_cuota = jsDatos["id_cantidad_cuota"]
+            prestamo.id_tipo_prestamo_id = jsDatos["id_tipo_prestamo_id"]
+            prestamo.id_tipo_estado_prestamo_id = jsDatos["id_tipo_estado_prestamo_id"]
+            prestamo.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
+            prestamo.id_tipo_interes_id = jsDatos["id_tipo_interes_id"]
+            prestamo.id_tipo_cuota_id = jsDatos["id_tipo_cuota_id"]
+            prestamo.id_tipo_estado_cuota_id = jsDatos["id_tipo_estado_cuota_id"]
+            prestamo.id_cantidad_cuota_id = jsDatos["id_cantidad_cuota_id"]
             prestamo.save()
             return JsonResponse({"message": "Prestamo actualizado"}, safe=False)
         else:
             return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
-    def delete(self, request, id=0):
-        prestamo = list(Prestamos.objects.filter(id=id).values())
+    def delete(self, request, prestamo_id=0):
+        prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
         if len(prestamo) > 0:
-            prestamo = Prestamos.objects.get(id=id)
+            prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
             prestamo.delete()
             return JsonResponse({"message": "Prestamo eliminado"}, safe=False)
         else:
@@ -204,13 +204,13 @@ class PersonaView(APIView):
             id_persona=jsDatos["id_persona"],
             nombre=jsDatos["nombre"],
             apellido=jsDatos["apellido"],
-            id_tipo_doc=jsDatos["id_tipo_doc"],
+            id_tipo_doc_id=jsDatos["id_tipo_doc"],
             nro_doc=jsDatos["nro_doc"],
-            cod_loc=jsDatos["cod_loc"],
+            cod_loc_id=jsDatos["cod_loc"],
             nro_calle=jsDatos["nro_calle"],
             calle=jsDatos["calle"],
             fecha_nac=jsDatos["fecha_nac"],
-            id_tipo_sexo=jsDatos["id_tipo_sexo"],
+            id_tipo_sexo_id=jsDatos["id_tipo_sexo"],
         )
         return JsonResponse({"message": "Persona creada"}, safe=False)
 
@@ -221,13 +221,13 @@ class PersonaView(APIView):
             persona = Persona.objects.get(id_persona=id_persona)
             persona.nombre = jsDatos["nombre"]
             persona.apellido = jsDatos["apellido"]
-            persona.id_tipo_doc = jsDatos["id_tipo_doc"]
+            persona.id_tipo_doc_id = jsDatos["id_tipo_doc_id"]
             persona.nro_doc = jsDatos["nro_doc"]
-            persona.cod_loc = jsDatos["cod_loc"]
+            persona.cod_loc_id = jsDatos["cod_loc_id"]
             persona.nro_calle = jsDatos["nro_calle"]
             persona.calle = jsDatos["calle"]
             persona.fecha_nac = jsDatos["fecha_nac"]
-            persona.id_tipo_sexo = jsDatos["id_tipo_sexo"]
+            persona.id_tipo_sexo_id = jsDatos["id_tipo_sexo_id"]
             persona.save()
             return JsonResponse({"message": "Persona actualizada"}, safe=False)
         else:
@@ -244,9 +244,9 @@ class PersonaView(APIView):
 
 
 class CuentaView(APIView):
-    def get(self, request, id=0):
-        if id > 0:
-            cuenta = list(Cuenta.objects.filter(id=id).values())
+    def get(self, request, id_cuenta=0):
+        if id_cuenta > 0:
+            cuenta = list(Cuenta.objects.filter(id_cuenta=id_cuenta).values())
             if len(cuenta) > 0:
                 return JsonResponse(cuenta[0], safe=False)
             else:
@@ -262,11 +262,11 @@ class CuentaView(APIView):
     def post(self, request):
         jsDatos = json.loads(request.body)
         Cuenta.objects.create(
-            id=jsDatos["id"],
-            id_cliente=jsDatos["id_cliente"],
-            id_tipo_cuenta=jsDatos["id_tipo_cuenta"],
-            id_tipo_moneda=jsDatos["id_tipo_moneda"],
-            id_tipo_estado_moneda=jsDatos["id_tipo_estado_moneda"],
+            id_cuenta=jsDatos["id_cuenta"],
+            id_cliente_id=jsDatos["id_cliente"],
+            id_tipo_cuenta_id=jsDatos["id_tipo_cuenta"],
+            id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
+            id_tipo_estado_moneda_id=jsDatos["id_tipo_estado_moneda"],
             monto=jsDatos["monto"],
             fecha_creacion=jsDatos["fecha_creacion"],
             cbu=jsDatos["cbu"],
@@ -277,15 +277,15 @@ class CuentaView(APIView):
         )
         return JsonResponse({"message": "Cuenta creada"}, safe=False)
 
-    def put(self, request, id=0):
+    def put(self, request, id_cuenta=0):
         jsDatos = json.loads(request.body)
-        cuenta = list(Cuenta.objects.filter(id=id).values())
+        cuenta = list(Cuenta.objects.filter(id_cuenta=id_cuenta).values())
         if len(cuenta) > 0:
-            cuenta = Cuenta.objects.get(id=id)
-            cuenta.id_cliente = jsDatos["id_cliente"]
-            cuenta.id_tipo_cuenta = jsDatos["id_tipo_cuenta"]
-            cuenta.id_tipo_moneda = jsDatos["id_tipo_moneda"]
-            cuenta.id_tipo_estado_moneda = jsDatos["id_tipo_estado_moneda"]
+            cuenta = Cuenta.objects.get(id_cuenta=id_cuenta)
+            cuenta.id_cliente_id = jsDatos["id_cliente_id"]
+            cuenta.id_tipo_cuenta_id = jsDatos["id_tipo_cuenta_id"]
+            cuenta.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
+            cuenta.id_tipo_estado_moneda_id = jsDatos["id_tipo_estado_moneda_id"]
             cuenta.monto = jsDatos["monto"]
             cuenta.fecha_creacion = jsDatos["fecha_creacion"]
             cuenta.cbu = jsDatos["cbu"]
@@ -298,10 +298,10 @@ class CuentaView(APIView):
         else:
             return JsonResponse({"message": "No existe la cuenta"}, safe=False)
 
-    def delete(self, request, id=0):
-        cuenta = list(Cuenta.objects.filter(id=id).values())
+    def delete(self, request, id_cuenta=0):
+        cuenta = list(Cuenta.objects.filter(id_cuenta=id_cuenta).values())
         if len(cuenta) > 0:
-            cuenta = Cuenta.objects.get(id=id)
+            cuenta = Cuenta.objects.get(id_cuenta=id_cuenta)
             cuenta.delete()
             return JsonResponse({"message": "Cuenta eliminada"}, safe=False)
         else:
@@ -309,9 +309,13 @@ class CuentaView(APIView):
 
 
 class TransferenciasView(APIView):
-    def get(self, request, id=0):
-        if id > 0:
-            transferencia = list(Transferencias.objects.filter(id=id).values())
+    def get(self, request, id_transferencia=0):
+        if id_transferencia > 0:
+            transferencia = list(
+                Transferencias.objects.filter(
+                    id_transferencia=id_transferencia
+                ).values()
+            )
             if len(transferencia) > 0:
                 return JsonResponse(transferencia[0], safe=False)
             else:
@@ -338,9 +342,9 @@ class TransferenciasView(APIView):
         #     id_tipo_estado_moneda=jsDatos["id_tipo_estado_moneda"],
         # )
         transferencia = Transferencias.objects.create(
-            id=jsDatos["id"],
-            id_tipo_transferencia=jsDatos["id_tipo_estado_moneda"],
-            id_cliente=jsDatos["id_cliente"],
+            id_transferencia=jsDatos["id_transferencia"],
+            id_tipo_transferencia_id=jsDatos["id_tipo_estado_moneda"],
+            id_cliente_id_id=jsDatos["id_cliente"],
             fecha=jsDatos["fecha"],
             monto=jsDatos["monto"],
             cuenta_envio=jsDatos["cuenta_envio"],
@@ -348,13 +352,17 @@ class TransferenciasView(APIView):
         )
         return JsonResponse({"message": "Transferencia creada"}, safe=False)
 
-    def put(self, request, id=0):
+    def put(self, request, id_transferencia=0):
         jsDatos = json.loads(request.body)
-        transferencia = list(Transferencias.objects.filter(id=id).values())
+        transferencia = list(
+            Transferencias.objects.filter(id_transferencia=id_transferencia).values()
+        )
         if len(transferencia) > 0:
-            transferencia = Transferencias.objects.get(id=id)
-            transferencia.id_tipo_transferencia = jsDatos["id_tipo_transferencia"]
-            transferencia.id_cliente = jsDatos["id_cliente"]
+            transferencia = Transferencias.objects.get(
+                id_transferencia=id_transferencia
+            )
+            transferencia.id_tipo_transferencia_id = jsDatos["id_tipo_transferencia_id"]
+            transferencia.id_cliente_id = jsDatos["id_cliente_id"]
             transferencia.fecha = jsDatos["fecha"]
             transferencia.monto = jsDatos["monto"]
             transferencia.cuenta_envio = jsDatos["cuenta_envio"]
@@ -364,10 +372,14 @@ class TransferenciasView(APIView):
         else:
             return JsonResponse({"message": "No existe la transferencia"}, safe=False)
 
-    def delete(self, request, id=0):
-        transferencia = list(Transferencias.objects.filter(id=id).values())
+    def delete(self, request, id_transferencia=0):
+        transferencia = list(
+            Transferencias.objects.filter(id_transferencia=id_transferencia).values()
+        )
         if len(transferencia) > 0:
-            transferencia = Transferencias.objects.get(id=id)
+            transferencia = Transferencias.objects.get(
+                id_transferencia=id_transferencia
+            )
             transferencia.delete()
             return JsonResponse({"message": "Transferencia eliminada"}, safe=False)
         else:
@@ -375,9 +387,11 @@ class TransferenciasView(APIView):
 
 
 class Plazo_fijoView(APIView):
-    def get(self, request, id=0):
-        if id > 0:
-            plazo_fijo = list(Plazo_fijo.objects.filter(id=id).values())
+    def get(self, request, id_plazo_fijo=0):
+        if id_plazo_fijo > 0:
+            plazo_fijo = list(
+                Plazo_fijo.objects.filter(id_plazo_fijo=id_plazo_fijo).values()
+            )
             if len(plazo_fijo) > 0:
                 return JsonResponse(plazo_fijo[0], safe=False)
             else:
@@ -393,10 +407,10 @@ class Plazo_fijoView(APIView):
     def post(self, request):
         jsDatos = json.loads(request.body)
         Plazo_fijo.objects.create(
-            id=jsDatos["id"],
+            id_plazo_fijo=jsDatos["id_plazo_fijo"],
             # id_cliente=jsDatos["id_cliente"],
-            id_cuenta=jsDatos["id_cuenta"],
-            id_tipo_moneda=jsDatos["id_tipo_moneda"],
+            id_cuenta_id=jsDatos["id_cuenta"],
+            id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
             monto=jsDatos["monto"],
             fecha_inicio=jsDatos["fecha_inicio"],
             fecha_vencimiento=jsDatos["fecha_vencimiento"],
@@ -404,13 +418,15 @@ class Plazo_fijoView(APIView):
         )
         return JsonResponse({"message": "Plazo fijo creado"}, safe=False)
 
-    def put(self, request, id=0):
+    def put(self, request, id_plazo_fijo=0):
         jsDatos = json.loads(request.body)
-        plazo_fijo = list(Plazo_fijo.objects.filter(id=id).values())
+        plazo_fijo = list(
+            Plazo_fijo.objects.filter(id_plazo_fijo=id_plazo_fijo).values()
+        )
         if len(plazo_fijo) > 0:
-            plazo_fijo = Plazo_fijo.objects.get(id=id)
-            plazo_fijo.id_cuenta = jsDatos["id_cuenta"]
-            plazo_fijo.id_tipo_moneda = jsDatos["id_tipo_moneda"]
+            plazo_fijo = Plazo_fijo.objects.get(id_plazo_fijo=id_plazo_fijo)
+            plazo_fijo.id_cuenta_id = jsDatos["id_cuenta_id"]
+            plazo_fijo.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
             plazo_fijo.monto = jsDatos["monto"]
             plazo_fijo.fecha_inicio = jsDatos["fecha_inicio"]
             plazo_fijo.fecha_vencimiento = jsDatos["fecha_vencimiento"]
@@ -420,10 +436,12 @@ class Plazo_fijoView(APIView):
         else:
             return JsonResponse({"message": "No existe el plazo fijo"}, safe=False)
 
-    def delete(self, request, id=0):
-        plazo_fijo = list(Plazo_fijo.objects.filter(id=id).values())
+    def delete(self, request, id_plazo_fijo=0):
+        plazo_fijo = list(
+            Plazo_fijo.objects.filter(id_plazo_fijo=id_plazo_fijo).values()
+        )
         if len(plazo_fijo) > 0:
-            plazo_fijo = Plazo_fijo.objects.get(id=id)
+            plazo_fijo = Plazo_fijo.objects.get(id_plazo_fijo=id_plazo_fijo)
             plazo_fijo.delete()
             return JsonResponse({"message": "Plazo fijo eliminado"}, safe=False)
         else:
