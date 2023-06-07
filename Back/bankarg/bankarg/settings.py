@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "knox",
-    "rest_framework.authtoken",
+    #"rest_framework.authtoken",
 ]
 
 REST_FRAMEWORK = {
