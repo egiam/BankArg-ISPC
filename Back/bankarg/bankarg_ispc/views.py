@@ -21,7 +21,18 @@ from django.contrib.auth import get_user_model, authenticate, login, logout
 
 from knox.models import AuthToken
 
-from bankarg_ispc.models import Prestamos, Persona, Cuenta, Transferencias, Plazo_fijo
+from bankarg_ispc.models import (
+    Prestamos,
+    Documentos,
+    Persona,
+    Cuenta,
+    Transferencias,
+    Plazo_fijo,
+    Paises,
+    Provincias,
+    Localidades,
+    Sexos,
+)
 from .serializers import UserSerializer, RegisterSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -180,6 +191,240 @@ class PrestamoView(APIView):
         else:
             return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
+
+class DocumentosView(APIView):
+    def get(self, request, documento_id=0):
+        if documento_id > 0:
+            documento = list(
+                Documentos.objects.filter(documento_id=documento_id).values()
+            )
+            if len(documento) > 0:
+                return JsonResponse(documento[0], safe=False)
+            else:
+                return JsonResponse({"message": "No existe el documento"}, safe=False)
+
+        documentos = list(Documentos.objects.values())
+
+        if len(documentos) > 0:
+            return JsonResponse(documentos, safe=False)
+        else:
+            return JsonResponse({"message": "No existen documentos"}, safe=False)
+
+    def post(self, request):
+        jsDatos = json.loads(request.body)
+        Documentos.objects.create(
+            id_tipo_doc=jsDatos["id_tipo_doc"],
+            tipo_doc=jsDatos["tipo_doc"],
+        )
+        return JsonResponse({"message": "Documento creado"}, safe=False)
+
+    def put(self, request, documento_id=0):
+        jsDatos = json.loads(request.body)
+        documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+        if len(documento) > 0:
+            documento = Documentos.objects.get(documento_id=documento_id)
+            documento.tipo_doc = jsDatos["tipo_doc"]
+            documento.save()
+            return JsonResponse({"message": "Documento actualizado"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe el documento"}, safe=False)
+
+    def delete(self, request, documento_id=0):
+        documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+        if len(documento) > 0:
+            documento = Documentos.objects.get(documento_id=documento_id)
+            documento.delete()
+            return JsonResponse({"message": "Documento eliminado"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe el documento"}, safe=False)
+
+
+class PaisesView(APIView):
+    def get(self, request, pais_id=0):
+        if pais_id > 0:
+            pais = list(Paises.objects.filter(pais_id=pais_id).values())
+            if len(pais) > 0:
+                return JsonResponse(pais[0], safe=False)
+            else:
+                return JsonResponse({"message": "No existe el pais"}, safe=False)
+
+        paises = list(Paises.objects.values())
+
+        if len(paises) > 0:
+            return JsonResponse(paises, safe=False)
+        else:
+            return JsonResponse({"message": "No existen paises"}, safe=False)
+
+    def post(self, request):
+        jsDatos = json.loads(request.body)
+        Paises.objects.create(
+            cod_pais=jsDatos["cod_pais"],
+            pais=jsDatos["pais"],
+        )
+        return JsonResponse({"message": "Pais creado"}, safe=False)
+
+    def put(self, request, pais_id=0):
+        jsDatos = json.loads(request.body)
+        pais = list(Paises.objects.filter(pais_id=pais_id).values())
+        if len(pais) > 0:
+            pais = Paises.objects.get(pais_id=pais_id)
+            pais.pais = jsDatos["pais"]
+            pais.save()
+            return JsonResponse({"message": "Pais actualizado"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe el pais"}, safe=False)
+
+    def delete(self, request, pais_id=0):
+        pais = list(Paises.objects.filter(pais_id=pais_id).values())
+        if len(pais) > 0:
+            pais = Paises.objects.get(pais_id=pais_id)
+            pais.delete()
+            return JsonResponse({"message": "Pais eliminado"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe el pais"}, safe=False)
+
+
+class ProvinciasView(APIView):
+    def get(self, request, provincia_id=0):
+        if provincia_id > 0:
+            provincia = list(
+                Provincias.objects.filter(provincia_id=provincia_id).values()
+            )
+            if len(provincia) > 0:
+                return JsonResponse(provincia[0], safe=False)
+            else:
+                return JsonResponse({"message": "No existe la provincia"}, safe=False)
+
+        provincias = list(Provincias.objects.values())
+
+        if len(provincias) > 0:
+            return JsonResponse(provincias, safe=False)
+        else:
+            return JsonResponse({"message": "No existen provincias"}, safe=False)
+
+    def post(self, request):
+        jsDatos = json.loads(request.body)
+        Provincias.objects.create(
+            cod_provincia=jsDatos["cod_provincia"],
+            provincia=jsDatos["provincia"],
+            cod_pais_id=jsDatos["cod_pais"],
+        )
+        return JsonResponse({"message": "Provincia creada"}, safe=False)
+
+    def put(self, request, provincia_id=0):
+        jsDatos = json.loads(request.body)
+        provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
+        if len(provincia) > 0:
+            provincia = Provincias.objects.get(provincia_id=provincia_id)
+            provincia.provincia = jsDatos["provincia"]
+            provincia.cod_pais_id = jsDatos["cod_pais_id"]
+            provincia.save()
+            return JsonResponse({"message": "Provincia actualizada"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe la provincia"}, safe=False)
+
+    def delete(self, request, provincia_id=0):
+        provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
+        if len(provincia) > 0:
+            provincia = Provincias.objects.get(provincia_id=provincia_id)
+            provincia.delete()
+            return JsonResponse({"message": "Provincia eliminada"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe la provincia"}, safe=False)
+
+
+class LocalidadesView(APIView):
+    def get(self, request, localidad_id=0):
+        if localidad_id > 0:
+            localidad = list(
+                Localidades.objects.filter(localidad_id=localidad_id).values()
+            )
+            if len(localidad) > 0:
+                return JsonResponse(localidad[0], safe=False)
+            else:
+                return JsonResponse({"message": "No existe la localidad"}, safe=False)
+
+        localidades = list(Localidades.objects.values())
+
+        if len(localidades) > 0:
+            return JsonResponse(localidades, safe=False)
+        else:
+            return JsonResponse({"message": "No existen localidades"}, safe=False)
+
+    def post(self, request):
+        jsDatos = json.loads(request.body)
+        Localidades.objects.create(
+            cod_localidad=jsDatos["cod_localidad"],
+            localidad=jsDatos["localidad"],
+            cod_provincia_id=jsDatos["cod_provincia"],
+        )
+        return JsonResponse({"message": "Localidad creada"}, safe=False)
+
+    def put(self, request, localidad_id=0):
+        jsDatos = json.loads(request.body)
+        localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
+        if len(localidad) > 0:
+            localidad = Localidades.objects.get(localidad_id=localidad_id)
+            localidad.localidad = jsDatos["localidad"]
+            localidad.cod_provincia_id = jsDatos["cod_provincia_id"]
+            localidad.save()
+            return JsonResponse({"message": "Localidad actualizada"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe la localidad"}, safe=False)
+
+    def delete(self, request, localidad_id=0):
+        localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
+        if len(localidad) > 0:
+            localidad = Localidades.objects.get(localidad_id=localidad_id)
+            localidad.delete()
+            return JsonResponse({"message": "Localidad eliminada"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe la localidad"}, safe=False)
+
+
+class SexosView(APIView):
+    def get(self, request, sexo_id=0):
+        if sexo_id > 0:
+            sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+            if len(sexo) > 0:
+                return JsonResponse(sexo[0], safe=False)
+            else:
+                return JsonResponse({"message": "No existe el sexo"}, safe=False)
+
+        sexos = list(Sexos.objects.values())
+
+        if len(sexos) > 0:
+            return JsonResponse(sexos, safe=False)
+        else:
+            return JsonResponse({"message": "No existen sexos"}, safe=False)
+
+    def post(self, request):
+        jsDatos = json.loads(request.body)
+        Sexos.objects.create(
+            id_tipo_sexo=jsDatos["id_tipo_sexo"],
+            tipo=jsDatos["tipo"],
+        )
+        return JsonResponse({"message": "Sexo creado"}, safe=False)
+
+    def put(self, request, sexo_id=0):
+        jsDatos = json.loads(request.body)
+        sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+        if len(sexo) > 0:
+            sexo = Sexos.objects.get(sexo_id=sexo_id)
+            sexo.tipo = jsDatos["tipo"]
+            sexo.save()
+            return JsonResponse({"message": "Sexo actualizado"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe el sexo"}, safe=False)
+
+    def delete(self, request, sexo_id=0):
+        sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+        if len(sexo) > 0:
+            sexo = Sexos.objects.get(sexo_id=sexo_id)
+            sexo.delete()
+            return JsonResponse({"message": "Sexo eliminado"}, safe=False)
+        else:
+            return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
 class PersonaView(APIView):
     # @method_decorator(csrf_exempt)

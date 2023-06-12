@@ -23,6 +23,7 @@ import { PrestamosComponent } from './vistas/body/prestamos/prestamos.component'
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro.component';
+import { PersonasComponent } from './vistas/body/personas/personas.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro
     ValidacionComponent,
     PrestamosComponent,
     CuentaAhorroComponent,
+    PersonasComponent,
   ],
   imports: [
     BrowserModule,
