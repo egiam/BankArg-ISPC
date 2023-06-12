@@ -14,6 +14,7 @@ import { PagosComponent } from './vistas/pagos/pagos.component';
 import { ValidacionComponent } from './vistas/body/validacion/validacion.component';
 import { PrestamosComponent } from './vistas/body/prestamos/prestamos.component';
 import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro.component';
+import { PersonasComponent } from './vistas/body/personas/personas.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'validacion', component: ValidacionComponent },
   { path: 'prestamos', component: PrestamosComponent },
   { path: 'cuentaAhorro', component: CuentaAhorroComponent },
+  { path: 'personas', component: PersonasComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 

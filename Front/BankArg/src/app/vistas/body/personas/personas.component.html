@@ -1,0 +1,52 @@
+<!-- Tabla de Personas -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Personas</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Id Documento</th>
+            <th>Nro Doc</th>
+            <th>cod localidad</th>
+            <th>nro calle</th>
+            <th>calle</th>
+            <th>fecha nacimiento</th>
+            <th>id tipo sexo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of personas">
+            <td>{{ persona.id_persona }}</td>
+            <td>{{ persona.nombre }}</td>
+            <td>{{ persona.apellido }}</td>
+            <td>{{ persona.id_tipo_doc_id }}</td>
+            <td>{{ persona.nro_doc }}</td>
+            <td>{{ persona.cod_loc_id }}</td>
+            <td>{{ persona.nro_calle }}</td>
+            <td>{{ persona.calle }}</td>
+            <td>{{ persona.fecha_nac }}</td>
+            <td>{{ persona.id_tipo_sexo_id }}</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                (click)="editarButton(persona.id_persona, persona)"
+              >
+                Editar
+              </button>
+              <button
+                class="btn btn-danger"
+                (click)="eliminarButton(persona.id_persona)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

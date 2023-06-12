@@ -12,6 +12,11 @@ from bankarg_ispc.views import (
     CuentaView,
     Plazo_fijoView,
     TransferenciasView,
+    DocumentosView,
+    PaisesView,
+    ProvinciasView,
+    LocalidadesView,
+    SexosView,
 )
 from bankarg_ispc.views import LoginView, LogoutView, SignupView, RegisterView
 from bankarg_ispc import views
@@ -50,4 +55,16 @@ urlpatterns = [
         TransferenciasView.as_view(),
         name="transferencias_proceso",
     ),
+    path("documentos/", DocumentosView.as_view(), name="documentos_list"),
+    path("documentos/<int:id>/", DocumentosView.as_view(), name="documentos_proceso"),
+    path("paises/", PaisesView.as_view(), name="paises_list"),
+    path("paises/<int:id>/", PaisesView.as_view(), name="paises_proceso"),
+    path("provincias/", ProvinciasView.as_view(), name="provincias_list"),
+    path("provincias/<int:id>/", ProvinciasView.as_view(), name="provincias_proceso"),
+    path("localidades/", LocalidadesView.as_view(), name="localidades_list"),
+    path(
+        "localidades/<int:id>/", LocalidadesView.as_view(), name="localidades_proceso"
+    ),
+    path("sexos/", SexosView.as_view(), name="sexos_list"),
+    path("sexos/<int:id>/", SexosView.as_view(), name="sexos_proceso"),
 ]
