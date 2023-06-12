@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
             showConfirmButton: true,
             confirmButtonText: 'Aceptar',
           }).then(function () {
-            window.location.href = '../index.html';
+            window.location.href = '../body/home';
           });
         },
         (err) => {

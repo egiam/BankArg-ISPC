@@ -27,6 +27,20 @@ export class ApiService {
     return this.http.get(this.url + 'movimientos');
   }
 
+  //
+
+  getPersonas(): Observable<any> {
+    return this.http.get(this.urlUser + 'api/persona');
+  }
+
+  putPersonas(id: number, data: any): Observable<any> {
+    return this.http.put(this.urlUser + 'api/persona/' + id, data);
+  }
+
+  deletePersonas(id: number): Observable<any> {
+    return this.http.delete(this.urlUser + 'api/persona/' + id);
+  }
+
   // Todo lo de abajo es solo TEST, no tiene ninguna funcionalidad real x ahora
   get(url: string) {
     return this.http.get(this.url + url);
