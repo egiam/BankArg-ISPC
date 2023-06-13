@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let persona of personas">
+          <tr *ngFor="let persona of personas | async">
             <td>{{ persona.id_persona }}</td>
             <td>{{ persona.nombre }}</td>
             <td>{{ persona.apellido }}</td>
@@ -37,6 +37,7 @@
               >
                 Editar
               </button>
+              <br />
               <button
                 class="btn btn-danger"
                 (click)="eliminarButton(persona.id_persona)"
@@ -50,3 +51,40 @@
     </div>
   </div>
 </div>
+
+<!-- Crear Persona -->
+<!-- Agrega los elementos de entrada para los datos de la nueva persona -->
+<input
+  type="text"
+  [(ngModel)]="nuevaPersona.id_persona"
+  placeholder="id_persona"
+/>
+<input type="text" [(ngModel)]="nuevaPersona.nombre" placeholder="Nombre" />
+<input type="text" [(ngModel)]="nuevaPersona.apellido" placeholder="Apellido" />
+<input
+  type="text"
+  [(ngModel)]="nuevaPersona.id_tipo_doc"
+  placeholder="id_tipo_doc"
+/>
+<input type="text" [(ngModel)]="nuevaPersona.nro_doc" placeholder="nro_doc" />
+<input type="text" [(ngModel)]="nuevaPersona.cod_loc" placeholder="cod_loc" />
+<input
+  type="text"
+  [(ngModel)]="nuevaPersona.nro_calle"
+  placeholder="nro_calle"
+/>
+<input type="text" [(ngModel)]="nuevaPersona.calle" placeholder="calle" />
+<input
+  type="text"
+  [(ngModel)]="nuevaPersona.fecha_nac"
+  placeholder="fecha_nac (AAAA-MM-DD)"
+/>
+<input
+  type="text"
+  [(ngModel)]="nuevaPersona.id_tipo_sexo"
+  placeholder="id_tipo_sexo"
+/>
+<!-- Agrega más campos según tus necesidades -->
+
+<!-- Agrega un botón para agregar la persona -->
+<button (click)="crearButton(nuevaPersona)">Agregar Persona</button>

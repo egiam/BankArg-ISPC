@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map, toArray } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -30,15 +30,19 @@ export class ApiService {
   //
 
   getPersonas(): Observable<any> {
-    return this.http.get(this.urlUser + 'api/persona');
+    return this.http.get<any>(this.urlUser + 'api/persona/');
   }
 
   putPersonas(id: number, data: any): Observable<any> {
-    return this.http.put(this.urlUser + 'api/persona/' + id, data);
+    return this.http.put(this.urlUser + 'api/persona/' + id + '/', data);
   }
 
   deletePersonas(id: number): Observable<any> {
-    return this.http.delete(this.urlUser + 'api/persona/' + id);
+    return this.http.delete(this.urlUser + 'api/persona/' + id + '/');
+  }
+
+  postPersonas(data: any): Observable<any> {
+    return this.http.post(this.urlUser + 'api/persona/', data);
   }
 
   // Todo lo de abajo es solo TEST, no tiene ninguna funcionalidad real x ahora
