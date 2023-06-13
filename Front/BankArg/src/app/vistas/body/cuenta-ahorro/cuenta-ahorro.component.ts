@@ -24,6 +24,7 @@ export class CuentaAhorroComponent {
       inputValue: '',
     });
     this.cuentaAhorroS.retirar(montoRetirar, this.persona1);
+    this.saldoformateado = this.formateador.format(this.persona1.saldo);
   }
   public async depositar() {
     const { value: montoDepositar } = await Swal.fire({
@@ -32,5 +33,6 @@ export class CuentaAhorroComponent {
       inputValue: '',
     });
     this.cuentaAhorroS.depositar(montoDepositar, this.persona1);
+    this.saldoformateado = this.formateador.format(this.persona1.saldo);
   }
 }
