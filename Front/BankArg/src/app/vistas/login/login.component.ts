@@ -8,6 +8,7 @@ import {
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/servicios/api/api.service';
 
 @Component({
@@ -27,7 +28,11 @@ export class LoginComponent implements OnInit {
     };
   }
 
-  constructor(private formBuilder: FormBuilder, private cuenta: ApiService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private cuenta: ApiService,
+    private router: Router
+  ) {
     //Creamos el grupo de controles para el formulario
     this.form = this.formBuilder.group({
       username: ['', [Validators.required]],
@@ -76,8 +81,9 @@ export class LoginComponent implements OnInit {
             icon: 'success',
             showConfirmButton: true,
             confirmButtonText: 'Aceptar',
-          }).then(function () {
-            window.location.href = '../body/home';
+          }).then(() => {
+            this.router.navigate(['']);
+            // window.location.href = '../body/home';
           });
         },
         (err) => {

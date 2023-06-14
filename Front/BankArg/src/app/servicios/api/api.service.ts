@@ -15,7 +15,8 @@ export class ApiService {
 
   // Registrarse (email, username, password)
   register(UserData: any): Observable<any> {
-    return this.http.post('http://127.0.0.1:8000/api/auth/register/', UserData);
+    return this.http.post('http://127.0.0.1:8000/api/auth/signup/', UserData);
+    // return this.http.post('http://127.0.0.1:8000/api/auth/register/', UserData);
   }
 
   // Logearse
