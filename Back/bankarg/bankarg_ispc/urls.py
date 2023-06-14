@@ -51,29 +51,45 @@ urlpatterns = [
     # ---------
     # Servicios
     path("prestamo/", PrestamoView.as_view(), name="prestamo_list"),
-    path("prestamo/<int:id>/", PrestamoView.as_view(), name="prestamo_proceso"),
+    path(
+        "prestamo/<int:id_prestamo>/", PrestamoView.as_view(), name="prestamo_proceso"
+    ),
     path("persona/", PersonaView.as_view(), name="persona_list"),
     path("persona/<int:id_persona>/", PersonaView.as_view(), name="persona_proceso"),
     path("cuenta/", CuentaView.as_view(), name="cuenta_list"),
-    path("cuenta/<int:id>/", CuentaView.as_view(), name="cuenta_proceso"),
+    path("cuenta/<int:id_cuenta>/", CuentaView.as_view(), name="cuenta_proceso"),
     path("plazo_fijo/", Plazo_fijoView.as_view(), name="plazo_fijo_list"),
-    path("plazo_fijo/<int:id>/", Plazo_fijoView.as_view(), name="plazo_fijo_proceso"),
+    path(
+        "plazo_fijo/<int:id_plazo_fijo>/",
+        Plazo_fijoView.as_view(),
+        name="plazo_fijo_proceso",
+    ),
     path("transferencias/", TransferenciasView.as_view(), name="transferencias_list"),
     path(
-        "transferencias/<int:id>/",
+        "transferencias/<int:id_transferencia>/",
         TransferenciasView.as_view(),
         name="transferencias_proceso",
     ),
     path("documentos/", DocumentosView.as_view(), name="documentos_list"),
-    path("documentos/<int:id>/", DocumentosView.as_view(), name="documentos_proceso"),
+    path(
+        "documentos/<int:id_tipo_doc>/",
+        DocumentosView.as_view(),
+        name="documentos_proceso",
+    ),
     path("paises/", PaisesView.as_view(), name="paises_list"),
-    path("paises/<int:id>/", PaisesView.as_view(), name="paises_proceso"),
+    path("paises/<int:cod_pais>/", PaisesView.as_view(), name="paises_proceso"),
     path("provincias/", ProvinciasView.as_view(), name="provincias_list"),
-    path("provincias/<int:id>/", ProvinciasView.as_view(), name="provincias_proceso"),
+    path(
+        "provincias/<int:cod_provincia>/",
+        ProvinciasView.as_view(),
+        name="provincias_proceso",
+    ),
     path("localidades/", LocalidadesView.as_view(), name="localidades_list"),
     path(
-        "localidades/<int:id>/", LocalidadesView.as_view(), name="localidades_proceso"
+        "localidades/<int:cod_localidad>/",
+        LocalidadesView.as_view(),
+        name="localidades_proceso",
     ),
     path("sexos/", SexosView.as_view(), name="sexos_list"),
-    path("sexos/<int:id>/", SexosView.as_view(), name="sexos_proceso"),
+    path("sexos/<int:id_tipo_sexo>/", SexosView.as_view(), name="sexos_proceso"),
 ]
