@@ -18,7 +18,13 @@ from bankarg_ispc.views import (
     LocalidadesView,
     SexosView,
 )
-from bankarg_ispc.views import LoginView, LogoutView, SignupView, RegisterView
+from bankarg_ispc.views import (
+    LoginView,
+    LogoutView,
+    SignupView,
+    RegisterView,
+    # LoginView2,
+)
 from bankarg_ispc import views
 
 # from rest_framework.authtoken.views import ObtainAuthToken
@@ -32,8 +38,11 @@ urlpatterns = [
     path("auth/login/", LoginView.as_view(), name="auth_login"),
     # path("auth/login/", obtain_jwt_token),
     path("auth/logout/", LogoutView.as_view(), name="auth_logout"),
-    # path("auth/logout/", knox_views.LogoutView.as_view(), name="auth_logout"),
+    #
+    # path("auth/login2/", LoginView2.as_view(), name="auth_login2"),
+    # path("auth/logout2/", knox_views.LogoutView.as_view(), name="auth_logout"),
     # path("auth/logoutall/", knox_views.LogoutAllView.as_view(), name="auth_logoutall"),
+    #
     path("auth/signup/", SignupView.as_view(), name="auth_signup"),
     path("auth/register/", RegisterView.as_view(), name="auth_register"),
     # path("api-auth/", include("rest_framework.urls")),

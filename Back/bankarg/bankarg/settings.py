@@ -40,23 +40,33 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "bankarg_ispc",
     "rest_framework",
+    "rest_framework.authentication",
     "corsheaders",
-    "knox",
-    #"rest_framework.authtoken",
+    "django_rest_passwordreset",
+    # "rest_auth",
+    # "knox",
+    # "rest_framework.authtoken",
 ]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
-        # "rest_framework.authentication.SessionAuthentication",
-        # "rest_framework.authentication.BasicAuthentication",
-        "knox.auth.TokenAuthentication",
+        # "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+        # "knox.auth.TokenAuthentication",
     ],
-    # "DEFAULT_PERMISSION_CLASSES": [
-    #     "rest_framework.permissions.IsAuthenticated",
-    #     "rest_framework.permissions.IsAuthenticatedOrReadOnly",
-    # ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+        "rest_framework.permissions.IsAdminUser",
+    ],
 }
+
+SESSION_COCKIE_SAMESITE = "None"
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_COCKIE_NAME = "sessionid"
+SESSION_COCKIE_DOMAIN = "http://localhost:4200"
 
 # JWT_AUTH = {
 #     "JWT_ALLOW_REFRESH": True,

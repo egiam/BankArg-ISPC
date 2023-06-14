@@ -17,8 +17,8 @@ from bankarg_ispc.models import (
 )
 
 
-def validate_password(self, value):
-    return make_password(value)
+# def validate_password(self, value):
+#     return make_password(value)
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -29,6 +29,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ("email", "username", "password")
+
+    def validate_password(self, value):
+        return make_password(value)
 
 
 # Register Serializer

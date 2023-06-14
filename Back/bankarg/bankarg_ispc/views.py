@@ -19,7 +19,7 @@ from rest_framework import viewsets, status, generics
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model, authenticate, login, logout
 
-from knox.models import AuthToken
+# from knox.models import AuthToken
 
 from bankarg_ispc.models import (
     Prestamos,
@@ -50,6 +50,7 @@ from .serializers import (
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import permissions
+from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 
 # from rest_framework.authtoken.serializers import AuthTokenSerializer
 # from knox.views import LoginView as KnoxLoginView
@@ -66,7 +67,16 @@ from rest_framework import permissions
 #     return super(LoginView, self).post(request, format=None)
 
 
+# from knox.views import LoginView as KnoxLoginView
+# from rest_framework.authentication import BasicAuthentication
+
+
+# class LoginView2(KnoxLoginView):
+#     authentication_classes = [BasicAuthentication]
+
+
 class LoginView(APIView):
+    permission_classes = [AllowAny]
     # authentication_classes = [
     #     SessionAuthentication,
     #     BasicAuthentication,
@@ -96,6 +106,8 @@ class LoginView(APIView):
 
 
 class LogoutView(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request):
         # Hacemos logout
         logout(request)
@@ -103,10 +115,7 @@ class LogoutView(APIView):
 
 
 class SignupView(generics.CreateAPIView):
-    """
-    Endpoint de registro de usuarios.
-    """
-
+    permission_classes = [AllowAny]
     serializer_class = UserSerializer
 
 
@@ -122,6 +131,7 @@ class SignupView(generics.CreateAPIView):
 
 # Register
 class RegisterView(generics.CreateAPIView):
+    permission_classes = [AllowAny]
     serializer_class = RegisterSerializer
 
     def post(self, request, *args, **kwargs):
@@ -133,12 +143,13 @@ class RegisterView(generics.CreateAPIView):
                 "user": UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                "token": AuthToken.objects.create(user)[1],
+                # "token": AuthToken.objects.create(user)[1],
             }
         )
 
 
 class PrestamoView(APIView):
+    permission_classes = [AllowAny]
     queryset = Prestamos.objects.all()
     serializer_class = PrestamosSerializer
 
@@ -233,6 +244,7 @@ class PrestamoView(APIView):
 
 
 class DocumentosView(APIView):
+    permission_classes = [AllowAny]
     queryset = Documentos.objects.all()
     serializer_class = DocumentosSerializer
 
@@ -309,6 +321,7 @@ class DocumentosView(APIView):
 
 
 class PaisesView(APIView):
+    permission_classes = [AllowAny]
     queryset = Paises.objects.all()
     serializer_class = PaisesSerializer
 
@@ -383,6 +396,7 @@ class PaisesView(APIView):
 
 
 class ProvinciasView(APIView):
+    permission_classes = [AllowAny]
     queryset = Provincias.objects.all()
     serializer_class = ProvinciasSerializer
 
@@ -452,6 +466,7 @@ class ProvinciasView(APIView):
 
 
 class LocalidadesView(APIView):
+    permission_classes = [AllowAny]
     queryset = Localidades.objects.all()
     serializer_class = LocalidadesSerializer
 
@@ -521,6 +536,7 @@ class LocalidadesView(APIView):
 
 
 class SexosView(APIView):
+    permission_classes = [AllowAny]
     queryset = Sexos.objects.all()
     serializer_class = SexosSerializer
 
@@ -586,6 +602,7 @@ class SexosView(APIView):
 
 
 class PersonaView(APIView):
+    permission_classes = [AllowAny]
     queryset = Persona.objects.all()
     serializer_class = PersonaSerializer
 
@@ -694,6 +711,7 @@ class PersonaView(APIView):
 
 
 class CuentaView(APIView):
+    permission_classes = [AllowAny]
     queryset = Cuenta.objects.all()
     serializer_class = CuentaSerializer
 
@@ -781,6 +799,7 @@ class CuentaView(APIView):
 
 
 class TransferenciasView(APIView):
+    permission_classes = [AllowAny]
     queryset = Transferencias.objects.all()
     serializer_class = TransferenciasSerializer
 
@@ -885,6 +904,7 @@ class TransferenciasView(APIView):
 
 
 class Plazo_fijoView(APIView):
+    permission_classes = [AllowAny]
     queryset = Plazo_fijo.objects.all()
     serializer_class = Plazo_fijoSerializer
 
