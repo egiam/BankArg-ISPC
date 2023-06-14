@@ -425,7 +425,9 @@ class ProvinciasView(APIView):
         return JsonResponse({"message": "No existe la provincia"}, safe=False)
 
     def put(self, request, cod_provincia=0):
-        provincia = list(Provincias.objects.filter(cod_provincia=cod_provincia).values())
+        provincia = list(
+            Provincias.objects.filter(cod_provincia=cod_provincia).values()
+        )
         if len(provincia) > 0:
             provincia = Provincias.objects.get(cod_provincia=cod_provincia)
             serializer = ProvinciasSerializer(provincia, data=request.data)
@@ -456,7 +458,9 @@ class ProvinciasView(APIView):
     #         return JsonResponse({"message": "No existe la provincia"}, safe=False)
 
     def delete(self, request, cod_provincia=0):
-        provincia = list(Provincias.objects.filter(cod_provincia=cod_provincia).values())
+        provincia = list(
+            Provincias.objects.filter(cod_provincia=cod_provincia).values()
+        )
         if len(provincia) > 0:
             provincia = Provincias.objects.get(cod_provincia=cod_provincia)
             provincia.delete()
@@ -495,7 +499,9 @@ class LocalidadesView(APIView):
         return JsonResponse({"message": "No existe la localidad"}, safe=False)
 
     def put(self, request, cod_localidad=0):
-        localidad = list(Localidades.objects.filter(cod_localidad=cod_localidad).values())
+        localidad = list(
+            Localidades.objects.filter(cod_localidad=cod_localidad).values()
+        )
         if len(localidad) > 0:
             localidad = Localidades.objects.get(cod_localidad=cod_localidad)
             serializer = LocalidadesSerializer(localidad, data=request.data)
@@ -526,7 +532,9 @@ class LocalidadesView(APIView):
     #         return JsonResponse({"message": "No existe la localidad"}, safe=False)
 
     def delete(self, request, cod_localidad=0):
-        localidad = list(Localidades.objects.filter(cod_localidad=cod_localidad).values())
+        localidad = list(
+            Localidades.objects.filter(cod_localidad=cod_localidad).values()
+        )
         if len(localidad) > 0:
             localidad = Localidades.objects.get(cod_localidad=cod_localidad)
             localidad.delete()
