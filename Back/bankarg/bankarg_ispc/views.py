@@ -33,7 +33,20 @@ from bankarg_ispc.models import (
     Localidades,
     Sexos,
 )
-from .serializers import UserSerializer, RegisterSerializer, PersonaSerializer
+from .serializers import (
+    UserSerializer,
+    RegisterSerializer,
+    PersonaSerializer,
+    PrestamosSerializer,
+    DocumentosSerializer,
+    PaisesSerializer,
+    ProvinciasSerializer,
+    LocalidadesSerializer,
+    SexosSerializer,
+    CuentaSerializer,
+    Plazo_fijoSerializer,
+    TransferenciasSerializer,
+)
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import permissions
@@ -126,6 +139,9 @@ class RegisterView(generics.CreateAPIView):
 
 
 class PrestamoView(APIView):
+    queryset = Prestamos.objects.all()
+    serializer_class = PrestamosSerializer
+
     def get(self, request, prestamo_id=0):
         if prestamo_id > 0:
             prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
@@ -141,58 +157,85 @@ class PrestamoView(APIView):
         else:
             return JsonResponse({"message": "No existen prestamos"}, safe=False)
 
-    def post(self, request):
-        jsDatos = json.loads(request.body)
-        Prestamos.objects.create(
-            prestamo_id=jsDatos["prestamo_id"],
-            id_cuenta_id=jsDatos["id_cuenta"],
-            monto=jsDatos["monto"],
-            interes_mes=jsDatos["interes_mes"],
-            fec_start=jsDatos["fec_start"],
-            fec_venc=jsDatos["fec_venc"],
-            id_tipo_prestamo_id=jsDatos["id_tipo_prestamo"],
-            id_tipo_estado_prestamo_id=jsDatos["id_tipo_estado_prestamo"],
-            id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
-            id_tipo_interes_id=jsDatos["id_tipo_interes"],
-            id_tipo_cuota_id=jsDatos["id_tipo_cuota"],
-            id_tipo_estado_cuota_id=jsDatos["id_tipo_estado_cuota"],
-            id_cantidad_cuota_id=jsDatos["id_cantidad_cuota"],
-        )
-        return JsonResponse({"message": "Prestamo creado"}, safe=False)
+    def post(self, request, format=None):
+        serializer = PrestamosSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def put(self, request, prestamo_id=0):
-        jsDatos = json.loads(request.body)
-        prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
-        if len(prestamo) > 0:
+        if prestamo_id > 0:
             prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
-            prestamo.id_cuenta_id = jsDatos["id_cuenta_id"]
-            prestamo.monto = jsDatos["monto"]
-            prestamo.interes_mes = jsDatos["interes_mes"]
-            prestamo.fec_start = jsDatos["fec_start"]
-            prestamo.fec_venc = jsDatos["fec_venc"]
-            prestamo.id_tipo_prestamo_id = jsDatos["id_tipo_prestamo_id"]
-            prestamo.id_tipo_estado_prestamo_id = jsDatos["id_tipo_estado_prestamo_id"]
-            prestamo.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
-            prestamo.id_tipo_interes_id = jsDatos["id_tipo_interes_id"]
-            prestamo.id_tipo_cuota_id = jsDatos["id_tipo_cuota_id"]
-            prestamo.id_tipo_estado_cuota_id = jsDatos["id_tipo_estado_cuota_id"]
-            prestamo.id_cantidad_cuota_id = jsDatos["id_cantidad_cuota_id"]
-            prestamo.save()
-            return JsonResponse({"message": "Prestamo actualizado"}, safe=False)
-        else:
-            return JsonResponse({"message": "No existe el prestamo"}, safe=False)
+            serializer = PrestamosSerializer(prestamo, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+            return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
     def delete(self, request, prestamo_id=0):
-        prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
-        if len(prestamo) > 0:
+        if prestamo_id > 0:
             prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
             prestamo.delete()
             return JsonResponse({"message": "Prestamo eliminado"}, safe=False)
-        else:
-            return JsonResponse({"message": "No existe el prestamo"}, safe=False)
+        return JsonResponse({"message": "No existe el prestamo"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Prestamos.objects.create(
+    #         prestamo_id=jsDatos["prestamo_id"],
+    #         id_cuenta_id=jsDatos["id_cuenta"],
+    #         monto=jsDatos["monto"],
+    #         interes_mes=jsDatos["interes_mes"],
+    #         fec_start=jsDatos["fec_start"],
+    #         fec_venc=jsDatos["fec_venc"],
+    #         id_tipo_prestamo_id=jsDatos["id_tipo_prestamo"],
+    #         id_tipo_estado_prestamo_id=jsDatos["id_tipo_estado_prestamo"],
+    #         id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
+    #         id_tipo_interes_id=jsDatos["id_tipo_interes"],
+    #         id_tipo_cuota_id=jsDatos["id_tipo_cuota"],
+    #         id_tipo_estado_cuota_id=jsDatos["id_tipo_estado_cuota"],
+    #         id_cantidad_cuota_id=jsDatos["id_cantidad_cuota"],
+    #     )
+    #     return JsonResponse({"message": "Prestamo creado"}, safe=False)
+
+    # def put(self, request, prestamo_id=0):
+    #     jsDatos = json.loads(request.body)
+    #     prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
+    #     if len(prestamo) > 0:
+    #         prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
+    #         prestamo.id_cuenta_id = jsDatos["id_cuenta_id"]
+    #         prestamo.monto = jsDatos["monto"]
+    #         prestamo.interes_mes = jsDatos["interes_mes"]
+    #         prestamo.fec_start = jsDatos["fec_start"]
+    #         prestamo.fec_venc = jsDatos["fec_venc"]
+    #         prestamo.id_tipo_prestamo_id = jsDatos["id_tipo_prestamo_id"]
+    #         prestamo.id_tipo_estado_prestamo_id = jsDatos["id_tipo_estado_prestamo_id"]
+    #         prestamo.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
+    #         prestamo.id_tipo_interes_id = jsDatos["id_tipo_interes_id"]
+    #         prestamo.id_tipo_cuota_id = jsDatos["id_tipo_cuota_id"]
+    #         prestamo.id_tipo_estado_cuota_id = jsDatos["id_tipo_estado_cuota_id"]
+    #         prestamo.id_cantidad_cuota_id = jsDatos["id_cantidad_cuota_id"]
+    #         prestamo.save()
+    #         return JsonResponse({"message": "Prestamo actualizado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el prestamo"}, safe=False)
+
+    # def delete(self, request, prestamo_id=0):
+    #     prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
+    #     if len(prestamo) > 0:
+    #         prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
+    #         prestamo.delete()
+    #         return JsonResponse({"message": "Prestamo eliminado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
 
 class DocumentosView(APIView):
+    queryset = Documentos.objects.all()
+    serializer_class = DocumentosSerializer
+
     def get(self, request, documento_id=0):
         if documento_id > 0:
             documento = list(
@@ -211,23 +254,21 @@ class DocumentosView(APIView):
             return JsonResponse({"message": "No existen documentos"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        Documentos.objects.create(
-            id_tipo_doc=jsDatos["id_tipo_doc"],
-            tipo_doc=jsDatos["tipo_doc"],
-        )
-        return JsonResponse({"message": "Documento creado"}, safe=False)
+        serializer = DocumentosSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe el documento"}, safe=False)
 
     def put(self, request, documento_id=0):
-        jsDatos = json.loads(request.body)
         documento = list(Documentos.objects.filter(documento_id=documento_id).values())
         if len(documento) > 0:
             documento = Documentos.objects.get(documento_id=documento_id)
-            documento.tipo_doc = jsDatos["tipo_doc"]
-            documento.save()
-            return JsonResponse({"message": "Documento actualizado"}, safe=False)
-        else:
-            return JsonResponse({"message": "No existe el documento"}, safe=False)
+            serializer = DocumentosSerializer(documento, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe el documento"}, safe=False)
 
     def delete(self, request, documento_id=0):
         documento = list(Documentos.objects.filter(documento_id=documento_id).values())
@@ -238,8 +279,39 @@ class DocumentosView(APIView):
         else:
             return JsonResponse({"message": "No existe el documento"}, safe=False)
 
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Documentos.objects.create(
+    #         id_tipo_doc=jsDatos["id_tipo_doc"],
+    #         tipo_doc=jsDatos["tipo_doc"],
+    #     )
+    #     return JsonResponse({"message": "Documento creado"}, safe=False)
+
+    # def put(self, request, documento_id=0):
+    #     jsDatos = json.loads(request.body)
+    #     documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+    #     if len(documento) > 0:
+    #         documento = Documentos.objects.get(documento_id=documento_id)
+    #         documento.tipo_doc = jsDatos["tipo_doc"]
+    #         documento.save()
+    #         return JsonResponse({"message": "Documento actualizado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el documento"}, safe=False)
+
+    # def delete(self, request, documento_id=0):
+    #     documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+    #     if len(documento) > 0:
+    #         documento = Documentos.objects.get(documento_id=documento_id)
+    #         documento.delete()
+    #         return JsonResponse({"message": "Documento eliminado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el documento"}, safe=False)
+
 
 class PaisesView(APIView):
+    queryset = Paises.objects.all()
+    serializer_class = PaisesSerializer
+
     def get(self, request, pais_id=0):
         if pais_id > 0:
             pais = list(Paises.objects.filter(pais_id=pais_id).values())
@@ -256,23 +328,21 @@ class PaisesView(APIView):
             return JsonResponse({"message": "No existen paises"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        Paises.objects.create(
-            cod_pais=jsDatos["cod_pais"],
-            pais=jsDatos["pais"],
-        )
-        return JsonResponse({"message": "Pais creado"}, safe=False)
+        serializer = PaisesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe el pais"}, safe=False)
 
     def put(self, request, pais_id=0):
-        jsDatos = json.loads(request.body)
         pais = list(Paises.objects.filter(pais_id=pais_id).values())
         if len(pais) > 0:
             pais = Paises.objects.get(pais_id=pais_id)
-            pais.pais = jsDatos["pais"]
-            pais.save()
-            return JsonResponse({"message": "Pais actualizado"}, safe=False)
-        else:
-            return JsonResponse({"message": "No existe el pais"}, safe=False)
+            serializer = PaisesSerializer(pais, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe el pais"}, safe=False)
 
     def delete(self, request, pais_id=0):
         pais = list(Paises.objects.filter(pais_id=pais_id).values())
@@ -283,8 +353,39 @@ class PaisesView(APIView):
         else:
             return JsonResponse({"message": "No existe el pais"}, safe=False)
 
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Paises.objects.create(
+    #         cod_pais=jsDatos["cod_pais"],
+    #         pais=jsDatos["pais"],
+    #     )
+    #     return JsonResponse({"message": "Pais creado"}, safe=False)
+
+    # def put(self, request, pais_id=0):
+    #     jsDatos = json.loads(request.body)
+    #     pais = list(Paises.objects.filter(pais_id=pais_id).values())
+    #     if len(pais) > 0:
+    #         pais = Paises.objects.get(pais_id=pais_id)
+    #         pais.pais = jsDatos["pais"]
+    #         pais.save()
+    #         return JsonResponse({"message": "Pais actualizado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el pais"}, safe=False)
+
+    # def delete(self, request, pais_id=0):
+    #     pais = list(Paises.objects.filter(pais_id=pais_id).values())
+    #     if len(pais) > 0:
+    #         pais = Paises.objects.get(pais_id=pais_id)
+    #         pais.delete()
+    #         return JsonResponse({"message": "Pais eliminado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el pais"}, safe=False)
+
 
 class ProvinciasView(APIView):
+    queryset = Provincias.objects.all()
+    serializer_class = ProvinciasSerializer
+
     def get(self, request, provincia_id=0):
         if provincia_id > 0:
             provincia = list(
@@ -303,25 +404,42 @@ class ProvinciasView(APIView):
             return JsonResponse({"message": "No existen provincias"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        Provincias.objects.create(
-            cod_provincia=jsDatos["cod_provincia"],
-            provincia=jsDatos["provincia"],
-            cod_pais_id=jsDatos["cod_pais"],
-        )
-        return JsonResponse({"message": "Provincia creada"}, safe=False)
+        serializer = ProvinciasSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe la provincia"}, safe=False)
 
     def put(self, request, provincia_id=0):
-        jsDatos = json.loads(request.body)
         provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
         if len(provincia) > 0:
             provincia = Provincias.objects.get(provincia_id=provincia_id)
-            provincia.provincia = jsDatos["provincia"]
-            provincia.cod_pais_id = jsDatos["cod_pais_id"]
-            provincia.save()
-            return JsonResponse({"message": "Provincia actualizada"}, safe=False)
-        else:
-            return JsonResponse({"message": "No existe la provincia"}, safe=False)
+            serializer = ProvinciasSerializer(provincia, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe la provincia"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Provincias.objects.create(
+    #         cod_provincia=jsDatos["cod_provincia"],
+    #         provincia=jsDatos["provincia"],
+    #         cod_pais_id=jsDatos["cod_pais"],
+    #     )
+    #     return JsonResponse({"message": "Provincia creada"}, safe=False)
+
+    # def put(self, request, provincia_id=0):
+    #     jsDatos = json.loads(request.body)
+    #     provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
+    #     if len(provincia) > 0:
+    #         provincia = Provincias.objects.get(provincia_id=provincia_id)
+    #         provincia.provincia = jsDatos["provincia"]
+    #         provincia.cod_pais_id = jsDatos["cod_pais_id"]
+    #         provincia.save()
+    #         return JsonResponse({"message": "Provincia actualizada"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe la provincia"}, safe=False)
 
     def delete(self, request, provincia_id=0):
         provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
@@ -334,6 +452,9 @@ class ProvinciasView(APIView):
 
 
 class LocalidadesView(APIView):
+    queryset = Localidades.objects.all()
+    serializer_class = LocalidadesSerializer
+
     def get(self, request, localidad_id=0):
         if localidad_id > 0:
             localidad = list(
@@ -352,25 +473,42 @@ class LocalidadesView(APIView):
             return JsonResponse({"message": "No existen localidades"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        Localidades.objects.create(
-            cod_localidad=jsDatos["cod_localidad"],
-            localidad=jsDatos["localidad"],
-            cod_provincia_id=jsDatos["cod_provincia"],
-        )
-        return JsonResponse({"message": "Localidad creada"}, safe=False)
+        serializer = LocalidadesSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe la localidad"}, safe=False)
 
     def put(self, request, localidad_id=0):
-        jsDatos = json.loads(request.body)
         localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
         if len(localidad) > 0:
             localidad = Localidades.objects.get(localidad_id=localidad_id)
-            localidad.localidad = jsDatos["localidad"]
-            localidad.cod_provincia_id = jsDatos["cod_provincia_id"]
-            localidad.save()
-            return JsonResponse({"message": "Localidad actualizada"}, safe=False)
-        else:
-            return JsonResponse({"message": "No existe la localidad"}, safe=False)
+            serializer = LocalidadesSerializer(localidad, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe la localidad"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Localidades.objects.create(
+    #         cod_localidad=jsDatos["cod_localidad"],
+    #         localidad=jsDatos["localidad"],
+    #         cod_provincia_id=jsDatos["cod_provincia"],
+    #     )
+    #     return JsonResponse({"message": "Localidad creada"}, safe=False)
+
+    # def put(self, request, localidad_id=0):
+    #     jsDatos = json.loads(request.body)
+    #     localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
+    #     if len(localidad) > 0:
+    #         localidad = Localidades.objects.get(localidad_id=localidad_id)
+    #         localidad.localidad = jsDatos["localidad"]
+    #         localidad.cod_provincia_id = jsDatos["cod_provincia_id"]
+    #         localidad.save()
+    #         return JsonResponse({"message": "Localidad actualizada"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe la localidad"}, safe=False)
 
     def delete(self, request, localidad_id=0):
         localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
@@ -383,6 +521,9 @@ class LocalidadesView(APIView):
 
 
 class SexosView(APIView):
+    queryset = Sexos.objects.all()
+    serializer_class = SexosSerializer
+
     def get(self, request, sexo_id=0):
         if sexo_id > 0:
             sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
@@ -399,23 +540,40 @@ class SexosView(APIView):
             return JsonResponse({"message": "No existen sexos"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        Sexos.objects.create(
-            id_tipo_sexo=jsDatos["id_tipo_sexo"],
-            tipo=jsDatos["tipo"],
-        )
-        return JsonResponse({"message": "Sexo creado"}, safe=False)
+        serializer = SexosSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
     def put(self, request, sexo_id=0):
-        jsDatos = json.loads(request.body)
         sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
         if len(sexo) > 0:
             sexo = Sexos.objects.get(sexo_id=sexo_id)
-            sexo.tipo = jsDatos["tipo"]
-            sexo.save()
-            return JsonResponse({"message": "Sexo actualizado"}, safe=False)
-        else:
-            return JsonResponse({"message": "No existe el sexo"}, safe=False)
+            serializer = SexosSerializer(sexo, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse({"message": "No existe el sexo"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Sexos.objects.create(
+    #         id_tipo_sexo=jsDatos["id_tipo_sexo"],
+    #         tipo=jsDatos["tipo"],
+    #     )
+    #     return JsonResponse({"message": "Sexo creado"}, safe=False)
+
+    # def put(self, request, sexo_id=0):
+    #     jsDatos = json.loads(request.body)
+    #     sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+    #     if len(sexo) > 0:
+    #         sexo = Sexos.objects.get(sexo_id=sexo_id)
+    #         sexo.tipo = jsDatos["tipo"]
+    #         sexo.save()
+    #         return JsonResponse({"message": "Sexo actualizado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
     def delete(self, request, sexo_id=0):
         sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
@@ -536,6 +694,9 @@ class PersonaView(APIView):
 
 
 class CuentaView(APIView):
+    queryset = Cuenta.objects.all()
+    serializer_class = CuentaSerializer
+
     def get(self, request, id_cuenta=0):
         if id_cuenta > 0:
             cuenta = list(Cuenta.objects.filter(id_cuenta=id_cuenta).values())
@@ -552,43 +713,62 @@ class CuentaView(APIView):
             return JsonResponse({"message": "No existen cuentas"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        Cuenta.objects.create(
-            id_cuenta=jsDatos["id_cuenta"],
-            id_cliente_id=jsDatos["id_cliente"],
-            id_tipo_cuenta_id=jsDatos["id_tipo_cuenta"],
-            id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
-            id_tipo_estado_moneda_id=jsDatos["id_tipo_estado_moneda"],
-            monto=jsDatos["monto"],
-            fecha_creacion=jsDatos["fecha_creacion"],
-            cbu=jsDatos["cbu"],
-            alias=jsDatos["alias"],
-            password=jsDatos["password"],
-            credito=jsDatos["credito"],
-            debito=jsDatos["debito"],
-        )
-        return JsonResponse({"message": "Cuenta creada"}, safe=False)
+        serializer = CuentaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=404)
 
     def put(self, request, id_cuenta=0):
-        jsDatos = json.loads(request.body)
         cuenta = list(Cuenta.objects.filter(id_cuenta=id_cuenta).values())
         if len(cuenta) > 0:
             cuenta = Cuenta.objects.get(id_cuenta=id_cuenta)
-            cuenta.id_cliente_id = jsDatos["id_cliente_id"]
-            cuenta.id_tipo_cuenta_id = jsDatos["id_tipo_cuenta_id"]
-            cuenta.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
-            cuenta.id_tipo_estado_moneda_id = jsDatos["id_tipo_estado_moneda_id"]
-            cuenta.monto = jsDatos["monto"]
-            cuenta.fecha_creacion = jsDatos["fecha_creacion"]
-            cuenta.cbu = jsDatos["cbu"]
-            cuenta.alias = jsDatos["alias"]
-            cuenta.password = jsDatos["password"]
-            cuenta.credito = jsDatos["credito"]
-            cuenta.debito = jsDatos["debito"]
-            cuenta.save()
-            return JsonResponse({"message": "Cuenta actualizada"}, safe=False)
+            serializer = CuentaSerializer(cuenta, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data)
+            return JsonResponse(serializer.errors, status=404)
         else:
             return JsonResponse({"message": "No existe la cuenta"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Cuenta.objects.create(
+    #         id_cuenta=jsDatos["id_cuenta"],
+    #         id_cliente_id=jsDatos["id_cliente"],
+    #         id_tipo_cuenta_id=jsDatos["id_tipo_cuenta"],
+    #         id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
+    #         id_tipo_estado_moneda_id=jsDatos["id_tipo_estado_moneda"],
+    #         monto=jsDatos["monto"],
+    #         fecha_creacion=jsDatos["fecha_creacion"],
+    #         cbu=jsDatos["cbu"],
+    #         alias=jsDatos["alias"],
+    #         password=jsDatos["password"],
+    #         credito=jsDatos["credito"],
+    #         debito=jsDatos["debito"],
+    #     )
+    #     return JsonResponse({"message": "Cuenta creada"}, safe=False)
+
+    # def put(self, request, id_cuenta=0):
+    #     jsDatos = json.loads(request.body)
+    #     cuenta = list(Cuenta.objects.filter(id_cuenta=id_cuenta).values())
+    #     if len(cuenta) > 0:
+    #         cuenta = Cuenta.objects.get(id_cuenta=id_cuenta)
+    #         cuenta.id_cliente_id = jsDatos["id_cliente_id"]
+    #         cuenta.id_tipo_cuenta_id = jsDatos["id_tipo_cuenta_id"]
+    #         cuenta.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
+    #         cuenta.id_tipo_estado_moneda_id = jsDatos["id_tipo_estado_moneda_id"]
+    #         cuenta.monto = jsDatos["monto"]
+    #         cuenta.fecha_creacion = jsDatos["fecha_creacion"]
+    #         cuenta.cbu = jsDatos["cbu"]
+    #         cuenta.alias = jsDatos["alias"]
+    #         cuenta.password = jsDatos["password"]
+    #         cuenta.credito = jsDatos["credito"]
+    #         cuenta.debito = jsDatos["debito"]
+    #         cuenta.save()
+    #         return JsonResponse({"message": "Cuenta actualizada"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe la cuenta"}, safe=False)
 
     def delete(self, request, id_cuenta=0):
         cuenta = list(Cuenta.objects.filter(id_cuenta=id_cuenta).values())
@@ -601,6 +781,9 @@ class CuentaView(APIView):
 
 
 class TransferenciasView(APIView):
+    queryset = Transferencias.objects.all()
+    serializer_class = TransferenciasSerializer
+
     def get(self, request, id_transferencia=0):
         if id_transferencia > 0:
             transferencia = list(
@@ -623,29 +806,13 @@ class TransferenciasView(APIView):
             return JsonResponse({"message": "No existen transferencias"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        # Transferencias.objects.create(
-        #     id=jsDatos["id"],
-        #     id_cuenta_origen=jsDatos["id_cuenta_origen"],
-        #     id_cuenta_destino=jsDatos["id_cuenta_destino"],
-        #     monto=jsDatos["monto"],
-        #     fecha=jsDatos["fecha"],
-        #     id_tipo_moneda=jsDatos["id_tipo_moneda"],
-        #     id_tipo_estado_moneda=jsDatos["id_tipo_estado_moneda"],
-        # )
-        transferencia = Transferencias.objects.create(
-            id_transferencia=jsDatos["id_transferencia"],
-            id_tipo_transferencia_id=jsDatos["id_tipo_estado_moneda"],
-            id_cliente_id_id=jsDatos["id_cliente"],
-            fecha=jsDatos["fecha"],
-            monto=jsDatos["monto"],
-            cuenta_envio=jsDatos["cuenta_envio"],
-            cuenta_recibo=jsDatos["cuenta_recibo"],
-        )
-        return JsonResponse({"message": "Transferencia creada"}, safe=False)
+        serializer = TransferenciasSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=404)
 
     def put(self, request, id_transferencia=0):
-        jsDatos = json.loads(request.body)
         transferencia = list(
             Transferencias.objects.filter(id_transferencia=id_transferencia).values()
         )
@@ -653,16 +820,55 @@ class TransferenciasView(APIView):
             transferencia = Transferencias.objects.get(
                 id_transferencia=id_transferencia
             )
-            transferencia.id_tipo_transferencia_id = jsDatos["id_tipo_transferencia_id"]
-            transferencia.id_cliente_id = jsDatos["id_cliente_id"]
-            transferencia.fecha = jsDatos["fecha"]
-            transferencia.monto = jsDatos["monto"]
-            transferencia.cuenta_envio = jsDatos["cuenta_envio"]
-            transferencia.cuenta_recibo = jsDatos["cuenta_recibo"]
-            transferencia.save()
-            return JsonResponse({"message": "Transferencia actualizada"}, safe=False)
+            serializer = TransferenciasSerializer(transferencia, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data)
+            return JsonResponse(serializer.errors, status=404)
         else:
             return JsonResponse({"message": "No existe la transferencia"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     # Transferencias.objects.create(
+    #     #     id=jsDatos["id"],
+    #     #     id_cuenta_origen=jsDatos["id_cuenta_origen"],
+    #     #     id_cuenta_destino=jsDatos["id_cuenta_destino"],
+    #     #     monto=jsDatos["monto"],
+    #     #     fecha=jsDatos["fecha"],
+    #     #     id_tipo_moneda=jsDatos["id_tipo_moneda"],
+    #     #     id_tipo_estado_moneda=jsDatos["id_tipo_estado_moneda"],
+    #     # )
+    #     transferencia = Transferencias.objects.create(
+    #         id_transferencia=jsDatos["id_transferencia"],
+    #         id_tipo_transferencia_id=jsDatos["id_tipo_estado_moneda"],
+    #         id_cliente_id_id=jsDatos["id_cliente"],
+    #         fecha=jsDatos["fecha"],
+    #         monto=jsDatos["monto"],
+    #         cuenta_envio=jsDatos["cuenta_envio"],
+    #         cuenta_recibo=jsDatos["cuenta_recibo"],
+    #     )
+    #     return JsonResponse({"message": "Transferencia creada"}, safe=False)
+
+    # def put(self, request, id_transferencia=0):
+    #     jsDatos = json.loads(request.body)
+    #     transferencia = list(
+    #         Transferencias.objects.filter(id_transferencia=id_transferencia).values()
+    #     )
+    #     if len(transferencia) > 0:
+    #         transferencia = Transferencias.objects.get(
+    #             id_transferencia=id_transferencia
+    #         )
+    #         transferencia.id_tipo_transferencia_id = jsDatos["id_tipo_transferencia_id"]
+    #         transferencia.id_cliente_id = jsDatos["id_cliente_id"]
+    #         transferencia.fecha = jsDatos["fecha"]
+    #         transferencia.monto = jsDatos["monto"]
+    #         transferencia.cuenta_envio = jsDatos["cuenta_envio"]
+    #         transferencia.cuenta_recibo = jsDatos["cuenta_recibo"]
+    #         transferencia.save()
+    #         return JsonResponse({"message": "Transferencia actualizada"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe la transferencia"}, safe=False)
 
     def delete(self, request, id_transferencia=0):
         transferencia = list(
@@ -679,6 +885,9 @@ class TransferenciasView(APIView):
 
 
 class Plazo_fijoView(APIView):
+    queryset = Plazo_fijo.objects.all()
+    serializer_class = Plazo_fijoSerializer
+
     def get(self, request, id_plazo_fijo=0):
         if id_plazo_fijo > 0:
             plazo_fijo = list(
@@ -697,36 +906,57 @@ class Plazo_fijoView(APIView):
             return JsonResponse({"message": "No existen plazos fijos"}, safe=False)
 
     def post(self, request):
-        jsDatos = json.loads(request.body)
-        Plazo_fijo.objects.create(
-            id_plazo_fijo=jsDatos["id_plazo_fijo"],
-            # id_cliente=jsDatos["id_cliente"],
-            id_cuenta_id=jsDatos["id_cuenta"],
-            id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
-            monto=jsDatos["monto"],
-            fecha_inicio=jsDatos["fecha_inicio"],
-            fecha_vencimiento=jsDatos["fecha_vencimiento"],
-            interes=jsDatos["interes"],
-        )
-        return JsonResponse({"message": "Plazo fijo creado"}, safe=False)
+        serializer = Plazo_fijoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data)
+        return JsonResponse(serializer.errors, status=404)
 
     def put(self, request, id_plazo_fijo=0):
-        jsDatos = json.loads(request.body)
         plazo_fijo = list(
             Plazo_fijo.objects.filter(id_plazo_fijo=id_plazo_fijo).values()
         )
         if len(plazo_fijo) > 0:
             plazo_fijo = Plazo_fijo.objects.get(id_plazo_fijo=id_plazo_fijo)
-            plazo_fijo.id_cuenta_id = jsDatos["id_cuenta_id"]
-            plazo_fijo.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
-            plazo_fijo.monto = jsDatos["monto"]
-            plazo_fijo.fecha_inicio = jsDatos["fecha_inicio"]
-            plazo_fijo.fecha_vencimiento = jsDatos["fecha_vencimiento"]
-            plazo_fijo.interes = jsDatos["interes"]
-            plazo_fijo.save()
-            return JsonResponse({"message": "Plazo fijo actualizado"}, safe=False)
+            serializer = Plazo_fijoSerializer(plazo_fijo, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data)
+            return JsonResponse(serializer.errors, status=404)
         else:
             return JsonResponse({"message": "No existe el plazo fijo"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Plazo_fijo.objects.create(
+    #         id_plazo_fijo=jsDatos["id_plazo_fijo"],
+    #         # id_cliente=jsDatos["id_cliente"],
+    #         id_cuenta_id=jsDatos["id_cuenta"],
+    #         id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
+    #         monto=jsDatos["monto"],
+    #         fecha_inicio=jsDatos["fecha_inicio"],
+    #         fecha_vencimiento=jsDatos["fecha_vencimiento"],
+    #         interes=jsDatos["interes"],
+    #     )
+    #     return JsonResponse({"message": "Plazo fijo creado"}, safe=False)
+
+    # def put(self, request, id_plazo_fijo=0):
+    #     jsDatos = json.loads(request.body)
+    #     plazo_fijo = list(
+    #         Plazo_fijo.objects.filter(id_plazo_fijo=id_plazo_fijo).values()
+    #     )
+    #     if len(plazo_fijo) > 0:
+    #         plazo_fijo = Plazo_fijo.objects.get(id_plazo_fijo=id_plazo_fijo)
+    #         plazo_fijo.id_cuenta_id = jsDatos["id_cuenta_id"]
+    #         plazo_fijo.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
+    #         plazo_fijo.monto = jsDatos["monto"]
+    #         plazo_fijo.fecha_inicio = jsDatos["fecha_inicio"]
+    #         plazo_fijo.fecha_vencimiento = jsDatos["fecha_vencimiento"]
+    #         plazo_fijo.interes = jsDatos["interes"]
+    #         plazo_fijo.save()
+    #         return JsonResponse({"message": "Plazo fijo actualizado"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe el plazo fijo"}, safe=False)
 
     def delete(self, request, id_plazo_fijo=0):
         plazo_fijo = list(
