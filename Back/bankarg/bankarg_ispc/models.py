@@ -108,7 +108,7 @@ class Persona(models.Model):
     )
     nro_calle = models.IntegerField()
     calle = models.TextField(max_length=150)
-    fecha_nac = models.DateTimeField()
+    fecha_nac = models.DateField()
     id_tipo_sexo = models.ForeignKey(
         Sexos, to_field="id_tipo_sexo", on_delete=models.CASCADE
     )

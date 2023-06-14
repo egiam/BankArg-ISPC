@@ -6,14 +6,16 @@ import Swal from 'sweetalert2';
   providedIn: 'root',
 })
 export class CuentaAhorroService {
+  
   depositar(cantidad: number, persona: Persona): void {
-    persona.saldo += cantidad;
+    persona.saldo=(Number(persona.saldo)+ Number(cantidad))
     Swal.fire({
       title: 'Saldo Actual:',
       showConfirmButton: true,
       confirmButtonText: 'aceptar',
       text: '$ ' + persona.saldo,
     });
+  
   }
 
   retirar(cantidad: number, persona: Persona): void {
