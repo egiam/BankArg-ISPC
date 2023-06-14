@@ -53,38 +53,61 @@
 </div>
 
 <!-- Crear Persona -->
-<!-- Agrega los elementos de entrada para los datos de la nueva persona -->
-<input
-  type="text"
-  [(ngModel)]="nuevaPersona.id_persona"
-  placeholder="id_persona"
-/>
-<input type="text" [(ngModel)]="nuevaPersona.nombre" placeholder="Nombre" />
-<input type="text" [(ngModel)]="nuevaPersona.apellido" placeholder="Apellido" />
-<input
-  type="text"
-  [(ngModel)]="nuevaPersona.id_tipo_doc"
-  placeholder="id_tipo_doc"
-/>
-<input type="text" [(ngModel)]="nuevaPersona.nro_doc" placeholder="nro_doc" />
-<input type="text" [(ngModel)]="nuevaPersona.cod_loc" placeholder="cod_loc" />
-<input
-  type="text"
-  [(ngModel)]="nuevaPersona.nro_calle"
-  placeholder="nro_calle"
-/>
-<input type="text" [(ngModel)]="nuevaPersona.calle" placeholder="calle" />
-<input
-  type="text"
-  [(ngModel)]="nuevaPersona.fecha_nac"
-  placeholder="fecha_nac (AAAA-MM-DD)"
-/>
-<input
-  type="text"
-  [(ngModel)]="nuevaPersona.id_tipo_sexo"
-  placeholder="id_tipo_sexo"
-/>
-<!-- Agrega más campos según tus necesidades -->
-
-<!-- Agrega un botón para agregar la persona -->
-<button (click)="crearButton(nuevaPersona)">Agregar Persona</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Crear Personas</h3>
+      <!-- Agrega los elementos de entrada para los datos de la nueva persona -->
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.id_persona"
+        placeholder="id_persona"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.nombre"
+        placeholder="Nombre"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.apellido"
+        placeholder="Apellido"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.id_tipo_doc"
+        placeholder="id_tipo_doc"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.nro_doc"
+        placeholder="nro_doc"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.cod_loc"
+        placeholder="cod_loc"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.nro_calle"
+        placeholder="nro_calle"
+      />
+      <input type="text" [(ngModel)]="nuevaPersona.calle" placeholder="calle" />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.fecha_nac"
+        placeholder="fechaNac (AAAA-MM-DD)"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaPersona.id_tipo_sexo"
+        placeholder="id_tipo_sexo"
+      />
+      <!-- Agrega más campos según tus necesidades -->
+      <br />
+      <!-- Agrega un botón para agregar la persona -->
+      <button (click)="crearButton(nuevaPersona)">Agregar Persona</button>
+    </div>
+  </div>
+</div>
