@@ -33,7 +33,7 @@ from bankarg_ispc.models import (
     Localidades,
     Sexos,
 )
-from .serializers import UserSerializer, RegisterSerializer
+from .serializers import UserSerializer, RegisterSerializer, PersonaSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import permissions
@@ -426,8 +426,11 @@ class SexosView(APIView):
         else:
             return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
+
 class PersonaView(APIView):
-    # @method_decorator(csrf_exempt)
+    queryset = Persona.objects.all()
+    serializer_class = PersonaSerializer
+
     def get(self, request, id_persona=0):
         if id_persona > 0:
             persona = list(Persona.objects.filter(id_persona=id_persona).values())
@@ -443,38 +446,22 @@ class PersonaView(APIView):
         else:
             return JsonResponse({"message": "No existen personas"}, safe=False)
 
-    def post(self, request):
-        jsDatos = json.loads(request.body)
-        Persona.objects.create(
-            id_persona=jsDatos["id_persona"],
-            nombre=jsDatos["nombre"],
-            apellido=jsDatos["apellido"],
-            id_tipo_doc_id=jsDatos["id_tipo_doc"],
-            nro_doc=jsDatos["nro_doc"],
-            cod_loc_id=jsDatos["cod_loc"],
-            nro_calle=jsDatos["nro_calle"],
-            calle=jsDatos["calle"],
-            fecha_nac=jsDatos["fecha_nac"],
-            id_tipo_sexo_id=jsDatos["id_tipo_sexo"],
-        )
-        return JsonResponse({"message": "Persona creada"}, safe=False)
+    def post(self, request, format=None):
+        serializer = PersonaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=404)
 
     def put(self, request, id_persona=0):
-        jsDatos = json.loads(request.body)
         persona = list(Persona.objects.filter(id_persona=id_persona).values())
         if len(persona) > 0:
             persona = Persona.objects.get(id_persona=id_persona)
-            persona.nombre = jsDatos["nombre"]
-            persona.apellido = jsDatos["apellido"]
-            persona.id_tipo_doc_id = jsDatos["id_tipo_doc_id"]
-            persona.nro_doc = jsDatos["nro_doc"]
-            persona.cod_loc_id = jsDatos["cod_loc_id"]
-            persona.nro_calle = jsDatos["nro_calle"]
-            persona.calle = jsDatos["calle"]
-            persona.fecha_nac = jsDatos["fecha_nac"]
-            persona.id_tipo_sexo_id = jsDatos["id_tipo_sexo_id"]
-            persona.save()
-            return JsonResponse({"message": "Persona actualizada"}, safe=False)
+            serializer = PersonaSerializer(persona, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse(serializer.data)
+            return JsonResponse(serializer.errors, status=404)
         else:
             return JsonResponse({"message": "No existe la persona"}, safe=False)
 
@@ -486,6 +473,66 @@ class PersonaView(APIView):
             return JsonResponse({"message": "Persona eliminada"}, safe=False)
         else:
             return JsonResponse({"message": "No existe la persona"}, safe=False)
+
+    # @method_decorator(csrf_exempt)
+    # def get(self, request, id_persona=0):
+    #     if id_persona > 0:
+    #         persona = list(Persona.objects.filter(id_persona=id_persona).values())
+    #         if len(persona) > 0:
+    #             return JsonResponse(persona[0], safe=False)
+    #         else:
+    #             return JsonResponse({"message": "No existe la persona"}, safe=False)
+
+    #     personas = list(Persona.objects.values())
+
+    #     if len(personas) > 0:
+    #         return JsonResponse(personas, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existen personas"}, safe=False)
+
+    # def post(self, request):
+    #     jsDatos = json.loads(request.body)
+    #     Persona.objects.create(
+    #         id_persona=jsDatos["id_persona"],
+    #         nombre=jsDatos["nombre"],
+    #         apellido=jsDatos["apellido"],
+    #         id_tipo_doc_id=jsDatos["id_tipo_doc"],
+    #         nro_doc=jsDatos["nro_doc"],
+    #         cod_loc_id=jsDatos["cod_loc"],
+    #         nro_calle=jsDatos["nro_calle"],
+    #         calle=jsDatos["calle"],
+    #         fecha_nac=jsDatos["fecha_nac"],
+    #         id_tipo_sexo_id=jsDatos["id_tipo_sexo"],
+    #     )
+    #     return JsonResponse({"message": "Persona creada"}, safe=False)
+
+    # def put(self, request, id_persona=0):
+    #     jsDatos = json.loads(request.body)
+    #     persona = list(Persona.objects.filter(id_persona=id_persona).values())
+    #     if len(persona) > 0:
+    #         persona = Persona.objects.get(id_persona=id_persona)
+    #         persona.nombre = jsDatos["nombre"]
+    #         persona.apellido = jsDatos["apellido"]
+    #         persona.id_tipo_doc_id = jsDatos["id_tipo_doc_id"]
+    #         persona.nro_doc = jsDatos["nro_doc"]
+    #         persona.cod_loc_id = jsDatos["cod_loc_id"]
+    #         persona.nro_calle = jsDatos["nro_calle"]
+    #         persona.calle = jsDatos["calle"]
+    #         persona.fecha_nac = jsDatos["fecha_nac"]
+    #         persona.id_tipo_sexo_id = jsDatos["id_tipo_sexo_id"]
+    #         persona.save()
+    #         return JsonResponse({"message": "Persona actualizada"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe la persona"}, safe=False)
+
+    # def delete(self, request, id_persona=0):
+    #     persona = list(Persona.objects.filter(id_persona=id_persona).values())
+    #     if len(persona) > 0:
+    #         persona = Persona.objects.get(id_persona=id_persona)
+    #         persona.delete()
+    #         return JsonResponse({"message": "Persona eliminada"}, safe=False)
+    #     else:
+    #         return JsonResponse({"message": "No existe la persona"}, safe=False)
 
 
 class CuentaView(APIView):

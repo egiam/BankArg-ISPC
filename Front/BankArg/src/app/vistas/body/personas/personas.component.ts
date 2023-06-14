@@ -13,11 +13,26 @@ export class PersonasComponent {
 
   // editar
   editarButton(id: number, data: any) {
-    this.cuenta.putPersonas(id, data);
+    this.cuenta.putPersonas(id, data).subscribe(() => {
+      console.log('Persona editada correctamente');
+    });
   }
 
   // eliminar
   eliminarButton(id: number) {
-    this.cuenta.deletePersonas(id);
+    console.log(id);
+    this.cuenta.deletePersonas(id).subscribe(() => {
+      console.log('Persona eliminada correctamente');
+    });
+  }
+
+  nuevaPersona: any = {};
+
+  // crear
+  crearButton(data: any) {
+    console.log(data);
+    this.cuenta.postPersonas(data).subscribe(() => {
+      console.log('Persona creada correctamente');
+    });
   }
 }

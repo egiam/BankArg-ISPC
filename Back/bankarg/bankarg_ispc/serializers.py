@@ -2,7 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 
-from bankarg_ispc.models import CustomUser
+from bankarg_ispc.models import CustomUser, Persona
 
 
 def validate_password(self, value):
@@ -34,3 +34,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
 
         return user
+
+
+class PersonaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Persona
+        fields = "__all__"
