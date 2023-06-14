@@ -19,7 +19,7 @@ from rest_framework import viewsets, status, generics
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model, authenticate, login, logout
 
-from knox.models import AuthToken
+# from knox.models import AuthToken
 
 from bankarg_ispc.models import (
     Prestamos,
@@ -50,6 +50,7 @@ from .serializers import (
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import permissions
+from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 
 # from rest_framework.authtoken.serializers import AuthTokenSerializer
 # from knox.views import LoginView as KnoxLoginView
@@ -66,7 +67,16 @@ from rest_framework import permissions
 #     return super(LoginView, self).post(request, format=None)
 
 
+# from knox.views import LoginView as KnoxLoginView
+# from rest_framework.authentication import BasicAuthentication
+
+
+# class LoginView2(KnoxLoginView):
+#     authentication_classes = [BasicAuthentication]
+
+
 class LoginView(APIView):
+    permission_classes = [AllowAny]
     # authentication_classes = [
     #     SessionAuthentication,
     #     BasicAuthentication,
@@ -96,6 +106,8 @@ class LoginView(APIView):
 
 
 class LogoutView(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request):
         # Hacemos logout
         logout(request)
@@ -103,10 +115,7 @@ class LogoutView(APIView):
 
 
 class SignupView(generics.CreateAPIView):
-    """
-    Endpoint de registro de usuarios.
-    """
-
+    permission_classes = [AllowAny]
     serializer_class = UserSerializer
 
 
@@ -122,6 +131,7 @@ class SignupView(generics.CreateAPIView):
 
 # Register
 class RegisterView(generics.CreateAPIView):
+    permission_classes = [AllowAny]
     serializer_class = RegisterSerializer
 
     def post(self, request, *args, **kwargs):
@@ -133,18 +143,19 @@ class RegisterView(generics.CreateAPIView):
                 "user": UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                "token": AuthToken.objects.create(user)[1],
+                # "token": AuthToken.objects.create(user)[1],
             }
         )
 
 
 class PrestamoView(APIView):
+    permission_classes = [AllowAny]
     queryset = Prestamos.objects.all()
     serializer_class = PrestamosSerializer
 
-    def get(self, request, prestamo_id=0):
-        if prestamo_id > 0:
-            prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
+    def get(self, request, id_prestamo=0):
+        if id_prestamo > 0:
+            prestamo = list(Prestamos.objects.filter(id_prestamo=id_prestamo).values())
             if len(prestamos) > 0:
                 return JsonResponse(prestamo[0], safe=False)
             else:
@@ -164,9 +175,9 @@ class PrestamoView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def put(self, request, prestamo_id=0):
-        if prestamo_id > 0:
-            prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
+    def put(self, request, id_prestamo=0):
+        if id_prestamo > 0:
+            prestamo = Prestamos.objects.get(id_prestamo=id_prestamo)
             serializer = PrestamosSerializer(prestamo, data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -174,9 +185,9 @@ class PrestamoView(APIView):
             return JsonResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
-    def delete(self, request, prestamo_id=0):
-        if prestamo_id > 0:
-            prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
+    def delete(self, request, id_prestamo=0):
+        if id_prestamo > 0:
+            prestamo = Prestamos.objects.get(id_prestamo=id_prestamo)
             prestamo.delete()
             return JsonResponse({"message": "Prestamo eliminado"}, safe=False)
         return JsonResponse({"message": "No existe el prestamo"}, safe=False)
@@ -184,14 +195,14 @@ class PrestamoView(APIView):
     # def post(self, request):
     #     jsDatos = json.loads(request.body)
     #     Prestamos.objects.create(
-    #         prestamo_id=jsDatos["prestamo_id"],
+    #         id_prestamo=jsDatos["id_prestamo"],
     #         id_cuenta_id=jsDatos["id_cuenta"],
     #         monto=jsDatos["monto"],
     #         interes_mes=jsDatos["interes_mes"],
     #         fec_start=jsDatos["fec_start"],
     #         fec_venc=jsDatos["fec_venc"],
-    #         id_tipo_prestamo_id=jsDatos["id_tipo_prestamo"],
-    #         id_tipo_estado_prestamo_id=jsDatos["id_tipo_estado_prestamo"],
+    #         id_tipo_id_prestamo=jsDatos["id_tipo_prestamo"],
+    #         id_tipo_estado_id_prestamo=jsDatos["id_tipo_estado_prestamo"],
     #         id_tipo_moneda_id=jsDatos["id_tipo_moneda"],
     #         id_tipo_interes_id=jsDatos["id_tipo_interes"],
     #         id_tipo_cuota_id=jsDatos["id_tipo_cuota"],
@@ -200,18 +211,18 @@ class PrestamoView(APIView):
     #     )
     #     return JsonResponse({"message": "Prestamo creado"}, safe=False)
 
-    # def put(self, request, prestamo_id=0):
+    # def put(self, request, id_prestamo=0):
     #     jsDatos = json.loads(request.body)
-    #     prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
+    #     prestamo = list(Prestamos.objects.filter(id_prestamo=id_prestamo).values())
     #     if len(prestamo) > 0:
-    #         prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
+    #         prestamo = Prestamos.objects.get(id_prestamo=id_prestamo)
     #         prestamo.id_cuenta_id = jsDatos["id_cuenta_id"]
     #         prestamo.monto = jsDatos["monto"]
     #         prestamo.interes_mes = jsDatos["interes_mes"]
     #         prestamo.fec_start = jsDatos["fec_start"]
     #         prestamo.fec_venc = jsDatos["fec_venc"]
-    #         prestamo.id_tipo_prestamo_id = jsDatos["id_tipo_prestamo_id"]
-    #         prestamo.id_tipo_estado_prestamo_id = jsDatos["id_tipo_estado_prestamo_id"]
+    #         prestamo.id_tipo_id_prestamo = jsDatos["id_tipo_id_prestamo"]
+    #         prestamo.id_tipo_estado_id_prestamo = jsDatos["id_tipo_estado_id_prestamo"]
     #         prestamo.id_tipo_moneda_id = jsDatos["id_tipo_moneda_id"]
     #         prestamo.id_tipo_interes_id = jsDatos["id_tipo_interes_id"]
     #         prestamo.id_tipo_cuota_id = jsDatos["id_tipo_cuota_id"]
@@ -222,10 +233,10 @@ class PrestamoView(APIView):
     #     else:
     #         return JsonResponse({"message": "No existe el prestamo"}, safe=False)
 
-    # def delete(self, request, prestamo_id=0):
-    #     prestamo = list(Prestamos.objects.filter(prestamo_id=prestamo_id).values())
+    # def delete(self, request, id_prestamo=0):
+    #     prestamo = list(Prestamos.objects.filter(id_prestamo=id_prestamo).values())
     #     if len(prestamo) > 0:
-    #         prestamo = Prestamos.objects.get(prestamo_id=prestamo_id)
+    #         prestamo = Prestamos.objects.get(id_prestamo=id_prestamo)
     #         prestamo.delete()
     #         return JsonResponse({"message": "Prestamo eliminado"}, safe=False)
     #     else:
@@ -233,13 +244,14 @@ class PrestamoView(APIView):
 
 
 class DocumentosView(APIView):
+    permission_classes = [AllowAny]
     queryset = Documentos.objects.all()
     serializer_class = DocumentosSerializer
 
-    def get(self, request, documento_id=0):
-        if documento_id > 0:
+    def get(self, request, id_tipo_doc=0):
+        if id_tipo_doc > 0:
             documento = list(
-                Documentos.objects.filter(documento_id=documento_id).values()
+                Documentos.objects.filter(id_tipo_doc=id_tipo_doc).values()
             )
             if len(documento) > 0:
                 return JsonResponse(documento[0], safe=False)
@@ -260,20 +272,20 @@ class DocumentosView(APIView):
             return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse({"message": "No existe el documento"}, safe=False)
 
-    def put(self, request, documento_id=0):
-        documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+    def put(self, request, id_tipo_doc=0):
+        documento = list(Documentos.objects.filter(id_tipo_doc=id_tipo_doc).values())
         if len(documento) > 0:
-            documento = Documentos.objects.get(documento_id=documento_id)
+            documento = Documentos.objects.get(id_tipo_doc=id_tipo_doc)
             serializer = DocumentosSerializer(documento, data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse({"message": "No existe el documento"}, safe=False)
 
-    def delete(self, request, documento_id=0):
-        documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+    def delete(self, request, id_tipo_doc=0):
+        documento = list(Documentos.objects.filter(id_tipo_doc=id_tipo_doc).values())
         if len(documento) > 0:
-            documento = Documentos.objects.get(documento_id=documento_id)
+            documento = Documentos.objects.get(id_tipo_doc=id_tipo_doc)
             documento.delete()
             return JsonResponse({"message": "Documento eliminado"}, safe=False)
         else:
@@ -287,21 +299,21 @@ class DocumentosView(APIView):
     #     )
     #     return JsonResponse({"message": "Documento creado"}, safe=False)
 
-    # def put(self, request, documento_id=0):
+    # def put(self, request, id_tipo_doc=0):
     #     jsDatos = json.loads(request.body)
-    #     documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+    #     documento = list(Documentos.objects.filter(id_tipo_doc=id_tipo_doc).values())
     #     if len(documento) > 0:
-    #         documento = Documentos.objects.get(documento_id=documento_id)
+    #         documento = Documentos.objects.get(id_tipo_doc=id_tipo_doc)
     #         documento.tipo_doc = jsDatos["tipo_doc"]
     #         documento.save()
     #         return JsonResponse({"message": "Documento actualizado"}, safe=False)
     #     else:
     #         return JsonResponse({"message": "No existe el documento"}, safe=False)
 
-    # def delete(self, request, documento_id=0):
-    #     documento = list(Documentos.objects.filter(documento_id=documento_id).values())
+    # def delete(self, request, id_tipo_doc=0):
+    #     documento = list(Documentos.objects.filter(id_tipo_doc=id_tipo_doc).values())
     #     if len(documento) > 0:
-    #         documento = Documentos.objects.get(documento_id=documento_id)
+    #         documento = Documentos.objects.get(id_tipo_doc=id_tipo_doc)
     #         documento.delete()
     #         return JsonResponse({"message": "Documento eliminado"}, safe=False)
     #     else:
@@ -309,12 +321,13 @@ class DocumentosView(APIView):
 
 
 class PaisesView(APIView):
+    permission_classes = [AllowAny]
     queryset = Paises.objects.all()
     serializer_class = PaisesSerializer
 
-    def get(self, request, pais_id=0):
-        if pais_id > 0:
-            pais = list(Paises.objects.filter(pais_id=pais_id).values())
+    def get(self, request, cod_pais=0):
+        if cod_pais > 0:
+            pais = list(Paises.objects.filter(cod_pais=cod_pais).values())
             if len(pais) > 0:
                 return JsonResponse(pais[0], safe=False)
             else:
@@ -334,20 +347,20 @@ class PaisesView(APIView):
             return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse({"message": "No existe el pais"}, safe=False)
 
-    def put(self, request, pais_id=0):
-        pais = list(Paises.objects.filter(pais_id=pais_id).values())
+    def put(self, request, cod_pais=0):
+        pais = list(Paises.objects.filter(cod_pais=cod_pais).values())
         if len(pais) > 0:
-            pais = Paises.objects.get(pais_id=pais_id)
+            pais = Paises.objects.get(cod_pais=cod_pais)
             serializer = PaisesSerializer(pais, data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse({"message": "No existe el pais"}, safe=False)
 
-    def delete(self, request, pais_id=0):
-        pais = list(Paises.objects.filter(pais_id=pais_id).values())
+    def delete(self, request, cod_pais=0):
+        pais = list(Paises.objects.filter(cod_pais=cod_pais).values())
         if len(pais) > 0:
-            pais = Paises.objects.get(pais_id=pais_id)
+            pais = Paises.objects.get(cod_pais=cod_pais)
             pais.delete()
             return JsonResponse({"message": "Pais eliminado"}, safe=False)
         else:
@@ -361,21 +374,21 @@ class PaisesView(APIView):
     #     )
     #     return JsonResponse({"message": "Pais creado"}, safe=False)
 
-    # def put(self, request, pais_id=0):
+    # def put(self, request, cod_pais=0):
     #     jsDatos = json.loads(request.body)
-    #     pais = list(Paises.objects.filter(pais_id=pais_id).values())
+    #     pais = list(Paises.objects.filter(cod_pais=cod_pais).values())
     #     if len(pais) > 0:
-    #         pais = Paises.objects.get(pais_id=pais_id)
+    #         pais = Paises.objects.get(cod_pais=cod_pais)
     #         pais.pais = jsDatos["pais"]
     #         pais.save()
     #         return JsonResponse({"message": "Pais actualizado"}, safe=False)
     #     else:
     #         return JsonResponse({"message": "No existe el pais"}, safe=False)
 
-    # def delete(self, request, pais_id=0):
-    #     pais = list(Paises.objects.filter(pais_id=pais_id).values())
+    # def delete(self, request, cod_pais=0):
+    #     pais = list(Paises.objects.filter(cod_pais=cod_pais).values())
     #     if len(pais) > 0:
-    #         pais = Paises.objects.get(pais_id=pais_id)
+    #         pais = Paises.objects.get(cod_pais=cod_pais)
     #         pais.delete()
     #         return JsonResponse({"message": "Pais eliminado"}, safe=False)
     #     else:
@@ -383,13 +396,14 @@ class PaisesView(APIView):
 
 
 class ProvinciasView(APIView):
+    permission_classes = [AllowAny]
     queryset = Provincias.objects.all()
     serializer_class = ProvinciasSerializer
 
-    def get(self, request, provincia_id=0):
-        if provincia_id > 0:
+    def get(self, request, cod_provincia=0):
+        if cod_provincia > 0:
             provincia = list(
-                Provincias.objects.filter(provincia_id=provincia_id).values()
+                Provincias.objects.filter(cod_provincia=cod_provincia).values()
             )
             if len(provincia) > 0:
                 return JsonResponse(provincia[0], safe=False)
@@ -410,10 +424,10 @@ class ProvinciasView(APIView):
             return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse({"message": "No existe la provincia"}, safe=False)
 
-    def put(self, request, provincia_id=0):
-        provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
+    def put(self, request, cod_provincia=0):
+        provincia = list(Provincias.objects.filter(cod_provincia=cod_provincia).values())
         if len(provincia) > 0:
-            provincia = Provincias.objects.get(provincia_id=provincia_id)
+            provincia = Provincias.objects.get(cod_provincia=cod_provincia)
             serializer = ProvinciasSerializer(provincia, data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -429,11 +443,11 @@ class ProvinciasView(APIView):
     #     )
     #     return JsonResponse({"message": "Provincia creada"}, safe=False)
 
-    # def put(self, request, provincia_id=0):
+    # def put(self, request, cod_provincia=0):
     #     jsDatos = json.loads(request.body)
-    #     provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
+    #     provincia = list(Provincias.objects.filter(cod_provincia=cod_provincia).values())
     #     if len(provincia) > 0:
-    #         provincia = Provincias.objects.get(provincia_id=provincia_id)
+    #         provincia = Provincias.objects.get(cod_provincia=cod_provincia)
     #         provincia.provincia = jsDatos["provincia"]
     #         provincia.cod_pais_id = jsDatos["cod_pais_id"]
     #         provincia.save()
@@ -441,10 +455,10 @@ class ProvinciasView(APIView):
     #     else:
     #         return JsonResponse({"message": "No existe la provincia"}, safe=False)
 
-    def delete(self, request, provincia_id=0):
-        provincia = list(Provincias.objects.filter(provincia_id=provincia_id).values())
+    def delete(self, request, cod_provincia=0):
+        provincia = list(Provincias.objects.filter(cod_provincia=cod_provincia).values())
         if len(provincia) > 0:
-            provincia = Provincias.objects.get(provincia_id=provincia_id)
+            provincia = Provincias.objects.get(cod_provincia=cod_provincia)
             provincia.delete()
             return JsonResponse({"message": "Provincia eliminada"}, safe=False)
         else:
@@ -452,13 +466,14 @@ class ProvinciasView(APIView):
 
 
 class LocalidadesView(APIView):
+    permission_classes = [AllowAny]
     queryset = Localidades.objects.all()
     serializer_class = LocalidadesSerializer
 
-    def get(self, request, localidad_id=0):
-        if localidad_id > 0:
+    def get(self, request, cod_localidad=0):
+        if cod_localidad > 0:
             localidad = list(
-                Localidades.objects.filter(localidad_id=localidad_id).values()
+                Localidades.objects.filter(cod_localidad=cod_localidad).values()
             )
             if len(localidad) > 0:
                 return JsonResponse(localidad[0], safe=False)
@@ -479,10 +494,10 @@ class LocalidadesView(APIView):
             return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse({"message": "No existe la localidad"}, safe=False)
 
-    def put(self, request, localidad_id=0):
-        localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
+    def put(self, request, cod_localidad=0):
+        localidad = list(Localidades.objects.filter(cod_localidad=cod_localidad).values())
         if len(localidad) > 0:
-            localidad = Localidades.objects.get(localidad_id=localidad_id)
+            localidad = Localidades.objects.get(cod_localidad=cod_localidad)
             serializer = LocalidadesSerializer(localidad, data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -498,11 +513,11 @@ class LocalidadesView(APIView):
     #     )
     #     return JsonResponse({"message": "Localidad creada"}, safe=False)
 
-    # def put(self, request, localidad_id=0):
+    # def put(self, request, cod_localidad=0):
     #     jsDatos = json.loads(request.body)
-    #     localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
+    #     localidad = list(Localidades.objects.filter(cod_localidad=cod_localidad).values())
     #     if len(localidad) > 0:
-    #         localidad = Localidades.objects.get(localidad_id=localidad_id)
+    #         localidad = Localidades.objects.get(cod_localidad=cod_localidad)
     #         localidad.localidad = jsDatos["localidad"]
     #         localidad.cod_provincia_id = jsDatos["cod_provincia_id"]
     #         localidad.save()
@@ -510,10 +525,10 @@ class LocalidadesView(APIView):
     #     else:
     #         return JsonResponse({"message": "No existe la localidad"}, safe=False)
 
-    def delete(self, request, localidad_id=0):
-        localidad = list(Localidades.objects.filter(localidad_id=localidad_id).values())
+    def delete(self, request, cod_localidad=0):
+        localidad = list(Localidades.objects.filter(cod_localidad=cod_localidad).values())
         if len(localidad) > 0:
-            localidad = Localidades.objects.get(localidad_id=localidad_id)
+            localidad = Localidades.objects.get(cod_localidad=cod_localidad)
             localidad.delete()
             return JsonResponse({"message": "Localidad eliminada"}, safe=False)
         else:
@@ -521,12 +536,13 @@ class LocalidadesView(APIView):
 
 
 class SexosView(APIView):
+    permission_classes = [AllowAny]
     queryset = Sexos.objects.all()
     serializer_class = SexosSerializer
 
-    def get(self, request, sexo_id=0):
-        if sexo_id > 0:
-            sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+    def get(self, request, id_tipo_sexo=0):
+        if id_tipo_sexo > 0:
+            sexo = list(Sexos.objects.filter(id_tipo_sexo=id_tipo_sexo).values())
             if len(sexo) > 0:
                 return JsonResponse(sexo[0], safe=False)
             else:
@@ -546,10 +562,10 @@ class SexosView(APIView):
             return JsonResponse(serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
-    def put(self, request, sexo_id=0):
-        sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+    def put(self, request, id_tipo_sexo=0):
+        sexo = list(Sexos.objects.filter(id_tipo_sexo=id_tipo_sexo).values())
         if len(sexo) > 0:
-            sexo = Sexos.objects.get(sexo_id=sexo_id)
+            sexo = Sexos.objects.get(id_tipo_sexo=id_tipo_sexo)
             serializer = SexosSerializer(sexo, data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -564,21 +580,21 @@ class SexosView(APIView):
     #     )
     #     return JsonResponse({"message": "Sexo creado"}, safe=False)
 
-    # def put(self, request, sexo_id=0):
+    # def put(self, request, id_tipo_sexo=0):
     #     jsDatos = json.loads(request.body)
-    #     sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+    #     sexo = list(Sexos.objects.filter(id_tipo_sexo=id_tipo_sexo).values())
     #     if len(sexo) > 0:
-    #         sexo = Sexos.objects.get(sexo_id=sexo_id)
+    #         sexo = Sexos.objects.get(id_tipo_sexo=id_tipo_sexo)
     #         sexo.tipo = jsDatos["tipo"]
     #         sexo.save()
     #         return JsonResponse({"message": "Sexo actualizado"}, safe=False)
     #     else:
     #         return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
-    def delete(self, request, sexo_id=0):
-        sexo = list(Sexos.objects.filter(sexo_id=sexo_id).values())
+    def delete(self, request, id_tipo_sexo=0):
+        sexo = list(Sexos.objects.filter(id_tipo_sexo=id_tipo_sexo).values())
         if len(sexo) > 0:
-            sexo = Sexos.objects.get(sexo_id=sexo_id)
+            sexo = Sexos.objects.get(id_tipo_sexo=id_tipo_sexo)
             sexo.delete()
             return JsonResponse({"message": "Sexo eliminado"}, safe=False)
         else:
@@ -586,6 +602,7 @@ class SexosView(APIView):
 
 
 class PersonaView(APIView):
+    permission_classes = [AllowAny]
     queryset = Persona.objects.all()
     serializer_class = PersonaSerializer
 
@@ -694,6 +711,7 @@ class PersonaView(APIView):
 
 
 class CuentaView(APIView):
+    permission_classes = [AllowAny]
     queryset = Cuenta.objects.all()
     serializer_class = CuentaSerializer
 
@@ -781,6 +799,7 @@ class CuentaView(APIView):
 
 
 class TransferenciasView(APIView):
+    permission_classes = [AllowAny]
     queryset = Transferencias.objects.all()
     serializer_class = TransferenciasSerializer
 
@@ -885,6 +904,7 @@ class TransferenciasView(APIView):
 
 
 class Plazo_fijoView(APIView):
+    permission_classes = [AllowAny]
     queryset = Plazo_fijo.objects.all()
     serializer_class = Plazo_fijoSerializer
 

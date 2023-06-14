@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -8,6 +9,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./perfil.component.css'],
 })
 export class PerfilComponent {
+  constructor(private router: Router) {}
+
   editarButton() {
     Swal.fire({
       title: 'Editar perfil',
@@ -25,8 +28,10 @@ export class PerfilComponent {
           icon: 'success',
           showConfirmButton: true,
           confirmButtonText: 'Aceptar',
-        }).then(function () {
-          window.location.href = '../personas';
+        }).then(() => {
+          this.router.navigate(['/personas']);
+
+          // window.location.href = '../personas';
         });
         // Swal.fire({
         //     title: "Error",
