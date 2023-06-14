@@ -31,19 +31,18 @@
             <td>{{ persona.fecha_nac }}</td>
             <td>{{ persona.id_tipo_sexo_id }}</td>
             <td>
-              <button
+              <!-- <button
                 class="btn btn-primary"
                 (click)="editarButton(persona.id_persona, persona)"
               >
                 Editar
-              </button>
-              <br />
-              <button
+              </button> -->
+              <a
                 class="btn btn-danger"
                 (click)="eliminarButton(persona.id_persona)"
               >
                 Eliminar
-              </button>
+              </a>
             </td>
           </tr>
         </tbody>
@@ -105,9 +104,19 @@
         placeholder="id_tipo_sexo"
       />
       <!-- Agrega más campos según tus necesidades -->
+
       <br />
       <!-- Agrega un botón para agregar la persona -->
-      <button (click)="crearButton(nuevaPersona)">Agregar Persona</button>
+      <button class="btn btn-danger" (click)="crearButton(nuevaPersona)">
+        Agregar Persona
+      </button>
+      <br />
+      <button
+        class="btn btn-primary"
+        (click)="editarButton(nuevaPersona.id_persona, nuevaPersona)"
+      >
+        Editar
+      </button>
     </div>
   </div>
 </div>

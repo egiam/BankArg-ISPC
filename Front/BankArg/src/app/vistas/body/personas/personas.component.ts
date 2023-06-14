@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from 'src/app/servicios/api/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personas',
@@ -7,7 +8,7 @@ import { ApiService } from 'src/app/servicios/api/api.service';
   styleUrls: ['./personas.component.css'],
 })
 export class PersonasComponent {
-  constructor(private cuenta: ApiService) {}
+  constructor(private cuenta: ApiService, private router: Router) {}
 
   personas: any = this.cuenta.getPersonas();
 
@@ -15,6 +16,11 @@ export class PersonasComponent {
   editarButton(id: number, data: any) {
     this.cuenta.putPersonas(id, data).subscribe(() => {
       console.log('Persona editada correctamente');
+      this.router
+        .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
+        .then(() => {
+          this.router.navigate(['personas']);
+        });
     });
   }
 
@@ -23,6 +29,11 @@ export class PersonasComponent {
     console.log(id);
     this.cuenta.deletePersonas(id).subscribe(() => {
       console.log('Persona eliminada correctamente');
+      this.router
+        .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
+        .then(() => {
+          this.router.navigate(['personas']);
+        });
     });
   }
 
@@ -33,6 +44,11 @@ export class PersonasComponent {
     console.log(data);
     this.cuenta.postPersonas(data).subscribe(() => {
       console.log('Persona creada correctamente');
+      this.router
+        .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
+        .then(() => {
+          this.router.navigate(['personas']);
+        });
     });
   }
 }
