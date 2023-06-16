@@ -12,9 +12,13 @@ export class PersonasComponent {
   constructor(private cuenta: ApiService, private router: Router) {}
 
   personas: any = this.cuenta.getPersonas();
+  // documentoId: any = this.cuenta.getDocumentosById(id);
+
+  nuevaPersona: any = {};
 
   // editar
   editarButton(id: number, data: any) {
+    // TODO
     this.cuenta.putPersonas(id, data).subscribe(
       (res) => {
         console.log('Persona editada correctamente');
@@ -48,41 +52,55 @@ export class PersonasComponent {
   // eliminar
   eliminarButton(id: number) {
     console.log(id);
-    this.cuenta.deletePersonas(id).subscribe(
-      (res) => {
-        console.log('Persona eliminada correctamente');
-        Swal.fire({
-          title: 'Eliminado',
-          text: 'Persona eliminada correctamente',
-          icon: 'success',
-          showConfirmButton: true,
-          confirmButtonText: 'Aceptar',
-        }).then(() => {
-          this.router
-            .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
-            .then(() => {
-              this.router.navigate(['personas']);
+    Swal.fire({
+      title: 'Eliminar Persona',
+      text: '¿Desea eliminar a esta Persona?',
+      icon: 'info',
+      showConfirmButton: true,
+      confirmButtonText: 'Aceptar',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+    }).then((value) => {
+      if (value.isConfirmed) {
+        // TODO
+        this.cuenta.deletePersonas(id).subscribe(
+          (res) => {
+            console.log('Persona eliminada correctamente');
+            Swal.fire({
+              title: 'Eliminado',
+              text: 'Persona eliminada correctamente',
+              icon: 'success',
+              showConfirmButton: true,
+              confirmButtonText: 'Aceptar',
+            }).then(() => {
+              this.router
+                .navigateByUrl('/RefreshComponent', {
+                  skipLocationChange: true,
+                })
+                .then(() => {
+                  this.router.navigate(['personas']);
+                });
             });
-        });
-      },
-      (err) => {
-        console.log(err);
-        Swal.fire({
-          title: 'Error',
-          text: 'No se pudo eliminar la persona',
-          icon: 'error',
-          showConfirmButton: true,
-          confirmButtonText: 'Aceptar',
-        });
+          },
+          (err) => {
+            console.log(err);
+            Swal.fire({
+              title: 'Error',
+              text: 'No se pudo eliminar la persona',
+              icon: 'error',
+              showConfirmButton: true,
+              confirmButtonText: 'Aceptar',
+            });
+          }
+        );
       }
-    );
+    });
   }
-
-  nuevaPersona: any = {};
 
   // crear
   crearButton(data: any) {
     console.log(data);
+    // TODO
     this.cuenta.postPersonas(data).subscribe(
       (res) => {
         console.log('Persona creada correctamente');

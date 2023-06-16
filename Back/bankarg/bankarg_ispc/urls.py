@@ -35,19 +35,19 @@ from bankarg_ispc import views
 
 
 urlpatterns = [
-    path("auth/login/", LoginView.as_view(), name="auth_login"),
     # path("auth/login/", obtain_jwt_token),
+    path("auth/login/", LoginView.as_view(), name="auth_login"),
     path("auth/logout/", LogoutView.as_view(), name="auth_logout"),
+    path("auth/signup/", SignupView.as_view(), name="auth_signup"),
     #
     # path("auth/login2/", LoginView2.as_view(), name="auth_login2"),
     # path("auth/logout2/", knox_views.LogoutView.as_view(), name="auth_logout"),
     # path("auth/logoutall/", knox_views.LogoutAllView.as_view(), name="auth_logoutall"),
     #
-    path("auth/signup/", SignupView.as_view(), name="auth_signup"),
-    path("auth/register/", RegisterView.as_view(), name="auth_register"),
     # path("api-auth/", include("rest_framework.urls")),
     # path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     # path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("auth/register/", RegisterView.as_view(), name="auth_register"),
     # ---------
     # Servicios
     path("prestamo/", PrestamoView.as_view(), name="prestamo_list"),
