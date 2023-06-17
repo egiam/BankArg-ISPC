@@ -49,7 +49,12 @@ export class ApiService {
   //
 
   getDocumentosById(id: number): Observable<any> {
+    console.log('documento id ' + id);
     return this.http.get<any>(this.urlUser + 'api/documento/' + id + '/');
+  }
+
+  getDocumentos(): Observable<any> {
+    return this.http.get<any>(this.urlUser + 'api/documento/');
   }
 
   // Todo lo de abajo es solo TEST, no tiene ninguna funcionalidad real x ahora

@@ -12,7 +12,11 @@ export class PersonasComponent {
   constructor(private cuenta: ApiService, private router: Router) {}
 
   personas: any = this.cuenta.getPersonas();
-  // documentoId: any = this.cuenta.getDocumentosById(id);
+  // doc: any = this.cuenta.getDocumentos();
+
+  // documento(id: number) {
+  //   let idDoc = this.cuenta.getDocumentosById(id);
+  // }
 
   nuevaPersona: any = {};
 
