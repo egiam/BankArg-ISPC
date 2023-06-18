@@ -9,6 +9,7 @@ from rest_framework.routers import DefaultRouter
 from bankarg_ispc.views import (
     PrestamoView,
     PersonaView,
+    PersonaGralView,
     CuentaView,
     Plazo_fijoView,
     TransferenciasView,
@@ -56,6 +57,7 @@ urlpatterns = [
     ),
     path("persona/", PersonaView.as_view(), name="persona_list"),
     path("persona/<int:id_persona>/", PersonaView.as_view(), name="persona_proceso"),
+    path("persona_gral/", PersonaGralView.as_view(), name="persona_gral_list"),
     path("cuenta/", CuentaView.as_view(), name="cuenta_list"),
     path("cuenta/<int:id_cuenta>/", CuentaView.as_view(), name="cuenta_proceso"),
     path("plazo_fijo/", Plazo_fijoView.as_view(), name="plazo_fijo_list"),

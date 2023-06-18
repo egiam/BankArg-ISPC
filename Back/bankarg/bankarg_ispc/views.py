@@ -609,6 +609,15 @@ class SexosView(APIView):
             return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
 
+class PersonaGralView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        personas = Persona.objects.all()
+        serializer = PersonaSerializer(personas, many=True)
+        return Response(serializer.data)
+
+
 class PersonaView(APIView):
     permission_classes = [AllowAny]
     queryset = Persona.objects.all()

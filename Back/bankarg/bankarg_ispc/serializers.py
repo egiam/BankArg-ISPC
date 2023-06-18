@@ -51,12 +51,6 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-class PersonaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Persona
-        fields = "__all__"
-
-
 class PrestamosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prestamos
@@ -90,6 +84,16 @@ class LocalidadesSerializer(serializers.ModelSerializer):
 class SexosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sexos
+        fields = "__all__"
+
+
+class PersonaSerializer(serializers.ModelSerializer):
+    id_tipo_doc = DocumentosSerializer()
+    cod_loc = LocalidadesSerializer()
+    id_tipo_sexo = SexosSerializer()
+
+    class Meta:
+        model = Persona
         fields = "__all__"
 
 
