@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/servicios/api/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -9,7 +10,11 @@ import { ApiService } from 'src/app/servicios/api/api.service';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder, private cuenta: ApiService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private cuenta: ApiService,
+    private router: Router
+  ) {
     this.form = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -25,6 +30,7 @@ export class RegistroComponent implements OnInit {
 
   register: any;
 
+  // TODO:
   ngOnInit() {
     this.register = {
       username: '',
@@ -114,6 +120,7 @@ export class RegistroComponent implements OnInit {
             // Agregar usuario
             this.users[usernameV] = passwordV;
 
+            // TODO:
             this.cuenta.register(this.register).subscribe(
               (res) => {
                 console.log(res);
@@ -132,8 +139,9 @@ export class RegistroComponent implements OnInit {
               icon: 'success',
               showConfirmButton: true,
               confirmButtonText: 'Aceptar',
-            }).then(function () {
-              window.location.href = './login.html';
+            }).then(() => {
+              this.router.navigate(['']);
+              // window.location.href = './login.html';
             });
           } else {
             Swal.fire({

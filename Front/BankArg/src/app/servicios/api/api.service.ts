@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map, toArray } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,8 @@ export class ApiService {
 
   // Registrarse (email, username, password)
   register(UserData: any): Observable<any> {
-    return this.http.post('http://127.0.0.1:8000/api/auth/register/', UserData);
+    return this.http.post('http://127.0.0.1:8000/api/auth/signup/', UserData);
+    // return this.http.post('http://127.0.0.1:8000/api/auth/register/', UserData);
   }
 
   // Logearse
@@ -25,6 +26,35 @@ export class ApiService {
 
   ObtenerUltimosMovimientos(): Observable<any> {
     return this.http.get(this.url + 'movimientos');
+  }
+
+  //
+
+  getPersonas(): Observable<any> {
+    return this.http.get<any>(this.urlUser + 'api/persona/');
+  }
+
+  putPersonas(id: number, data: any): Observable<any> {
+    return this.http.put(this.urlUser + 'api/persona/' + id + '/', data);
+  }
+
+  deletePersonas(id: number): Observable<any> {
+    return this.http.delete(this.urlUser + 'api/persona/' + id + '/');
+  }
+
+  postPersonas(data: any): Observable<any> {
+    return this.http.post(this.urlUser + 'api/persona/', data);
+  }
+
+  //
+
+  getDocumentosById(id: number): Observable<any> {
+    console.log('documento id ' + id);
+    return this.http.get<any>(this.urlUser + 'api/documento/' + id + '/');
+  }
+
+  getDocumentos(): Observable<any> {
+    return this.http.get<any>(this.urlUser + 'api/documento/');
   }
 
   // Todo lo de abajo es solo TEST, no tiene ninguna funcionalidad real x ahora

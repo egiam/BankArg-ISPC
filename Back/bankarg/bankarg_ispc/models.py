@@ -108,7 +108,7 @@ class Persona(models.Model):
     )
     nro_calle = models.IntegerField()
     calle = models.TextField(max_length=150)
-    fecha_nac = models.DateTimeField()
+    fecha_nac = models.DateField()
     id_tipo_sexo = models.ForeignKey(
         Sexos, to_field="id_tipo_sexo", on_delete=models.CASCADE
     )
@@ -186,7 +186,7 @@ class Empleado(Persona):
         to_field="id_tipo_estado_empleado",
         on_delete=models.CASCADE,
     )
-    fecha_ingreso = models.DateTimeField()
+    fecha_ingreso = models.DateField()
     sueldo = models.DecimalField(max_digits=15, decimal_places=2)
 
     class Meta:
@@ -539,7 +539,7 @@ class Cuotas(models.Model):
     )
     nro_cuota = models.IntegerField()
     fecha_vencimiento = models.DateField(auto_now=False)
-    fecha_pago = models.DateTimeField(auto_now=True)
+    fecha_pago = models.DateField(auto_now=True)
     monto = models.IntegerField()
 
     class Meta:
