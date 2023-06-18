@@ -46,6 +46,7 @@ from .serializers import (
     CuentaSerializer,
     Plazo_fijoSerializer,
     TransferenciasSerializer,
+    PersonaGralSerializer,
 )
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -614,7 +615,7 @@ class PersonaGralView(APIView):
 
     def get(self, request):
         personas = Persona.objects.all()
-        serializer = PersonaSerializer(personas, many=True)
+        serializer = PersonaGralSerializer(personas, many=True)
         return Response(serializer.data)
 
 

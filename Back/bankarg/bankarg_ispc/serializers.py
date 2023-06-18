@@ -87,11 +87,17 @@ class SexosSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class PersonaSerializer(serializers.ModelSerializer):
+class PersonaGralSerializer(serializers.ModelSerializer):
     id_tipo_doc = DocumentosSerializer()
     cod_loc = LocalidadesSerializer()
     id_tipo_sexo = SexosSerializer()
 
+    class Meta:
+        model = Persona
+        fields = "__all__"
+
+
+class PersonaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Persona
         fields = "__all__"
