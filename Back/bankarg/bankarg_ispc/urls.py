@@ -72,6 +72,10 @@ urlpatterns = [
         TransferenciasView.as_view(),
         name="transferencias_proceso",
     ),
+    #
+    #
+    #
+    #
     path("documentos/", DocumentosView.as_view(), name="documentos_list"),
     path(
         "documentos/<int:id_tipo_doc>/",
