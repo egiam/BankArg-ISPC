@@ -30,8 +30,14 @@ export class ApiService {
 
   //
 
+  getPersonasGral(): Observable<any> {
+    // return this.http.get<any>(this.urlUser + 'api/persona/');
+    return this.http.get<any>(this.urlUser + 'api/persona_gral/');
+  }
+
   getPersonas(): Observable<any> {
     return this.http.get<any>(this.urlUser + 'api/persona/');
+    // return this.http.get<any>(this.urlUser + 'api/persona_gral/');
   }
 
   putPersonas(id: number, data: any): Observable<any> {

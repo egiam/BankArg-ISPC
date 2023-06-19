@@ -46,6 +46,7 @@ from .serializers import (
     CuentaSerializer,
     Plazo_fijoSerializer,
     TransferenciasSerializer,
+    PersonaGralSerializer,
 )
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -607,6 +608,15 @@ class SexosView(APIView):
             return JsonResponse({"message": "Sexo eliminado"}, safe=False)
         else:
             return JsonResponse({"message": "No existe el sexo"}, safe=False)
+
+
+class PersonaGralView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        personas = Persona.objects.all()
+        serializer = PersonaGralSerializer(personas, many=True)
+        return Response(serializer.data)
 
 
 class PersonaView(APIView):

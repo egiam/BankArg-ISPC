@@ -9,27 +9,36 @@
             <th>Id</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Id Documento</th>
+            <th>Id -> Tipo Documento</th>
             <th>Nro Doc</th>
-            <th>cod localidad</th>
+            <th>Id -> Localidad</th>
             <th>nro calle</th>
             <th>calle</th>
             <th>fecha nacimiento</th>
-            <th>id tipo sexo</th>
+            <th>Id -> Sexo</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let persona of personas | async">
+          <tr *ngFor="let persona of personasGral | async">
             <td>{{ persona.id_persona }}</td>
             <td>{{ persona.nombre }}</td>
             <td>{{ persona.apellido }}</td>
-            <td>{{ persona.id_tipo_doc_id }}</td>
+            <td>
+              {{ persona.id_tipo_doc.id_tipo_doc }} ->
+              {{ persona.id_tipo_doc.tipo_doc }}
+            </td>
             <td>{{ persona.nro_doc }}</td>
-            <td>{{ persona.cod_loc_id }}</td>
+            <td>
+              {{ persona.cod_loc.cod_localidad }} ->
+              {{ persona.cod_loc.localidad }}
+            </td>
             <td>{{ persona.nro_calle }}</td>
             <td>{{ persona.calle }}</td>
             <td>{{ persona.fecha_nac }}</td>
-            <td>{{ persona.id_tipo_sexo_id }}</td>
+            <td>
+              {{ persona.id_tipo_sexo.id_tipo_sexo }} ->
+              {{ persona.id_tipo_sexo.tipo }}
+            </td>
             <td>
               <!-- <button
                 class="btn btn-primary"
