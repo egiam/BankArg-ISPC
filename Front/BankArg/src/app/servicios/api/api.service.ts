@@ -28,7 +28,7 @@ export class ApiService {
     return this.http.get(this.url + 'movimientos');
   }
 
-  //
+  // TODO: Personas
 
   getPersonasGral(): Observable<any> {
     // return this.http.get<any>(this.urlUser + 'api/persona/');
@@ -52,33 +52,77 @@ export class ApiService {
     return this.http.post(this.urlUser + 'api/persona/', data);
   }
 
+  // TODO: Plazo Fijo
+
+  getPlazoFijoGral(): Observable<any> {
+    return this.http.get(this.urlUser + 'api/plazo_fijo_gral/');
+  }
+
+  getPlazoFijo(): Observable<any> {
+    return this.http.get(this.urlUser + 'api/plazo_fijo/');
+  }
+
+  putPlazoFijo(id: number, data: any): Observable<any> {
+    return this.http.put(this.urlUser + 'api/plazo_fijo/' + id + '/', data);
+  }
+
+  deletePlazoFijo(id: number): Observable<any> {
+    return this.http.delete(this.urlUser + 'api/plazo_fijo/' + id + '/');
+  }
+
+  postPlazoFijo(data: any): Observable<any> {
+    return this.http.post(this.urlUser + 'api/plazo_fijo/', data);
+  }
+
+  // TODO: Transferencias
+
+  getTransferenciasGral(): Observable<any> {
+    return this.http.get(this.urlUser + 'api/transferencia_gral/');
+  }
+
+  getTransferencias(): Observable<any> {
+    return this.http.get(this.urlUser + 'api/transferencia/');
+  }
+
+  putTransferencias(id: number, data: any): Observable<any> {
+    return this.http.put(this.urlUser + 'api/transferencia/' + id + '/', data);
+  }
+
+  deleteTransferencias(id: number): Observable<any> {
+    return this.http.delete(this.urlUser + 'api/transferencia/' + id + '/');
+  }
+
+  postTransferencias(data: any): Observable<any> {
+    return this.http.post(this.urlUser + 'api/transferencia/', data);
+  }
+
   //
 
-  getDocumentosById(id: number): Observable<any> {
-    console.log('documento id ' + id);
-    return this.http.get<any>(this.urlUser + 'api/documento/' + id + '/');
-  }
+  // getDocumentosById(id: number): Observable<any> {
+  //   console.log('documento id ' + id);
+  //   return this.http.get<any>(this.urlUser + 'api/documento/' + id + '/');
+  // }
 
-  getDocumentos(): Observable<any> {
-    return this.http.get<any>(this.urlUser + 'api/documento/');
-  }
+  // getDocumentos(): Observable<any> {
+  //   return this.http.get<any>(this.urlUser + 'api/documento/');
+  // }
 
-  // Todo lo de abajo es solo TEST, no tiene ninguna funcionalidad real x ahora
-  get(url: string) {
-    return this.http.get(this.url + url);
-  }
+  // // Todo lo de abajo es solo TEST, no tiene ninguna funcionalidad real x ahora
+  // get(url: string) {
+  //   return this.http.get(this.url + url);
+  // }
 
-  post(url: string, data: any) {
-    return this.http.post(this.url + url, data);
-  }
+  // post(url: string, data: any) {
+  //   return this.http.post(this.url + url, data);
+  // }
 
-  put(url: string, data: any) {
-    return this.http.put(this.url + url, data);
-  }
+  // put(url: string, data: any) {
+  //   return this.http.put(this.url + url, data);
+  // }
 
-  delete(url: string) {
-    return this.http.delete(this.url + url);
-  }
+  // delete(url: string) {
+  //   return this.http.delete(this.url + url);
+  // }
 
   // login(username: string, password: string) {
   //   return this.post('login', { username, password });
@@ -106,11 +150,11 @@ export class ApiService {
   //   });
   // }
 
-  getUsuarioByUsername(username: string) {
-    return this.get('usuarios/username/' + username);
-  }
+  // getUsuarioByUsername(username: string) {
+  //   return this.get('usuarios/username/' + username);
+  // }
 
-  getUsuarioByDni(dni: string) {
-    return this.get('usuarios/dni/' + dni);
-  }
+  // getUsuarioByDni(dni: string) {
+  //   return this.get('usuarios/dni/' + dni);
+  // }
 }
