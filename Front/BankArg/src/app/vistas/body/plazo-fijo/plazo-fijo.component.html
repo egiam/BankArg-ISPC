@@ -1,0 +1,109 @@
+<!-- Tabla de Personas -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Personas</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Id -> Cuenta</th>
+            <th>CBU (cuenta)</th>
+            <th>Id -> Moneda</th>
+            <th>Monto</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Vencimiento</th>
+            <th>Interes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let plazo of plazo_fijo_gral | async">
+            <td>{{ plazo.id_plazo_fijo }}</td>
+            <td>
+              {{ plazo.id_cuenta.id_cuenta }} -> {{ plazo.id_cuenta.alias }}
+            </td>
+            <td>{{ plazo.id_cuenta.cbu }}</td>
+            <td>
+              {{ plazo.id_tipo_moneda.id_tipo_moneda }} ->
+              {{ plazo.id_tipo_moneda.tipo_moneda }}
+            </td>
+            <td>{{ plazo.monto }}</td>
+            <td>{{ plazo.fecha_inicio }}</td>
+            <td>{{ plazo.fecha_vencimiento }}</td>
+            <td>{{ plazo.interes }}%</td>
+            <td>
+              <!-- <button
+                  class="btn btn-primary"
+                  (click)="editarButton(persona.id_persona, persona)"
+                >
+                  Editar
+                </button> -->
+              <a
+                class="btn btn-danger"
+                (click)="eliminarButton(plazo.id_plazo_fijo)"
+              >
+                Eliminar
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Crear Persona -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Crear Plazo Fijo</h3>
+      <!-- Agrega los elementos de entrada para los datos del nuevo plazo fijo -->
+      <input
+        type="text"
+        [(ngModel)]="nuevoPlazo.id_plazo_fijo"
+        placeholder="id | Necesario para Editar"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevoPlazo.id_cuenta"
+        placeholder="id_cuenta"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevoPlazo.id_tipo_moneda"
+        placeholder="id_tipo_moneda"
+      />
+      <input type="text" [(ngModel)]="nuevoPlazo.monto" placeholder="monto" />
+      <input
+        type="text"
+        [(ngModel)]="nuevoPlazo.fecha_inicio"
+        placeholder="fecha_inicio (AAAA-MM-DD)"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevoPlazo.fecha_vencimiento"
+        placeholder="fecha_vencimiento (AAAA-MM-DD)"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevoPlazo.interes"
+        placeholder="interes"
+      />
+
+      <!-- Agrega más campos según tus necesidades -->
+
+      <br />
+      <!-- Agrega un botón para agregar la persona -->
+      <button class="btn btn-danger" (click)="crearButton(nuevoPlazo)">
+        Agregar Plazo Fijo
+      </button>
+      <br />
+      <button
+        class="btn btn-primary"
+        (click)="editarButton(nuevoPlazo.id_plazo_fijo, nuevoPlazo)"
+      >
+        Editar
+      </button>
+    </div>
+  </div>
+</div>
