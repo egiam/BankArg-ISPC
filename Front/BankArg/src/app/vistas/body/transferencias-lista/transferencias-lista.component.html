@@ -1,0 +1,116 @@
+<!-- Tabla de Transferencias -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Transferencias</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Id -> Tipo transferencia</th>
+            <th>Id -> Clietne</th>
+            <th>Fecha</th>
+            <th>Monto</th>
+            <th>Cuenta Envio</th>
+            <th>Cuenta Recibo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transferencia of transferenciasGral | async">
+            <td>{{ transferencia.id_transferencia }}</td>
+            <td>
+              {{ transferencia.id_tipo_transferencia.id_tipo_transferencia }} ->
+              {{ transferencia.id_tipo_transferencia.tipo_transferencia }}
+            </td>
+            <td>
+              {{ transferencia.id_cliente.id_cliente }} ->
+              {{ transferencia.id_cliente.nombre }}
+              {{ transferencia.id_cliente.apellido }}
+            </td>
+            <td>{{ transferencia.fecha }}</td>
+            <td>{{ transferencia.monto }}</td>
+            <td>{{ transferencia.cuenta_envio }}</td>
+            <td>{{ transferencia.cuenta_recibo }}%</td>
+            <td>
+              <!-- <button
+                    class="btn btn-primary"
+                    (click)="editarButton(persona.id_persona, persona)"
+                  >
+                    Editar
+                  </button> -->
+              <a
+                class="btn btn-danger"
+                (click)="eliminarButton(transferencia.id_transferencia)"
+              >
+                Eliminar
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Crear Persona -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Crear transferencia</h3>
+      <!-- Agrega los elementos de entrada para los datos del nuevo transferencia -->
+      <input
+        type="text"
+        [(ngModel)]="nuevaTransferencia.id_transferencia"
+        placeholder="id | Necesario para Editar"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaTransferencia.id_tipo_transferencia"
+        placeholder="id_tipo_transferencia"
+      />
+
+      <input
+        type="text"
+        [(ngModel)]="nuevaTransferencia.id_cliente"
+        placeholder="id_cliente"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaTransferencia.fecha"
+        placeholder="fecha (AAAA-MM-DD)"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaTransferencia.monto"
+        placeholder="monto"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaTransferencia.cuenta_envio"
+        placeholder="cuenta_envio"
+      />
+      <input
+        type="text"
+        [(ngModel)]="nuevaTransferencia.cuenta_recibo"
+        placeholder="cuenta_recibo"
+      />
+
+      <!-- Agrega más campos según tus necesidades -->
+
+      <br />
+      <!-- Agrega un botón para agregar la persona -->
+      <button class="btn btn-danger" (click)="crearButton(nuevaTransferencia)">
+        Agregar transferencia
+      </button>
+      <br />
+      <button
+        class="btn btn-primary"
+        (click)="
+          editarButton(nuevaTransferencia.id_transferencia, nuevaTransferencia)
+        "
+      >
+        Editar
+      </button>
+    </div>
+  </div>
+</div>

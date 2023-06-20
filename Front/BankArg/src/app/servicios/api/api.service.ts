@@ -77,23 +77,23 @@ export class ApiService {
   // TODO: Transferencias
 
   getTransferenciasGral(): Observable<any> {
-    return this.http.get(this.urlUser + 'api/transferencia_gral/');
+    return this.http.get(this.urlUser + 'api/transferencias_gral/');
   }
 
   getTransferencias(): Observable<any> {
-    return this.http.get(this.urlUser + 'api/transferencia/');
+    return this.http.get(this.urlUser + 'api/transferencias/');
   }
 
   putTransferencias(id: number, data: any): Observable<any> {
-    return this.http.put(this.urlUser + 'api/transferencia/' + id + '/', data);
+    return this.http.put(this.urlUser + 'api/transferencias/' + id + '/', data);
   }
 
   deleteTransferencias(id: number): Observable<any> {
-    return this.http.delete(this.urlUser + 'api/transferencia/' + id + '/');
+    return this.http.delete(this.urlUser + 'api/transferencias/' + id + '/');
   }
 
   postTransferencias(data: any): Observable<any> {
-    return this.http.post(this.urlUser + 'api/transferencia/', data);
+    return this.http.post(this.urlUser + 'api/transferencias/', data);
   }
 
   //
