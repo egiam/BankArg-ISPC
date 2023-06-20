@@ -24,6 +24,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro.component';
 import { PersonasComponent } from './vistas/body/personas/personas.component';
+import { PlazoFijoComponent } from './vistas/body/plazo-fijo/plazo-fijo.component';
+import { TransferenciasListaComponent } from './vistas/body/transferencias-lista/transferencias-lista.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { PersonasComponent } from './vistas/body/personas/personas.component';
     PrestamosComponent,
     CuentaAhorroComponent,
     PersonasComponent,
+    PlazoFijoComponent,
+    TransferenciasListaComponent,
   ],
   imports: [
     BrowserModule,

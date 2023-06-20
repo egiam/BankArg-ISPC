@@ -14,6 +14,9 @@ from bankarg_ispc.models import (
     Cuenta,
     Transferencias,
     Plazo_fijo,
+    Tipos_transferencias,
+    Clientes,
+    Tipo_moneda,
 )
 
 
@@ -109,9 +112,45 @@ class CuentaSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class TipoTransfereciaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tipos_transferencias
+        fields = "__all__"
+
+
+class ClientesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Clientes
+        fields = "__all__"
+
+
+class TransferenciasGralSerializer(serializers.ModelSerializer):
+    id_tipo_transferencia = TipoTransfereciaSerializer()
+    id_cliente = ClientesSerializer()
+
+    class Meta:
+        model = Transferencias
+        fields = "__all__"
+
+
 class TransferenciasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transferencias
+        fields = "__all__"
+
+
+class Tipo_monedaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tipo_moneda
+        fields = "__all__"
+
+
+class Plazo_fijoGralSerializer(serializers.ModelSerializer):
+    id_tipo_moneda = Tipo_monedaSerializer()
+    id_cuenta = CuentaSerializer()
+
+    class Meta:
+        model = Plazo_fijo
         fields = "__all__"
 
 
