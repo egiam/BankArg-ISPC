@@ -8,7 +8,7 @@
           <tr>
             <th>Id</th>
             <th>Id -> Tipo transferencia</th>
-            <th>Id -> Clietne</th>
+            <th>Id -> Cliente</th>
             <th>Fecha</th>
             <th>Monto</th>
             <th>Cuenta Envio</th>
@@ -28,9 +28,9 @@
               {{ transferencia.id_cliente.apellido }}
             </td>
             <td>{{ transferencia.fecha }}</td>
-            <td>{{ transferencia.monto }}</td>
+            <td>${{ transferencia.monto }}</td>
             <td>{{ transferencia.cuenta_envio }}</td>
-            <td>{{ transferencia.cuenta_recibo }}%</td>
+            <td>{{ transferencia.cuenta_recibo }}</td>
             <td>
               <!-- <button
                     class="btn btn-primary"
