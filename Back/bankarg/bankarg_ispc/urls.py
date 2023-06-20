@@ -12,7 +12,9 @@ from bankarg_ispc.views import (
     PersonaGralView,
     CuentaView,
     Plazo_fijoView,
+    Plazo_fijoGralView,
     TransferenciasView,
+    TransferenciasGralView,
     DocumentosView,
     PaisesView,
     ProvinciasView,
@@ -66,11 +68,17 @@ urlpatterns = [
         Plazo_fijoView.as_view(),
         name="plazo_fijo_proceso",
     ),
+    path("plazo_fijo_gral/", Plazo_fijoGralView.as_view(), name="plazo_fijo_gral_list"),
     path("transferencias/", TransferenciasView.as_view(), name="transferencias_list"),
     path(
         "transferencias/<int:id_transferencia>/",
         TransferenciasView.as_view(),
         name="transferencias_proceso",
+    ),
+    path(
+        "transferencias_gral/",
+        TransferenciasGralView.as_view(),
+        name="transferencias_gral_list",
     ),
     #
     #

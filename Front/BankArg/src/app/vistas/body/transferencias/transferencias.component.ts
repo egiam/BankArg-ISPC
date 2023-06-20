@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { TransferirService } from 'src/app/servicios/services/transferir.service';
 import { Persona } from 'src/app/modelos/persona';
 import { ApiService } from 'src/app/servicios/api/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transferencias',
@@ -12,7 +13,8 @@ import { ApiService } from 'src/app/servicios/api/api.service';
 export class TransferenciasComponent {
   constructor(
     public transferirS: TransferirService,
-    private cuenta: ApiService
+    private cuenta: ApiService,
+    private router: Router
   ) {}
 
   persona1 = new Persona(1, 'admin', 10000.5, 'admin', '10101010');
@@ -99,6 +101,19 @@ export class TransferenciasComponent {
     //       showConfirmButton:true,
     //       confirmButtonText:"Aceptar"
     // })
+
+    Swal.fire({
+      title: 'Ok',
+      text: 'Sera redirigido a la pagina para editar perfiles',
+      icon: 'success',
+      showConfirmButton: true,
+      confirmButtonText: 'Aceptar',
+    }).then(() => {
+      this.router.navigate(['/transferenciasLista']);
+
+      // window.location.href = '../personas';
+    });
+
     this.cuenta.ObtenerUltimosMovimientos().subscribe((data: any) => {
       console.log(data);
       var movimientos = data;
