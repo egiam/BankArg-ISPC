@@ -138,10 +138,10 @@ class Clientes(Persona):
         verbose_name_plural = "Clientes"
 
     def __unicode__(self):
-        return self.nombre
+        return self.nombre + " " + self.apellido
 
     def __str__(self):
-        return self.nombre
+        return self.nombre + " " + self.apellido
 
 
 class Tipo_empleado(models.Model):
@@ -277,10 +277,10 @@ class Cuenta(models.Model):
         verbose_name_plural = "Cuentas"
 
     def __unicode__(self):
-        return self.id_cuenta
+        return self.cbu + " " + self.alias
 
     def __str__(self):
-        return self.id_cuenta
+        return self.cbu + " " + self.alias
 
 
 class Tipos_contactos(models.Model):
@@ -333,10 +333,10 @@ class Tipos_transferencias(models.Model):
         verbose_name_plural = "Tipos_transferencias"
 
     def __unicode__(self):
-        return self.id_tipo_transferencia
+        return self.tipo_transferencia
 
     def __str__(self):
-        return self.id_tipo_transferencia
+        return self.tipo_transferencia
 
 
 class Transferencias(models.Model):
@@ -357,11 +357,11 @@ class Transferencias(models.Model):
         verbose_name = "Tranferencia"
         verbose_name_plural = "Transferencias"
 
-    def __init__(self):
-        return self.id_transferencia
+    # def __init__(self):
+    #     return self.cuenta_envio + " -> " + self.cuenta_recibo
 
     def __str__(self):
-        return self.id_transferencia
+        return self.cuenta_envio + " -> " + self.cuenta_recibo
 
 
 class Cuenta_transferencia(models.Model):
@@ -696,8 +696,8 @@ class Plazo_fijo(models.Model):
         verbose_name = "Plazo_fijo"
         verbose_name_plural = "Plazos_fijos"
 
-    def __init__(self):
-        return self.id_plazo_fijo
+    # def __init__(self):
+    #     return self.id_plazo_fijo
 
     def __str__(self):
-        return self.id_plazo_fijo
+        return str(self.id_cuenta)
