@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   login: any;
 
+  // TODO
   ngOnInit() {
     this.login = {
       email: '',
@@ -72,6 +73,7 @@ export class LoginComponent implements OnInit {
         confirmButtonText: 'Aceptar',
       });
     } else {
+      // TODO
       this.cuenta.login(this.login).subscribe(
         (res) => {
           console.log(res);

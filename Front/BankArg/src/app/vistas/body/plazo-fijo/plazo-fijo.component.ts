@@ -4,32 +4,32 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-personas',
-  templateUrl: './personas.component.html',
-  styleUrls: ['./personas.component.css'],
+  selector: 'app-plazo-fijo',
+  templateUrl: './plazo-fijo.component.html',
+  styleUrls: ['./plazo-fijo.component.css'],
 })
-export class PersonasComponent {
+export class PlazoFijoComponent {
   constructor(private cuenta: ApiService, private router: Router) {}
 
-  personas: any = this.cuenta.getPersonas();
-  personasGral: any = this.cuenta.getPersonasGral();
+  plazo_fijo: any = this.cuenta.getPlazoFijo();
+  plazo_fijo_gral: any = this.cuenta.getPlazoFijoGral();
   // doc: any = this.cuenta.getDocumentos();
 
   // documento(id: number) {
   //   let idDoc = this.cuenta.getDocumentosById(id);
   // }
 
-  nuevaPersona: any = {};
+  nuevoPlazo: any = {};
 
   // editar
   editarButton(id: number, data: any) {
     // TODO
-    this.cuenta.putPersonas(id, data).subscribe(
+    this.cuenta.putPlazoFijo(id, data).subscribe(
       (res) => {
-        console.log('Persona editada correctamente');
+        console.log('Plazo Fijo editado correctamente');
         Swal.fire({
           title: 'Editado',
-          text: 'Persona editada correctamente',
+          text: 'Plazo Fijo editado correctamente',
           icon: 'success',
           showConfirmButton: true,
           confirmButtonText: 'Aceptar',
@@ -37,7 +37,7 @@ export class PersonasComponent {
           this.router
             .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
             .then(() => {
-              this.router.navigate(['personas']);
+              this.router.navigate(['plazoFijo']);
             });
         });
       },
@@ -58,8 +58,8 @@ export class PersonasComponent {
   eliminarButton(id: number) {
     console.log(id);
     Swal.fire({
-      title: 'Eliminar Persona',
-      text: '¿Desea eliminar a esta Persona?',
+      title: 'Eliminar Plazo Fijo',
+      text: '¿Desea eliminar a este Plazo Fijo?',
       icon: 'info',
       showConfirmButton: true,
       confirmButtonText: 'Aceptar',
@@ -68,12 +68,12 @@ export class PersonasComponent {
     }).then((value) => {
       if (value.isConfirmed) {
         // TODO
-        this.cuenta.deletePersonas(id).subscribe(
+        this.cuenta.deletePlazoFijo(id).subscribe(
           (res) => {
-            console.log('Persona eliminada correctamente');
+            console.log('Plazo Fijo eliminado correctamente');
             Swal.fire({
               title: 'Eliminado',
-              text: 'Persona eliminada correctamente',
+              text: 'Plazo Fijo eliminado correctamente',
               icon: 'success',
               showConfirmButton: true,
               confirmButtonText: 'Aceptar',
@@ -83,7 +83,7 @@ export class PersonasComponent {
                   skipLocationChange: true,
                 })
                 .then(() => {
-                  this.router.navigate(['personas']);
+                  this.router.navigate(['plazoFijo']);
                 });
             });
           },
@@ -91,7 +91,7 @@ export class PersonasComponent {
             console.log(err);
             Swal.fire({
               title: 'Error',
-              text: 'No se pudo eliminar la persona',
+              text: 'No se pudo eliminar el Plazo Fijo',
               icon: 'error',
               showConfirmButton: true,
               confirmButtonText: 'Aceptar',
@@ -106,12 +106,12 @@ export class PersonasComponent {
   crearButton(data: any) {
     console.log(data);
     // TODO
-    this.cuenta.postPersonas(data).subscribe(
+    this.cuenta.postPlazoFijo(data).subscribe(
       (res) => {
-        console.log('Persona creada correctamente');
+        console.log('Plazo Fijo creado correctamente');
         Swal.fire({
           title: 'Creado',
-          text: 'Persona creada correctamente',
+          text: 'Plazo Fijo creado correctamente',
           icon: 'success',
           showConfirmButton: true,
           confirmButtonText: 'Aceptar',
@@ -119,7 +119,7 @@ export class PersonasComponent {
           this.router
             .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
             .then(() => {
-              this.router.navigate(['personas']);
+              this.router.navigate(['plazoFijo']);
             });
         });
       },

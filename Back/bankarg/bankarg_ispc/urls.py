@@ -9,9 +9,12 @@ from rest_framework.routers import DefaultRouter
 from bankarg_ispc.views import (
     PrestamoView,
     PersonaView,
+    PersonaGralView,
     CuentaView,
     Plazo_fijoView,
+    Plazo_fijoGralView,
     TransferenciasView,
+    TransferenciasGralView,
     DocumentosView,
     PaisesView,
     ProvinciasView,
@@ -35,19 +38,19 @@ from bankarg_ispc import views
 
 
 urlpatterns = [
-    path("auth/login/", LoginView.as_view(), name="auth_login"),
     # path("auth/login/", obtain_jwt_token),
+    path("auth/login/", LoginView.as_view(), name="auth_login"),
     path("auth/logout/", LogoutView.as_view(), name="auth_logout"),
+    path("auth/signup/", SignupView.as_view(), name="auth_signup"),
     #
     # path("auth/login2/", LoginView2.as_view(), name="auth_login2"),
     # path("auth/logout2/", knox_views.LogoutView.as_view(), name="auth_logout"),
     # path("auth/logoutall/", knox_views.LogoutAllView.as_view(), name="auth_logoutall"),
     #
-    path("auth/signup/", SignupView.as_view(), name="auth_signup"),
-    path("auth/register/", RegisterView.as_view(), name="auth_register"),
     # path("api-auth/", include("rest_framework.urls")),
     # path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     # path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("auth/register/", RegisterView.as_view(), name="auth_register"),
     # ---------
     # Servicios
     path("prestamo/", PrestamoView.as_view(), name="prestamo_list"),
@@ -56,6 +59,7 @@ urlpatterns = [
     ),
     path("persona/", PersonaView.as_view(), name="persona_list"),
     path("persona/<int:id_persona>/", PersonaView.as_view(), name="persona_proceso"),
+    path("persona_gral/", PersonaGralView.as_view(), name="persona_gral_list"),
     path("cuenta/", CuentaView.as_view(), name="cuenta_list"),
     path("cuenta/<int:id_cuenta>/", CuentaView.as_view(), name="cuenta_proceso"),
     path("plazo_fijo/", Plazo_fijoView.as_view(), name="plazo_fijo_list"),
@@ -64,12 +68,22 @@ urlpatterns = [
         Plazo_fijoView.as_view(),
         name="plazo_fijo_proceso",
     ),
+    path("plazo_fijo_gral/", Plazo_fijoGralView.as_view(), name="plazo_fijo_gral_list"),
     path("transferencias/", TransferenciasView.as_view(), name="transferencias_list"),
     path(
         "transferencias/<int:id_transferencia>/",
         TransferenciasView.as_view(),
         name="transferencias_proceso",
     ),
+    path(
+        "transferencias_gral/",
+        TransferenciasGralView.as_view(),
+        name="transferencias_gral_list",
+    ),
+    #
+    #
+    #
+    #
     path("documentos/", DocumentosView.as_view(), name="documentos_list"),
     path(
         "documentos/<int:id_tipo_doc>/",

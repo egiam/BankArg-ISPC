@@ -30,6 +30,7 @@ export class RegistroComponent implements OnInit {
 
   register: any;
 
+  // TODO:
   ngOnInit() {
     this.register = {
       username: '',
@@ -119,6 +120,7 @@ export class RegistroComponent implements OnInit {
             // Agregar usuario
             this.users[usernameV] = passwordV;
 
+            // TODO:
             this.cuenta.register(this.register).subscribe(
               (res) => {
                 console.log(res);

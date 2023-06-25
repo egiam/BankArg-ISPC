@@ -4,32 +4,27 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-personas',
-  templateUrl: './personas.component.html',
-  styleUrls: ['./personas.component.css'],
+  selector: 'app-transferencias-lista',
+  templateUrl: './transferencias-lista.component.html',
+  styleUrls: ['./transferencias-lista.component.css'],
 })
-export class PersonasComponent {
+export class TransferenciasListaComponent {
   constructor(private cuenta: ApiService, private router: Router) {}
 
-  personas: any = this.cuenta.getPersonas();
-  personasGral: any = this.cuenta.getPersonasGral();
-  // doc: any = this.cuenta.getDocumentos();
+  transferencias: any = this.cuenta.getTransferencias();
+  transferenciasGral: any = this.cuenta.getTransferenciasGral();
 
-  // documento(id: number) {
-  //   let idDoc = this.cuenta.getDocumentosById(id);
-  // }
-
-  nuevaPersona: any = {};
+  nuevaTransferencia: any = {};
 
   // editar
   editarButton(id: number, data: any) {
     // TODO
-    this.cuenta.putPersonas(id, data).subscribe(
+    this.cuenta.putTransferencias(id, data).subscribe(
       (res) => {
-        console.log('Persona editada correctamente');
+        console.log('Transferencia editada correctamente');
         Swal.fire({
           title: 'Editado',
-          text: 'Persona editada correctamente',
+          text: 'Transferencia editada correctamente',
           icon: 'success',
           showConfirmButton: true,
           confirmButtonText: 'Aceptar',
@@ -37,7 +32,7 @@ export class PersonasComponent {
           this.router
             .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
             .then(() => {
-              this.router.navigate(['personas']);
+              this.router.navigate(['transferenciasLista']);
             });
         });
       },
@@ -58,22 +53,20 @@ export class PersonasComponent {
   eliminarButton(id: number) {
     console.log(id);
     Swal.fire({
-      title: 'Eliminar Persona',
-      text: '¿Desea eliminar a esta Persona?',
-      icon: 'info',
-      showConfirmButton: true,
-      confirmButtonText: 'Aceptar',
+      title: '¿Estás seguro?',
+      text: 'No podrás revertir esta acción',
+      icon: 'warning',
       showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
       cancelButtonText: 'Cancelar',
-    }).then((value) => {
-      if (value.isConfirmed) {
-        // TODO
-        this.cuenta.deletePersonas(id).subscribe(
+    }).then((result) => {
+      if (result.value) {
+        this.cuenta.deleteTransferencias(id).subscribe(
           (res) => {
-            console.log('Persona eliminada correctamente');
+            console.log('Transferencia eliminada correctamente');
             Swal.fire({
               title: 'Eliminado',
-              text: 'Persona eliminada correctamente',
+              text: 'Transferencia eliminada correctamente',
               icon: 'success',
               showConfirmButton: true,
               confirmButtonText: 'Aceptar',
@@ -83,7 +76,7 @@ export class PersonasComponent {
                   skipLocationChange: true,
                 })
                 .then(() => {
-                  this.router.navigate(['personas']);
+                  this.router.navigate(['transferenciasLista']);
                 });
             });
           },
@@ -91,7 +84,7 @@ export class PersonasComponent {
             console.log(err);
             Swal.fire({
               title: 'Error',
-              text: 'No se pudo eliminar la persona',
+              text: 'No se pudo eliminar la transferencia',
               icon: 'error',
               showConfirmButton: true,
               confirmButtonText: 'Aceptar',
@@ -104,14 +97,12 @@ export class PersonasComponent {
 
   // crear
   crearButton(data: any) {
-    console.log(data);
-    // TODO
-    this.cuenta.postPersonas(data).subscribe(
+    this.cuenta.postTransferencias(data).subscribe(
       (res) => {
-        console.log('Persona creada correctamente');
+        console.log('Transferencia creada correctamente');
         Swal.fire({
           title: 'Creado',
-          text: 'Persona creada correctamente',
+          text: 'Transferencia creada correctamente',
           icon: 'success',
           showConfirmButton: true,
           confirmButtonText: 'Aceptar',
@@ -119,7 +110,7 @@ export class PersonasComponent {
           this.router
             .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
             .then(() => {
-              this.router.navigate(['personas']);
+              this.router.navigate(['transferenciasLista']);
             });
         });
       },

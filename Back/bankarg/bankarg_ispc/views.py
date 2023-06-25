@@ -46,6 +46,9 @@ from .serializers import (
     CuentaSerializer,
     Plazo_fijoSerializer,
     TransferenciasSerializer,
+    PersonaGralSerializer,
+    TransferenciasGralSerializer,
+    Plazo_fijoGralSerializer,
 )
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -609,6 +612,15 @@ class SexosView(APIView):
             return JsonResponse({"message": "No existe el sexo"}, safe=False)
 
 
+class PersonaGralView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        personas = Persona.objects.all()
+        serializer = PersonaGralSerializer(personas, many=True)
+        return Response(serializer.data)
+
+
 class PersonaView(APIView):
     permission_classes = [AllowAny]
     queryset = Persona.objects.all()
@@ -806,6 +818,15 @@ class CuentaView(APIView):
             return JsonResponse({"message": "No existe la cuenta"}, safe=False)
 
 
+class TransferenciasGralView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        transferencias = Transferencias.objects.all()
+        serializer = TransferenciasGralSerializer(transferencias, many=True)
+        return Response(serializer.data)
+
+
 class TransferenciasView(APIView):
     permission_classes = [AllowAny]
     queryset = Transferencias.objects.all()
@@ -909,6 +930,15 @@ class TransferenciasView(APIView):
             return JsonResponse({"message": "Transferencia eliminada"}, safe=False)
         else:
             return JsonResponse({"message": "No existe la transferencia"}, safe=False)
+
+
+class Plazo_fijoGralView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        plazo_fijo = Plazo_fijo.objects.all()
+        serializer = Plazo_fijoGralSerializer(plazo_fijo, many=True)
+        return Response(serializer.data)
 
 
 class Plazo_fijoView(APIView):
