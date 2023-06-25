@@ -24,6 +24,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro.component';
 import { PersonasComponent } from './vistas/body/personas/personas.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PersonasComponent } from './vistas/body/personas/personas.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPayPalModule
   ],
   providers: [],
   bootstrap: [AppComponent],
