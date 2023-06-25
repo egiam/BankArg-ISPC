@@ -8,8 +8,16 @@
         <div class="card-body">
           <h5 class="card-title">Pago de Servicios</h5>
           <p class="card-text">Paga tus servicios de manera rápida y segura.</p>
-          <!-- <a href="./pagos-servicios.html" class="btn btn-primary" id="btnPagar">Pagar</a> -->
-          <a href="javascript:void(0)" (click)="PagoDeServicio()" class="btn btn-primary" id="btnPagarServicios">Pagar</a>
+          
+          <select class="form-select mb-4" aria-label="Default select example" [(ngModel)]="precio_servicio">
+            <option value="3559">Gas</option>
+            <option value="1878">Agua</option>
+            <option value="11050">Luz</option>
+            <option value="21307">Telefono</option>
+          </select>
+
+          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+
         </div>
       </div>
     </div>
