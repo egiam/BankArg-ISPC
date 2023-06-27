@@ -30,4 +30,6 @@ Para Servidor JSON:
 
 http://localhost:3000/posts/1
 
+-> npm install ngx-paypal --save
+
 
