@@ -1,0 +1,17 @@
+<section class="container-fluid d-flex justify-content-center mt-5">
+    <div class="row card-pago">
+        <div class="text-align-center p-5 bg-light col">
+            <h5 class="p-2 fs-2 border-bottom border-3 card-title">Pago de Prestamos</h5>
+            <p class="p-2">Paga tus prestamos de manera rápida y segura.</p>
+            
+            <select class="form-select mb-4" aria-label="Default select example">
+              <option>Prestamo de {{prestamo.monto}}, cuota numero {{prestamo.cuota_num}} de {{prestamo.cant_cuotas}}, valor cuota {{prestamo.valor_cuota}}$</option>
+            </select>
+        
+            <div class="paypal-container">
+                <ngx-paypal class="" [config]="payPalConfig"></ngx-paypal>
+            </div>
+        
+          </div>
+    </div>
+</section>

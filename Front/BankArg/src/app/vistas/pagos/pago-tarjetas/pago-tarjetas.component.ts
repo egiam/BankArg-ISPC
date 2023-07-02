@@ -1,27 +1,42 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Persona } from 'src/app/modelos/persona';
-import { PagarServiciosService } from 'src/app/servicios/services/pagar-servicios.service';
+import { Component } from '@angular/core';
+import { IPayPalConfig } from 'ngx-paypal';
+import { Prestamo } from 'src/app/modelos/prestamo';
+import { Tarjeta } from 'src/app/modelos/tarjeta';
 import Swal from 'sweetalert2';
-import { PayPalScriptService, IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
-
-
 
 @Component({
-  selector: 'app-pagos',
-  templateUrl: './pagos.component.html',
-  styleUrls: ['./pagos.component.css']
+  selector: 'app-pago-tarjetas',
+  templateUrl: './pago-tarjetas.component.html',
+  styleUrls: ['./pago-tarjetas.component.css']
 })
-export class PagosComponent implements OnInit{
-  constructor(public pagarS:PagarServiciosService){
-  }
+export class PagoTarjetasComponent {
 
-  precio_servicio!: number;
+  tarjeta = new Tarjeta(1,1234567812345678,1234,8727)
+
+  num_tarjeta = this.tarjeta.numero_tarjeta.toString()
+  number_censurado!: string;
+  
+  public num_censurado():string{
+    let i:number;
+
+    for(i=1 ; i < this.num_tarjeta.length ; i++){
+      if(i < 12){
+        this.number_censurado += "*"
+      }
+      else{
+        this.number_censurado += this.num_tarjeta[i]
+      }
+    }
+    return this.number_censurado
+  } 
   
   public payPalConfig ? : IPayPalConfig;
 
   ngOnInit(): void {
       this.initConfig();
+      this.num_censurado();
   }
+
 
   private initConfig(): void {
     this.payPalConfig = {
@@ -33,7 +48,7 @@ export class PagosComponent implements OnInit{
           {
             amount: {
               currency_code: 'USD',
-              value: String(this.precio_servicio),
+              value: String(this.tarjeta.deuda),
             },
             items:[]
           },
@@ -75,19 +90,4 @@ export class PagosComponent implements OnInit{
       },
     };
   }
-  
-  persona1 = new Persona(1, 'admin', 10000.5, 'admin', '10101010');
-
-public NoDisponible() {
-  Swal.fire({
-      title: "Error",
-      text: "Esta pagina no esta disponible actualmente, lo sentimos",
-      icon: "error",
-      showConfirmButton:true,
-      confirmButtonText:"Aceptar"
-  });
-};
-
-
 }
-

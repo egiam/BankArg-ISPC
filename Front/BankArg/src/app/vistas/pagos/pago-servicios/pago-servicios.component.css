@@ -1,0 +1,22 @@
+.card-title{
+    color: #395b64;
+    border-color: #c5ddde;
+}
+.card-pago{
+    width: 60%;
+}
+.paypal-container{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+@media (max-width:700px) {
+    .card-pago{
+        width: 100%;
+    } 
+}
+
+@media (max-width:900px) { 
+    .paypal-container{
+        padding: 0;
+    } 
+}

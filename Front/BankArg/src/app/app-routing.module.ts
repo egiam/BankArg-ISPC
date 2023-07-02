@@ -17,6 +17,9 @@ import { CuentaAhorroComponent } from './vistas/body/cuenta-ahorro/cuenta-ahorro
 import { PersonasComponent } from './vistas/body/personas/personas.component';
 import { PlazoFijoComponent } from './vistas/body/plazo-fijo/plazo-fijo.component';
 import { TransferenciasListaComponent } from './vistas/body/transferencias-lista/transferencias-lista.component';
+import { PagoServiciosComponent } from './vistas/pagos/pago-servicios/pago-servicios.component';
+import { PagoPrestamosComponent } from './vistas/pagos/pago-prestamos/pago-prestamos.component';
+import { PagoTarjetasComponent } from './vistas/pagos/pago-tarjetas/pago-tarjetas.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +39,9 @@ const routes: Routes = [
   { path: 'personas', component: PersonasComponent },
   { path: 'plazoFijo', component: PlazoFijoComponent },
   { path: 'transferenciasLista', component: TransferenciasListaComponent },
+  { path: 'pagoServicios', component:PagoServiciosComponent},
+  { path: 'pagoPrestamos', component:PagoPrestamosComponent},
+  { path: 'pagoTarjetas', component:PagoTarjetasComponent},
   { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 
