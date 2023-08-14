@@ -1,26 +1,23 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Persona } from 'src/app/modelos/persona';
-import { PagarServiciosService } from 'src/app/servicios/services/pagar-servicios.service';
+import { Component } from '@angular/core';
+import { IPayPalConfig } from 'ngx-paypal';
 import Swal from 'sweetalert2';
-import { PayPalScriptService, IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
-
-
+import { Prestamo } from 'src/app/modelos/prestamo';
 
 @Component({
-  selector: 'app-pagos',
-  templateUrl: './pagos.component.html',
-  styleUrls: ['./pagos.component.css']
+  selector: 'app-pago-prestamos',
+  templateUrl: './pago-prestamos.component.html',
+  styleUrls: ['./pago-prestamos.component.css']
 })
-export class PagosComponent implements OnInit{
-  constructor(public pagarS:PagarServiciosService){
-  }
+export class PagoPrestamosComponent {
 
-  precio_servicio!: number;
+  prestamo = new Prestamo(1,20000,8866,2,3,1)
   
+  dia = new Date(2017, 3, 22, 5, 23, 50)
   public payPalConfig ? : IPayPalConfig;
 
   ngOnInit(): void {
       this.initConfig();
+      console.log(this.dia)
   }
 
   private initConfig(): void {
@@ -33,7 +30,7 @@ export class PagosComponent implements OnInit{
           {
             amount: {
               currency_code: 'USD',
-              value: String(this.precio_servicio),
+              value: String(this.prestamo.valor_cuota),
             },
             items:[]
           },
@@ -75,19 +72,5 @@ export class PagosComponent implements OnInit{
       },
     };
   }
-  
-  persona1 = new Persona(1, 'admin', 10000.5, 'admin', '10101010');
-
-public NoDisponible() {
-  Swal.fire({
-      title: "Error",
-      text: "Esta pagina no esta disponible actualmente, lo sentimos",
-      icon: "error",
-      showConfirmButton:true,
-      confirmButtonText:"Aceptar"
-  });
-};
-
-
 }
 

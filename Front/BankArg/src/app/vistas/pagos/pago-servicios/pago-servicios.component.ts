@@ -1,19 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Persona } from 'src/app/modelos/persona';
-import { PagarServiciosService } from 'src/app/servicios/services/pagar-servicios.service';
+import { Component } from '@angular/core';
+import { IPayPalConfig } from 'ngx-paypal';
 import Swal from 'sweetalert2';
-import { PayPalScriptService, IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
-
-
 
 @Component({
-  selector: 'app-pagos',
-  templateUrl: './pagos.component.html',
-  styleUrls: ['./pagos.component.css']
+  selector: 'app-pago-servicios',
+  templateUrl: './pago-servicios.component.html',
+  styleUrls: ['./pago-servicios.component.css']
 })
-export class PagosComponent implements OnInit{
-  constructor(public pagarS:PagarServiciosService){
-  }
+export class PagoServiciosComponent {
 
   precio_servicio!: number;
   
@@ -75,19 +69,4 @@ export class PagosComponent implements OnInit{
       },
     };
   }
-  
-  persona1 = new Persona(1, 'admin', 10000.5, 'admin', '10101010');
-
-public NoDisponible() {
-  Swal.fire({
-      title: "Error",
-      text: "Esta pagina no esta disponible actualmente, lo sentimos",
-      icon: "error",
-      showConfirmButton:true,
-      confirmButtonText:"Aceptar"
-  });
-};
-
-
 }
-
