@@ -27,6 +27,9 @@ import { PersonasComponent } from './vistas/body/personas/personas.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { PlazoFijoComponent } from './vistas/body/plazo-fijo/plazo-fijo.component';
 import { TransferenciasListaComponent } from './vistas/body/transferencias-lista/transferencias-lista.component';
+import { PagoServiciosComponent } from './vistas/pagos/pago-servicios/pago-servicios.component';
+import { PagoPrestamosComponent } from './vistas/pagos/pago-prestamos/pago-prestamos.component';
+import { PagoTarjetasComponent } from './vistas/pagos/pago-tarjetas/pago-tarjetas.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,10 @@ import { TransferenciasListaComponent } from './vistas/body/transferencias-lista
     PersonasComponent,
     PlazoFijoComponent,
     TransferenciasListaComponent,
+    PagoServiciosComponent,
+    PagoPrestamosComponent,
+    PagoTarjetasComponent
+    
   ],
   imports: [
     BrowserModule,

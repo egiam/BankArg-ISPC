@@ -1,0 +1,21 @@
+<section class="container-fluid d-flex justify-content-center mt-5">
+        <div class="row card-pago">
+            <div class="text-align-center p-5 bg-light col">
+                <h5 class="p-2 fs-2 border-bottom border-3 card-title">Pago de Servicios</h5>
+                <p class="p-2">Paga tus servicios de manera rápida y segura.</p>
+                
+                <select class="form-select mb-4" aria-label="Default select example" [(ngModel)]="precio_servicio">
+                  <option value="3559">Gas</option>
+                  <option value="1878">Agua</option>
+                  <option value="11050">Luz</option>
+                  <option value="21307">Telefono</option>
+                </select>
+            
+                <div class="paypal-container">
+                    <ngx-paypal class="" [config]="payPalConfig"></ngx-paypal>
+                </div>
+            
+              </div>
+        </div>
+</section>
+

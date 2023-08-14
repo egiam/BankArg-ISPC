@@ -1,5 +1,5 @@
 <!-- Body -->
-<h1 style="text-align: center">Pagos</h1>
+<h1 style="text-align: center" class="p-4">Pagos</h1>
 
 <div class="container">
   <div class="row">
@@ -8,16 +8,7 @@
         <div class="card-body">
           <h5 class="card-title">Pago de Servicios</h5>
           <p class="card-text">Paga tus servicios de manera rápida y segura.</p>
-          
-          <select class="form-select mb-4" aria-label="Default select example" [(ngModel)]="precio_servicio">
-            <option value="3559">Gas</option>
-            <option value="1878">Agua</option>
-            <option value="11050">Luz</option>
-            <option value="21307">Telefono</option>
-          </select>
-
-          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-
+          <a routerLink="/pagoServicios" class="btn btn-primary">Pagar</a>
         </div>
       </div>
     </div>
@@ -26,7 +17,7 @@
         <div class="card-body">
           <h5 class="card-title">Pago de Tarjetas</h5>
           <p class="card-text">Paga tus tarjetas de manera rápida y segura.</p>
-          <a href="javascript:void(0)" (click)="NoDisponible()" class="btn btn-primary" id="btnPagarTarjetas">Pagar</a>
+          <a routerLink="/pagoTarjetas" class="btn btn-primary" id="btnPagarTarjetas">Pagar</a>
           <!-- <a href="./pagos-tarjetas.html" class="btn btn-primary" id="btnPagar">Pagar</a> -->
         </div>
       </div>
@@ -36,13 +27,8 @@
         <div class="card-body">
           <h5 class="card-title">Pago de Prestamos</h5>
           <p class="card-text">Paga tus prestamos de manera rápida y segura.</p>
-          <a href="javascript:void(0)" (click)="NoDisponible()" class="btn btn-primary" id="btnPagarPrestamos">Pagar</a>
-          <!-- <a
-            href="./pagos-tarjetas.html"
-            class="btn btn-primary"
-            id="btnPagar"
-            >Pagar</a
-          > -->
+          <a routerLink="/pagoPrestamos" class="btn btn-primary" id="btnPagarPrestamos">Pagar</a>
+          
         </div>
       </div>
     </div>
