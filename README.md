@@ -1,3 +1,7 @@
+# Nuevo Repositorio para segundo semestre 2023: https://github.com/egiam/BankArg-APP
+
+---
+
 ## Link al sitio en linea: https://egiam.github.io/BankArg-ISPC/front/index.html
 
 ## Link al video (2022): https://youtu.be/rN-Nq3JZeyk
