@@ -35,7 +35,7 @@ Ahí estan las participaciones de algunos integrantes, que por mejor organizacio
 - About: Joaco B.
 - Login: Flor T.
 - Perfil: Valentin A.
-- Productos: Sole P.
+- Productos: Soledad P.
 - Contacto: Maxi V.
 - Soporte: Juan S.
 - Transferencias: Maria L.
